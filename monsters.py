@@ -26,7 +26,7 @@ ANIMATION_BATFLYRIGHT = [('%s/monsters/bat/bat_fly_r1.png' % ICON_DIR),
 ANIMATION_WRAITHLEFT  = [('%s/monsters/wraith_l.png' % ICON_DIR)]
 ANIMATION_WRAITHRIGHT = [('%s/monsters/wraith_r.png' % ICON_DIR)]
 
-class Monster(sprite.Sprite):
+class Monster(sprite.Sprite): # Класс монстров
     def __init__(self, x, y, left, up, maxLengthLeft,maxLengthUp):
         sprite.Sprite.__init__(self)
         self.image = Surface((MONSTER_WIDTH, MONSTER_HEIGHT))
@@ -59,23 +59,13 @@ class Monster(sprite.Sprite):
         if (abs(self.startY - self.rect.y) > self.maxLengthUp):
             self.yvel = -self.yvel  # если прошли максимальное растояние, то идеи в обратную сторону, вертикаль
 
-    #def collide(self, platforms):
-    #    for p in platforms:
-    #        if sprite.collide_rect(self, p) and self != p:  # если с чем-то или кем-то столкнулись
-    #            self.xvel = - self.xvel  # то поворачиваем в обратную сторону
-    #            self.yvel = - self.yvel
-
-    def collide(self, platforms):
+    def collide(self, platforms): # Метод проверки на столкновение с другими объектами
         for p in platforms:
             if sprite.collide_rect(self, p) and self != p:  # если с чем-то или кем-то столкнулись
                 if isinstance(p, blocks.BigEnergy):  # Если коснулись энергии то телепортируем её в другое место
-    ###                blocks.BigEnergy.teleporting(p, 32 * random.randint(1, 34), 32 * random.randint(1, 22), platforms)
-                    blocks.BigEnergy.teleporting(p, 32 * random.randint(1, 34), 32 * random.randint(1, 22), platforms, True)
+                    blocks.BigEnergy.teleporting(p, 1, 1, platforms, True)
                 elif isinstance(p, Monster): # Если коснулись другого монстра, то игнорируем
                     1
-                #elif isinstance(p, blocks.Platform): # Если коснулись другого монстра, то игнорируем
-                #    self.xvel = - self.xvel  # то поворачиваем в обратную сторону
-                #    self.yvel = - self.yvel
                 else:
                     self.xvel = - self.xvel  # то поворачиваем в обратную сторону
                     self.yvel = - self.yvel

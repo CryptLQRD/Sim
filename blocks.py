@@ -27,14 +27,14 @@ ANIMATION_BIGENERGY = [
             ('%s/blocks/big_energy3.png' % ICON_DIR),
             ('%s/blocks/big_energy4.png' % ICON_DIR)]
 
-def levelSize(total_level_width, total_level_height):
+def levelSize(total_level_width, total_level_height): #Функция для определения размера уровня необходимая для метода teleporting класса BigEnergy
     global LevelHeight
     global LevelWidth
     LevelWidth = int(total_level_width / 32)
     LevelHeight = int(total_level_height / 32)
-    print("Размер уровня:   Ширина: " + str(LevelWidth) + "   Высота: " + str(LevelHeight))
+    #print("Размер уровня:   Ширина: " + str(LevelWidth) + "   Высота: " + str(LevelHeight))
 
-class Platform(sprite.Sprite):
+class Platform(sprite.Sprite): #Класс объекта "Платформа"
     def __init__(self, x, y):
         sprite.Sprite.__init__(self)
         self.image = Surface((PLATFORM_WIDTH, PLATFORM_HEIGHT))
@@ -46,18 +46,18 @@ class Platform(sprite.Sprite):
     #def __del__(self):
     #    print ('Удален: ' + str(self))
 
-class Block(Platform):
+class Block(Platform): #Класс объекта "Стена"
     def __init__(self, x, y):
         Platform.__init__(self, x, y)
         self.image = image.load("%s/blocks/platform1.png" % ICON_DIR)
 
-class BlockDie(Platform):
+class BlockDie(Platform): #Класс объекта "Шипы"
     def __init__(self, x, y):
         Platform.__init__(self, x, y)
         self.image = image.load("%s/blocks/dieBlock.png" % ICON_DIR)
 
 
-class BlockTeleport(Platform):
+class BlockTeleport(Platform): #Класс объекта "Портал телепортации"
     def __init__(self, x, y, goX, goY):
         Platform.__init__(self, x, y)
         self.goX = goX  # координаты назначения перемещения
@@ -72,7 +72,7 @@ class BlockTeleport(Platform):
         self.image.fill(Color(PLATFORM_COLOR))
         self.boltAnim.blit(self.image, (0, 0))
 
-class BigEnergy(Platform):
+class BigEnergy(Platform): #Класс объекта "Энергия"
     def __init__(self, x, y):
         Platform.__init__(self, x, y)
         #self.rect = Rect(x, y, PLATFORM_WIDTH, PLATFORM_HEIGHT)
@@ -87,28 +87,25 @@ class BigEnergy(Platform):
         self.boltAnim.blit(self.image, (0, 0))
 
     def teleporting(self, goX, goY, platforms, Random):
-        if Random == True:
-            #BigEnergy.teleporting(self, 32 * random.randint(1, LevelWidth), 32 * random.randint(1, LevelHeight), platforms, False)
-            #levelSize()
-            self.rect.x = 32 * random.randint(1, LevelWidth)
-            self.rect.y = 32 * random.randint(1, LevelHeight)
+        if Random == True: #Если True телепортируем себя на случайне координаты в пределах уровня
+            self.rect.x = 32 * random.randint(2, LevelWidth-1)
+            self.rect.y = 32 * random.randint(2, LevelHeight-1)
             self.collide(platforms)
-            print("Телепортировано: Ширина: " + str(LevelWidth) + "   Высота: " + str(LevelHeight))
-        else:
+            print("Телепортировано: Ширина: " + str(self.rect.x) + "   Высота: " + str(self.rect.y))
+        else: #иначе телепортируем себя на выбранные координаты
             self.rect.x = goX
             self.rect.y = goY
             self.collide(platforms)
 
-    def collide(self, platforms):
+    def collide(self, platforms): # Метод для проверки столкновения с другими объектами
         for p in platforms:
             if sprite.collide_rect(self, p) and self != p:  # если с чем-то или кем-то столкнулись
-                #BigEnergy.teleporting(self, 32 * random.randint(1, LevelWidth), 32 * random.randint(1, LevelHeight), platforms, True)
-                BigEnergy.teleporting(self, 32 * random.randint(1, 34), 32 * random.randint(1, 22), platforms, True)
+                BigEnergy.teleporting(self, 32 * random.randint(1, LevelWidth), 32 * random.randint(1, LevelHeight), platforms, True)
 
 
 
 
-class Exit(Platform):
+class Exit(Platform): #Класс объекта "Портал-выход"
     def __init__(self, x, y):
         Platform.__init__(self, x, y)
         #self.rect = Rect(x, y, PLATFORM_WIDTH, PLATFORM_HEIGHT)

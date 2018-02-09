@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# Импортируем библиотеку pygame
 import pygame
 import pyganim
 from pygame import *
@@ -50,7 +49,7 @@ def camera_configure(camera, target_rect):
     return Rect(l, t, w, h)
 
 
-def loadLevel():
+def loadLevel(): # Работа с файлом уровня
     global playerX, playerY  # объявляем глобальные переменные, это координаты героя
 
     levelFile = open('%s/levels/lvl0.txt' % FILE_DIR)
@@ -90,7 +89,7 @@ def loadLevel():
                     monsters.add(mn)
 
 
-def saveResult(hero):
+def saveResult(hero): # Работа с файлом result
     #Определяем № эпизода
     resultFile = open('%s/levels/episodes/result.txt' % FILE_DIR)
     episod = 0
@@ -123,11 +122,10 @@ def main():
     loadLevel()
     pygame.init() # Инициация PyGame, обязательная строчка 
     window = pygame.display.set_mode(DISPLAY) # Создаем окошко
-    pygame.display.set_caption("Test") # Пишем в шапку
-    screen = Surface((WIN_WIDTH,WIN_HEIGHT)) # Создание видимой поверхности
-                                         # будем использовать как фон
+    pygame.display.set_caption("Simulator") # Пишем в шапку
+    screen = Surface((WIN_WIDTH,WIN_HEIGHT)) # Создание видимой поверхности. будем использовать как фон
     screen.fill(Color(BACKGROUND_COLOR))     # Заливаем поверхность сплошным цветом. 
-#Вместо BACKGROUND_COLOR могу сделать ((0, 255, 0))
+    #Вместо BACKGROUND_COLOR могу сделать ((0, 255, 0))
 
     #Создание окна информации
     #info_string = Surface((INFO_STRING_WIDTH, INFO_STRING_HEIGHT))  # Создание видимой поверхности для строки инф
@@ -144,8 +142,8 @@ def main():
     up = down = False
     
     entities.add(hero)
-
     timer = pygame.time.Clock()
+
     x=y=0 # координаты
     for row in level: # вся строка
         for col in row: # каждый символ
@@ -173,14 +171,14 @@ def main():
         x = 0                   #на каждой новой строчке начинаем с нуля
 
     total_level_width  = len(level[0])*PLATFORM_WIDTH # Высчитываем фактическую ширину уровня
-    total_level_height = len(level)*PLATFORM_HEIGHT   # высоту
+    total_level_height = len(level)*PLATFORM_HEIGHT   # Высчитываем фактическую высоту уровня
     print ("Размер уровня:   Ширина: " + str(total_level_width) + "   Высота: " + str(total_level_height))
 
     camera = Camera(camera_configure, total_level_width, total_level_height)
-    blocks.levelSize(total_level_width, total_level_height)
+    blocks.levelSize(total_level_width, total_level_height) # Определение размера уровня для метода teleporting класса BigEnergy
     PLAY = True  # Включения\Выключения управления игроком
     #PLAY = False  # Включения\Выключения управления игроком
-    while True:#not hero.winner: # Основной цикл программы
+    while True: # Основной цикл программы  #not hero.winner:
         timer.tick(42)
         for e in pygame.event.get(): # Обрабатываем события
             if e.type == QUIT or hero.live <= 0 or hero.winner:

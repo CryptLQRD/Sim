@@ -17,7 +17,7 @@ ICON_DIR = os.path.dirname(__file__) #  Полный путь к каталог�
 #ANIMATION_FLY_LEFT = [('%s/player/0.png' % ICON_DIR, 0.1)]
 #ANIMATION_FLY_RIGHT = [('%s/player/1.png' % ICON_DIR, 0.1)]
 
-class Player(sprite.Sprite):
+class Player(sprite.Sprite): # Класс игрока
     def __init__(self, x, y):
         sprite.Sprite.__init__(self)
         self.xvel = 0   #скорость перемещения. 0 - стоять на месте
@@ -37,7 +37,7 @@ class Player(sprite.Sprite):
 
 
 
-    def update(self,  left, right, up, down, platforms):
+    def update(self,  left, right, up, down, platforms): # Метод "передвижения"
         if left:
             self.xvel = -MOVE_SPEED # Лево = x- n
             self.image = image.load("%s/player/0_24-32.png" % ICON_DIR)
@@ -75,7 +75,7 @@ class Player(sprite.Sprite):
         self.collide(0, self.yvel, platforms)
 
 
-    def collide(self, xvel, yvel, platforms):
+    def collide(self, xvel, yvel, platforms): # Метод проверки на столкновения с другими объектами
         for p in platforms:
             if sprite.collide_rect(self, p): # если есть пересечение платформы с игроком
                 if isinstance(p, blocks.BlockDie) or isinstance(p, monsters.Monster): #or isinstance(p, monsters.Monster): # если пересакаемый блок - blocks.BlockDie или Monster
@@ -109,11 +109,11 @@ class Player(sprite.Sprite):
                         self.yvel = 0                 # и энергия прыжка пропадает
 
 
-    def teleporting(self, goX, goY):
+    def teleporting(self, goX, goY): # переносим себя на полученные координаты
         self.rect.x = goX
         self.rect.y = goY
 
-    def die(self):
+    def die(self): # В случае смерти, переносим себя на начальные координаты
         time.wait(650)
         self.live -= 1
         self.teleporting(self.startX, self.startY) # перемещаемся в начальные координаты
