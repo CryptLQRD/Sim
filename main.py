@@ -53,7 +53,7 @@ def camera_configure(camera, target_rect):
 def loadLevel():
     global playerX, playerY  # объявляем глобальные переменные, это координаты героя
 
-    levelFile = open('%s/levels/lvl1.txt' % FILE_DIR)
+    levelFile = open('%s/levels/lvl0.txt' % FILE_DIR)
     line = " "
     commands = []
     while line[0] != "/":  # пока не нашли символ завершения файла
@@ -178,8 +178,8 @@ def main():
 
     camera = Camera(camera_configure, total_level_width, total_level_height)
     blocks.levelSize(total_level_width, total_level_height)
-    #PLAY = True  # Включения\Выключения управления игроком
-    PLAY = False  # Включения\Выключения управления игроком
+    PLAY = True  # Включения\Выключения управления игроком
+    #PLAY = False  # Включения\Выключения управления игроком
     while True:#not hero.winner: # Основной цикл программы
         timer.tick(42)
         for e in pygame.event.get(): # Обрабатываем события

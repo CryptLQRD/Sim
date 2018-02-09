@@ -12,8 +12,6 @@ PLATFORM_COLOR = "#003300"  #"#FF6262"
 BLACK_COLOR = "#000000"  #"#FF6262"
 WHITE_COLOR = "#ffffff"
 ICON_DIR = os.path.dirname(__file__) #  Полный путь к каталогу с файлами
-LevelHeight = 0
-LevelWidth = 0
 
 ANIMATION_BLOCKTELEPORT = [
             ('%s/blocks/portal1.png' % ICON_DIR),
@@ -30,6 +28,8 @@ ANIMATION_BIGENERGY = [
             ('%s/blocks/big_energy4.png' % ICON_DIR)]
 
 def levelSize(total_level_width, total_level_height):
+    global LevelHeight
+    global LevelWidth
     LevelWidth = int(total_level_width / 32)
     LevelHeight = int(total_level_height / 32)
     print("Размер уровня:   Ширина: " + str(LevelWidth) + "   Высота: " + str(LevelHeight))
@@ -87,13 +87,14 @@ class BigEnergy(Platform):
         self.boltAnim.blit(self.image, (0, 0))
 
     def teleporting(self, goX, goY, platforms, Random):
-        #if Random == True:
+        if Random == True:
             #BigEnergy.teleporting(self, 32 * random.randint(1, LevelWidth), 32 * random.randint(1, LevelHeight), platforms, False)
             #levelSize()
-        #    self.rect.x = 32 #* random.randint(1, LevelWidth)
-        #    self.rect.y = 32 #* random.randint(1, LevelHeight)
-        #    print("Телепортировано: Ширина: " + str(LevelWidth) + "   Высота: " + str(LevelHeight))
-        #else:
+            self.rect.x = 32 * random.randint(1, LevelWidth)
+            self.rect.y = 32 * random.randint(1, LevelHeight)
+            self.collide(platforms)
+            print("Телепортировано: Ширина: " + str(LevelWidth) + "   Высота: " + str(LevelHeight))
+        else:
             self.rect.x = goX
             self.rect.y = goY
             self.collide(platforms)
