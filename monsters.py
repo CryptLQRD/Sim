@@ -51,7 +51,6 @@ class Monster(sprite.Sprite): # Класс монстров
 
         self.rect.y += self.yvel
         self.rect.x += self.xvel
-
         self.collide(platforms)
 
         if (abs(self.startX - self.rect.x) > self.maxLengthLeft):
@@ -102,3 +101,4 @@ class Wraith(Monster):
             boltAnim.append((anim, ANIMATION_BAT_DELAY))
         self.boltAnimRight = pyganim.PygAnimation(boltAnim)
         self.boltAnimRight.play()
+        
