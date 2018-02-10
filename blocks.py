@@ -12,6 +12,8 @@ PLATFORM_COLOR = "#003300"  #"#FF6262"
 BLACK_COLOR = "#000000"  #"#FF6262"
 WHITE_COLOR = "#ffffff"
 ICON_DIR = os.path.dirname(__file__) #  Полный путь к каталогу с файлами
+count = 0
+
 
 ANIMATION_BLOCKTELEPORT = [
             ('%s/blocks/portal1.png' % ICON_DIR),
@@ -90,18 +92,17 @@ class BigEnergy(Platform): #Класс объекта "Энергия"
         if Random == True: #Если True телепортируем себя на случайне координаты в пределах уровня
             self.rect.x = 32 * random.randint(2, LevelWidth-1)
             self.rect.y = 32 * random.randint(2, LevelHeight-1)
-            self.collide(platforms)
-            print("Телепортировано: Ширина: " + str(self.rect.x) + "   Высота: " + str(self.rect.y))
         else: #иначе телепортируем себя на выбранные координаты
             self.rect.x = goX
             self.rect.y = goY
-            self.collide(platforms)
+        print("Телепортация энергии... Ширина: " + str(self.rect.x) + "   Высота: " + str(self.rect.y))
+        self.collide(platforms)
 
     def collide(self, platforms): # Метод для проверки столкновения с другими объектами
         for p in platforms:
             if sprite.collide_rect(self, p) and self != p:  # если с чем-то или кем-то столкнулись
+                #print("Выбранная позиция занята!  (Ширина: " + str(self.rect.x) + ")   (Высота: " + str(self.rect.y) + ")")
                 BigEnergy.teleporting(self, 32 * random.randint(1, LevelWidth), 32 * random.randint(1, LevelHeight), platforms, True)
-
 
 
 

@@ -8,6 +8,8 @@ from player import *
 from blocks import *
 from monsters import *
 import alg
+import datetime
+import time as tm
 from time import sleep
 
 
@@ -19,7 +21,8 @@ BACKGROUND_COLOR = "#003300"
 #INFO_STRING_WIDTH = 165 # Ширина
 #INFO_STRING_HEIGHT = 32 # Высота !!!ЕСЛИ БУДУ МЕНЯТЬ, ТО И В КАМЕРЕ НЕ ЗАБЫТЬ!!!
 #INFO_STRING_COLOR = "#006000"
-PLAY = True # Включения\Выключения управления игроком
+PLAY = True    # Включить\Выключить управление игроком
+REPEAT = False # Включить\Выключить повторние игры с начала
 
 FILE_DIR = os.path.dirname(__file__)
 
@@ -89,7 +92,7 @@ def loadLevel(): # Работа с файлом уровня
                     monsters.add(mn)
 
 
-def saveResult(hero): # Работа с файлом result
+def saveResult(hero, workTime): # Работа с файлом result
     #Определяем № эпизода
     resultFile = open('%s/levels/episodes/result.txt' % FILE_DIR)
     episod = 0
@@ -106,7 +109,7 @@ def saveResult(hero): # Работа с файлом result
 
     #Сохраняем в файл
     resultFile = open('%s/levels/episodes/result.txt' % FILE_DIR, 'a')
-    resultFile.write('Эпизод № '+ str(episod) + '\n')
+    resultFile.write('Эпизод № '+ str(episod) + '   Время: ' + str(workTime) + '\n') # выполнения эпизода
     if (hero.live <= 0):
         resultFile.write('Поражение!')
     elif (hero.winner):
@@ -176,21 +179,44 @@ def main():
 
     camera = Camera(camera_configure, total_level_width, total_level_height)
     blocks.levelSize(total_level_width, total_level_height) # Определение размера уровня для метода teleporting класса BigEnergy
-    PLAY = True  # Включения\Выключения управления игроком
-    #PLAY = False  # Включения\Выключения управления игроком
-    while True: # Основной цикл программы  #not hero.winner:
-        timer.tick(42)
-        for e in pygame.event.get(): # Обрабатываем события
-            if e.type == QUIT or hero.live <= 0 or hero.winner:
-                if hero.live <= 0:
-                    print ('Поражение!')
-                elif hero.winner:
-                    print('Победа!')
-                elif e.type == QUIT:
-                    print('Соединение разорвано!')
-                saveResult(hero)
-                raise SystemExit("QUIT")
 
+    moveTime = 0
+    PLAY = False   # Включить\Выключить управление игроком
+    REPEAT = True # Включить\Выключить повторние игры с начала
+
+    # определение времени
+    todayTime = datetime.datetime.today()
+    #date = todayTime.strftime("%d-%m-%y")
+    #time = todayTime.strftime("%H-%M-%S")
+    startTime = datetime.datetime.now()
+    while True: # Основной цикл программы  #not hero.winner:
+        timer.tick(40)
+        if hero.live <= 0 or hero.winner:
+            if hero.live <= 0:
+                print('Поражение!\n')
+            elif hero.winner:
+                print('Победа!\n')
+            # Подсчитываем время
+            finishTime = datetime.datetime.now() # Время конца цикла
+            workTime = finishTime - startTime    # Вычисление времени работы цикла
+            #print (workTime) # если написать workTime.seconds то выведется время в секундах
+            saveResult(hero, workTime)
+            if (REPEAT == True):
+                print('Новый эпизод!')
+                hero.winner = False
+                hero.live = 3
+                hero.score = 0
+                startTime = datetime.datetime.now()
+            else:
+                raise SystemExit("QUIT")
+        for e in pygame.event.get(): # Обрабатываем события
+            if e.type == QUIT:
+                print('Соединение разорвано!')
+                #Подсчитываем время
+                finishTime = datetime.datetime.now() # Время конца цикла
+                workTime = finishTime - startTime    # Вычисление времени работы цикла
+                saveResult(hero, workTime)
+                raise SystemExit("QUIT")
 
             if PLAY:
                 if e.type == KEYDOWN and e.key == K_UP:
@@ -213,17 +239,20 @@ def main():
                     left = False
                 #if e.type == KEYUP and e.key == K_LSHIFT:
                 #    lS = False
+
+        if not PLAY:
+            if moveTime <= 0:
+                left, right, up, down, moveTime = alg.test(left, right, up, down, moveTime)
+                print ("Время движения: " + str(moveTime))
             else:
-                if e.type == KEYDOWN and e.key == K_UP:
-                #sleep(2.0)
-                    left, right, up, down = alg.test(left, right, up, down)
+                moveTime -= 1
 
         window.blit(screen, (0,0))      # Каждую итерацию необходимо всё перерисовывать экран
 
         animatedEntities.update()  # показываеaм анимацию
         monsters.update(platforms) # передвигаем всех монстров
         camera.update(hero) # центризируем камеру относительно персонажа
-        hero.update(left, right, up, down, platforms) # передвижение
+        hero.updatePlayer(left, right, up, down, platforms) # передвижение игроком
         #entities.draw(window) # отображение
         for e in entities:
             window.blit(e.image, camera.apply(e))

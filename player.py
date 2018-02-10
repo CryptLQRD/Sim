@@ -36,8 +36,7 @@ class Player(sprite.Sprite): # Класс игрока
         #self.image.set_colorkey(Color(COLOR)) # делаем фон прозрачным
 
 
-
-    def update(self,  left, right, up, down, platforms): # Метод "передвижения"
+    def updatePlayer(self,  left, right, up, down, platforms): # Метод "передвижения"
         if left:
             self.xvel = -MOVE_SPEED # Лево = x- n
             self.image = image.load("%s/player/0_24-32.png" % ICON_DIR)
