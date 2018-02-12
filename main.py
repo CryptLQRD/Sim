@@ -2,10 +2,13 @@
 # -*- coding: utf-8 -*-
 
 import pygame
+import numpy
 import pyganim
 from pygame import *
-from player import *
-from blocks import *
+#from player import *
+import player
+#from blocks import *
+import blocks
 from monsters import *
 import alg
 import datetime
@@ -21,8 +24,8 @@ BACKGROUND_COLOR = "#003300"
 #INFO_STRING_WIDTH = 165 # Ширина
 #INFO_STRING_HEIGHT = 32 # Высота !!!ЕСЛИ БУДУ МЕНЯТЬ, ТО И В КАМЕРЕ НЕ ЗАБЫТЬ!!!
 #INFO_STRING_COLOR = "#006000"
-PLAY = True    # Включить\Выключить управление игроком
-REPEAT = False # Включить\Выключить повторние игры с начала
+#PLAY = True    # Включить\Выключить управление игроком
+#REPEAT = False # Включить\Выключить повторние игры с начала
 
 FILE_DIR = os.path.dirname(__file__)
 
@@ -55,7 +58,7 @@ def camera_configure(camera, target_rect):
 def loadLevel(): # Работа с файлом уровня
     global playerX, playerY  # объявляем глобальные переменные, это координаты героя
 
-    levelFile = open('%s/levels/lvl0.txt' % FILE_DIR)
+    levelFile = open('%s/levels/lvl1.txt' % FILE_DIR)
     line = " "
     commands = []
     while line[0] != "/":  # пока не нашли символ завершения файла
@@ -74,7 +77,7 @@ def loadLevel(): # Работа с файлом уровня
                     playerX = int(commands[1])  # то записываем координаты героя
                     playerY = int(commands[2])
                 if commands[0] == "portal":  # если первая команда portal, то создаем портал
-                    tp = BlockTeleport(int(commands[1]), int(commands[2]), int(commands[3]), int(commands[4]))
+                    tp = blocks.BlockTeleport(int(commands[1]), int(commands[2]), int(commands[3]), int(commands[4]))
                     entities.add(tp)
                     platforms.append(tp)
                     animatedEntities.add(tp)
@@ -140,54 +143,66 @@ def main():
     score_font = font.SysFont('Comic Sans MS', 50, False, True)
     # score_font = font.Font(None,32)
 
-    hero = Player(playerX,playerY) # создаем героя по (x,y) координатам
+    hero = player.Player(playerX,playerY) # создаем героя по (x,y) координатам
     left = right = False # по умолчанию - стоим
     up = down = False
     
     entities.add(hero)
     timer = pygame.time.Clock()
 
+    total_level_width  = len(level[0])*blocks.PLATFORM_WIDTH # Высчитываем фактическую ширину уровня
+    total_level_height = len(level)*blocks.PLATFORM_HEIGHT   # Высчитываем фактическую высоту уровня
+    print ("Размер уровня:   Ширина: " + str(total_level_width) + "   Высота: " + str(total_level_height))
+    camera = Camera(camera_configure, total_level_width, total_level_height)
+    blocks.levelSize(total_level_width, total_level_height)  # Определение размера уровня для метода teleporting класса BigEnergy
+
+    way = [[0] * len(level[0]) for i in range(len(level))] # Создаем карту уровня для алгоритма
+
     x=y=0 # координаты
     for row in level: # вся строка
         for col in row: # каждый символ
             if col == "-":
-                pf = Block(x,y)
+                pf = blocks.Block(x,y)
                 entities.add(pf)
                 platforms.append(pf)
+                way[int(y/32)][int(x/32)] = 1 #Если есть данный блок, то заполняем массив 1
             if col == "*":
-                bd = BlockDie(x,y)
+                bd = blocks.BlockDie(x,y)
                 entities.add(bd)
                 platforms.append(bd)
+                way[int(y/32)][int(x/32)] = 1 #Если есть данный блок, то заполняем массив 1
             if col == "E":
-                be = BigEnergy(x,y)
+                be = blocks.BigEnergy(x,y)
                 entities.add(be)
                 platforms.append(be)
                 animatedEntities.add(be)
             if col == "W":
-                pr = Exit(x,y)
+                pr = blocks.Exit(x,y)
                 entities.add(pr)
                 platforms.append(pr)
                 animatedEntities.add(pr)
+                way[int(y / 32)][int(x / 32)] = 2  # Если есть данный блок, то заполняем массив 2
+            if col == "P":
+                way[int(y / 32)][int(x / 32)] = 3  # Если есть данный блок, то заполняем массив 2
 
-            x += PLATFORM_WIDTH #блоки платформы ставятся на ширине блоков
-        y += PLATFORM_HEIGHT    #то же самое и с высотой
+            x += blocks.PLATFORM_WIDTH #блоки платформы ставятся на ширине блоков
+        y += blocks.PLATFORM_HEIGHT    #то же самое и с высотой
         x = 0                   #на каждой новой строчке начинаем с нуля
 
-    total_level_width  = len(level[0])*PLATFORM_WIDTH # Высчитываем фактическую ширину уровня
-    total_level_height = len(level)*PLATFORM_HEIGHT   # Высчитываем фактическую высоту уровня
-    print ("Размер уровня:   Ширина: " + str(total_level_width) + "   Высота: " + str(total_level_height))
-
-    camera = Camera(camera_configure, total_level_width, total_level_height)
-    blocks.levelSize(total_level_width, total_level_height) # Определение размера уровня для метода teleporting класса BigEnergy
+    #Выводим карту уровня
+    print ("Карта уровня:")
+    for row in way:
+        for elem in row:
+            print(elem, end=' ')
+        print()
+    print('')
 
     moveTime = 0
     PLAY = False   # Включить\Выключить управление игроком
     REPEAT = True # Включить\Выключить повторние игры с начала
 
     # определение времени
-    todayTime = datetime.datetime.today()
-    #date = todayTime.strftime("%d-%m-%y")
-    #time = todayTime.strftime("%H-%M-%S")
+    #todayTime = datetime.datetime.today()   #date = todayTime.strftime("%d-%m-%y")   #time = todayTime.strftime("%H-%M-%S")
     startTime = datetime.datetime.now()
     while True: # Основной цикл программы  #not hero.winner:
         timer.tick(40)
@@ -217,6 +232,15 @@ def main():
                 workTime = finishTime - startTime    # Вычисление времени работы цикла
                 saveResult(hero, workTime)
                 raise SystemExit("QUIT")
+            if e.type == KEYUP and e.key == K_SPACE:
+                print('Пауза!')
+                pause = True
+                while pause:
+                    for e in pygame.event.get():  # Обрабатываем события
+                        if e.type == KEYUP and e.key == K_SPACE:
+                            pause = False
+                        if e.type == QUIT:
+                            raise SystemExit("QUIT")
 
             if PLAY:
                 if e.type == KEYDOWN and e.key == K_UP:
@@ -242,13 +266,13 @@ def main():
 
         if not PLAY:
             if moveTime <= 0:
-                left, right, up, down, moveTime = alg.test(left, right, up, down, moveTime)
+                #left, right, up, down, moveTime = alg.testMap(left, right, up, down, moveTime, hero, platforms, way)
+                left, right, up, down, moveTime = alg.testRandom(left, right, up, down, moveTime)
                 print ("Время движения: " + str(moveTime))
             else:
                 moveTime -= 1
 
-        window.blit(screen, (0,0))      # Каждую итерацию необходимо всё перерисовывать экран
-
+        window.blit(screen, (0,0)) # Каждую итерацию необходимо всё перерисовывать экран
         animatedEntities.update()  # показываеaм анимацию
         monsters.update(platforms) # передвигаем всех монстров
         camera.update(hero) # центризируем камеру относительно персонажа

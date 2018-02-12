@@ -119,3 +119,6 @@ class Exit(Platform): #Класс объекта "Портал-выход"
     def update(self):
         self.image.fill(Color(PLATFORM_COLOR))
         self.boltAnim.blit(self.image, (0, 0))
+
+    #for p in platforms: # Блок p из всех платформ
+    #    if isinstance(p, blocks.Block):  #если это блок "Стенка", то

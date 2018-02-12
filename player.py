@@ -8,9 +8,9 @@ import monsters
 import os
 import random
 
-MOVE_SPEED = 7
+MOVE_SPEED = 8
 WIDTH = 24
-HEIGHT = 30
+HEIGHT = 30 #30
 COLOR =  "#888888"
 
 ICON_DIR = os.path.dirname(__file__) #  Полный путь к каталогу с файлами
@@ -20,10 +20,12 @@ ICON_DIR = os.path.dirname(__file__) #  Полный путь к каталог�
 class Player(sprite.Sprite): # Класс игрока
     def __init__(self, x, y):
         sprite.Sprite.__init__(self)
+        self.myPos = [[0][0]]
+        self.exit = [[0][0]]
         self.xvel = 0   #скорость перемещения. 0 - стоять на месте
         self.yvel = 0 # скорость вертикального перемещения
-        self.startX = x # Начальная позиция Х, пригодится когда будем переигрывать уровень
-        self.startY = y
+        self.startX = x # текущая позиция x
+        self.startY = y # текущая позиция y
         self.onGround = False # На земле ли я?
         self.score = 0
         self.live = 3
@@ -69,22 +71,24 @@ class Player(sprite.Sprite): # Класс игрока
         
         self.rect.x += self.xvel # переносим свои положение на xvel
         self.collide(self.xvel, 0, platforms)
+        #print("Позиция X: " + str(self.rect.x))
 
         self.rect.y += self.yvel # переносим свои положение на yvel
         self.collide(0, self.yvel, platforms)
+        #print("Позиция Y: " + str(self.rect.y))
 
 
     def collide(self, xvel, yvel, platforms): # Метод проверки на столкновения с другими объектами
         for p in platforms:
             if sprite.collide_rect(self, p): # если есть пересечение платформы с игроком
-                if isinstance(p, blocks.BlockDie) or isinstance(p, monsters.Monster): #or isinstance(p, monsters.Monster): # если пересакаемый блок - blocks.BlockDie или Monster
+                if isinstance(p, blocks.BlockDie) or isinstance(p, monsters.Monster): # если пересакаемый блок - blocks.BlockDie или Monster
                         self.die()# умираем
                 elif isinstance(p, blocks.BlockTeleport):
                         self.teleporting(p.goX, p.goY)
-                elif isinstance(p, blocks.Exit): # если коснулись принцессы
+                elif isinstance(p, blocks.Exit): # если коснулись блока выхода
                         self.winner = True # победили!!!
                         self.teleporting(self.startX, self.startY)
-                elif isinstance(p, blocks.BigEnergy): # если коснулись принцессы
+                elif isinstance(p, blocks.BigEnergy): # если коснулись энергии
                         blocks.BigEnergy.teleporting(p, 32 * random.randint(1, 34), 32 * random.randint(1, 22), platforms, True)
                         self.score += 1
                         #del(p)

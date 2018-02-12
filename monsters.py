@@ -101,4 +101,3 @@ class Wraith(Monster):
             boltAnim.append((anim, ANIMATION_BAT_DELAY))
         self.boltAnimRight = pyganim.PygAnimation(boltAnim)
         self.boltAnimRight.play()
-        
