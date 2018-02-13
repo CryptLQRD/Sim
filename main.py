@@ -58,7 +58,7 @@ def camera_configure(camera, target_rect):
 def loadLevel(): # Работа с файлом уровня
     global playerX, playerY  # объявляем глобальные переменные, это координаты героя
 
-    levelFile = open('%s/levels/lvl1.txt' % FILE_DIR)
+    levelFile = open('%s/levels/lvl0.txt' % FILE_DIR)
     line = " "
     commands = []
     while line[0] != "/":  # пока не нашли символ завершения файла
@@ -156,7 +156,11 @@ def main():
     camera = Camera(camera_configure, total_level_width, total_level_height)
     blocks.levelSize(total_level_width, total_level_height)  # Определение размера уровня для метода teleporting класса BigEnergy
 
-    way = [[0] * len(level[0]) for i in range(len(level))] # Создаем карту уровня для алгоритма
+    way = [['o'] * len(level[0]) for i in range(len(level))] # Создаем карту уровня для алгоритма
+
+    way[int(hero.startY / 32)][int(hero.startX / 32)] = 'H' # Добавляем расположение героя на карту (в массив)
+    hero.myPosX = int(hero.startX / 32)
+    hero.myPosY = int(hero.startY / 32)
 
     x=y=0 # координаты
     for row in level: # вся строка
@@ -165,25 +169,26 @@ def main():
                 pf = blocks.Block(x,y)
                 entities.add(pf)
                 platforms.append(pf)
-                way[int(y/32)][int(x/32)] = 1 #Если есть данный блок, то заполняем массив 1
+                way[int(y/32)][int(x/32)] = 'B' #Если есть данный блок, то заполняем массив B
             if col == "*":
                 bd = blocks.BlockDie(x,y)
                 entities.add(bd)
                 platforms.append(bd)
-                way[int(y/32)][int(x/32)] = 1 #Если есть данный блок, то заполняем массив 1
+                way[int(y/32)][int(x/32)] = 'B' #Если есть данный блок, то заполняем массив B
             if col == "E":
                 be = blocks.BigEnergy(x,y)
                 entities.add(be)
                 platforms.append(be)
                 animatedEntities.add(be)
+                way[int(y / 32)][int(x / 32)] = 'E' #Если есть данный блок, то заполняем массив E
             if col == "W":
                 pr = blocks.Exit(x,y)
                 entities.add(pr)
                 platforms.append(pr)
                 animatedEntities.add(pr)
-                way[int(y / 32)][int(x / 32)] = 2  # Если есть данный блок, то заполняем массив 2
-            if col == "P":
-                way[int(y / 32)][int(x / 32)] = 3  # Если есть данный блок, то заполняем массив 2
+                way[int(y / 32)][int(x / 32)] = 'W' # Если есть данный блок, то заполняем массив W
+                blocks.Exit.myPosX = int(x/32)
+                blocks.Exit.myPosY = int(y/32)
 
             x += blocks.PLATFORM_WIDTH #блоки платформы ставятся на ширине блоков
         y += blocks.PLATFORM_HEIGHT    #то же самое и с высотой
@@ -198,7 +203,7 @@ def main():
     print('')
 
     moveTime = 0
-    PLAY = False   # Включить\Выключить управление игроком
+    PLAY = True   # Включить\Выключить управление игроком
     REPEAT = True # Включить\Выключить повторние игры с начала
 
     # определение времени
@@ -239,6 +244,7 @@ def main():
                     for e in pygame.event.get():  # Обрабатываем события
                         if e.type == KEYUP and e.key == K_SPACE:
                             pause = False
+                            print('Продолжаем!')
                         if e.type == QUIT:
                             raise SystemExit("QUIT")
 
@@ -266,9 +272,9 @@ def main():
 
         if not PLAY:
             if moveTime <= 0:
-                #left, right, up, down, moveTime = alg.testMap(left, right, up, down, moveTime, hero, platforms, way)
-                left, right, up, down, moveTime = alg.testRandom(left, right, up, down, moveTime)
-                print ("Время движения: " + str(moveTime))
+                left, right, up, down, moveTime = alg.testMapRandom(left, right, up, down, moveTime, hero, platforms, way)
+                #left, right, up, down, moveTime = alg.testMapCopyLRUD(left, right, up, down, moveTime, hero, platforms, way)
+                #print ("Время движения: " + str(moveTime))
             else:
                 moveTime -= 1
 
@@ -287,7 +293,10 @@ def main():
 
 
         pygame.display.update()     # обновление и вывод всех изменений на экран
-        
+
+
+
+
 level = []
 entities = pygame.sprite.Group() # Все объекты
 animatedEntities = pygame.sprite.Group() # все анимированные объекты, за исключением героя

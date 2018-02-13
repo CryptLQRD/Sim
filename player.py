@@ -9,8 +9,8 @@ import os
 import random
 
 MOVE_SPEED = 8
-WIDTH = 24
-HEIGHT = 30 #30
+WIDTH = 32 #24
+HEIGHT = 32 #30
 COLOR =  "#888888"
 
 ICON_DIR = os.path.dirname(__file__) #  Полный путь к каталогу с файлами
@@ -20,8 +20,8 @@ ICON_DIR = os.path.dirname(__file__) #  Полный путь к каталог�
 class Player(sprite.Sprite): # Класс игрока
     def __init__(self, x, y):
         sprite.Sprite.__init__(self)
-        self.myPos = [[0][0]]
-        self.exit = [[0][0]]
+        self.myPosX = -1 #Позиция X игрока в массиве
+        self.myPosY = -1 #Позиция Y игрока в массиве
         self.xvel = 0   #скорость перемещения. 0 - стоять на месте
         self.yvel = 0 # скорость вертикального перемещения
         self.startX = x # текущая позиция x

@@ -109,6 +109,8 @@ class BigEnergy(Platform): #Класс объекта "Энергия"
 class Exit(Platform): #Класс объекта "Портал-выход"
     def __init__(self, x, y):
         Platform.__init__(self, x, y)
+        self.myPosX = -1 #Позиция X портала в массиве
+        self.myPosY = -1 #Позиция Y портала в массиве
         #self.rect = Rect(x, y, PLATFORM_WIDTH, PLATFORM_HEIGHT)
         boltAnim = []
         for anim in ANIMATION_EXIT:
