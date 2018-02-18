@@ -7,28 +7,13 @@ import pyganim
 import monsters
 import os
 import random
+import maps
 import player
 from pygame import *
 import pygame
 
-def testMapRandom(left, right, up, down, moveTime, hero, platforms, way: List[List[int]]):
-    print('\nИнформация об алгоритме: ')
-    print ("Я вижу:")
-    for i in range(len(way)):
-        for j in range(len(way[i])):
-            #if way[i][j] == 3:
-            #    hero.myPosX = j
-            #    hero.myPosY = i
-            #if way[i][j] == 2:
-            #    hero.exitX = j
-            #    hero.exitY = i
-                #hero.exit[1][1] = way[i][j]
-                #print(hero.exit, end=' ')
-            print(way[i][j], end=' ')
-        print()
-    print('')
-    print("Позиция  ГЕРОЯ  в массиве  X: " + str(hero.myPosX) + "  Y: " + str(hero.myPosY))
-    print("Позиция ПОРТАЛА в массиве  X: " + str(blocks.Exit.myPosX)  + "  Y: " + str(blocks.Exit.myPosY))
+def algRandom(hero, way: List[List[int]]):
+    maps.printInfo (hero, way)
     left = False
     right = False
     up = False
@@ -96,7 +81,11 @@ def testMapRandom(left, right, up, down, moveTime, hero, platforms, way: List[Li
     #            print('Продолжаем!')
     #        if e.type == QUIT:
     #            raise SystemExit("QUIT")
+    moveOn (left, right, up, down, hero, way)
+    moveTime = 3 #*random.randint(1, 4)
+    return left, right, up, down, moveTime
 
+def moveOn (left, right, up, down, hero, way: List[List[int]]):
     if left==True: #Движение влево в матрице
         way[hero.myPosY][hero.myPosX] = 'o'
         hero.myPosX -= 1
@@ -129,9 +118,122 @@ def testMapRandom(left, right, up, down, moveTime, hero, platforms, way: List[Li
             hero.myPosY = int(hero.startY / 32)
         way[hero.myPosY][hero.myPosX] = 'H'
 
-    moveTime = 3 #*random.randint(1, 4)
+
+
+def algWave (hero, way: List[List[int]]):
+    maps.printInfo (hero, way)
+    left = False
+    right = False
+    up = False
+    down = False
+    moveTimeFlag = False
+
+    if way[hero.myPosY][hero.myPosX - 1] == '+' or way[hero.myPosY][hero.myPosX - 1] == 'W':
+        if way[hero.myPosY][hero.myPosX - 1] == 'W': moveTimeFlag = True
+        left = True
+        print("Left")
+
+    elif way[hero.myPosY][hero.myPosX + 1] == '+' or way[hero.myPosY][hero.myPosX + 1] == 'W':
+        if way[hero.myPosY][hero.myPosX + 1] == 'W': moveTimeFlag = True
+        right = True
+        print("Right")
+
+    elif way[hero.myPosY - 1][hero.myPosX] == '+' or way[hero.myPosY - 1][hero.myPosX] == 'W':
+        if way[hero.myPosY - 1][hero.myPosX] == 'W': moveTimeFlag = True
+        up = True
+        print("Up")
+
+    elif way[hero.myPosY + 1][hero.myPosX] == '+' or way[hero.myPosY + 1][hero.myPosX] == 'W':
+        if way[hero.myPosY + 1][hero.myPosX] == 'W': moveTimeFlag = True
+        down = True
+        print("Down")
+
+    moveOn(left, right, up, down, hero, way)
+    if moveTimeFlag == True:
+        moveTime = 0
+    else: moveTime = 3
     return left, right, up, down, moveTime
 
+def algWaveFindExit (hero, way: List[List[int]]):
+    #Сперва ищем все пути до портала
+    n = 1
+    #number = 0
+    exitFlag = False
+    #print("Позиция  ГЕРОЯ  в массиве  X: " + str(hero.myPosX) + "  Y: " + str(hero.myPosY))
+    x = hero.myPosX#blocks.Exit.myPosX#hero.myPosX
+    y = hero.myPosY#blocks.Exit.myPosY#hero.myPosY
+    exitFlag = findWays(y, x, n, exitFlag, 0, 'W', way)
+    while exitFlag != True:
+        for i in range(len(way)):
+            for j in range(len(way[i])):
+                if way[i][j] == n:
+                    exitFlag = findWays(i, j, n+1, exitFlag, 0, 'W', way)
+        if exitFlag != True:
+            n += 1
 
+    #Теперь записываем путь для последующего движения
+    print ("N="+ str(n))
+    exitFlag = False
+    x = blocks.Exit.myPosX#hero.myPosX
+    y = blocks.Exit.myPosY#hero.myPosY
+    #exitFlag = findWays(y, x, '+', exitFlag, n, 'H', way)
+    exitFlag = findBackWay(y, x, n, exitFlag, way)
+    while exitFlag != True:
+        for i in range(len(way)):
+            for j in range(len(way[i])):
+                if way[i][j] == '+':
+                    #exitFlag = findWays(i, j, '+', exitFlag, n, 'H', way)
+                    exitFlag = findBackWay(i, j, n, exitFlag, way)
+        if exitFlag != True:
+            n -= 1
 
+def findWays (y, x, n, exitFlag, number, symbol, way: List[List[int]]):
+    if (y - 1 >= 0 and way[y - 1][x] != 'B' and way[y - 1][x] == number) or way[y - 1][x] == symbol:
+        if way[y - 1][x] == symbol:
+            exitFlag = True
+            print("Sym=" + str(symbol))
+        else:
+            way[y - 1][x] = n
+    if (y + 1 < len(way) and way[y + 1][x] != 'B' and way[y + 1][x] == number) or way[y + 1][x] == symbol:
+        if way[y + 1][x] == symbol:
+            exitFlag = True
+            print("Sym=" + str(symbol))
+        else:
+            way[y + 1][x] = n
+    if (x - 1 >= 0 and way[y][x - 1] != 'B' and way[y][x - 1] == number) or way[y][x - 1] == symbol:
+        if way[y][x - 1] == symbol:
+            exitFlag = True
+            print("Sym=" + str(symbol))
+        else:
+            way[y][x - 1] = n
+    if (x + 1 < len(way[y]) and way[y][x + 1] != 'B' and way[y][x + 1] == number) or way[y][x + 1] == symbol:
+        if way[y][x + 1] == symbol:
+            exitFlag = True
+            print("Sym=" + str(symbol))
+        else:
+            way[y][x + 1] = n
+    return exitFlag
+
+def findBackWay (y, x, n, exitFlag, way: List[List[int]]):
+    if (y - 1 >= 0 and way[y - 1][x] != 'B' and way[y - 1][x] == n) or way[y - 1][x] == 'H':
+        if way[y - 1][x] == 'H':
+            exitFlag = True
+        else:
+            way[y - 1][x] = '+'
+    elif (y + 1 < len(way) and way[y + 1][x] != 'B' and way[y + 1][x] == n) or way[y + 1][x] == 'H':
+        if way[y + 1][x] == 'H':
+            exitFlag = True
+        else:
+            way[y + 1][x] = '+'
+    elif (x - 1 >= 0 and way[y][x - 1] != 'B' and way[y][x - 1] == n) or way[y][x - 1] == 'H':
+        if way[y][x - 1] == 'H':
+            exitFlag = True
+        else:
+            way[y][x - 1] = '+'
+    elif (x + 1 < len(way[y]) and way[y][x + 1] != 'B' and way[y][x + 1] == n) or way[y][x + 1] == 'H':
+        if way[y][x + 1] == 'H':
+            exitFlag = True
+        else:
+            way[y][x + 1] = '+'
+    return exitFlag
 

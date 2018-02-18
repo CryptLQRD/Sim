@@ -12,6 +12,7 @@ import blocks
 from monsters import *
 import alg
 import datetime
+import maps
 import time as tm
 from time import sleep
 
@@ -26,7 +27,7 @@ BACKGROUND_COLOR = "#003300"
 #INFO_STRING_COLOR = "#006000"
 #PLAY = True    # Включить\Выключить управление игроком
 #REPEAT = False # Включить\Выключить повторние игры с начала
-
+levelName = 'lvl1.txt' #Название уровня
 FILE_DIR = os.path.dirname(__file__)
 
 
@@ -56,9 +57,10 @@ def camera_configure(camera, target_rect):
 
 
 def loadLevel(): # Работа с файлом уровня
+
     global playerX, playerY  # объявляем глобальные переменные, это координаты героя
 
-    levelFile = open('%s/levels/lvl0.txt' % FILE_DIR)
+    levelFile = open(('%s/levels/'+levelName) % FILE_DIR)
     line = " "
     commands = []
     while line[0] != "/":  # пока не нашли символ завершения файла
@@ -112,7 +114,7 @@ def saveResult(hero, workTime): # Работа с файлом result
 
     #Сохраняем в файл
     resultFile = open('%s/levels/episodes/result.txt' % FILE_DIR, 'a')
-    resultFile.write('Эпизод № '+ str(episod) + '   Время: ' + str(workTime) + '\n') # выполнения эпизода
+    resultFile.write('Эпизод № '+ str(episod) + '   Время: ' + str(workTime) + '   Уровень: ' +  levelName +'\n') # выполнения эпизода
     if (hero.live <= 0):
         resultFile.write('Поражение!')
     elif (hero.winner):
@@ -156,7 +158,7 @@ def main():
     camera = Camera(camera_configure, total_level_width, total_level_height)
     blocks.levelSize(total_level_width, total_level_height)  # Определение размера уровня для метода teleporting класса BigEnergy
 
-    way = [['o'] * len(level[0]) for i in range(len(level))] # Создаем карту уровня для алгоритма
+    way = [[0] * len(level[0]) for i in range(len(level))] # Создаем карту уровня для алгоритма
 
     way[int(hero.startY / 32)][int(hero.startX / 32)] = 'H' # Добавляем расположение героя на карту (в массив)
     hero.myPosX = int(hero.startX / 32)
@@ -194,16 +196,18 @@ def main():
         y += blocks.PLATFORM_HEIGHT    #то же самое и с высотой
         x = 0                   #на каждой новой строчке начинаем с нуля
 
+    alg.algWaveFindExit(hero, way)
     #Выводим карту уровня
+    #maps.clearNumberFromMap(way)
     print ("Карта уровня:")
-    for row in way:
-        for elem in row:
-            print(elem, end=' ')
-        print()
-    print('')
+    #for row in way:
+    #    for elem in row:
+    #        print(elem, end=' ')
+    #    print()
+    #print('')
 
-    moveTime = 0
-    PLAY = True   # Включить\Выключить управление игроком
+    moveTime = 0  # Необходима для плавного движения персонажа т.к. его скорость 8 пикселей, а не 32, как расчитана карта(массив)
+    PLAY = False   # Включить\Выключить управление игроком
     REPEAT = True # Включить\Выключить повторние игры с начала
 
     # определение времени
@@ -223,9 +227,13 @@ def main():
             saveResult(hero, workTime)
             if (REPEAT == True):
                 print('Новый эпизод!')
-                hero.winner = False
-                hero.live = 3
-                hero.score = 0
+                hero.winner = False # Возвращаем стартовое значение поля победы
+                hero.live = 3       # Возвращаем стартовое значение жизней
+                hero.score = 0      # Возвращаем стартовое значение очков
+                maps.clearMap(way) #Очищаем карту от предыдущих записей
+                maps.printInfo(hero, way) #Выводим карту на экран
+                alg.algWaveFindExit(hero, way) #Прокладываем новый маршрут до конечной точки
+                maps.clearNumberFromMap(way) #Очищаем карту от всех прочих путей не вошедших в итоговый маршрут
                 startTime = datetime.datetime.now()
             else:
                 raise SystemExit("QUIT")
@@ -271,9 +279,9 @@ def main():
                 #    lS = False
 
         if not PLAY:
-            if moveTime <= 0:
-                left, right, up, down, moveTime = alg.testMapRandom(left, right, up, down, moveTime, hero, platforms, way)
-                #left, right, up, down, moveTime = alg.testMapCopyLRUD(left, right, up, down, moveTime, hero, platforms, way)
+            if moveTime <= 0: # если перемещение героя в планируемую точку закончилось, вычисляем следующее движение
+                left, right, up, down, moveTime = alg.algWave(hero, way)
+                #left, right, up, down, moveTime = alg.algRandom(hero, way)
                 #print ("Время движения: " + str(moveTime))
             else:
                 moveTime -= 1
