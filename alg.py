@@ -148,6 +148,31 @@ def algWave (hero, way: List[List[int]]):
         down = True
         print("Down")
 
+    #Скорее всего тоже верно
+    elif way[hero.myPosY + 1][hero.myPosX + 1] == '+' or way[hero.myPosY + 1][hero.myPosX + 1] == 'W':
+        if way[hero.myPosY + 1][hero.myPosX + 1] == 'W': moveTimeFlag = True
+        right = True
+        down = True
+        print("Right-Down")
+
+    elif way[hero.myPosY - 1][hero.myPosX + 1] == '+' or way[hero.myPosY - 1][hero.myPosX + 1] == 'W':
+        if way[hero.myPosY - 1][hero.myPosX + 1] == 'W': moveTimeFlag = True
+        right = True
+        up = True
+        print("Right-Up")
+
+    elif way[hero.myPosY - 1][hero.myPosX - 1] == '+' or way[hero.myPosY - 1][hero.myPosX - 1] == 'W':
+        if way[hero.myPosY - 1][hero.myPosX - 1] == 'W': moveTimeFlag = True
+        left = True
+        up = True
+        print("Left-Up")
+
+    elif way[hero.myPosY + 1][hero.myPosX - 1] == '+' or way[hero.myPosY + 1][hero.myPosX - 1] == 'W':
+        if way[hero.myPosY + 1][hero.myPosX - 1] == 'W': moveTimeFlag = True
+        left = True
+        down = True
+        print("Left-Down")
+
     moveOn(left, right, up, down, hero, way)
     if moveTimeFlag == True:
         moveTime = 0
@@ -159,6 +184,7 @@ def algWaveFindExit (hero, way: List[List[int]]):
     n = 1
     #number = 0
     exitFlag = False
+    nextStep = False
     #print("Позиция  ГЕРОЯ  в массиве  X: " + str(hero.myPosX) + "  Y: " + str(hero.myPosY))
     x = hero.myPosX#blocks.Exit.myPosX#hero.myPosX
     y = hero.myPosY#blocks.Exit.myPosY#hero.myPosY
@@ -167,73 +193,167 @@ def algWaveFindExit (hero, way: List[List[int]]):
         for i in range(len(way)):
             for j in range(len(way[i])):
                 if way[i][j] == n:
-                    exitFlag = findWays(i, j, n+1, exitFlag, 0, 'W', way)
+                    exitFlag = findWays(i, j, n+1, exitFlag, 0, 'W', way) # посылаю координаты y и x; следующее число; проверку на конец алг; знак который буду менять; что ищу; массив
         if exitFlag != True:
             n += 1
 
+    maps.printInfo(hero, way)
     #Теперь записываем путь для последующего движения
     print ("N="+ str(n))
     exitFlag = False
+    nextStep = False
     x = blocks.Exit.myPosX#hero.myPosX
     y = blocks.Exit.myPosY#hero.myPosY
     #exitFlag = findWays(y, x, '+', exitFlag, n, 'H', way)
-    exitFlag = findBackWay(y, x, n, exitFlag, way)
+    exitFlag = findBackWay(y, x, n, exitFlag, nextStep, way)
+    n -= 1
     while exitFlag != True:
         for i in range(len(way)):
             for j in range(len(way[i])):
                 if way[i][j] == '+':
                     #exitFlag = findWays(i, j, '+', exitFlag, n, 'H', way)
-                    exitFlag = findBackWay(i, j, n, exitFlag, way)
+                    if nextStep == True:
+                        break
+                    else: exitFlag, nextStep = findBackWay(i, j, n, exitFlag, nextStep, way)
+            if nextStep == True:
+                break
+        nextStep = False
+        #maps.printInfo(hero, way)
         if exitFlag != True:
             n -= 1
 
+
 def findWays (y, x, n, exitFlag, number, symbol, way: List[List[int]]):
+    #Вверх
     if (y - 1 >= 0 and way[y - 1][x] != 'B' and way[y - 1][x] == number) or way[y - 1][x] == symbol:
         if way[y - 1][x] == symbol:
             exitFlag = True
             print("Sym=" + str(symbol))
         else:
             way[y - 1][x] = n
+
+    #Вниз
     if (y + 1 < len(way) and way[y + 1][x] != 'B' and way[y + 1][x] == number) or way[y + 1][x] == symbol:
         if way[y + 1][x] == symbol:
             exitFlag = True
             print("Sym=" + str(symbol))
         else:
             way[y + 1][x] = n
+
+    #Влево
     if (x - 1 >= 0 and way[y][x - 1] != 'B' and way[y][x - 1] == number) or way[y][x - 1] == symbol:
         if way[y][x - 1] == symbol:
             exitFlag = True
             print("Sym=" + str(symbol))
         else:
             way[y][x - 1] = n
+
+    #Вправо
     if (x + 1 < len(way[y]) and way[y][x + 1] != 'B' and way[y][x + 1] == number) or way[y][x + 1] == symbol:
         if way[y][x + 1] == symbol:
             exitFlag = True
             print("Sym=" + str(symbol))
         else:
             way[y][x + 1] = n
+
+    #Вправо-Вниз
+    if (x + 1 < len(way[y]) and y + 1 < len(way) and way[y][x + 1] != 'B' and way[y + 1][x] != 'B' and way[y + 1][x + 1] == number) or (way[y + 1][x + 1] == symbol and way[y][x + 1] != 'B' and way[y + 1][x] != 'B'):
+        if way[y + 1][x + 1] == symbol and way[y][x + 1] != 'B' and way[y + 1][x] != 'B':
+            exitFlag = True
+            print("Sym=" + str(symbol))
+        else:
+            way[y + 1][x + 1] = n
+
+    #Вправо-Вверх
+    if (x + 1 < len(way[y]) and y - 1 >= 0 and way[y][x + 1] != 'B' and way[y - 1][x] != 'B' and way[y - 1][x + 1] == number) or (way[y - 1][x + 1] == symbol and way[y][x + 1] != 'B' and way[y - 1][x] != 'B'):
+        if way[y - 1][x + 1] == symbol and way[y][x + 1] != 'B' and way[y - 1][x] != 'B':
+            exitFlag = True
+            print("Sym=" + str(symbol))
+        else:
+            way[y - 1][x + 1] = n
+
+    #Влево-Вниз
+    if (x - 1 >= 0 and y + 1 < len(way) and way[y][x - 1] != 'B' and way[y + 1][x] != 'B' and way[y + 1][x - 1] == number) or (way[y + 1][x - 1] == symbol and way[y][x - 1] != 'B' and way[y + 1][x] != 'B'):
+        if way[y + 1][x - 1] == symbol and way[y][x - 1] != 'B' and way[y + 1][x] != 'B':
+            exitFlag = True
+            print("Sym=" + str(symbol))
+        else:
+            way[y + 1][x - 1] = n
+
+    #Влево-Вверх
+    if (x - 1 >= 0 and y - 1 >= 0 and way[y][x - 1] != 'B' and way[y - 1][x] != 'B' and way[y - 1][x - 1] == number) or (way[y - 1][x - 1] == symbol and way[y][x - 1] != 'B' and way[y - 1][x] != 'B'):
+        if way[y - 1][x - 1] == symbol and way[y][x - 1] != 'B' and way[y - 1][x] != 'B':
+            exitFlag = True
+            print("Sym=" + str(symbol))
+        else:
+            way[y - 1][x - 1] = n
     return exitFlag
 
-def findBackWay (y, x, n, exitFlag, way: List[List[int]]):
-    if (y - 1 >= 0 and way[y - 1][x] != 'B' and way[y - 1][x] == n) or way[y - 1][x] == 'H':
+
+def findBackWay (y, x, n, exitFlag, nextStep, way: List[List[int]]):
+    #Влево-Вверх
+    if (x - 1 >= 0 and y - 1 >= 0 and way[y][x - 1] != 'B' and way[y - 1][x] != 'B' and way[y - 1][x - 1] == n) or (way[y - 1][x - 1] == 'H' and way[y][x - 1] != 'B' and way[y - 1][x] != 'B'):
+        if way[y - 1][x - 1] == 'H' and way[y][x - 1] != 'B' and way[y - 1][x] != 'B':
+            exitFlag = True
+        else:
+            way[y - 1][x - 1] = '+'
+        nextStep = True
+
+    #Влево-Вниз
+    elif (x - 1 >= 0 and y + 1 < len(way) and way[y][x - 1] != 'B' and way[y + 1][x] != 'B' and way[y + 1][x - 1] == n) or (way[y + 1][x - 1] == 'H' and way[y][x - 1] != 'B' and way[y + 1][x] != 'B'):
+        if way[y + 1][x - 1] == 'H' and way[y][x - 1] != 'B' and way[y + 1][x] != 'B':
+            exitFlag = True
+        else:
+            way[y + 1][x - 1] = '+'
+        nextStep = True
+
+    #Вправо-Вверх
+    elif (x + 1 < len(way[y]) and y - 1 >= 0 and way[y][x + 1] != 'B' and way[y - 1][x] != 'B' and way[y - 1][x + 1] == n) or (way[y - 1][x + 1] == 'H' and way[y][x + 1] != 'B' and way[y - 1][x] != 'B'):
+        if way[y - 1][x + 1] == 'H' and way[y][x + 1] != 'B' and way[y - 1][x] != 'B':
+            exitFlag = True
+        else:
+            way[y - 1][x + 1] = '+'
+        nextStep = True
+
+    #Вправо-Вниз
+    elif (x + 1 < len(way[y]) and y + 1 < len(way) and way[y][x + 1] != 'B' and way[y + 1][x] != 'B' and way[y + 1][x + 1] == n) or (way[y + 1][x + 1] == 'H' and way[y][x + 1] != 'B' and way[y + 1][x] != 'B'):
+        if way[y + 1][x + 1] == 'H' and way[y][x + 1] != 'B' and way[y + 1][x] != 'B':
+            exitFlag = True
+        else:
+            way[y + 1][x + 1] = '+'
+        nextStep = True
+
+    #Вверх
+    elif (y - 1 >= 0 and way[y - 1][x] != 'B' and way[y - 1][x] == n) or way[y - 1][x] == 'H':
         if way[y - 1][x] == 'H':
             exitFlag = True
         else:
             way[y - 1][x] = '+'
+        nextStep = True
+
+    #Вниз
     elif (y + 1 < len(way) and way[y + 1][x] != 'B' and way[y + 1][x] == n) or way[y + 1][x] == 'H':
         if way[y + 1][x] == 'H':
             exitFlag = True
         else:
             way[y + 1][x] = '+'
+        nextStep = True
+
+    #Влево
     elif (x - 1 >= 0 and way[y][x - 1] != 'B' and way[y][x - 1] == n) or way[y][x - 1] == 'H':
         if way[y][x - 1] == 'H':
             exitFlag = True
         else:
             way[y][x - 1] = '+'
+        nextStep = True
+
+    #Вправо
     elif (x + 1 < len(way[y]) and way[y][x + 1] != 'B' and way[y][x + 1] == n) or way[y][x + 1] == 'H':
         if way[y][x + 1] == 'H':
             exitFlag = True
         else:
             way[y][x + 1] = '+'
-    return exitFlag
+        nextStep = True
+
+    return exitFlag, nextStep
 

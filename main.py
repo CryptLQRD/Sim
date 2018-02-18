@@ -27,7 +27,7 @@ BACKGROUND_COLOR = "#003300"
 #INFO_STRING_COLOR = "#006000"
 #PLAY = True    # Включить\Выключить управление игроком
 #REPEAT = False # Включить\Выключить повторние игры с начала
-levelName = 'lvl1.txt' #Название уровня
+levelName = 'lvl3.txt' #Название уровня
 FILE_DIR = os.path.dirname(__file__)
 
 
@@ -199,7 +199,7 @@ def main():
     alg.algWaveFindExit(hero, way)
     #Выводим карту уровня
     #maps.clearNumberFromMap(way)
-    print ("Карта уровня:")
+    #print ("Карта уровня:")
     #for row in way:
     #    for elem in row:
     #        print(elem, end=' ')
@@ -233,7 +233,7 @@ def main():
                 maps.clearMap(way) #Очищаем карту от предыдущих записей
                 maps.printInfo(hero, way) #Выводим карту на экран
                 alg.algWaveFindExit(hero, way) #Прокладываем новый маршрут до конечной точки
-                maps.clearNumberFromMap(way) #Очищаем карту от всех прочих путей не вошедших в итоговый маршрут
+                #maps.clearNumberFromMap(way) #Очищаем карту от всех прочих путей не вошедших в итоговый маршрут
                 startTime = datetime.datetime.now()
             else:
                 raise SystemExit("QUIT")
