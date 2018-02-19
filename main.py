@@ -27,7 +27,7 @@ BACKGROUND_COLOR = "#003300"
 #INFO_STRING_COLOR = "#006000"
 #PLAY = True    # Включить\Выключить управление игроком
 #REPEAT = False # Включить\Выключить повторние игры с начала
-levelName = 'lvl3.txt' #Название уровня
+levelName = 'lvl1.txt' #Название уровня
 FILE_DIR = os.path.dirname(__file__)
 
 
@@ -164,6 +164,8 @@ def main():
     hero.myPosX = int(hero.startX / 32)
     hero.myPosY = int(hero.startY / 32)
 
+    amountBigEnergy = 0
+
     x=y=0 # координаты
     for row in level: # вся строка
         for col in row: # каждый символ
@@ -183,6 +185,9 @@ def main():
                 platforms.append(be)
                 animatedEntities.add(be)
                 way[int(y / 32)][int(x / 32)] = 'E' #Если есть данный блок, то заполняем массив E
+                amountBigEnergy += 1 # Запоминаем кол-во энергий на карте
+                blocks.BigEnergy.myPosX = int(x/32)
+                blocks.BigEnergy.myPosY = int(y/32)
             if col == "W":
                 pr = blocks.Exit(x,y)
                 entities.add(pr)
@@ -196,7 +201,10 @@ def main():
         y += blocks.PLATFORM_HEIGHT    #то же самое и с высотой
         x = 0                   #на каждой новой строчке начинаем с нуля
 
-    alg.algWaveFindExit(hero, way)
+    if (amountBigEnergy == 0):
+        alg.algWaveFindExit('W', hero, way)
+    else:
+        alg.algWaveFindExit('E', hero, way)
     #Выводим карту уровня
     #maps.clearNumberFromMap(way)
     #print ("Карта уровня:")
@@ -230,9 +238,19 @@ def main():
                 hero.winner = False # Возвращаем стартовое значение поля победы
                 hero.live = 3       # Возвращаем стартовое значение жизней
                 hero.score = 0      # Возвращаем стартовое значение очков
-                maps.clearMap(way) #Очищаем карту от предыдущих записей
-                maps.printInfo(hero, way) #Выводим карту на экран
-                alg.algWaveFindExit(hero, way) #Прокладываем новый маршрут до конечной точки
+                maps.clearMap(way)  #Очищаем карту от предыдущих записей
+                blocks.BigEnergy.teleportingSpecial(be, 1, 1, platforms, True, way)
+                blocks.BigEnergy.myPosX = int(be.rect.x / 32)
+                blocks.BigEnergy.myPosY = int(be.rect.y / 32)
+                way[int(be.rect.y / 32)][int(be.rect.x / 32)] = 'E'
+                amountBigEnergy = maps.amountBigEnerge(way)
+                if (amountBigEnergy == 0):
+                    print('Прокладываю до W')
+                    alg.algWaveFindExit('W', hero, way) #Прокладываем новый маршрут до конечной точки
+                else:
+                    print('Прокладываю до E')
+                    alg.algWaveFindExit('E', hero, way) #Прокладываем новый маршрут до конечной точки
+                #maps.printInfo(hero, way)  # Выводим карту на экран
                 #maps.clearNumberFromMap(way) #Очищаем карту от всех прочих путей не вошедших в итоговый маршрут
                 startTime = datetime.datetime.now()
             else:
@@ -279,9 +297,21 @@ def main():
                 #    lS = False
 
         if not PLAY:
+            #if checkAmountEnergy == True:
+            if amountBigEnergy > 0:
+                bigEnergyCounter = maps.amountBigEnerge(way)
+            if bigEnergyCounter != amountBigEnergy and amountBigEnergy > 0:
+                maps.clearMap(way) # Очищаем карту, чтобы можно было проложить новый маршрут до другого объекта
+                if bigEnergyCounter == 0:
+                    print('Прокладываю до W')
+                    alg.algWaveFindExit('W', hero, way)
+                else:
+                    print('Прокладываю до E')
+                    alg.algWaveFindExit('E', hero, way)
+                amountBigEnergy -= 1 # Уменьшаем общее кол-во энергий
             if moveTime <= 0: # если перемещение героя в планируемую точку закончилось, вычисляем следующее движение
-                left, right, up, down, moveTime = alg.algWave(hero, way)
-                #left, right, up, down, moveTime = alg.algRandom(hero, way)
+                #left, right, up, down, moveTime = alg.algWave(hero, way)
+                left, right, up, down, moveTime = alg.algRandom(hero, way)
                 #print ("Время движения: " + str(moveTime))
             else:
                 moveTime -= 1

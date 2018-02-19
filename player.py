@@ -89,7 +89,7 @@ class Player(sprite.Sprite): # Класс игрока
                         self.winner = True # победили!!!
                         self.teleporting(self.startX, self.startY)
                 elif isinstance(p, blocks.BigEnergy): # если коснулись энергии
-                        blocks.BigEnergy.teleporting(p, 32 * random.randint(1, 34), 32 * random.randint(1, 22), platforms, True)
+                        blocks.BigEnergy.teleporting(p, -160, 32 * random.randint(1, 7), platforms, False)
                         self.score += 1
                         #del(p)
                         #blocks.BigEnergy.kill(p) # убирает объект, но как бы остается на месте

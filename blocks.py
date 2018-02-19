@@ -5,6 +5,7 @@ from pygame import *
 import os
 import pyganim
 import random
+from typing import List
 
 PLATFORM_WIDTH = 32
 PLATFORM_HEIGHT = 32
@@ -77,6 +78,8 @@ class BlockTeleport(Platform): #Класс объекта "Портал теле
 class BigEnergy(Platform): #Класс объекта "Энергия"
     def __init__(self, x, y):
         Platform.__init__(self, x, y)
+        self.myPosX = -1 #Позиция X портала в массиве
+        self.myPosY = -1 #Позиция Y портала в массиве
         #self.rect = Rect(x, y, PLATFORM_WIDTH, PLATFORM_HEIGHT)
         boltAnim = []
         for anim in ANIMATION_BIGENERGY:
@@ -103,6 +106,18 @@ class BigEnergy(Platform): #Класс объекта "Энергия"
             if sprite.collide_rect(self, p) and self != p:  # если с чем-то или кем-то столкнулись
                 #print("Выбранная позиция занята!  (Ширина: " + str(self.rect.x) + ")   (Высота: " + str(self.rect.y) + ")")
                 BigEnergy.teleporting(self, 32 * random.randint(1, LevelWidth), 32 * random.randint(1, LevelHeight), platforms, True)
+
+    def teleportingSpecial(self, goX, goY, platforms, Random, way: List[List[int]]):
+        if Random == True: #Если True телепортируем себя на случайне координаты в пределах уровня
+            self.rect.x = 32 * random.randint(2, LevelWidth-1)
+            self.rect.y = 32 * random.randint(2, LevelHeight-1)
+        else: #иначе телепортируем себя на выбранные координаты
+            self.rect.x = goX
+            self.rect.y = goY
+        print("Телепортация энергии... Ширина: " + str(self.rect.x) + "   Высота: " + str(self.rect.y))
+        self.collide(platforms)
+
+
 
 
 

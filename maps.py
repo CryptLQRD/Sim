@@ -26,10 +26,19 @@ def printInfo (hero, way: List[List[int]]):
     print("Позиция  ГЕРОЯ  в массиве  X: " + str(hero.myPosX) + "  Y: " + str(hero.myPosY))
     print("Позиция ПОРТАЛА в массиве  X: " + str(blocks.Exit.myPosX)  + "  Y: " + str(blocks.Exit.myPosY))
 
+def amountBigEnerge (way: List[List[int]]):
+    bigEnergyCounter = 0
+    for i in range(len(way)):
+        for j in range(len(way[i])):
+            if way[i][j] == 'E':
+                bigEnergyCounter += 1
+    #print("Число больших энергий: = " + str(bigEnergyCounter))
+    return bigEnergyCounter
+
 def clearMap (way: List[List[int]]):
     for i in range(len(way)):
         for j in range(len(way[i])):
-            if way[i][j] != 'B' and way[i][j] != 'E' and way[i][j] != 'W' and way[i][j] != 'H' and way[i][j] != 'P':
+            if way[i][j] != 'B' and way[i][j] != 'W' and way[i][j] != 'H' and way[i][j] != 'P': #and way[i][j] != 'E'
                 way[i][j] = 0
             #print(way[i][j], end=' ')
 
