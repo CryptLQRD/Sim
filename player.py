@@ -7,6 +7,7 @@ import pyganim
 import monsters
 import os
 import random
+import maps
 from typing import List
 
 MOVE_SPEED = 8

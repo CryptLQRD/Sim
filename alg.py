@@ -194,6 +194,7 @@ def algWaveFindExit (symbol, hero, way: List[List[int]], elemBE): #, be: List[in
             for j in range(len(way[i])):
                 if way[i][j] == n:
                     exitFlag = findWays(i, j, n+1, exitFlag, 0, symbol, way) # посылаю координаты y и x; следующее число; проверку на конец алг; знак который буду менять; что ищу; массив
+        #maps.printInfo(hero, way)
         if exitFlag != True:
             n += 1
 
@@ -224,6 +225,7 @@ def algWaveFindExit (symbol, hero, way: List[List[int]], elemBE): #, be: List[in
                     else: exitFlag, nextStep = findBackWay(i, j, '+',exitFlag, n, 'H', nextStep, way)
             if nextStep == True:
                 break
+        maps.printInfo(hero, way)
         nextStep = False
         if exitFlag != True:
             n -= 1

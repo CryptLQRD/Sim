@@ -27,7 +27,7 @@ BACKGROUND_COLOR = "#003300"
 #INFO_STRING_COLOR = "#006000"
 #PLAY = True    # Включить\Выключить управление игроком
 #REPEAT = False # Включить\Выключить повторние игры с начала
-levelName = 'lvl3.txt' #Название уровня
+levelName = 'lvl4.txt' #Название уровня
 FILE_DIR = os.path.dirname(__file__)
 
 
@@ -235,7 +235,7 @@ def main():
     #todayTime = datetime.datetime.today()   #date = todayTime.strftime("%d-%m-%y")   #time = todayTime.strftime("%H-%M-%S")
     startTime = datetime.datetime.now()
     while True: # Основной цикл программы  #not hero.winner:
-        timer.tick(35)
+        timer.tick(50)
         if hero.live <= 0 or hero.winner:
             if hero.live <= 0:
                 print('Поражение!\n')
@@ -316,16 +316,17 @@ def main():
             if amountBigEnergy > 0:
                 bigEnergyCounter = maps.amountBigEnerge(way)
             if bigEnergyCounter != amountBigEnergy and amountBigEnergy > 0: #and hero.energyTP == True:
-                maps.clearMap(way) # Очищаем карту, чтобы можно было проложить новый маршрут до другого объекта
+                maps.clearNumberFromMap(way) # Очищаем карту, чтобы можно было проложить новый маршрут до другого объекта
                 amountBigEnergy -= 1  # Уменьшаем общее кол-во энергий
                 if bigEnergyCounter == 0:
                     print('Прокладываю до W')
-                    alg.algWaveFindExit('W', hero, way, masBE[amountBigEnergy-1])
+                    alg.algWaveFindExit('W', hero, way, 0) #amountBigEnergy-1
                 else:
                     print('Прокладываю до E')
-                    alg.algWaveFindExit('E', hero, way, masBE[amountBigEnergy-1])
+                    alg.algWaveFindExit('E', hero, way, masBE[amountBigEnergy-1]) #amountBigEnergy-1
             if moveTime <= 0: # если перемещение героя в планируемую точку закончилось, вычисляем следующее движение
                 left, right, up, down, moveTime = alg.algWave(hero, way)
+                maps.clearNumberFromMap(way) # очищаю карту от всех путей и оставляю только проложенный
                 #left, right, up, down, moveTime = alg.algRandom(hero, way)
                 #print ("Время движения: " + str(moveTime))
             else:
