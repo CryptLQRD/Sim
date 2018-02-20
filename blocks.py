@@ -107,6 +107,10 @@ class BigEnergy(Platform): #Класс объекта "Энергия"
                 #print("Выбранная позиция занята!  (Ширина: " + str(self.rect.x) + ")   (Высота: " + str(self.rect.y) + ")")
                 BigEnergy.teleporting(self, 32 * random.randint(1, LevelWidth), 32 * random.randint(1, LevelHeight), platforms, True)
 
+    def myCoord(self):
+        self.myPosX = int(self.rect.x/32)
+        self.myPosY = int(self.rect.y/32)
+
     def teleportingSpecial(self, goX, goY, platforms, Random, way: List[List[int]]):
         if Random == True: #Если True телепортируем себя на случайне координаты в пределах уровня
             self.rect.x = 32 * random.randint(2, LevelWidth-1)

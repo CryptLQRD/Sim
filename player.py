@@ -7,6 +7,7 @@ import pyganim
 import monsters
 import os
 import random
+from typing import List
 
 MOVE_SPEED = 8
 WIDTH = 32 #24
@@ -38,7 +39,7 @@ class Player(sprite.Sprite): # Класс игрока
         #self.image.set_colorkey(Color(COLOR)) # делаем фон прозрачным
 
 
-    def updatePlayer(self,  left, right, up, down, platforms): # Метод "передвижения"
+    def updatePlayer(self,  left, right, up, down, platforms, way: List[List[int]]): # Метод "передвижения"
         if left:
             self.xvel = -MOVE_SPEED # Лево = x- n
             self.image = image.load("%s/player/0_24-32.png" % ICON_DIR)
@@ -70,30 +71,35 @@ class Player(sprite.Sprite): # Класс игрока
         self.onGround = False; # Мы не знаем, когда мы на земле...   
         
         self.rect.x += self.xvel # переносим свои положение на xvel
-        self.collide(self.xvel, 0, platforms)
+        self.collide(self.xvel, 0, platforms, way)
         #print("Позиция X: " + str(self.rect.x))
 
         self.rect.y += self.yvel # переносим свои положение на yvel
-        self.collide(0, self.yvel, platforms)
+        self.collide(0, self.yvel, platforms, way)
         #print("Позиция Y: " + str(self.rect.y))
 
 
-    def collide(self, xvel, yvel, platforms): # Метод проверки на столкновения с другими объектами
+    def collide(self, xvel, yvel, platforms, way: List[List[int]]): # Метод проверки на столкновения с другими объектами
         for p in platforms:
             if sprite.collide_rect(self, p): # если есть пересечение платформы с игроком
                 if isinstance(p, blocks.BlockDie) or isinstance(p, monsters.Monster): # если пересакаемый блок - blocks.BlockDie или Monster
-                        self.die()# умираем
+                    self.die()# умираем
                 elif isinstance(p, blocks.BlockTeleport):
-                        self.teleporting(p.goX, p.goY)
+                    self.teleporting(p.goX, p.goY)
                 elif isinstance(p, blocks.Exit): # если коснулись блока выхода
-                        self.winner = True # победили!!!
-                        self.teleporting(self.startX, self.startY)
+                    self.winner = True # победили!!!
+                    self.teleporting(self.startX, self.startY)
                 elif isinstance(p, blocks.BigEnergy): # если коснулись энергии
-                        blocks.BigEnergy.teleporting(p, -160, 32 * random.randint(1, 7), platforms, False)
-                        self.score += 1
-                        #del(p)
-                        #blocks.BigEnergy.kill(p) # убирает объект, но как бы остается на месте
-
+                    blocks.BigEnergy.teleporting(p, -160, 32 * random.randint(1, 15), platforms, True)
+                    self.score += 1
+                    self.energyTP = True
+                    #if (self.rect.x == p.rect.x and self.rect.y == p.rect.y) or (blocks.Exit.myPosX == int(p.rect.x/32) and blocks.Exit.myPosY == int(p.rect.y/32)):
+                    #    blocks.BigEnergy.teleporting(p, -160, 32 * random.randint(1, 15), platforms, True)
+                    #blocks.BigEnergy.myCoord(p)
+                    #maps.clearMap(way)
+                    #way[int(p.rect.y / 32)][int(p.rect.x / 32)] = 'E'
+                    #del(p)
+                    #blocks.BigEnergy.kill(p) # убирает объект, но как бы остается на месте
 
                 else:
                     if xvel > 0:                      # если движется вправо

@@ -27,7 +27,7 @@ BACKGROUND_COLOR = "#003300"
 #INFO_STRING_COLOR = "#006000"
 #PLAY = True    # Включить\Выключить управление игроком
 #REPEAT = False # Включить\Выключить повторние игры с начала
-levelName = 'lvl1.txt' #Название уровня
+levelName = 'lvl3.txt' #Название уровня
 FILE_DIR = os.path.dirname(__file__)
 
 
@@ -159,12 +159,13 @@ def main():
     blocks.levelSize(total_level_width, total_level_height)  # Определение размера уровня для метода teleporting класса BigEnergy
 
     way = [[0] * len(level[0]) for i in range(len(level))] # Создаем карту уровня для алгоритма
+    masBE = []  # Создаем массив для каждого элемента BigEnergy
 
     way[int(hero.startY / 32)][int(hero.startX / 32)] = 'H' # Добавляем расположение героя на карту (в массив)
     hero.myPosX = int(hero.startX / 32)
     hero.myPosY = int(hero.startY / 32)
 
-    amountBigEnergy = 0
+    amountBigEnergy = 0 # Общее кол-во Больших энергий на карте
 
     x=y=0 # координаты
     for row in level: # вся строка
@@ -185,14 +186,17 @@ def main():
                 platforms.append(be)
                 animatedEntities.add(be)
                 way[int(y / 32)][int(x / 32)] = 'E' #Если есть данный блок, то заполняем массив E
+                masBE.append(be)
+                blocks.BigEnergy.myCoord(be)
                 amountBigEnergy += 1 # Запоминаем кол-во энергий на карте
-                blocks.BigEnergy.myPosX = int(x/32)
-                blocks.BigEnergy.myPosY = int(y/32)
+                #blocks.Platform.rect = (be, )
+                #blocks.BigEnergy.be.myPosX = int(x/32)
+                #blocks.BigEnergy.be.myPosY = int(y/32)
             if col == "W":
-                pr = blocks.Exit(x,y)
-                entities.add(pr)
-                platforms.append(pr)
-                animatedEntities.add(pr)
+                ex = blocks.Exit(x,y)
+                entities.add(ex)
+                platforms.append(ex)
+                animatedEntities.add(ex)
                 way[int(y / 32)][int(x / 32)] = 'W' # Если есть данный блок, то заполняем массив W
                 blocks.Exit.myPosX = int(x/32)
                 blocks.Exit.myPosY = int(y/32)
@@ -201,10 +205,19 @@ def main():
         y += blocks.PLATFORM_HEIGHT    #то же самое и с высотой
         x = 0                   #на каждой новой строчке начинаем с нуля
 
+    #for i in masBE:
+        #blocks.BigEnergy.myCoord(i)
+        #x = i.myPosX#hero.myPosX
+        #y = i.myPosY#hero.myPosY
+    #    print('BigEnergy.myPosX: ' + str(i.myPosX) + '   BigEnergy.myPosY: ' + str(i.myPosY))
+    bigEnergyCounter = maps.amountBigEnerge(way)
     if (amountBigEnergy == 0):
-        alg.algWaveFindExit('W', hero, way)
+        alg.algWaveFindExit('W', hero, way, 0)
     else:
-        alg.algWaveFindExit('E', hero, way)
+        alg.algWaveFindExit('E', hero, way, masBE[amountBigEnergy-1])
+
+
+
     #Выводим карту уровня
     #maps.clearNumberFromMap(way)
     #print ("Карта уровня:")
@@ -222,7 +235,7 @@ def main():
     #todayTime = datetime.datetime.today()   #date = todayTime.strftime("%d-%m-%y")   #time = todayTime.strftime("%H-%M-%S")
     startTime = datetime.datetime.now()
     while True: # Основной цикл программы  #not hero.winner:
-        timer.tick(40)
+        timer.tick(35)
         if hero.live <= 0 or hero.winner:
             if hero.live <= 0:
                 print('Поражение!\n')
@@ -239,17 +252,19 @@ def main():
                 hero.live = 3       # Возвращаем стартовое значение жизней
                 hero.score = 0      # Возвращаем стартовое значение очков
                 maps.clearMap(way)  #Очищаем карту от предыдущих записей
-                blocks.BigEnergy.teleportingSpecial(be, 1, 1, platforms, True, way)
-                blocks.BigEnergy.myPosX = int(be.rect.x / 32)
-                blocks.BigEnergy.myPosY = int(be.rect.y / 32)
-                way[int(be.rect.y / 32)][int(be.rect.x / 32)] = 'E'
+                for be in masBE:
+                    while (hero.rect.x == be.rect.x and hero.rect.y == be.rect.y) or (ex.rect.x == be.rect.x and ex.rect.y == be.rect.y):
+                        blocks.BigEnergy.teleportingSpecial(be, 1, 1, platforms, True, way)
+                    blocks.BigEnergy.myCoord(be)
+                    way[int(be.rect.y / 32)][int(be.rect.x / 32)] = 'E'
                 amountBigEnergy = maps.amountBigEnerge(way)
                 if (amountBigEnergy == 0):
                     print('Прокладываю до W')
-                    alg.algWaveFindExit('W', hero, way) #Прокладываем новый маршрут до конечной точки
+                    alg.algWaveFindExit('W', hero, way, 0) #Прокладываем новый маршрут до конечной точки
                 else:
                     print('Прокладываю до E')
-                    alg.algWaveFindExit('E', hero, way) #Прокладываем новый маршрут до конечной точки
+                    alg.algWaveFindExit('E', hero, way, masBE[amountBigEnergy-1]) #Прокладываем новый маршрут до конечной точки
+
                 #maps.printInfo(hero, way)  # Выводим карту на экран
                 #maps.clearNumberFromMap(way) #Очищаем карту от всех прочих путей не вошедших в итоговый маршрут
                 startTime = datetime.datetime.now()
@@ -300,18 +315,18 @@ def main():
             #if checkAmountEnergy == True:
             if amountBigEnergy > 0:
                 bigEnergyCounter = maps.amountBigEnerge(way)
-            if bigEnergyCounter != amountBigEnergy and amountBigEnergy > 0:
+            if bigEnergyCounter != amountBigEnergy and amountBigEnergy > 0: #and hero.energyTP == True:
                 maps.clearMap(way) # Очищаем карту, чтобы можно было проложить новый маршрут до другого объекта
+                amountBigEnergy -= 1  # Уменьшаем общее кол-во энергий
                 if bigEnergyCounter == 0:
                     print('Прокладываю до W')
-                    alg.algWaveFindExit('W', hero, way)
+                    alg.algWaveFindExit('W', hero, way, masBE[amountBigEnergy-1])
                 else:
                     print('Прокладываю до E')
-                    alg.algWaveFindExit('E', hero, way)
-                amountBigEnergy -= 1 # Уменьшаем общее кол-во энергий
+                    alg.algWaveFindExit('E', hero, way, masBE[amountBigEnergy-1])
             if moveTime <= 0: # если перемещение героя в планируемую точку закончилось, вычисляем следующее движение
-                #left, right, up, down, moveTime = alg.algWave(hero, way)
-                left, right, up, down, moveTime = alg.algRandom(hero, way)
+                left, right, up, down, moveTime = alg.algWave(hero, way)
+                #left, right, up, down, moveTime = alg.algRandom(hero, way)
                 #print ("Время движения: " + str(moveTime))
             else:
                 moveTime -= 1
@@ -320,7 +335,7 @@ def main():
         animatedEntities.update()  # показываеaм анимацию
         monsters.update(platforms) # передвигаем всех монстров
         camera.update(hero) # центризируем камеру относительно персонажа
-        hero.updatePlayer(left, right, up, down, platforms) # передвижение игроком
+        hero.updatePlayer(left, right, up, down, platforms, way) # передвижение игроком
         #entities.draw(window) # отображение
         for e in entities:
             window.blit(e.image, camera.apply(e))

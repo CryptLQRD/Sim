@@ -179,7 +179,7 @@ def algWave (hero, way: List[List[int]]):
     else: moveTime = 3
     return left, right, up, down, moveTime
 
-def algWaveFindExit (symbol, hero, way: List[List[int]]):
+def algWaveFindExit (symbol, hero, way: List[List[int]], elemBE): #, be: List[int]):
     #Сперва ищем все пути до портала
     n = 1
     #number = 0
@@ -203,9 +203,10 @@ def algWaveFindExit (symbol, hero, way: List[List[int]]):
     exitFlag = False
     nextStep = False
     if symbol == 'E':
-        x = blocks.BigEnergy.myPosX#hero.myPosX
-        y = blocks.BigEnergy.myPosY#hero.myPosY
-        print('BigEnergy.myPosX: ' + str(blocks.BigEnergy.myPosX) + '   BigEnergy.myPosY: ' + str(blocks.BigEnergy.myPosY))
+        #for i in masBE:
+        x = elemBE.myPosX#hero.myPosX
+        y = elemBE.myPosY#hero.myPosY
+        print('BigEnergy.myPosX: ' + str(elemBE.myPosX) + '   BigEnergy.myPosY: ' + str(elemBE.myPosY))
     elif symbol == 'W':
         x = blocks.Exit.myPosX#hero.myPosX
         y = blocks.Exit.myPosY#hero.myPosY
