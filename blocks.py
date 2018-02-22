@@ -35,7 +35,7 @@ def levelSize(total_level_width, total_level_height): #Функция для о�
     global LevelWidth
     LevelWidth = int(total_level_width / 32)
     LevelHeight = int(total_level_height / 32)
-    #print("Размер уровня:   Ширина: " + str(LevelWidth) + "   Высота: " + str(LevelHeight))
+    print("Размер уровня:   Ширина: " + str(LevelWidth) + "   Высота: " + str(LevelHeight))
 
 class Platform(sprite.Sprite): #Класс объекта "Платформа"
     def __init__(self, x, y):
@@ -93,8 +93,8 @@ class BigEnergy(Platform): #Класс объекта "Энергия"
 
     def teleporting(self, goX, goY, platforms, Random):
         if Random == True: #Если True телепортируем себя на случайне координаты в пределах уровня
-            self.rect.x = 32 * random.randint(2, LevelWidth-1)
-            self.rect.y = 32 * random.randint(2, LevelHeight-1)
+            self.rect.x = 32 * random.randint(1, LevelWidth-2)
+            self.rect.y = 32 * random.randint(1, LevelHeight-2)
         else: #иначе телепортируем себя на выбранные координаты
             self.rect.x = goX
             self.rect.y = goY
@@ -105,24 +105,11 @@ class BigEnergy(Platform): #Класс объекта "Энергия"
         for p in platforms:
             if sprite.collide_rect(self, p) and self != p:  # если с чем-то или кем-то столкнулись
                 #print("Выбранная позиция занята!  (Ширина: " + str(self.rect.x) + ")   (Высота: " + str(self.rect.y) + ")")
-                BigEnergy.teleporting(self, 32 * random.randint(1, LevelWidth), 32 * random.randint(1, LevelHeight), platforms, True)
+                BigEnergy.teleporting(self, 32 * random.randint(1, LevelWidth-2), 32 * random.randint(1, LevelHeight-2), platforms, True)
 
     def myCoord(self):
         self.myPosX = int(self.rect.x/32)
         self.myPosY = int(self.rect.y/32)
-
-    def teleportingSpecial(self, goX, goY, platforms, Random, way: List[List[int]]):
-        if Random == True: #Если True телепортируем себя на случайне координаты в пределах уровня
-            self.rect.x = 32 * random.randint(2, LevelWidth-1)
-            self.rect.y = 32 * random.randint(2, LevelHeight-1)
-        else: #иначе телепортируем себя на выбранные координаты
-            self.rect.x = goX
-            self.rect.y = goY
-        print("Телепортация энергии... Ширина: " + str(self.rect.x) + "   Высота: " + str(self.rect.y))
-        self.collide(platforms)
-
-
-
 
 
 class Exit(Platform): #Класс объекта "Портал-выход"

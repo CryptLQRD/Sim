@@ -15,11 +15,12 @@ import datetime
 import maps
 import time as tm
 from time import sleep
+import random
 
 
 #Объявляем переменные
-WIN_WIDTH = 1024#672  #800   #Ширина создаваемого окна
-WIN_HEIGHT = 800#384 #640   # Высота
+WIN_WIDTH = 800#672  #1024   #Ширина создаваемого окна
+WIN_HEIGHT = 640#384 #800   # Высота
 DISPLAY = (WIN_WIDTH, WIN_HEIGHT) # Группируем ширину и высоту в одну переменную
 BACKGROUND_COLOR = "#003300"
 #INFO_STRING_WIDTH = 165 # Ширина
@@ -27,7 +28,7 @@ BACKGROUND_COLOR = "#003300"
 #INFO_STRING_COLOR = "#006000"
 #PLAY = True    # Включить\Выключить управление игроком
 #REPEAT = False # Включить\Выключить повторние игры с начала
-levelName = 'lvl4.txt' #Название уровня
+levelName = 'lvl3.txt' #Название уровня
 FILE_DIR = os.path.dirname(__file__)
 
 
@@ -214,7 +215,7 @@ def main():
     if (amountBigEnergy == 0):
         alg.algWaveFindExit('W', hero, way, 0)
     else:
-        alg.algWaveFindExit('E', hero, way, masBE[amountBigEnergy-1])
+        alg.algWaveFindExit('E', hero, way, masBE) #[amountBigEnergy-1])
 
 
 
@@ -235,7 +236,7 @@ def main():
     #todayTime = datetime.datetime.today()   #date = todayTime.strftime("%d-%m-%y")   #time = todayTime.strftime("%H-%M-%S")
     startTime = datetime.datetime.now()
     while True: # Основной цикл программы  #not hero.winner:
-        timer.tick(50)
+        timer.tick(40)
         if hero.live <= 0 or hero.winner:
             if hero.live <= 0:
                 print('Поражение!\n')
@@ -251,19 +252,20 @@ def main():
                 hero.winner = False # Возвращаем стартовое значение поля победы
                 hero.live = 3       # Возвращаем стартовое значение жизней
                 hero.score = 0      # Возвращаем стартовое значение очков
-                maps.clearMap(way)  #Очищаем карту от предыдущих записей
+                maps.clearMap(way)  # Очищаем карту от предыдущих путей и энергий
                 for be in masBE:
+                    blocks.BigEnergy.teleporting(be, 32, 32 * random.randint(4, 5), platforms, True)
                     while (hero.rect.x == be.rect.x and hero.rect.y == be.rect.y) or (ex.rect.x == be.rect.x and ex.rect.y == be.rect.y):
-                        blocks.BigEnergy.teleportingSpecial(be, 1, 1, platforms, True, way)
+                        blocks.BigEnergy.teleporting(be, 32, 32 * random.randint(4, 5), platforms, True)
                     blocks.BigEnergy.myCoord(be)
                     way[int(be.rect.y / 32)][int(be.rect.x / 32)] = 'E'
                 amountBigEnergy = maps.amountBigEnerge(way)
                 if (amountBigEnergy == 0):
-                    print('Прокладываю до W')
+                    print('Прокладываю путь до W')
                     alg.algWaveFindExit('W', hero, way, 0) #Прокладываем новый маршрут до конечной точки
                 else:
-                    print('Прокладываю до E')
-                    alg.algWaveFindExit('E', hero, way, masBE[amountBigEnergy-1]) #Прокладываем новый маршрут до конечной точки
+                    print('Прокладываю путь до E')
+                    alg.algWaveFindExit('E', hero, way, masBE) #[amountBigEnergy-1]) #Прокладываем новый маршрут до конечной точки
 
                 #maps.printInfo(hero, way)  # Выводим карту на экран
                 #maps.clearNumberFromMap(way) #Очищаем карту от всех прочих путей не вошедших в итоговый маршрут
@@ -312,26 +314,27 @@ def main():
                 #    lS = False
 
         if not PLAY:
-            #if checkAmountEnergy == True:
-            if amountBigEnergy > 0:
-                bigEnergyCounter = maps.amountBigEnerge(way)
-            if bigEnergyCounter != amountBigEnergy and amountBigEnergy > 0: #and hero.energyTP == True:
-                maps.clearNumberFromMap(way) # Очищаем карту, чтобы можно было проложить новый маршрут до другого объекта
-                amountBigEnergy -= 1  # Уменьшаем общее кол-во энергий
-                if bigEnergyCounter == 0:
-                    print('Прокладываю до W')
-                    alg.algWaveFindExit('W', hero, way, 0) #amountBigEnergy-1
-                else:
-                    print('Прокладываю до E')
-                    alg.algWaveFindExit('E', hero, way, masBE[amountBigEnergy-1]) #amountBigEnergy-1
+            if moveTime == 0: #???
+                if amountBigEnergy > 0: # Если энергии, которые присутствовали на карте ещё не собраны
+                    bigEnergyCounter = maps.amountBigEnerge(way) # тогда сверяем их с текущим количеством на карте
+                    print('BigEnergyCounter: ' + str(bigEnergyCounter) + '  ;  AmountBigEnergy: ' + str(amountBigEnergy))
+                if (bigEnergyCounter != amountBigEnergy and amountBigEnergy > 0): #or (bigEnergyCounter == 0): #если кол-во на карте и общее различается, то прокладываем маршрут до следующей цели
+                    maps.clearWayNumFromMap(way) # Очищаем карту, чтобы можно было проложить новый маршрут до другого объекта
+                    amountBigEnergy -= 1  # Уменьшаем общее кол-во энергий
+                    if bigEnergyCounter == 0: # если энергии на карте закончились, тогда строим путь к выходу
+                        print('Прокладываю путь до W')
+                        alg.algWaveFindExit('W', hero, way, 0) #amountBigEnergy-1
+                    else:
+                        print('Прокладываю путь до E')
+                        alg.algWaveFindExit('E', hero, way, masBE)#[amountBigEnergy-1])
+            #else: print('Проскочил')
             if moveTime <= 0: # если перемещение героя в планируемую точку закончилось, вычисляем следующее движение
                 left, right, up, down, moveTime = alg.algWave(hero, way)
-                maps.clearNumberFromMap(way) # очищаю карту от всех путей и оставляю только проложенный
+                maps.clearNumFromMap(way) # очищаю карту от всех возможных путей(чисел) и оставляю только проложенный (+) (для удобства отображения)
                 #left, right, up, down, moveTime = alg.algRandom(hero, way)
                 #print ("Время движения: " + str(moveTime))
             else:
                 moveTime -= 1
-
         window.blit(screen, (0,0)) # Каждую итерацию необходимо всё перерисовывать экран
         animatedEntities.update()  # показываеaм анимацию
         monsters.update(platforms) # передвигаем всех монстров
@@ -342,13 +345,8 @@ def main():
             window.blit(e.image, camera.apply(e))
         window.blit(score_font.render("Счёт: " + str(hero.score), 1, (255, 255, 255)), (1, 1))
         window.blit(score_font.render("Жизни: " + str(hero.live), 1, (255, 255, 255)), (WIN_WIDTH-165, 1))
-        # перерисовываем строку информации
-        #info_string.clear()
-
 
         pygame.display.update()     # обновление и вывод всех изменений на экран
-
-
 
 
 level = []

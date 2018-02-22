@@ -172,14 +172,13 @@ def algWave (hero, way: List[List[int]]):
         left = True
         down = True
         print("Left-Down")
-
     moveOn(left, right, up, down, hero, way)
     if moveTimeFlag == True:
         moveTime = 0
     else: moveTime = 3
     return left, right, up, down, moveTime
 
-def algWaveFindExit (symbol, hero, way: List[List[int]], elemBE): #, be: List[int]):
+def algWaveFindExit (symbol, hero, way: List[List[int]], masBE: List[int]): #elemBE
     #Сперва ищем все пути до портала
     n = 1
     #number = 0
@@ -203,16 +202,25 @@ def algWaveFindExit (symbol, hero, way: List[List[int]], elemBE): #, be: List[in
     #print ("Steps of alghoritm: N="+ str(n))
     exitFlag = False
     nextStep = False
-    if symbol == 'E':
+    #if symbol == 'E':
         #for i in masBE:
-        x = elemBE.myPosX#hero.myPosX
-        y = elemBE.myPosY#hero.myPosY
-        print('BigEnergy.myPosX: ' + str(elemBE.myPosX) + '   BigEnergy.myPosY: ' + str(elemBE.myPosY))
+    #    x = elemBE.myPosX
+    #    y = elemBE.myPosY
+    #    print('BigEnergy.myPosX: ' + str(elemBE.myPosX) + '   BigEnergy.myPosY: ' + str(elemBE.myPosY))
+    if symbol == 'E':
+        for be in masBE:
+            if way[be.myPosY-1][be.myPosX] == n or way[be.myPosY][be.myPosX-1] == n or way[be.myPosY -1][be.myPosX-1] == n or way[be.myPosY -1][be.myPosX + 1] == n or way[be.myPosY][be.myPosX+1] == n or way[be.myPosY+1][be.myPosX+1] == n or way[be.myPosY +1][be.myPosX] == n or way[be.myPosY +1][be.myPosX-1] == n:
+                x = be.myPosX
+                y = be.myPosY
+                print('BigEnergy.myPosX: ' + str(be.myPosX) + '   BigEnergy.myPosY: ' + str(be.myPosY))
     elif symbol == 'W':
         x = blocks.Exit.myPosX#hero.myPosX
         y = blocks.Exit.myPosY#hero.myPosY
-    #exitFlag = findWays(y, x, '+', exitFlag, n, 'H', way)
-    exitFlag, nextStep = findBackWay(y, x, '+', exitFlag, n, 'H', nextStep, way)
+    #maps.printInfo(hero, way)
+    if (way[y][x+1] == 'E' or way[y+1][x] == 'E' or way[y][x-1] == 'E' or way[y-1][x] == 'E'):
+        exitFlag = True
+    else: exitFlag, nextStep = findBackWay(y, x, '+', exitFlag, n, 'H', nextStep, way)
+    #maps.printInfo(hero, way)
     n -= 1
     nextStep = False
     while exitFlag != True:
@@ -225,7 +233,7 @@ def algWaveFindExit (symbol, hero, way: List[List[int]], elemBE): #, be: List[in
                     else: exitFlag, nextStep = findBackWay(i, j, '+',exitFlag, n, 'H', nextStep, way)
             if nextStep == True:
                 break
-        maps.printInfo(hero, way)
+        #maps.printInfo(hero, way)
         nextStep = False
         if exitFlag != True:
             n -= 1
