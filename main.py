@@ -28,7 +28,7 @@ BACKGROUND_COLOR = "#003300"
 #INFO_STRING_COLOR = "#006000"
 #PLAY = True    # Включить\Выключить управление игроком
 #REPEAT = False # Включить\Выключить повторние игры с начала
-levelName = 'lvl3.txt' #Название уровня
+levelName = 'lvl1.txt' #Название уровня
 FILE_DIR = os.path.dirname(__file__)
 
 
@@ -319,6 +319,8 @@ def main():
                     bigEnergyCounter = maps.amountBigEnerge(way) # тогда сверяем их с текущим количеством на карте
                     print('BigEnergyCounter: ' + str(bigEnergyCounter) + '  ;  AmountBigEnergy: ' + str(amountBigEnergy))
                 if (bigEnergyCounter != amountBigEnergy and amountBigEnergy > 0): #or (bigEnergyCounter == 0): #если кол-во на карте и общее различается, то прокладываем маршрут до следующей цели
+                    for be in masBE:
+                        blocks.BigEnergy.myCoord(be)
                     maps.clearWayNumFromMap(way) # Очищаем карту, чтобы можно было проложить новый маршрут до другого объекта
                     amountBigEnergy -= 1  # Уменьшаем общее кол-во энергий
                     if bigEnergyCounter == 0: # если энергии на карте закончились, тогда строим путь к выходу

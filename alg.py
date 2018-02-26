@@ -148,7 +148,6 @@ def algWave (hero, way: List[List[int]]):
         down = True
         print("Down")
 
-    #Скорее всего тоже верно
     elif way[hero.myPosY + 1][hero.myPosX + 1] == '+' or way[hero.myPosY + 1][hero.myPosX + 1] == 'W' or way[hero.myPosY + 1][hero.myPosX + 1] == 'E':
         if way[hero.myPosY + 1][hero.myPosX + 1] == 'W': moveTimeFlag = True
         right = True
@@ -178,13 +177,10 @@ def algWave (hero, way: List[List[int]]):
     else: moveTime = 3
     return left, right, up, down, moveTime
 
-def algWaveFindExit (symbol, hero, way: List[List[int]], masBE: List[int]): #elemBE
-    #Сперва ищем все пути до портала
+def algWaveFindExit (symbol, hero, way: List[List[int]], masBE: List[int]):
+    #Сперва ищем все пути до цели
     n = 1
-    #number = 0
     exitFlag = False
-    nextStep = False
-    #print("Позиция  ГЕРОЯ  в массиве  X: " + str(hero.myPosX) + "  Y: " + str(hero.myPosY))
     x = hero.myPosX#blocks.Exit.myPosX#hero.myPosX
     y = hero.myPosY#blocks.Exit.myPosY#hero.myPosY
     exitFlag = findWays(y, x, n, exitFlag, 0, symbol, way)
@@ -193,53 +189,57 @@ def algWaveFindExit (symbol, hero, way: List[List[int]], masBE: List[int]): #ele
             for j in range(len(way[i])):
                 if way[i][j] == n:
                     exitFlag = findWays(i, j, n+1, exitFlag, 0, symbol, way) # посылаю координаты y и x; следующее число; проверку на конец алг; знак который буду менять; что ищу; массив
-        #maps.printInfo(hero, way)
         if exitFlag != True:
             n += 1
-
     #maps.printInfo(hero, way) # Выводим информацию о посланной волне
+
     #Теперь записываем путь для последующего движения
-    #print ("Steps of alghoritm: N="+ str(n))
     exitFlag = False
     nextStep = False
-    #if symbol == 'E':
-        #for i in masBE:
-    #    x = elemBE.myPosX
-    #    y = elemBE.myPosY
-    #    print('BigEnergy.myPosX: ' + str(elemBE.myPosX) + '   BigEnergy.myPosY: ' + str(elemBE.myPosY))
-    if symbol == 'E':
+    if (way[y][x+1] == 'E' or way[y+1][x] == 'E' or way[y][x-1] == 'E' or way[y-1][x] == 'E'):
+        exitFlag = True # Заканчиваем работу алгоритма т.к. энергия уже находится рядом с героем.
+        #maps.printInfo(hero, way)
+    elif symbol == 'E':
+        print("Steps of alghoritm: N=" + str(n))
         for be in masBE:
-            if way[be.myPosY-1][be.myPosX] == n or way[be.myPosY][be.myPosX-1] == n or way[be.myPosY -1][be.myPosX-1] == n or way[be.myPosY -1][be.myPosX + 1] == n or way[be.myPosY][be.myPosX+1] == n or way[be.myPosY+1][be.myPosX+1] == n or way[be.myPosY +1][be.myPosX] == n or way[be.myPosY +1][be.myPosX-1] == n:
+            #if way[be.myPosY-1][be.myPosX] == n or way[be.myPosY][be.myPosX-1] == n or way[be.myPosY -1][be.myPosX-1] == n or way[be.myPosY -1][be.myPosX + 1] == n or way[be.myPosY][be.myPosX+1] == n or way[be.myPosY+1][be.myPosX+1] == n or way[be.myPosY +1][be.myPosX] == n or way[be.myPosY +1][be.myPosX-1] == n:
+            if be.myPosX < 0 or be.myPosY < 0:
+                1 # Ничего не делаем т.к. позиция энергии находится за картой, то мы ее игнорируем
+            elif way[be.myPosY-1][be.myPosX] == n or way[be.myPosY][be.myPosX-1] == n or way[be.myPosY][be.myPosX+1] == n or way[be.myPosY +1][be.myPosX] == n \
+                    or (way[be.myPosY + 1][be.myPosX + 1] == n and way[be.myPosY + 1][be.myPosX] != 'B' and way[be.myPosY][be.myPosX + 1] != 'B') \
+                    or (way[be.myPosY - 1][be.myPosX + 1] == n and way[be.myPosY - 1][be.myPosX] != 'B' and way[be.myPosY][be.myPosX + 1] != 'B') \
+                    or (way[be.myPosY + 1][be.myPosX - 1] == n and way[be.myPosY + 1][be.myPosX] != 'B' and way[be.myPosY][be.myPosX - 1] != 'B') \
+                    or (way[be.myPosY - 1][be.myPosX - 1] == n and way[be.myPosY - 1][be.myPosX] != 'B' and way[be.myPosY][be.myPosX - 1] != 'B'):
                 x = be.myPosX
                 y = be.myPosY
-                print('BigEnergy.myPosX: ' + str(be.myPosX) + '   BigEnergy.myPosY: ' + str(be.myPosY))
+                print('Выбрана начальная точка: BigEnergy.myPosX: ' + str(be.myPosX) + '   BigEnergy.myPosY: ' + str(be.myPosY))
+                #break
+                #maps.printInfo(hero, way)
+        exitFlag, nextStep = findBackWay(y, x, '+', exitFlag, n, 'H', nextStep, way)
     elif symbol == 'W':
-        x = blocks.Exit.myPosX#hero.myPosX
-        y = blocks.Exit.myPosY#hero.myPosY
-    #maps.printInfo(hero, way)
-    if (way[y][x+1] == 'E' or way[y+1][x] == 'E' or way[y][x-1] == 'E' or way[y-1][x] == 'E'):
-        exitFlag = True
-    else: exitFlag, nextStep = findBackWay(y, x, '+', exitFlag, n, 'H', nextStep, way)
-    #maps.printInfo(hero, way)
+        x = blocks.Exit.myPosX
+        y = blocks.Exit.myPosY
+        exitFlag, nextStep = findBackWay(y, x, '+', exitFlag, n, 'H', nextStep, way)
+
     n -= 1
     nextStep = False
     while exitFlag != True:
         for i in range(len(way)):
             for j in range(len(way[i])):
                 if way[i][j] == '+':
-                    #exitFlag = findWays(i, j, '+', exitFlag, n, 'H', way)
                     if nextStep == True:
                         break
                     else: exitFlag, nextStep = findBackWay(i, j, '+',exitFlag, n, 'H', nextStep, way)
             if nextStep == True:
                 break
-        #maps.printInfo(hero, way)
+        maps.printInfo(hero, way)
         nextStep = False
         if exitFlag != True:
             n -= 1
     #maps.printInfo(hero, way) #Выводим информацию о карте после построения маршрута
 
-
+# Запуск волны, где У и Х - координаты, n - текущее число волны, exitFlag - флаг конца алгоритма, checkSym - какой символ на карте заменяем числом n,
+# symbol - волна будет распространяться пока мы не найдем этот символ на карте, way - наш массив (карта)
 def findWays (y, x, n, exitFlag, checkSym, symbol, way: List[List[int]]):
     #Вверх
     if (y - 1 >= 0 and way[y - 1][x] != 'B' and way[y - 1][x] == checkSym) or way[y - 1][x] == symbol:
@@ -298,7 +298,8 @@ def findWays (y, x, n, exitFlag, checkSym, symbol, way: List[List[int]]):
             way[y - 1][x - 1] = n
     return exitFlag
 
-
+# Построение маршрута от цели, где У и Х - координаты, n - текущее число волны, exitFlag - флаг конца алгоритма, checkSym - какой символ на карте заменяем числом n,
+# symbol - волна будет распространяться пока мы не найдем этот символ на карте, way - наш массив (карта), nextStep - флаг сообщающий о нахождении symbol'а или установке '+' (прокладывание маршрута до цели)
 def findBackWay (y, x, n, exitFlag, checkSym, symbol, nextStep,  way: List[List[int]]):
     #Влево-Вверх
     if (x - 1 >= 0 and y - 1 >= 0 and way[y][x - 1] != 'B' and way[y - 1][x] != 'B' and way[y - 1][x - 1] == checkSym) or (way[y - 1][x - 1] == symbol and way[y][x - 1] != 'B' and way[y - 1][x] != 'B'):
