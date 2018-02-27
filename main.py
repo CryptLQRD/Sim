@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import os
 import pygame
 import numpy
 import pyganim
@@ -10,12 +11,14 @@ import player
 #from blocks import *
 import blocks
 from monsters import *
+#import monsters
 import alg
 import datetime
 import maps
 import time as tm
 from time import sleep
 import random
+
 
 
 #Объявляем переменные
@@ -30,6 +33,8 @@ BACKGROUND_COLOR = "#003300"
 #REPEAT = False # Включить\Выключить повторние игры с начала
 levelName = 'lvl1.txt' #Название уровня
 FILE_DIR = os.path.dirname(__file__)
+PLAY = False  # Включить\Выключить управление игроком
+REPEAT = True  # Включить\Выключить повторние игры с начала
 
 
 class Camera(object):
@@ -85,14 +90,15 @@ def loadLevel(): # Работа с файлом уровня
                     platforms.append(tp)
                     animatedEntities.add(tp)
                 if commands[0] == "monsterBat":  # если первая команда monster, то создаем монстра
-                    mn = Bat(int(commands[1]), int(commands[2]), int(commands[3]), int(commands[4]),
-                                 int(commands[5]), int(commands[6]))
+                    mn = Bat(int(commands[1]), int(commands[2]), bool(commands[3]), bool(commands[4]), int(commands[5]))
                     entities.add(mn)
                     platforms.append(mn)
                     monsters.add(mn)
+                    #Добавляем монстра в массив
+                    masMons.append(mn)
+                    #monsters.myCoord(mn)
                 if commands[0] == "monsterWraith":  # если первая команда monster, то создаем монстра
-                    mn = Wraith(int(commands[1]), int(commands[2]), int(commands[3]), int(commands[4]),
-                                 int(commands[5]), int(commands[6]))
+                    mn = Wraith(int(commands[1]), int(commands[2]), bool(commands[3]), bool(commands[4]), int(commands[5]))
                     entities.add(mn)
                     platforms.append(mn)
                     monsters.add(mn)
@@ -149,7 +155,9 @@ def main():
     hero = player.Player(playerX,playerY) # создаем героя по (x,y) координатам
     left = right = False # по умолчанию - стоим
     up = down = False
-    
+    mleft = mright = False # по умолчанию - стоим
+    mup = mdown = False
+
     entities.add(hero)
     timer = pygame.time.Clock()
 
@@ -160,7 +168,7 @@ def main():
     blocks.levelSize(total_level_width, total_level_height)  # Определение размера уровня для метода teleporting класса BigEnergy
 
     way = [[0] * len(level[0]) for i in range(len(level))] # Создаем карту уровня для алгоритма
-    masBE = []  # Создаем массив для каждого элемента BigEnergy
+
 
     way[int(hero.startY / 32)][int(hero.startX / 32)] = 'H' # Добавляем расположение героя на карту (в массив)
     hero.myPosX = int(hero.startX / 32)
@@ -206,18 +214,23 @@ def main():
         y += blocks.PLATFORM_HEIGHT    #то же самое и с высотой
         x = 0                   #на каждой новой строчке начинаем с нуля
 
-    #for i in masBE:
-        #blocks.BigEnergy.myCoord(i)
-        #x = i.myPosX#hero.myPosX
-        #y = i.myPosY#hero.myPosY
+    for mn in masMons:
+        Monster.myCoord(mn)
+        #blocks.BigEnergy.myCoord(be)
+        #monsters.update(platforms)
+        #x = mn.myPosX#hero.myPosX
+        #y = mn.myPosY#hero.myPosY
+        way[mn.myPosY][mn.myPosX] = 'M'  # Если есть данный блок, то заполняем массив M
     #    print('BigEnergy.myPosX: ' + str(i.myPosX) + '   BigEnergy.myPosY: ' + str(i.myPosY))
+
     bigEnergyCounter = maps.amountBigEnerge(way)
-    if (amountBigEnergy == 0):
-        alg.algWaveFindExit('W', hero, way, 0)
-    else:
-        alg.algWaveFindExit('E', hero, way, masBE) #[amountBigEnergy-1])
-
-
+    if not PLAY:
+        if (amountBigEnergy == 0):
+            alg.algWaveFindExit('W', hero, way, 0)
+        else:
+            alg.algWaveFindExit('E', hero, way, masBE) #[amountBigEnergy-1])
+    elif PLAY:
+        maps.printInfo(hero, way)
 
     #Выводим карту уровня
     #maps.clearNumberFromMap(way)
@@ -229,9 +242,6 @@ def main():
     #print('')
 
     moveTime = 0  # Необходима для плавного движения персонажа т.к. его скорость 8 пикселей, а не 32, как расчитана карта(массив)
-    PLAY = False   # Включить\Выключить управление игроком
-    REPEAT = True # Включить\Выключить повторние игры с начала
-
     # определение времени
     #todayTime = datetime.datetime.today()   #date = todayTime.strftime("%d-%m-%y")   #time = todayTime.strftime("%H-%M-%S")
     startTime = datetime.datetime.now()
@@ -260,13 +270,15 @@ def main():
                     blocks.BigEnergy.myCoord(be)
                     way[int(be.rect.y / 32)][int(be.rect.x / 32)] = 'E'
                 amountBigEnergy = maps.amountBigEnerge(way)
-                if (amountBigEnergy == 0):
-                    print('Прокладываю путь до W')
-                    alg.algWaveFindExit('W', hero, way, 0) #Прокладываем новый маршрут до конечной точки
-                else:
-                    print('Прокладываю путь до E')
-                    alg.algWaveFindExit('E', hero, way, masBE) #[amountBigEnergy-1]) #Прокладываем новый маршрут до конечной точки
-
+                if not PLAY:
+                    if (amountBigEnergy == 0):
+                        print('Прокладываю путь до W')
+                        alg.algWaveFindExit('W', hero, way, 0) #Прокладываем новый маршрут до конечной точки
+                    else:
+                        print('Прокладываю путь до E')
+                        alg.algWaveFindExit('E', hero, way, masBE) #[amountBigEnergy-1]) #Прокладываем новый маршрут до конечной точки
+                elif PLAY:
+                    maps.printInfo(hero, way)
                 #maps.printInfo(hero, way)  # Выводим карту на экран
                 #maps.clearNumberFromMap(way) #Очищаем карту от всех прочих путей не вошедших в итоговый маршрут
                 startTime = datetime.datetime.now()
@@ -333,13 +345,21 @@ def main():
             if moveTime <= 0: # если перемещение героя в планируемую точку закончилось, вычисляем следующее движение
                 left, right, up, down, moveTime = alg.algWave(hero, way)
                 maps.clearNumFromMap(way) # очищаю карту от всех возможных путей(чисел) и оставляю только проложенный (+) (для удобства отображения)
-                #left, right, up, down, moveTime = alg.algRandom(hero, way)
+
                 #print ("Время движения: " + str(moveTime))
             else:
                 moveTime -= 1
+
+        for mn in masMons:
+            if mn.moveTime <= 0:
+                mleft, mright, mup, mdown = Monster.algMove(mn, way)
+            else: mn.moveTime -= 1
+        #maps.printInfo(hero, way)
+
+
         window.blit(screen, (0,0)) # Каждую итерацию необходимо всё перерисовывать экран
         animatedEntities.update()  # показываеaм анимацию
-        monsters.update(platforms) # передвигаем всех монстров
+        monsters.update(platforms, mleft, mright, mup, mdown, way) # передвигаем всех монстров
         camera.update(hero) # центризируем камеру относительно персонажа
         hero.updatePlayer(left, right, up, down, platforms, way) # передвижение игроком
         #entities.draw(window) # отображение
@@ -350,7 +370,8 @@ def main():
 
         pygame.display.update()     # обновление и вывод всех изменений на экран
 
-
+masBE = []  # Создаем массив для каждого элемента BigEnergy
+masMons = [] # Массив со всеми монстрами
 level = []
 entities = pygame.sprite.Group() # Все объекты
 animatedEntities = pygame.sprite.Group() # все анимированные объекты, за исключением героя
