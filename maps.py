@@ -38,20 +38,20 @@ def amountBigEnerge (way: List[List[int]]):
 def clearMap (way: List[List[int]]):
     for i in range(len(way)):
         for j in range(len(way[i])):
-            if way[i][j] != 'B' and way[i][j] != 'W' and way[i][j] != 'H' and way[i][j] != 'P':
+            if way[i][j] != 'B' and way[i][j] != 'W' and way[i][j] != 'H' and way[i][j] != 'P' and way[i][j] != 'M':
                 way[i][j] = 0
             #print(way[i][j], end=' ')
 
-def clearWayNumFromMap (way: List[List[int]]): # Функция забивающая неверные позиции алгоритма нулями для нормального отображения
+def clearWayNumFromMap (way: List[List[int]]): # Функция забивающая неверные позиции алгоритма нулями для нормального отображения, оставляя энергии на карте
     for i in range(len(way)):
         for j in range(len(way[i])):
-            if way[i][j] != 'B' and way[i][j] != 'W' and way[i][j] != 'H' and way[i][j] != 'P' and way[i][j] != 'E':
+            if way[i][j] != 'B' and way[i][j] != 'W' and way[i][j] != 'H' and way[i][j] != 'P' and way[i][j] != 'M' and way[i][j] != 'E':
                 way[i][j] = 0
             #print(way[i][j], end=' ')
 
-def clearNumFromMap (way: List[List[int]]): # Функция забивающая неверные позиции алгоритма нулями для нормального отображения
+def clearNumFromMap (way: List[List[int]]): # Функция забивающая неверные позиции алгоритма нулями для нормального отображения, оставляя энергии и проложенный маршрут на карте
     for i in range(len(way)):
         for j in range(len(way[i])):
-            if way[i][j] != 'B' and way[i][j] != 'W' and way[i][j] != 'H' and way[i][j] != 'P' and way[i][j] != 'E' and way[i][j] != '+':
+            if way[i][j] != 'B' and way[i][j] != 'W' and way[i][j] != 'H' and way[i][j] != 'P' and way[i][j] != 'M' and way[i][j] != 'E' and way[i][j] != '+': # and way[i][j] != 'o':
                 way[i][j] = 0
             #print(way[i][j], end=' ')

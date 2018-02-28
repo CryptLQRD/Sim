@@ -31,7 +31,7 @@ BACKGROUND_COLOR = "#003300"
 #INFO_STRING_COLOR = "#006000"
 #PLAY = True    # Включить\Выключить управление игроком
 #REPEAT = False # Включить\Выключить повторние игры с начала
-levelName = 'lvl1.txt' #Название уровня
+levelName = 'lvl3.txt' #Название уровня
 FILE_DIR = os.path.dirname(__file__)
 PLAY = False  # Включить\Выключить управление игроком
 REPEAT = True  # Включить\Выключить повторние игры с начала
@@ -90,7 +90,7 @@ def loadLevel(): # Работа с файлом уровня
                     platforms.append(tp)
                     animatedEntities.add(tp)
                 if commands[0] == "monsterBat":  # если первая команда monster, то создаем монстра
-                    mn = Bat(int(commands[1]), int(commands[2]), bool(commands[3]), bool(commands[4]), int(commands[5]))
+                    mn = Bat(int(commands[1]), int(commands[2]), int(commands[3]), int(commands[4]), int(commands[5]))
                     entities.add(mn)
                     platforms.append(mn)
                     monsters.add(mn)
@@ -98,10 +98,12 @@ def loadLevel(): # Работа с файлом уровня
                     masMons.append(mn)
                     #monsters.myCoord(mn)
                 if commands[0] == "monsterWraith":  # если первая команда monster, то создаем монстра
-                    mn = Wraith(int(commands[1]), int(commands[2]), bool(commands[3]), bool(commands[4]), int(commands[5]))
+                    mn = Wraith(int(commands[1]), int(commands[2]), int(commands[3]), int(commands[4]), int(commands[5]))
                     entities.add(mn)
                     platforms.append(mn)
                     monsters.add(mn)
+                    #Добавляем монстра в массив
+                    masMons.append(mn)
 
 
 def saveResult(hero, workTime): # Работа с файлом result
@@ -155,8 +157,6 @@ def main():
     hero = player.Player(playerX,playerY) # создаем героя по (x,y) координатам
     left = right = False # по умолчанию - стоим
     up = down = False
-    mleft = mright = False # по умолчанию - стоим
-    mup = mdown = False
 
     entities.add(hero)
     timer = pygame.time.Clock()
@@ -216,10 +216,6 @@ def main():
 
     for mn in masMons:
         Monster.myCoord(mn)
-        #blocks.BigEnergy.myCoord(be)
-        #monsters.update(platforms)
-        #x = mn.myPosX#hero.myPosX
-        #y = mn.myPosY#hero.myPosY
         way[mn.myPosY][mn.myPosX] = 'M'  # Если есть данный блок, то заполняем массив M
     #    print('BigEnergy.myPosX: ' + str(i.myPosX) + '   BigEnergy.myPosY: ' + str(i.myPosY))
 
@@ -234,12 +230,6 @@ def main():
 
     #Выводим карту уровня
     #maps.clearNumberFromMap(way)
-    #print ("Карта уровня:")
-    #for row in way:
-    #    for elem in row:
-    #        print(elem, end=' ')
-    #    print()
-    #print('')
 
     moveTime = 0  # Необходима для плавного движения персонажа т.к. его скорость 8 пикселей, а не 32, как расчитана карта(массив)
     # определение времени
@@ -350,16 +340,18 @@ def main():
             else:
                 moveTime -= 1
 
-        for mn in masMons:
+
+        for mn in masMons: #Алгоритм движения монстров
             if mn.moveTime <= 0:
-                mleft, mright, mup, mdown = Monster.algMove(mn, way)
+                Monster.algMove(mn, way)
             else: mn.moveTime -= 1
         #maps.printInfo(hero, way)
 
 
         window.blit(screen, (0,0)) # Каждую итерацию необходимо всё перерисовывать экран
         animatedEntities.update()  # показываеaм анимацию
-        monsters.update(platforms, mleft, mright, mup, mdown, way) # передвигаем всех монстров
+        #mn.update(platforms, mleft, mright, mup, mdown, way)  # передвигаем всех монстров
+        monsters.update(platforms, way) # передвигаем всех монстров
         camera.update(hero) # центризируем камеру относительно персонажа
         hero.updatePlayer(left, right, up, down, platforms, way) # передвижение игроком
         #entities.draw(window) # отображение

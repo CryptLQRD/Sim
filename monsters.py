@@ -41,82 +41,135 @@ class Monster(sprite.Sprite): # Класс монстров
         self.myPosY = -1
         self.moveTime = 0
         self.moveOnLeft = moveOnLeft
+        self.moveOnRight = False
         self.moveOnUp = moveOnUp
+        self.moveOnDown = False
         self.MOVE_SPEED = MOVE_SPEED
+        self.left = False
+        self.right = False
+        self.up = False
+        self.down = False
         #self.maxLengthLeft = maxLengthLeft # максимальное расстояние, которое может пройти в одну сторону
         #self.maxLengthUp= maxLengthUp # максимальное расстояние, которое может пройти в одну сторону, вертикаль
         self.xvel = 0 # cкорость передвижения по горизонтали, 0 - стоит на месте
         self.yvel = 0 # скорость движения по вертикали, 0 - не двигается
 
     def moveOn(self, left, right, up, down, way: List[List[int]]):
-        if left == True:  # Движение влево в матрице
+        if left == True and up == True:  # Движение влево-вверх в матрице
             way[self.myPosY][self.myPosX] = '0'
             self.myPosX -= 1
-            #if blocks.Exit.myPosY == player.Player.myPosY and blocks.Exit.myPosX == player.Player.myPosX:
-            #    self.myPosX = int(self.startX / 32)
-            #    self.myPosY = int(self.startY / 32)
+            self.myPosY -= 1
+            #if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
+            #    hero.myPosX = int(hero.startX / 32)
+            #    hero.myPosY = int(hero.startY / 32)
             way[self.myPosY][self.myPosX] = 'M'
 
-        if right == True:  # Движение вправо в матрице
+        elif right == True and up == True:  # Движение вправо-вверх в матрице
             way[self.myPosY][self.myPosX] = '0'
             self.myPosX += 1
-            #if blocks.Exit.myPosY == player.Player.myPosY and blocks.Exit.myPosX == player.Player.myPosX:
-            #    self.myPosX = int(self.startX / 32)
-            #    self.myPosY = int(self.startY / 32)
+            self.myPosY -= 1
+            #if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
+            #    hero.myPosX = int(hero.startX / 32)
+            #    hero.myPosY = int(hero.startY / 32)
             way[self.myPosY][self.myPosX] = 'M'
 
-        if up == True:  # Движение вверх в матрице
+        elif right == True and down == True:  # Движение вправо-вниз в матрице
+            way[self.myPosY][self.myPosX] = '0'
+            self.myPosX += 1
+            self.myPosY += 1
+            #if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
+            #    hero.myPosX = int(hero.startX / 32)
+            #    hero.myPosY = int(hero.startY / 32)
+            way[self.myPosY][self.myPosX] = 'M'
+
+        elif left == True and down == True:  # Движение влево-вниз в матрице
+            way[self.myPosY][self.myPosX] = '0'
+            self.myPosX -= 1
+            self.myPosY += 1
+            #if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
+            #    hero.myPosX = int(hero.startX / 32)
+            #    hero.myPosY = int(hero.startY / 32)
+            way[self.myPosY][self.myPosX] = 'M'
+
+        elif left == True:  # Движение влево в матрице
+            way[self.myPosY][self.myPosX] = '0'
+            self.myPosX -= 1
+            #if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
+            #    hero.myPosX = int(hero.startX / 32)
+            #    hero.myPosY = int(hero.startY / 32)
+            way[self.myPosY][self.myPosX] = 'M'
+
+        elif right == True:  # Движение вправо в матрице
+            way[self.myPosY][self.myPosX] = '0'
+            self.myPosX += 1
+            #if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
+            #    hero.myPosX = int(hero.startX / 32)
+            #    hero.myPosY = int(hero.startY / 32)
+            way[self.myPosY][self.myPosX] = 'M'
+
+        elif up == True:  # Движение вверх в матрице
             way[self.myPosY][self.myPosX] = '0'
             self.myPosY -= 1
-            #if blocks.Exit.myPosY == player.Player.myPosY and blocks.Exit.myPosX == player.Player.myPosX:
-            #    self.myPosX = int(self.startX / 32)
-            #    self.myPosY = int(self.startY / 32)
+            #if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
+            #    hero.myPosX = int(hero.startX / 32)
+            #    hero.myPosY = int(hero.startY / 32)
             way[self.myPosY][self.myPosX] = 'M'
 
-        if down == True:  # Движение вниз в матрице
+        elif down == True:  # Движение вниз в матрице
             way[self.myPosY][self.myPosX] = '0'
             self.myPosY += 1
-            #if blocks.Exit.myPosY == player.Player.myPosY and blocks.Exit.myPosX == player.Player.myPosX:
-            #    self.myPosX = int(self.startX / 32)
-            #    self.myPosY = int(self.startY / 32)
+            #if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
+            #    hero.myPosX = int(hero.startX / 32)
+            #    hero.myPosY = int(hero.startY / 32)
             way[self.myPosY][self.myPosX] = 'M'
 
     def algMove(self, way: List[List[int]]):
+        #print ('Left: ' + str(self.moveOnLeft) + '   Right: '+ str(self.moveOnRight))
+        if (self.moveOnLeft == True and self.moveOnRight == False) or (self.moveOnLeft == False and self.moveOnRight == True):
+            if way[self.myPosY][self.myPosX - 1] == 'B':
+                self.moveOnLeft = False
+                self.moveOnRight = True
+            elif way[self.myPosY][self.myPosX + 1] == 'B':
+                self.moveOnLeft = True
+                self.moveOnRight = False
+        #print ('Up: ' + str(self.moveOnUp) + '   Down: '+ str(self.moveOnDown))
+        if (self.moveOnUp == True and self.moveOnDown == False) or (self.moveOnUp == False and self.moveOnDown == True):
+            if way[self.myPosY - 1][self.myPosX] == 'B':
+                self.moveOnUp = False
+                self.moveOnDown = True
+            elif way[self.myPosY + 1][self.myPosX] == 'B':
+                self.moveOnUp = True
+                self.moveOnDown = False
 
-        left = False
-        right = False
-        up = False
-        down = False
-        #moveTimeFlag = False
+        self.left = False
+        self.right = False
+        self.up = False
+        self.down = False
 
-        if way[self.myPosY][self.myPosX - 1] != 'B':# or way[self.myPosY][self.myPosX - 1] != 'W' or way[self.myPosY][self.myPosX - 1] != 'E':
+        if way[self.myPosY][self.myPosX - 1] != 'B' and self.moveOnLeft == True and self.moveOnRight == False:# or way[self.myPosY][self.myPosX - 1] != 'W' or way[self.myPosY][self.myPosX - 1] != 'E':
             #if way[hero.myPosY][hero.myPosX - 1] == 'W': moveTimeFlag = True
-            left = True
-            print("Monster: Left" + str(self.myPosY) + str(self.myPosX - 1))
+            self.left = True
+            #print("Monster: Left   Y=" + str(self.myPosY) + '   X='+ str(self.myPosX - 1))
 
-        elif way[self.myPosY][self.myPosX + 1] != 'B':# or way[self.myPosY][self.myPosX + 1] != 'W' or way[self.myPosY][self.myPosX + 1] != 'E':
+        elif way[self.myPosY][self.myPosX + 1] != 'B' and self.moveOnLeft == False and self.moveOnRight == True:# or way[self.myPosY][self.myPosX + 1] != 'W' or way[self.myPosY][self.myPosX + 1] != 'E':
             #if way[hero.myPosY][hero.myPosX + 1] == 'W': moveTimeFlag = True
-            right = True
-            print("Monster: Right")
+            self.right = True
+            #print("Monster: Right   Y=" + str(self.myPosY) + '   X='+ str(self.myPosX + 1))
 
-        elif way[self.myPosY - 1][self.myPosX] != 'B':# or way[self.myPosY - 1][self.myPosX] != 'W' or way[self.myPosY - 1][self.myPosX] != 'E':
+        if way[self.myPosY - 1][self.myPosX] != 'B' and self.moveOnUp == True and self.moveOnDown == False:# or way[self.myPosY - 1][self.myPosX] != 'W' or way[self.myPosY - 1][self.myPosX] != 'E':
             #if way[hero.myPosY - 1][hero.myPosX] == 'W': moveTimeFlag = True
-            up = True
-            print("Monster: Up")
+            self.up = True
+            #print("Monster: Up   Y=" + str(self.myPosY - 1) + '   X='+ str(self.myPosX))
 
-        elif way[self.myPosY + 1][self.myPosX] != 'B':# or way[self.myPosY + 1][self.myPosX] != 'W' or way[self.myPosY + 1][self.myPosX] != 'E':
+        elif way[self.myPosY + 1][self.myPosX] != 'B' and self.moveOnUp == False and self.moveOnDown == True:# or way[self.myPosY + 1][self.myPosX] != 'W' or way[self.myPosY + 1][self.myPosX] != 'E':
             #if way[hero.myPosY + 1][hero.myPosX] == 'W': moveTimeFlag = True
-            down = True
-            print("Monster: Down")
+            self.down = True
+            #print("Monster: Down   Y=" + str(self.myPosY + 1) + '   X='+ str(self.myPosX))
 
-        Monster.moveOn(self, left, right, up, down, way)
-        #if moveTimeFlag == True:
-        #    moveTime = 0
-        #else:
-        self.moveTime = 32/self.MOVE_SPEED
-        return left, right, up, down
+        Monster.moveOn(self, self.left, self.right, self.up, self.down, way)
+        self.moveTime = 32/self.MOVE_SPEED - 1
 
-    def update(self, platforms, left, right, up, down, way: List[List[int]]):  # по принципу героя
+    def update(self, platforms, way: List[List[int]]):  # по принципу героя
 
         if (self.xvel < 0):
             self.image.fill(Color(MONSTER_COLOR))
@@ -125,18 +178,18 @@ class Monster(sprite.Sprite): # Класс монстров
             self.image.fill(Color(MONSTER_COLOR))
             self.boltAnimRight.blit(self.image, (0, 0))
 
-        if left:
+        if self.left:
             self.xvel = -self.MOVE_SPEED  # Лево = x- n
-        if right:
+        if self.right:
             self.xvel = self.MOVE_SPEED  # Право = x + n
-        if up:
+        if self.up:
             self.yvel = -self.MOVE_SPEED  # Лево = x- n
-        if down:
+        if self.down:
             self.yvel = self.MOVE_SPEED  # Право = x + n
 
-        if not (left or right):  # стоим, когда нет указаний идти
+        if not (self.left or self.right):  # стоим, когда нет указаний идти
             self.xvel = 0
-        if not (up or down):  # стоим, когда нет указаний идти
+        if not (self.up or self.down):  # стоим, когда нет указаний идти
             self.yvel = 0
 
         self.rect.x += self.xvel  # переносим свои положение на xvel

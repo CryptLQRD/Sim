@@ -86,7 +86,43 @@ def algRandom(hero, way: List[List[int]]):
     return left, right, up, down, moveTime
 
 def moveOn (left, right, up, down, hero, way: List[List[int]]):
-    if left==True: #Движение влево в матрице
+    if left==True and up==True: #Движение влево-вверх в матрице
+        way[hero.myPosY][hero.myPosX] = 'o'
+        hero.myPosX -= 1
+        hero.myPosY -= 1
+        if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
+            hero.myPosX = int(hero.startX / 32)
+            hero.myPosY = int(hero.startY / 32)
+        way[hero.myPosY][hero.myPosX] = 'H'
+
+    elif right==True and up==True: #Движение вправо-вверх в матрице
+        way[hero.myPosY][hero.myPosX] = 'o'
+        hero.myPosX += 1
+        hero.myPosY -= 1
+        if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
+            hero.myPosX = int(hero.startX / 32)
+            hero.myPosY = int(hero.startY / 32)
+        way[hero.myPosY][hero.myPosX] = 'H'
+
+    elif right==True and down==True: #Движение вправо-вниз в матрице
+        way[hero.myPosY][hero.myPosX] = 'o'
+        hero.myPosX += 1
+        hero.myPosY += 1
+        if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
+            hero.myPosX = int(hero.startX / 32)
+            hero.myPosY = int(hero.startY / 32)
+        way[hero.myPosY][hero.myPosX] = 'H'
+
+    elif left==True and down==True: #Движение влево-вниз в матрице
+        way[hero.myPosY][hero.myPosX] = 'o'
+        hero.myPosX -= 1
+        hero.myPosY += 1
+        if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
+            hero.myPosX = int(hero.startX / 32)
+            hero.myPosY = int(hero.startY / 32)
+        way[hero.myPosY][hero.myPosX] = 'H'
+
+    elif left==True: #Движение влево в матрице
         way[hero.myPosY][hero.myPosX] = 'o'
         hero.myPosX -= 1
         if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
@@ -94,7 +130,7 @@ def moveOn (left, right, up, down, hero, way: List[List[int]]):
             hero.myPosY = int(hero.startY / 32)
         way[hero.myPosY][hero.myPosX] = 'H'
 
-    if right==True: #Движение вправо в матрице
+    elif right==True: #Движение вправо в матрице
         way[hero.myPosY][hero.myPosX] = 'o'
         hero.myPosX += 1
         if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
@@ -102,7 +138,7 @@ def moveOn (left, right, up, down, hero, way: List[List[int]]):
             hero.myPosY = int(hero.startY / 32)
         way[hero.myPosY][hero.myPosX] = 'H'
 
-    if up == True: #Движение вверх в матрице
+    elif up == True: #Движение вверх в матрице
         way[hero.myPosY][hero.myPosX] = 'o'
         hero.myPosY -= 1
         if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
@@ -110,14 +146,13 @@ def moveOn (left, right, up, down, hero, way: List[List[int]]):
             hero.myPosY = int(hero.startY / 32)
         way[hero.myPosY][hero.myPosX] = 'H'
 
-    if down == True: #Движение вниз в матрице
+    elif down == True: #Движение вниз в матрице
         way[hero.myPosY][hero.myPosX] = 'o'
         hero.myPosY += 1
         if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
             hero.myPosX = int(hero.startX / 32)
             hero.myPosY = int(hero.startY / 32)
         way[hero.myPosY][hero.myPosX] = 'H'
-
 
 
 def algWave (hero, way: List[List[int]]):
@@ -148,25 +183,25 @@ def algWave (hero, way: List[List[int]]):
         down = True
         print("Down")
 
-    elif way[hero.myPosY + 1][hero.myPosX + 1] == '+' or way[hero.myPosY + 1][hero.myPosX + 1] == 'W' or way[hero.myPosY + 1][hero.myPosX + 1] == 'E':
+    elif (way[hero.myPosY + 1][hero.myPosX + 1] == '+' or way[hero.myPosY + 1][hero.myPosX + 1] == 'W' or way[hero.myPosY + 1][hero.myPosX + 1] == 'E') and (way[hero.myPosY + 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX + 1] != 'B'):
         if way[hero.myPosY + 1][hero.myPosX + 1] == 'W': moveTimeFlag = True
         right = True
         down = True
         print("Right-Down")
 
-    elif way[hero.myPosY - 1][hero.myPosX + 1] == '+' or way[hero.myPosY - 1][hero.myPosX + 1] == 'W' or way[hero.myPosY - 1][hero.myPosX + 1] == 'E':
+    elif (way[hero.myPosY - 1][hero.myPosX + 1] == '+' or way[hero.myPosY - 1][hero.myPosX + 1] == 'W' or way[hero.myPosY - 1][hero.myPosX + 1] == 'E') and (way[hero.myPosY - 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX + 1] != 'B'):
         if way[hero.myPosY - 1][hero.myPosX + 1] == 'W': moveTimeFlag = True
         right = True
         up = True
         print("Right-Up")
 
-    elif way[hero.myPosY - 1][hero.myPosX - 1] == '+' or way[hero.myPosY - 1][hero.myPosX - 1] == 'W' or way[hero.myPosY - 1][hero.myPosX - 1] == 'E':
+    elif (way[hero.myPosY - 1][hero.myPosX - 1] == '+' or way[hero.myPosY - 1][hero.myPosX - 1] == 'W' or way[hero.myPosY - 1][hero.myPosX - 1] == 'E') and (way[hero.myPosY - 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX - 1] != 'B'):
         if way[hero.myPosY - 1][hero.myPosX - 1] == 'W': moveTimeFlag = True
         left = True
         up = True
         print("Left-Up")
 
-    elif way[hero.myPosY + 1][hero.myPosX - 1] == '+' or way[hero.myPosY + 1][hero.myPosX - 1] == 'W' or way[hero.myPosY + 1][hero.myPosX - 1] == 'E':
+    elif (way[hero.myPosY + 1][hero.myPosX - 1] == '+' or way[hero.myPosY + 1][hero.myPosX - 1] == 'W' or way[hero.myPosY + 1][hero.myPosX - 1] == 'E') and (way[hero.myPosY + 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX - 1] != 'B'):
         if way[hero.myPosY + 1][hero.myPosX - 1] == 'W': moveTimeFlag = True
         left = True
         down = True
@@ -196,7 +231,11 @@ def algWaveFindExit (symbol, hero, way: List[List[int]], masBE: List[int]):
     #Теперь записываем путь для последующего движения
     exitFlag = False
     nextStep = False
-    if (way[y][x+1] == 'E' or way[y+1][x] == 'E' or way[y][x-1] == 'E' or way[y-1][x] == 'E'):
+    if (way[y][x+1] == 'E' or way[y+1][x] == 'E' or way[y][x-1] == 'E' or way[y-1][x] == 'E') \
+            or (way[y + 1][x + 1] == 'E' and way[y + 1][x] != 'B' and way[y][x + 1] != 'B') \
+            or (way[y - 1][x + 1] == 'E' and way[y - 1][x] != 'B' and way[y][x + 1] != 'B') \
+            or (way[y + 1][x - 1] == 'E' and way[y + 1][x] != 'B' and way[y][x - 1] != 'B') \
+            or (way[y - 1][x - 1] == 'E' and way[y - 1][x] != 'B' and way[y][x - 1] != 'B'):
         exitFlag = True # Заканчиваем работу алгоритма т.к. энергия уже находится рядом с героем.
         #maps.printInfo(hero, way)
     elif symbol == 'E':
