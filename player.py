@@ -31,6 +31,7 @@ class Player(sprite.Sprite): # Класс игрока
         self.onGround = False # На земле ли я?
         self.score = 0
         self.live = 3
+        self.imDie = False
         self.winner = False
         self.Fleft = True #Вспомогательная переменная для анимации
         self.image = Surface((WIDTH,HEIGHT))
@@ -38,7 +39,6 @@ class Player(sprite.Sprite): # Класс игрока
         self.image = image.load("%s/player/0_24-32.png" % ICON_DIR)
         self.rect = Rect(x, y, WIDTH, HEIGHT) # прямоугольный объект
         #self.image.set_colorkey(Color(COLOR)) # делаем фон прозрачным
-
 
     def updatePlayer(self,  left, right, up, down, platforms, way: List[List[int]]): # Метод "передвижения"
         if left:
@@ -124,11 +124,12 @@ class Player(sprite.Sprite): # Класс игрока
         self.rect.y = goY
 
     def die(self): # В случае смерти, переносим себя на начальные координаты
-        time.wait(650)
+        time.wait(300)
         self.live -= 1
+        self.imDie = True
+        self.myPosX = int(self.startX/32) #Позиция X игрока в массиве
+        self.myPosY = int(self.startY/32) #Позиция Y игрока в массиве
         self.teleporting(self.startX, self.startY) # перемещаемся в начальные координаты
 
-    #def showScore(self):
-    #    score = self.score
-    #    return score
+
        

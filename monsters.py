@@ -169,7 +169,7 @@ class Monster(sprite.Sprite): # Класс монстров
         Monster.moveOn(self, self.left, self.right, self.up, self.down, way)
         self.moveTime = 32/self.MOVE_SPEED - 1
 
-    def update(self, platforms, way: List[List[int]]):  # по принципу героя
+    def update(self, platforms, way: List[List[int]], hero):  # по принципу героя
 
         if (self.xvel < 0):
             self.image.fill(Color(MONSTER_COLOR))
@@ -194,7 +194,7 @@ class Monster(sprite.Sprite): # Класс монстров
 
         self.rect.x += self.xvel  # переносим свои положение на xvel
         self.rect.y += self.yvel  # переносим свои положение на yvel
-        self.collide(platforms)
+        self.collide(platforms, hero , way)
 
         #if (abs(self.startX - self.rect.x) > self.maxLengthLeft):
         #    self.xvel = -self.xvel  # если прошли максимальное растояние, то идеи в обратную сторону
@@ -203,11 +203,16 @@ class Monster(sprite.Sprite): # Класс монстров
 
 
 
-    def collide(self, platforms): # Метод проверки на столкновение с другими объектами
+    def collide(self, platforms, hero, way: List[List[int]]): # Метод проверки на столкновение с другими объектами
         for p in platforms:
             if sprite.collide_rect(self, p) and self != p:  # если с чем-то или кем-то столкнулись
                 if isinstance(p, blocks.BigEnergy):  # Если коснулись энергии то телепортируем её в другое место
                     blocks.BigEnergy.teleporting(p, 1, 1, platforms, True)
+                    #Проверка и отрисовка, нужны Hero и Way
+                    while (hero.rect.x == p.rect.x and hero.rect.y == p.rect.y) or (hero.startX == p.rect.x and hero.startY == p.rect.y) or (blocks.Exit.myPosX == int(p.rect.x/32) and blocks.Exit.myPosY == int(p.rect.y/32)) :
+                        blocks.BigEnergy.teleporting(p, 32, 32 * random.randint(4, 5), platforms, True)
+                    blocks.BigEnergy.myCoord(p)
+                    way[int(p.rect.y / 32)][int(p.rect.x / 32)] = 'E'
                 elif isinstance(p, Monster): # Если коснулись другого монстра, то игнорируем
                     1
                 else:
@@ -238,6 +243,16 @@ class Monster(sprite.Sprite): # Класс монстров
 
         #def __init__(self, x, y, left, up, maxLengthLeft, maxLengthUp):
         #    Monster.__init__(self, x, y, left, up, maxLengthLeft, maxLengthUp)
+
+    def teleporting(self, goX, goY, platforms, hero, way):
+        #if Random == True: #Если True телепортируем себя на случайне координаты в пределах уровня
+        #    self.rect.x = 32 * random.randint(1, LevelWidth-2)
+        #    self.rect.y = 32 * random.randint(1, LevelHeight-2)
+        #else: #иначе телепортируем себя на выбранные координаты
+        self.rect.x = goX
+        self.rect.y = goY
+        print("Монстр перенесен на начальные координаты... Ширина: " + str(self.rect.x) + "   Высота: " + str(self.rect.y))
+        self.collide(platforms, hero, way)
 
 class Bat(Monster):
     def __init__(self, x, y, moveOnLeft, moveOnUp, MOVE_SPEED):

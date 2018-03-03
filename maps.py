@@ -38,7 +38,7 @@ def amountBigEnerge (way: List[List[int]]):
 def clearMap (way: List[List[int]]):
     for i in range(len(way)):
         for j in range(len(way[i])):
-            if way[i][j] != 'B' and way[i][j] != 'W' and way[i][j] != 'H' and way[i][j] != 'P' and way[i][j] != 'M':
+            if way[i][j] != 'B' and way[i][j] != 'W' and way[i][j] != 'P': # and way[i][j] != 'H'
                 way[i][j] = 0
             #print(way[i][j], end=' ')
 
@@ -53,5 +53,12 @@ def clearNumFromMap (way: List[List[int]]): # Функция забивающа�
     for i in range(len(way)):
         for j in range(len(way[i])):
             if way[i][j] != 'B' and way[i][j] != 'W' and way[i][j] != 'H' and way[i][j] != 'P' and way[i][j] != 'M' and way[i][j] != 'E' and way[i][j] != '+': # and way[i][j] != 'o':
+                way[i][j] = 0
+            #print(way[i][j], end=' ')
+
+def clearHeroFromMap (way: List[List[int]]):
+    for i in range(len(way)):
+        for j in range(len(way[i])):
+            if way[i][j] == 'H':
                 way[i][j] = 0
             #print(way[i][j], end=' ')

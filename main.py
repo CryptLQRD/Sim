@@ -31,7 +31,7 @@ BACKGROUND_COLOR = "#003300"
 #INFO_STRING_COLOR = "#006000"
 #PLAY = True    # Включить\Выключить управление игроком
 #REPEAT = False # Включить\Выключить повторние игры с начала
-levelName = 'lvl3.txt' #Название уровня
+levelName = 'lvl1.txt' #Название уровня
 FILE_DIR = os.path.dirname(__file__)
 PLAY = False  # Включить\Выключить управление игроком
 REPEAT = True  # Включить\Выключить повторние игры с начала
@@ -250,12 +250,22 @@ def main():
             if (REPEAT == True):
                 print('Новый эпизод!')
                 hero.winner = False # Возвращаем стартовое значение поля победы
+                hero.imDie = False
                 hero.live = 3       # Возвращаем стартовое значение жизней
                 hero.score = 0      # Возвращаем стартовое значение очков
-                maps.clearMap(way)  # Очищаем карту от предыдущих путей и энергий
+                maps.clearMap(way)  # Очищаем карту от предыдущих путей, энергий, монстров, героя
+                #maps.clearHeroFromMap(way)
+                moveTime = 0
+                way[hero.myPosY][hero.myPosX] = 'H'
+                for mn in masMons:  # Возвращаем монстров на свою позицию
+                    Monster.teleporting(mn, mn.startX, mn.startY, platforms, hero, way)
+                    Monster.myCoord(mn)
+                    mn.moveTime = 0
+                    way[int(mn.rect.y / 32)][int(mn.rect.x / 32)] = 'M'
+                    Monster.algMove(mn, way)
                 for be in masBE:
-                    blocks.BigEnergy.teleporting(be, 32, 32 * random.randint(4, 5), platforms, True)
-                    while (hero.rect.x == be.rect.x and hero.rect.y == be.rect.y) or (ex.rect.x == be.rect.x and ex.rect.y == be.rect.y):
+                    blocks.BigEnergy.teleporting(be, 32 * random.randint(3, 3), 64, platforms, True)
+                    while (hero.rect.x == be.rect.x and hero.rect.y == be.rect.y) or (ex.rect.x == be.rect.x and ex.rect.y == be.rect.y) or (way[int(be.rect.y / 32)][int(be.rect.x / 32)] == 'M'):
                         blocks.BigEnergy.teleporting(be, 32, 32 * random.randint(4, 5), platforms, True)
                     blocks.BigEnergy.myCoord(be)
                     way[int(be.rect.y / 32)][int(be.rect.x / 32)] = 'E'
@@ -316,16 +326,26 @@ def main():
                 #    lS = False
 
         if not PLAY:
-            if moveTime == 0: #???
-                if amountBigEnergy > 0: # Если энергии, которые присутствовали на карте ещё не собраны
-                    bigEnergyCounter = maps.amountBigEnerge(way) # тогда сверяем их с текущим количеством на карте
+
+            if moveTime == 0 or (hero.imDie == True and hero.live > 0):
+                #if hero.imDie == True:
+                    #hero.imDie = False
+                if amountBigEnergy >= 0:  # Если энергии, которые присутствовали на карте ещё не собраны
+                    bigEnergyCounter = maps.amountBigEnerge(way)  # тогда сверяем их с текущим количеством на карте
                     print('BigEnergyCounter: ' + str(bigEnergyCounter) + '  ;  AmountBigEnergy: ' + str(amountBigEnergy))
-                if (bigEnergyCounter != amountBigEnergy and amountBigEnergy > 0): #or (bigEnergyCounter == 0): #если кол-во на карте и общее различается, то прокладываем маршрут до следующей цели
+                if ((bigEnergyCounter != amountBigEnergy and amountBigEnergy >= 0) or hero.imDie == True): #or (bigEnergyCounter == 0): #если кол-во на карте и общее различается, то прокладываем маршрут до следующей цели
+                    if hero.imDie == True:
+                        hero.imDie = False
+                        maps.clearHeroFromMap(way)
+                        moveTime = 0
+                        way[hero.myPosY][hero.myPosX] = 'H'
+                    if bigEnergyCounter != amountBigEnergy and amountBigEnergy >= 0:
+                        amountBigEnergy = maps.amountBigEnerge(way)
                     for be in masBE:
                         blocks.BigEnergy.myCoord(be)
                     maps.clearWayNumFromMap(way) # Очищаем карту, чтобы можно было проложить новый маршрут до другого объекта
-                    amountBigEnergy -= 1  # Уменьшаем общее кол-во энергий
-                    if bigEnergyCounter == 0: # если энергии на карте закончились, тогда строим путь к выходу
+                    #amountBigEnergy -= 1  # Уменьшаем общее кол-во энергий
+                    if bigEnergyCounter <= 0 or amountBigEnergy <= 0: # если энергии на карте закончились, тогда строим путь к выходу
                         print('Прокладываю путь до W')
                         alg.algWaveFindExit('W', hero, way, 0) #amountBigEnergy-1
                     else:
@@ -351,7 +371,7 @@ def main():
         window.blit(screen, (0,0)) # Каждую итерацию необходимо всё перерисовывать экран
         animatedEntities.update()  # показываеaм анимацию
         #mn.update(platforms, mleft, mright, mup, mdown, way)  # передвигаем всех монстров
-        monsters.update(platforms, way) # передвигаем всех монстров
+        monsters.update(platforms, way, hero) # передвигаем всех монстров
         camera.update(hero) # центризируем камеру относительно персонажа
         hero.updatePlayer(left, right, up, down, platforms, way) # передвижение игроком
         #entities.draw(window) # отображение
@@ -361,6 +381,7 @@ def main():
         window.blit(score_font.render("Жизни: " + str(hero.live), 1, (255, 255, 255)), (WIN_WIDTH-165, 1))
 
         pygame.display.update()     # обновление и вывод всех изменений на экран
+        #maps.printInfo(hero, way)
 
 masBE = []  # Создаем массив для каждого элемента BigEnergy
 masMons = [] # Массив со всеми монстрами
