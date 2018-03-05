@@ -91,7 +91,7 @@ class BigEnergy(Platform): #Класс объекта "Энергия"
         self.image.fill(Color(PLATFORM_COLOR))
         self.boltAnim.blit(self.image, (0, 0))
 
-    def teleporting(self, goX, goY, platforms, Random):
+    def teleporting(self, goX, goY, platforms, Random): # Метод телепортации, Если Random==True, то игнорируем аргументы goX и goY
         if Random == True: #Если True телепортируем себя на случайне координаты в пределах уровня
             self.rect.x = 32 * random.randint(1, LevelWidth-2)
             self.rect.y = 32 * random.randint(1, LevelHeight-2)
@@ -107,7 +107,7 @@ class BigEnergy(Platform): #Класс объекта "Энергия"
                 #print("Выбранная позиция занята!  (Ширина: " + str(self.rect.x) + ")   (Высота: " + str(self.rect.y) + ")")
                 BigEnergy.teleporting(self, 32 * random.randint(1, LevelWidth-2), 32 * random.randint(1, LevelHeight-2), platforms, True)
 
-    def myCoord(self):
+    def myCoord(self): #Необходимо для обновления координат на карте
         self.myPosX = int(self.rect.x/32)
         self.myPosY = int(self.rect.y/32)
 

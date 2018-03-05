@@ -39,9 +39,11 @@ class Monster(sprite.Sprite): # Класс монстров
         self.startY = y
         self.myPosX = -1
         self.myPosY = -1
+        self.myPrevPosX = int(self.startX / 32)
+        self.myPrevPosY = int(self.startY / 32)
         self.moveTime = 0
-        self.moveOnLeft = moveOnLeft
-        self.moveOnRight = False
+        self.moveOnLeft = False
+        self.moveOnRight = moveOnLeft
         self.moveOnUp = moveOnUp
         self.moveOnDown = False
         self.MOVE_SPEED = MOVE_SPEED
@@ -54,9 +56,11 @@ class Monster(sprite.Sprite): # Класс монстров
         self.xvel = 0 # cкорость передвижения по горизонтали, 0 - стоит на месте
         self.yvel = 0 # скорость движения по вертикали, 0 - не двигается
 
-    def moveOn(self, left, right, up, down, way: List[List[int]]):
+    def moveOn(self, left, right, up, down, hero, way: List[List[int]]):
         if left == True and up == True:  # Движение влево-вверх в матрице
-            way[self.myPosY][self.myPosX] = '0'
+            #way[self.myPosY][self.myPosX] = '0'
+            self.myPrevPosX = self.myPosX
+            self.myPrevPosY = self.myPosY
             self.myPosX -= 1
             self.myPosY -= 1
             #if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
@@ -65,7 +69,9 @@ class Monster(sprite.Sprite): # Класс монстров
             way[self.myPosY][self.myPosX] = 'M'
 
         elif right == True and up == True:  # Движение вправо-вверх в матрице
-            way[self.myPosY][self.myPosX] = '0'
+            #way[self.myPosY][self.myPosX] = '0'
+            self.myPrevPosX = self.myPosX
+            self.myPrevPosY = self.myPosY
             self.myPosX += 1
             self.myPosY -= 1
             #if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
@@ -74,7 +80,9 @@ class Monster(sprite.Sprite): # Класс монстров
             way[self.myPosY][self.myPosX] = 'M'
 
         elif right == True and down == True:  # Движение вправо-вниз в матрице
-            way[self.myPosY][self.myPosX] = '0'
+            #way[self.myPosY][self.myPosX] = '0'
+            self.myPrevPosX = self.myPosX
+            self.myPrevPosY = self.myPosY
             self.myPosX += 1
             self.myPosY += 1
             #if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
@@ -83,7 +91,9 @@ class Monster(sprite.Sprite): # Класс монстров
             way[self.myPosY][self.myPosX] = 'M'
 
         elif left == True and down == True:  # Движение влево-вниз в матрице
-            way[self.myPosY][self.myPosX] = '0'
+            #way[self.myPosY][self.myPosX] = '0'
+            self.myPrevPosX = self.myPosX
+            self.myPrevPosY = self.myPosY
             self.myPosX -= 1
             self.myPosY += 1
             #if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
@@ -92,23 +102,27 @@ class Monster(sprite.Sprite): # Класс монстров
             way[self.myPosY][self.myPosX] = 'M'
 
         elif left == True:  # Движение влево в матрице
-            way[self.myPosY][self.myPosX] = '0'
+            #way[self.myPosY][self.myPosX] = '0'
+            self.myPrevPosX = self.myPosX
+            self.myPrevPosY = self.myPosY
             self.myPosX -= 1
-            #if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
-            #    hero.myPosX = int(hero.startX / 32)
-            #    hero.myPosY = int(hero.startY / 32)
+            if way[self.myPosY][self.myPosX] == 'H' and self.myPosY == hero.myPosY and self.myPosX == hero.myPosX:
+                hero.die()
             way[self.myPosY][self.myPosX] = 'M'
 
         elif right == True:  # Движение вправо в матрице
-            way[self.myPosY][self.myPosX] = '0'
+            #way[self.myPosY][self.myPosX] = '0'
+            self.myPrevPosX = self.myPosX
+            self.myPrevPosY = self.myPosY
             self.myPosX += 1
-            #if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
-            #    hero.myPosX = int(hero.startX / 32)
-            #    hero.myPosY = int(hero.startY / 32)
+            if way[self.myPosY][self.myPosX] == 'H' and self.myPosY == hero.myPosY and self.myPosX == hero.myPosX:
+                hero.die()
             way[self.myPosY][self.myPosX] = 'M'
 
         elif up == True:  # Движение вверх в матрице
-            way[self.myPosY][self.myPosX] = '0'
+            #way[self.myPosY][self.myPosX] = '0'
+            self.myPrevPosX = self.myPosX
+            self.myPrevPosY = self.myPosY
             self.myPosY -= 1
             #if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
             #    hero.myPosX = int(hero.startX / 32)
@@ -116,14 +130,16 @@ class Monster(sprite.Sprite): # Класс монстров
             way[self.myPosY][self.myPosX] = 'M'
 
         elif down == True:  # Движение вниз в матрице
-            way[self.myPosY][self.myPosX] = '0'
+            #way[self.myPosY][self.myPosX] = '0'
+            self.myPrevPosX = self.myPosX
+            self.myPrevPosY = self.myPosY
             self.myPosY += 1
             #if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
             #    hero.myPosX = int(hero.startX / 32)
             #    hero.myPosY = int(hero.startY / 32)
             way[self.myPosY][self.myPosX] = 'M'
 
-    def algMove(self, way: List[List[int]]):
+    def algMove(self, hero, way: List[List[int]]):
         #print ('Left: ' + str(self.moveOnLeft) + '   Right: '+ str(self.moveOnRight))
         if (self.moveOnLeft == True and self.moveOnRight == False) or (self.moveOnLeft == False and self.moveOnRight == True):
             if way[self.myPosY][self.myPosX - 1] == 'B':
@@ -166,7 +182,7 @@ class Monster(sprite.Sprite): # Класс монстров
             self.down = True
             #print("Monster: Down   Y=" + str(self.myPosY + 1) + '   X='+ str(self.myPosX))
 
-        Monster.moveOn(self, self.left, self.right, self.up, self.down, way)
+        Monster.moveOn(self, self.left, self.right, self.up, self.down, hero, way)
         self.moveTime = 32/self.MOVE_SPEED - 1
 
     def update(self, platforms, way: List[List[int]], hero):  # по принципу героя
@@ -209,7 +225,7 @@ class Monster(sprite.Sprite): # Класс монстров
                 if isinstance(p, blocks.BigEnergy):  # Если коснулись энергии то телепортируем её в другое место
                     blocks.BigEnergy.teleporting(p, 1, 1, platforms, True)
                     #Проверка и отрисовка, нужны Hero и Way
-                    while (hero.rect.x == p.rect.x and hero.rect.y == p.rect.y) or (hero.startX == p.rect.x and hero.startY == p.rect.y) or (blocks.Exit.myPosX == int(p.rect.x/32) and blocks.Exit.myPosY == int(p.rect.y/32)) :
+                    while (hero.rect.x == p.rect.x and hero.rect.y == p.rect.y) or (hero.startX == p.rect.x and hero.startY == p.rect.y) or (blocks.Exit.myPosX == int(p.rect.x/32) and blocks.Exit.myPosY == int(p.rect.y/32)) or (way[int(p.rect.y / 32)][int(p.rect.x / 32)] == 'M'): #or (self.myPosX == int(p.rect.x / 32) and self.myPosY == int(p.rect.y / 32)):
                         blocks.BigEnergy.teleporting(p, 32, 32 * random.randint(4, 5), platforms, True)
                     blocks.BigEnergy.myCoord(p)
                     way[int(p.rect.y / 32)][int(p.rect.x / 32)] = 'E'

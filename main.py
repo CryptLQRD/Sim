@@ -35,7 +35,7 @@ levelName = 'lvl1.txt' #Название уровня
 FILE_DIR = os.path.dirname(__file__)
 PLAY = False  # Включить\Выключить управление игроком
 REPEAT = True  # Включить\Выключить повторние игры с начала
-
+STARTDELAY = 40 #Базовая скорость симулятора. Чем больше значение, тем быстрее симулятор. Чем меньше значение, тем медленее симулятор.
 
 class Camera(object):
     def __init__(self, camera_func, width, height):
@@ -198,9 +198,6 @@ def main():
                 masBE.append(be)
                 blocks.BigEnergy.myCoord(be)
                 amountBigEnergy += 1 # Запоминаем кол-во энергий на карте
-                #blocks.Platform.rect = (be, )
-                #blocks.BigEnergy.be.myPosX = int(x/32)
-                #blocks.BigEnergy.be.myPosY = int(y/32)
             if col == "W":
                 ex = blocks.Exit(x,y)
                 entities.add(ex)
@@ -217,26 +214,26 @@ def main():
     for mn in masMons:
         Monster.myCoord(mn)
         way[mn.myPosY][mn.myPosX] = 'M'  # Если есть данный блок, то заполняем массив M
-    #    print('BigEnergy.myPosX: ' + str(i.myPosX) + '   BigEnergy.myPosY: ' + str(i.myPosY))
 
     bigEnergyCounter = maps.amountBigEnerge(way)
     if not PLAY:
         if (amountBigEnergy == 0):
             alg.algWaveFindExit('W', hero, way, 0)
         else:
-            alg.algWaveFindExit('E', hero, way, masBE) #[amountBigEnergy-1])
+            alg.algWaveFindExit('E', hero, way, masBE)
     elif PLAY:
-        maps.printInfo(hero, way)
+        maps.printInfo(hero, way) # Выводим карту уровня, если управляет игрок
 
-    #Выводим карту уровня
+
     #maps.clearNumberFromMap(way)
 
     moveTime = 0  # Необходима для плавного движения персонажа т.к. его скорость 8 пикселей, а не 32, как расчитана карта(массив)
     # определение времени
     #todayTime = datetime.datetime.today()   #date = todayTime.strftime("%d-%m-%y")   #time = todayTime.strftime("%H-%M-%S")
+    DELAY = STARTDELAY
     startTime = datetime.datetime.now()
     while True: # Основной цикл программы  #not hero.winner:
-        timer.tick(40)
+        timer.tick(DELAY)
         if hero.live <= 0 or hero.winner:
             if hero.live <= 0:
                 print('Поражение!\n')
@@ -262,9 +259,9 @@ def main():
                     Monster.myCoord(mn)
                     mn.moveTime = 0
                     way[int(mn.rect.y / 32)][int(mn.rect.x / 32)] = 'M'
-                    Monster.algMove(mn, way)
-                for be in masBE:
-                    blocks.BigEnergy.teleporting(be, 32 * random.randint(3, 3), 64, platforms, True)
+                    Monster.algMove(mn, hero, way)
+                for be in masBE: # Распределяем энергии по карте
+                    blocks.BigEnergy.teleporting(be, 32 * random.randint(6, 6), 224, platforms, True)
                     while (hero.rect.x == be.rect.x and hero.rect.y == be.rect.y) or (ex.rect.x == be.rect.x and ex.rect.y == be.rect.y) or (way[int(be.rect.y / 32)][int(be.rect.x / 32)] == 'M'):
                         blocks.BigEnergy.teleporting(be, 32, 32 * random.randint(4, 5), platforms, True)
                     blocks.BigEnergy.myCoord(be)
@@ -285,7 +282,7 @@ def main():
             else:
                 raise SystemExit("QUIT")
         for e in pygame.event.get(): # Обрабатываем события
-            if e.type == QUIT:
+            if e.type == QUIT or (e.type == KEYUP and e.key == K_ESCAPE):
                 print('Соединение разорвано!')
                 #Подсчитываем время
                 finishTime = datetime.datetime.now() # Время конца цикла
@@ -300,8 +297,20 @@ def main():
                         if e.type == KEYUP and e.key == K_SPACE:
                             pause = False
                             print('Продолжаем!')
-                        if e.type == QUIT:
+                        if e.type == QUIT or (e.type == KEYUP and e.key == K_ESCAPE):
                             raise SystemExit("QUIT")
+            if e.type == KEYDOWN and e.key == K_MINUS:
+                if DELAY > 5:
+                    DELAY -= 5
+                    print('Скорость симулятора понижена!   DELAY = ' + str(DELAY))
+                else: print('Отказ! Достигнута минимальная разрешенная скорость!   DELAY = ' + str(DELAY))
+            if e.type == KEYDOWN and e.key == K_EQUALS:
+                #DELAY += 25
+                DELAY += 100
+                print('Скорость симулятора повышена!   DELAY = ' + str(DELAY))
+            if e.type == KEYDOWN and e.key == K_BACKSPACE:
+                DELAY = STARTDELAY
+                print('Скорость симулятора восстановлена!   DELAY = ' + str(DELAY))
 
             if PLAY:
                 if e.type == KEYDOWN and e.key == K_UP:
@@ -325,8 +334,8 @@ def main():
                 #if e.type == KEYUP and e.key == K_LSHIFT:
                 #    lS = False
 
-        if not PLAY:
 
+        if not PLAY:
             if moveTime == 0 or (hero.imDie == True and hero.live > 0):
                 #if hero.imDie == True:
                     #hero.imDie = False
@@ -343,6 +352,8 @@ def main():
                         amountBigEnergy = maps.amountBigEnerge(way)
                     for be in masBE:
                         blocks.BigEnergy.myCoord(be)
+                        if be.myPosY > 0 and be.myPosX > 0:
+                            way[be.myPosY][be.myPosX] = 'E'
                     maps.clearWayNumFromMap(way) # Очищаем карту, чтобы можно было проложить новый маршрут до другого объекта
                     #amountBigEnergy -= 1  # Уменьшаем общее кол-во энергий
                     if bigEnergyCounter <= 0 or amountBigEnergy <= 0: # если энергии на карте закончились, тогда строим путь к выходу
@@ -363,10 +374,19 @@ def main():
 
         for mn in masMons: #Алгоритм движения монстров
             if mn.moveTime <= 0:
-                Monster.algMove(mn, way)
-            else: mn.moveTime -= 1
-        #maps.printInfo(hero, way)
+                if mn.myPrevPosY == mn.myPosY and mn.myPrevPosX == mn.myPosX:
+                    way[mn.myPrevPosY][mn.myPrevPosX] = 'M'
+                else:
+                    way[mn.myPrevPosY][mn.myPrevPosX] = '0'
 
+                Monster.algMove(mn, hero, way)
+            else:
+                mn.moveTime -= 1
+                #if mn.myPrevPosY != mn.myPosY and mn.myPrevPosX != mn.myPosX:
+                way[mn.myPrevPosY][mn.myPrevPosX] = 'M'
+
+        if PLAY:
+            maps.printInfo(hero, way)
 
         window.blit(screen, (0,0)) # Каждую итерацию необходимо всё перерисовывать экран
         animatedEntities.update()  # показываеaм анимацию
@@ -381,7 +401,7 @@ def main():
         window.blit(score_font.render("Жизни: " + str(hero.live), 1, (255, 255, 255)), (WIN_WIDTH-165, 1))
 
         pygame.display.update()     # обновление и вывод всех изменений на экран
-        #maps.printInfo(hero, way)
+
 
 masBE = []  # Создаем массив для каждого элемента BigEnergy
 masMons = [] # Массив со всеми монстрами

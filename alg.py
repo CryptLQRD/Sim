@@ -232,10 +232,10 @@ def algWaveFindExit (symbol, hero, way: List[List[int]], masBE: List[int]):
     exitFlag = False
     nextStep = False
     if (way[y][x+1] == 'E' or way[y+1][x] == 'E' or way[y][x-1] == 'E' or way[y-1][x] == 'E') \
-            or (way[y + 1][x + 1] == 'E' and way[y + 1][x] != 'B' and way[y][x + 1] != 'B') \
-            or (way[y - 1][x + 1] == 'E' and way[y - 1][x] != 'B' and way[y][x + 1] != 'B') \
-            or (way[y + 1][x - 1] == 'E' and way[y + 1][x] != 'B' and way[y][x - 1] != 'B') \
-            or (way[y - 1][x - 1] == 'E' and way[y - 1][x] != 'B' and way[y][x - 1] != 'B'):
+            or (way[y + 1][x + 1] == 'E' and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M') and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M'))\
+            or (way[y - 1][x + 1] == 'E' and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M') and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M')) \
+            or (way[y + 1][x - 1] == 'E' and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M') and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M')) \
+            or (way[y - 1][x - 1] == 'E' and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M') and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M')):
         exitFlag = True # Заканчиваем работу алгоритма т.к. энергия уже находится рядом с героем.
         #maps.printInfo(hero, way)
     elif symbol == 'E':
@@ -245,10 +245,10 @@ def algWaveFindExit (symbol, hero, way: List[List[int]], masBE: List[int]):
             if be.myPosX < 0 or be.myPosY < 0:
                 1 # Ничего не делаем т.к. позиция энергии находится за картой, то мы ее игнорируем
             elif way[be.myPosY-1][be.myPosX] == n or way[be.myPosY][be.myPosX-1] == n or way[be.myPosY][be.myPosX+1] == n or way[be.myPosY +1][be.myPosX] == n \
-                    or (way[be.myPosY + 1][be.myPosX + 1] == n and way[be.myPosY + 1][be.myPosX] != 'B' and way[be.myPosY][be.myPosX + 1] != 'B') \
-                    or (way[be.myPosY - 1][be.myPosX + 1] == n and way[be.myPosY - 1][be.myPosX] != 'B' and way[be.myPosY][be.myPosX + 1] != 'B') \
-                    or (way[be.myPosY + 1][be.myPosX - 1] == n and way[be.myPosY + 1][be.myPosX] != 'B' and way[be.myPosY][be.myPosX - 1] != 'B') \
-                    or (way[be.myPosY - 1][be.myPosX - 1] == n and way[be.myPosY - 1][be.myPosX] != 'B' and way[be.myPosY][be.myPosX - 1] != 'B'):
+                    or (way[be.myPosY + 1][be.myPosX + 1] == n and (way[be.myPosY + 1][be.myPosX] != 'B' and way[be.myPosY + 1][be.myPosX] != 'M') and (way[be.myPosY][be.myPosX + 1] != 'B' and way[be.myPosY][be.myPosX + 1] != 'M')) \
+                    or (way[be.myPosY - 1][be.myPosX + 1] == n and (way[be.myPosY - 1][be.myPosX] != 'B' and way[be.myPosY - 1][be.myPosX] != 'M') and (way[be.myPosY][be.myPosX + 1] != 'B' and way[be.myPosY][be.myPosX + 1] != 'M')) \
+                    or (way[be.myPosY + 1][be.myPosX - 1] == n and (way[be.myPosY + 1][be.myPosX] != 'B' and way[be.myPosY + 1][be.myPosX] != 'M') and (way[be.myPosY][be.myPosX - 1] != 'B' and way[be.myPosY][be.myPosX - 1] != 'M')) \
+                    or (way[be.myPosY - 1][be.myPosX - 1] == n and (way[be.myPosY - 1][be.myPosX] != 'B' and way[be.myPosY - 1][be.myPosX] != 'M') and (way[be.myPosY][be.myPosX - 1] != 'B' and way[be.myPosY][be.myPosX - 1] != 'M')):
                 x = be.myPosX
                 y = be.myPosY
                 print('Выбрана начальная точка: BigEnergy.myPosX: ' + str(be.myPosX) + '   BigEnergy.myPosY: ' + str(be.myPosY))
@@ -281,57 +281,57 @@ def algWaveFindExit (symbol, hero, way: List[List[int]], masBE: List[int]):
 # symbol - волна будет распространяться пока мы не найдем этот символ на карте, way - наш массив (карта)
 def findWays (y, x, n, exitFlag, checkSym, symbol, way: List[List[int]]):
     #Вверх
-    if (y - 1 >= 0 and way[y - 1][x] != 'B' and way[y - 1][x] == checkSym) or way[y - 1][x] == symbol:
+    if (y - 1 >= 0 and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M') and way[y - 1][x] == checkSym) or way[y - 1][x] == symbol:
         if way[y - 1][x] == symbol:
             exitFlag = True
         else:
             way[y - 1][x] = n
 
     #Вниз
-    if (y + 1 < len(way) and way[y + 1][x] != 'B' and way[y + 1][x] == checkSym) or way[y + 1][x] == symbol:
+    if (y + 1 < len(way) and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M') and way[y + 1][x] == checkSym) or way[y + 1][x] == symbol:
         if way[y + 1][x] == symbol:
             exitFlag = True
         else:
             way[y + 1][x] = n
 
     #Влево
-    if (x - 1 >= 0 and way[y][x - 1] != 'B' and way[y][x - 1] == checkSym) or way[y][x - 1] == symbol:
+    if (x - 1 >= 0 and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and way[y][x - 1] == checkSym) or way[y][x - 1] == symbol:
         if way[y][x - 1] == symbol:
             exitFlag = True
         else:
             way[y][x - 1] = n
 
     #Вправо
-    if (x + 1 < len(way[y]) and way[y][x + 1] != 'B' and way[y][x + 1] == checkSym) or way[y][x + 1] == symbol:
+    if (x + 1 < len(way[y]) and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and way[y][x + 1] == checkSym) or way[y][x + 1] == symbol:
         if way[y][x + 1] == symbol:
             exitFlag = True
         else:
             way[y][x + 1] = n
 
     #Вправо-Вниз
-    if (x + 1 < len(way[y]) and y + 1 < len(way) and way[y][x + 1] != 'B' and way[y + 1][x] != 'B' and way[y + 1][x + 1] == checkSym) or (way[y + 1][x + 1] == symbol and way[y][x + 1] != 'B' and way[y + 1][x] != 'B'):
-        if way[y + 1][x + 1] == symbol and way[y][x + 1] != 'B' and way[y + 1][x] != 'B':
+    if (x + 1 < len(way[y]) and y + 1 < len(way) and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M') and way[y + 1][x + 1] == checkSym) or (way[y + 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M')):
+        if way[y + 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M'):
             exitFlag = True
         else:
             way[y + 1][x + 1] = n
 
     #Вправо-Вверх
-    if (x + 1 < len(way[y]) and y - 1 >= 0 and way[y][x + 1] != 'B' and way[y - 1][x] != 'B' and way[y - 1][x + 1] == checkSym) or (way[y - 1][x + 1] == symbol and way[y][x + 1] != 'B' and way[y - 1][x] != 'B'):
-        if way[y - 1][x + 1] == symbol and way[y][x + 1] != 'B' and way[y - 1][x] != 'B':
+    if (x + 1 < len(way[y]) and y - 1 >= 0 and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M') and way[y - 1][x + 1] == checkSym) or (way[y - 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M')):
+        if way[y - 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M'):
             exitFlag = True
         else:
             way[y - 1][x + 1] = n
 
     #Влево-Вниз
-    if (x - 1 >= 0 and y + 1 < len(way) and way[y][x - 1] != 'B' and way[y + 1][x] != 'B' and way[y + 1][x - 1] == checkSym) or (way[y + 1][x - 1] == symbol and way[y][x - 1] != 'B' and way[y + 1][x] != 'B'):
-        if way[y + 1][x - 1] == symbol and way[y][x - 1] != 'B' and way[y + 1][x] != 'B':
+    if (x - 1 >= 0 and y + 1 < len(way) and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M') and way[y + 1][x - 1] == checkSym) or (way[y + 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M')):
+        if way[y + 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M'):
             exitFlag = True
         else:
             way[y + 1][x - 1] = n
 
     #Влево-Вверх
-    if (x - 1 >= 0 and y - 1 >= 0 and way[y][x - 1] != 'B' and way[y - 1][x] != 'B' and way[y - 1][x - 1] == checkSym) or (way[y - 1][x - 1] == symbol and way[y][x - 1] != 'B' and way[y - 1][x] != 'B'):
-        if way[y - 1][x - 1] == symbol and way[y][x - 1] != 'B' and way[y - 1][x] != 'B':
+    if (x - 1 >= 0 and y - 1 >= 0 and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M') and way[y - 1][x - 1] == checkSym) or (way[y - 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M')):
+        if way[y - 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M'):
             exitFlag = True
         else:
             way[y - 1][x - 1] = n
@@ -341,39 +341,39 @@ def findWays (y, x, n, exitFlag, checkSym, symbol, way: List[List[int]]):
 # symbol - волна будет распространяться пока мы не найдем этот символ на карте, way - наш массив (карта), nextStep - флаг сообщающий о нахождении symbol'а или установке '+' (прокладывание маршрута до цели)
 def findBackWay (y, x, n, exitFlag, checkSym, symbol, nextStep,  way: List[List[int]]):
     #Влево-Вверх
-    if (x - 1 >= 0 and y - 1 >= 0 and way[y][x - 1] != 'B' and way[y - 1][x] != 'B' and way[y - 1][x - 1] == checkSym) or (way[y - 1][x - 1] == symbol and way[y][x - 1] != 'B' and way[y - 1][x] != 'B'):
-        if way[y - 1][x - 1] == symbol and way[y][x - 1] != 'B' and way[y - 1][x] != 'B':
+    if (x - 1 >= 0 and y - 1 >= 0 and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M') and way[y - 1][x - 1] == checkSym) or (way[y - 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M')):
+        if way[y - 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M'):
             exitFlag = True
         else:
             way[y - 1][x - 1] = n
         nextStep = True
 
     #Влево-Вниз
-    elif (x - 1 >= 0 and y + 1 < len(way) and way[y][x - 1] != 'B' and way[y + 1][x] != 'B' and way[y + 1][x - 1] == checkSym) or (way[y + 1][x - 1] == symbol and way[y][x - 1] != 'B' and way[y + 1][x] != 'B'):
-        if way[y + 1][x - 1] == symbol and way[y][x - 1] != 'B' and way[y + 1][x] != 'B':
+    elif (x - 1 >= 0 and y + 1 < len(way) and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M') and way[y + 1][x - 1] == checkSym) or (way[y + 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M')):
+        if way[y + 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M'):
             exitFlag = True
         else:
             way[y + 1][x - 1] = n
         nextStep = True
 
     #Вправо-Вверх
-    elif (x + 1 < len(way[y]) and y - 1 >= 0 and way[y][x + 1] != 'B' and way[y - 1][x] != 'B' and way[y - 1][x + 1] == checkSym) or (way[y - 1][x + 1] == symbol and way[y][x + 1] != 'B' and way[y - 1][x] != 'B'):
-        if way[y - 1][x + 1] == symbol and way[y][x + 1] != 'B' and way[y - 1][x] != 'B':
+    elif (x + 1 < len(way[y]) and y - 1 >= 0 and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M') and way[y - 1][x + 1] == checkSym) or (way[y - 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M')):
+        if way[y - 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M'):
             exitFlag = True
         else:
             way[y - 1][x + 1] = n
         nextStep = True
 
     #Вправо-Вниз
-    elif (x + 1 < len(way[y]) and y + 1 < len(way) and way[y][x + 1] != 'B' and way[y + 1][x] != 'B' and way[y + 1][x + 1] == checkSym) or (way[y + 1][x + 1] == symbol and way[y][x + 1] != 'B' and way[y + 1][x] != 'B'):
-        if way[y + 1][x + 1] == symbol and way[y][x + 1] != 'B' and way[y + 1][x] != 'B':
+    elif (x + 1 < len(way[y]) and y + 1 < len(way) and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M') and way[y + 1][x + 1] == checkSym) or (way[y + 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M')):
+        if way[y + 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M'):
             exitFlag = True
         else:
             way[y + 1][x + 1] = n
         nextStep = True
 
     #Вверх
-    elif (y - 1 >= 0 and way[y - 1][x] != 'B' and way[y - 1][x] == checkSym) or way[y - 1][x] == symbol:
+    elif (y - 1 >= 0 and way[y - 1][x] != 'B' and way[y - 1][x] != 'M' and way[y - 1][x] == checkSym) or way[y - 1][x] == symbol:
         if way[y - 1][x] == symbol:
             exitFlag = True
         else:
@@ -381,7 +381,7 @@ def findBackWay (y, x, n, exitFlag, checkSym, symbol, nextStep,  way: List[List[
         nextStep = True
 
     #Вниз
-    elif (y + 1 < len(way) and way[y + 1][x] != 'B' and way[y + 1][x] == checkSym) or way[y + 1][x] == symbol:
+    elif (y + 1 < len(way) and way[y + 1][x] != 'B' and way[y + 1][x] != 'M' and way[y + 1][x] == checkSym) or way[y + 1][x] == symbol:
         if way[y + 1][x] == symbol:
             exitFlag = True
         else:
@@ -389,7 +389,7 @@ def findBackWay (y, x, n, exitFlag, checkSym, symbol, nextStep,  way: List[List[
         nextStep = True
 
     #Влево
-    elif (x - 1 >= 0 and way[y][x - 1] != 'B' and way[y][x - 1] == checkSym) or way[y][x - 1] == symbol:
+    elif (x - 1 >= 0 and way[y][x - 1] != 'B' and way[y][x - 1] != 'M' and way[y][x - 1] == checkSym) or way[y][x - 1] == symbol:
         if way[y][x - 1] == symbol:
             exitFlag = True
         else:
@@ -397,7 +397,7 @@ def findBackWay (y, x, n, exitFlag, checkSym, symbol, nextStep,  way: List[List[
         nextStep = True
 
     #Вправо
-    elif (x + 1 < len(way[y]) and way[y][x + 1] != 'B' and way[y][x + 1] == checkSym) or way[y][x + 1] == symbol:
+    elif (x + 1 < len(way[y]) and way[y][x + 1] != 'B' and way[y][x + 1] != 'M' and way[y][x + 1] == checkSym) or way[y][x + 1] == symbol:
         if way[y][x + 1] == symbol:
             exitFlag = True
         else:
