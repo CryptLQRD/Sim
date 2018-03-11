@@ -239,7 +239,7 @@ def algWaveFindExit (symbol, hero, way: List[List[int]], masBE: List[int]):
         exitFlag = True # Заканчиваем работу алгоритма т.к. энергия уже находится рядом с героем.
         #maps.printInfo(hero, way)
     elif symbol == 'E':
-        print("Steps of alghoritm: N=" + str(n))
+        print("Кол-во шагов алгоритма: N=" + str(n))
         for be in masBE:
             #if way[be.myPosY-1][be.myPosX] == n or way[be.myPosY][be.myPosX-1] == n or way[be.myPosY -1][be.myPosX-1] == n or way[be.myPosY -1][be.myPosX + 1] == n or way[be.myPosY][be.myPosX+1] == n or way[be.myPosY+1][be.myPosX+1] == n or way[be.myPosY +1][be.myPosX] == n or way[be.myPosY +1][be.myPosX-1] == n:
             if be.myPosX < 0 or be.myPosY < 0:
@@ -271,7 +271,6 @@ def algWaveFindExit (symbol, hero, way: List[List[int]], masBE: List[int]):
                     else: exitFlag, nextStep = findBackWay(i, j, '+',exitFlag, n, 'H', nextStep, way)
             if nextStep == True:
                 break
-        maps.printInfo(hero, way)
         nextStep = False
         if exitFlag != True:
             n -= 1

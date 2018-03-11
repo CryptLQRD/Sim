@@ -25,6 +25,16 @@ ANIMATION_BATFLYRIGHT = [('%s/monsters/bat/bat_fly_r1.png' % ICON_DIR),
                          ('%s/monsters/bat/bat_fly_r3.png' % ICON_DIR),
                          ('%s/monsters/bat/bat_fly_r2.png' % ICON_DIR)]
 
+ANIMATION_BATFLYUP = [('%s/monsters/bat/bat_back_1.png' % ICON_DIR),
+                      ('%s/monsters/bat/bat_back_2.png' % ICON_DIR),
+                      ('%s/monsters/bat/bat_back_3.png' % ICON_DIR),
+                      ('%s/monsters/bat/bat_back_2.png' % ICON_DIR)]
+
+ANIMATION_BATFLYDOWN = [('%s/monsters/bat/bat_stay_1.png' % ICON_DIR),
+                        ('%s/monsters/bat/bat_stay_2.png' % ICON_DIR),
+                        ('%s/monsters/bat/bat_stay_3.png' % ICON_DIR),
+                        ('%s/monsters/bat/bat_stay_2.png' % ICON_DIR)]
+
 ANIMATION_WRAITHLEFT  = [('%s/monsters/wraith_l.png' % ICON_DIR)]
 ANIMATION_WRAITHRIGHT = [('%s/monsters/wraith_r.png' % ICON_DIR)]
 
@@ -66,7 +76,7 @@ class Monster(sprite.Sprite): # Класс монстров
             #if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
             #    hero.myPosX = int(hero.startX / 32)
             #    hero.myPosY = int(hero.startY / 32)
-            way[self.myPosY][self.myPosX] = 'M'
+            #way[self.myPosY][self.myPosX] = 'M'
 
         elif right == True and up == True:  # Движение вправо-вверх в матрице
             #way[self.myPosY][self.myPosX] = '0'
@@ -77,7 +87,7 @@ class Monster(sprite.Sprite): # Класс монстров
             #if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
             #    hero.myPosX = int(hero.startX / 32)
             #    hero.myPosY = int(hero.startY / 32)
-            way[self.myPosY][self.myPosX] = 'M'
+            #way[self.myPosY][self.myPosX] = 'M'
 
         elif right == True and down == True:  # Движение вправо-вниз в матрице
             #way[self.myPosY][self.myPosX] = '0'
@@ -88,7 +98,7 @@ class Monster(sprite.Sprite): # Класс монстров
             #if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
             #    hero.myPosX = int(hero.startX / 32)
             #    hero.myPosY = int(hero.startY / 32)
-            way[self.myPosY][self.myPosX] = 'M'
+            #way[self.myPosY][self.myPosX] = 'M'
 
         elif left == True and down == True:  # Движение влево-вниз в матрице
             #way[self.myPosY][self.myPosX] = '0'
@@ -99,7 +109,7 @@ class Monster(sprite.Sprite): # Класс монстров
             #if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
             #    hero.myPosX = int(hero.startX / 32)
             #    hero.myPosY = int(hero.startY / 32)
-            way[self.myPosY][self.myPosX] = 'M'
+            #way[self.myPosY][self.myPosX] = 'M'
 
         elif left == True:  # Движение влево в матрице
             #way[self.myPosY][self.myPosX] = '0'
@@ -108,7 +118,7 @@ class Monster(sprite.Sprite): # Класс монстров
             self.myPosX -= 1
             if way[self.myPosY][self.myPosX] == 'H' and self.myPosY == hero.myPosY and self.myPosX == hero.myPosX:
                 hero.die()
-            way[self.myPosY][self.myPosX] = 'M'
+            #way[self.myPosY][self.myPosX] = 'M'
 
         elif right == True:  # Движение вправо в матрице
             #way[self.myPosY][self.myPosX] = '0'
@@ -117,7 +127,7 @@ class Monster(sprite.Sprite): # Класс монстров
             self.myPosX += 1
             if way[self.myPosY][self.myPosX] == 'H' and self.myPosY == hero.myPosY and self.myPosX == hero.myPosX:
                 hero.die()
-            way[self.myPosY][self.myPosX] = 'M'
+            #way[self.myPosY][self.myPosX] = 'M'
 
         elif up == True:  # Движение вверх в матрице
             #way[self.myPosY][self.myPosX] = '0'
@@ -127,7 +137,7 @@ class Monster(sprite.Sprite): # Класс монстров
             #if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
             #    hero.myPosX = int(hero.startX / 32)
             #    hero.myPosY = int(hero.startY / 32)
-            way[self.myPosY][self.myPosX] = 'M'
+            #way[self.myPosY][self.myPosX] = 'M'
 
         elif down == True:  # Движение вниз в матрице
             #way[self.myPosY][self.myPosX] = '0'
@@ -137,7 +147,7 @@ class Monster(sprite.Sprite): # Класс монстров
             #if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
             #    hero.myPosX = int(hero.startX / 32)
             #    hero.myPosY = int(hero.startY / 32)
-            way[self.myPosY][self.myPosX] = 'M'
+            #way[self.myPosY][self.myPosX] = 'M'
 
     def algMove(self, hero, way: List[List[int]]):
         #print ('Left: ' + str(self.moveOnLeft) + '   Right: '+ str(self.moveOnRight))
@@ -187,12 +197,21 @@ class Monster(sprite.Sprite): # Класс монстров
 
     def update(self, platforms, way: List[List[int]], hero):  # по принципу героя
 
-        if (self.xvel < 0):
-            self.image.fill(Color(MONSTER_COLOR))
-            self.boltAnimLeft.blit(self.image, (0, 0))
-        else:
-            self.image.fill(Color(MONSTER_COLOR))
-            self.boltAnimRight.blit(self.image, (0, 0))
+        if (self.yvel != 0):
+            if (self.yvel < 0):
+                self.image.fill(Color(MONSTER_COLOR))
+                self.boltAnimUp.blit(self.image, (0, 0))
+            else:
+                self.image.fill(Color(MONSTER_COLOR))
+                self.boltAnimDown.blit(self.image, (0, 0))
+
+        if (self.xvel != 0):
+            if (self.xvel < 0):
+                self.image.fill(Color(MONSTER_COLOR))
+                self.boltAnimLeft.blit(self.image, (0, 0))
+            else:
+                self.image.fill(Color(MONSTER_COLOR))
+                self.boltAnimRight.blit(self.image, (0, 0))
 
         if self.left:
             self.xvel = -self.MOVE_SPEED  # Лево = x- n
@@ -223,9 +242,11 @@ class Monster(sprite.Sprite): # Класс монстров
         for p in platforms:
             if sprite.collide_rect(self, p) and self != p:  # если с чем-то или кем-то столкнулись
                 if isinstance(p, blocks.BigEnergy):  # Если коснулись энергии то телепортируем её в другое место
+                    if (way[int(p.rect.y / 32)][int(p.rect.x / 32)] != 'H') or (blocks.Exit.myPosX != int(p.rect.x/32) and blocks.Exit.myPosY != int(p.rect.y/32)) or (way[int(p.rect.y / 32)][int(p.rect.x / 32)] != 'M'): #or (self.myPosX == int(p.rect.x / 32) and self.myPosY == int(p.rect.y / 32)):
+                        way[int(p.rect.y / 32)][int(p.rect.x / 32)] = '0'
                     blocks.BigEnergy.teleporting(p, 1, 1, platforms, True)
                     #Проверка и отрисовка, нужны Hero и Way
-                    while (hero.rect.x == p.rect.x and hero.rect.y == p.rect.y) or (hero.startX == p.rect.x and hero.startY == p.rect.y) or (blocks.Exit.myPosX == int(p.rect.x/32) and blocks.Exit.myPosY == int(p.rect.y/32)) or (way[int(p.rect.y / 32)][int(p.rect.x / 32)] == 'M'): #or (self.myPosX == int(p.rect.x / 32) and self.myPosY == int(p.rect.y / 32)):
+                    while (hero.rect.x == p.rect.x and hero.rect.y == p.rect.y) or (hero.startX == p.rect.x and hero.startY == p.rect.y) or (way[int(p.rect.y / 32)][int(p.rect.x / 32)] == 'H') or (blocks.Exit.myPosX == int(p.rect.x/32) and blocks.Exit.myPosY == int(p.rect.y/32)) or (way[int(p.rect.y / 32)][int(p.rect.x / 32)] == 'M'): #or (self.myPosX == int(p.rect.x / 32) and self.myPosY == int(p.rect.y / 32)):
                         blocks.BigEnergy.teleporting(p, 32, 32 * random.randint(4, 5), platforms, True)
                     blocks.BigEnergy.myCoord(p)
                     way[int(p.rect.y / 32)][int(p.rect.x / 32)] = 'E'
@@ -239,7 +260,8 @@ class Monster(sprite.Sprite): # Класс монстров
         self.myPosX = int(self.rect.x/32)
         self.myPosY = int(self.rect.y/32)
 
-    def updateOld(self, platforms):  # по принципу героя
+
+    def OLD_update_OLD(self, platforms):  # по принципу героя
 
         if (self.xvel < 0):
             self.image.fill(Color(MONSTER_COLOR))
@@ -286,6 +308,18 @@ class Bat(Monster):
             boltAnim.append((anim, ANIMATION_BAT_DELAY))
         self.boltAnimRight = pyganim.PygAnimation(boltAnim)
         self.boltAnimRight.play()
+        # Анимация полета наверх
+        boltAnim = []
+        for anim in ANIMATION_BATFLYUP:
+            boltAnim.append((anim, ANIMATION_BAT_DELAY))
+        self.boltAnimUp = pyganim.PygAnimation(boltAnim)
+        self.boltAnimUp.play()
+        # Анимация полета вниз
+        boltAnim = []
+        for anim in ANIMATION_BATFLYDOWN:
+            boltAnim.append((anim, ANIMATION_BAT_DELAY))
+        self.boltAnimDown = pyganim.PygAnimation(boltAnim)
+        self.boltAnimDown.play()
 
 
 class Wraith(Monster):

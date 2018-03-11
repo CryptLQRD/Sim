@@ -110,6 +110,7 @@ class BigEnergy(Platform): #Класс объекта "Энергия"
     def myCoord(self): #Необходимо для обновления координат на карте
         self.myPosX = int(self.rect.x/32)
         self.myPosY = int(self.rect.y/32)
+        #print("Определение координат энергии: X: " + str(int(self.rect.x/32) ) + "   Y: " + str(int(self.rect.y/32)))
 
 
 class Exit(Platform): #Класс объекта "Портал-выход"

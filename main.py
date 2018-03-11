@@ -33,7 +33,7 @@ BACKGROUND_COLOR = "#003300"
 #REPEAT = False # Включить\Выключить повторние игры с начала
 levelName = 'lvl1.txt' #Название уровня
 FILE_DIR = os.path.dirname(__file__)
-PLAY = False  # Включить\Выключить управление игроком
+PLAY = True  # Включить\Выключить управление игроком
 REPEAT = True  # Включить\Выключить повторние игры с начала
 STARTDELAY = 40 #Базовая скорость симулятора. Чем больше значение, тем быстрее симулятор. Чем меньше значение, тем медленее симулятор.
 
@@ -306,7 +306,7 @@ def main():
                 else: print('Отказ! Достигнута минимальная разрешенная скорость!   DELAY = ' + str(DELAY))
             if e.type == KEYDOWN and e.key == K_EQUALS:
                 #DELAY += 25
-                DELAY += 100
+                DELAY += 50
                 print('Скорость симулятора повышена!   DELAY = ' + str(DELAY))
             if e.type == KEYDOWN and e.key == K_BACKSPACE:
                 DELAY = STARTDELAY
@@ -337,12 +337,10 @@ def main():
 
         if not PLAY:
             if moveTime == 0 or (hero.imDie == True and hero.live > 0):
-                #if hero.imDie == True:
-                    #hero.imDie = False
-                if amountBigEnergy >= 0:  # Если энергии, которые присутствовали на карте ещё не собраны
+                #if amountBigEnergy >= 0:  # Если энергии, которые присутствовали на карте ещё не собраны
                     bigEnergyCounter = maps.amountBigEnerge(way)  # тогда сверяем их с текущим количеством на карте
                     print('BigEnergyCounter: ' + str(bigEnergyCounter) + '  ;  AmountBigEnergy: ' + str(amountBigEnergy))
-                if ((bigEnergyCounter != amountBigEnergy and amountBigEnergy >= 0) or hero.imDie == True): #or (bigEnergyCounter == 0): #если кол-во на карте и общее различается, то прокладываем маршрут до следующей цели
+                #if ((bigEnergyCounter != amountBigEnergy and amountBigEnergy >= 0) or hero.imDie == True): #or (bigEnergyCounter == 0): #если кол-во на карте и общее различается, то прокладываем маршрут до следующей цели
                     if hero.imDie == True:
                         hero.imDie = False
                         maps.clearHeroFromMap(way)
@@ -352,7 +350,7 @@ def main():
                         amountBigEnergy = maps.amountBigEnerge(way)
                     for be in masBE:
                         blocks.BigEnergy.myCoord(be)
-                        if be.myPosY > 0 and be.myPosX > 0:
+                        if be.myPosY > 0 and be.myPosX > 0 and way[be.myPosY][be.myPosX] != 'M':
                             way[be.myPosY][be.myPosX] = 'E'
                     maps.clearWayNumFromMap(way) # Очищаем карту, чтобы можно было проложить новый маршрут до другого объекта
                     #amountBigEnergy -= 1  # Уменьшаем общее кол-во энергий
@@ -362,10 +360,15 @@ def main():
                     else:
                         print('Прокладываю путь до E')
                         alg.algWaveFindExit('E', hero, way, masBE)#[amountBigEnergy-1])
+                    maps.clearNumFromMap(way)  # очищаю карту от всех возможных путей(чисел) и оставляю только проложенный (+) (для удобства отображения)
             #else: print('Проскочил')
             if moveTime <= 0: # если перемещение героя в планируемую точку закончилось, вычисляем следующее движение
+                #for be in masBE:
+                #    blocks.BigEnergy.myCoord(be)
+                #    if be.myPosY > 0 and be.myPosX > 0 and way[be.myPosY][be.myPosX] != 'M':
+                #        way[be.myPosY][be.myPosX] = 'E'
                 left, right, up, down, moveTime = alg.algWave(hero, way)
-                maps.clearNumFromMap(way) # очищаю карту от всех возможных путей(чисел) и оставляю только проложенный (+) (для удобства отображения)
+                #maps.clearNumFromMap(way) # очищаю карту от всех возможных путей(чисел) и оставляю только проложенный (+) (для удобства отображения)
 
                 #print ("Время движения: " + str(moveTime))
             else:
@@ -374,16 +377,18 @@ def main():
 
         for mn in masMons: #Алгоритм движения монстров
             if mn.moveTime <= 0:
-                if mn.myPrevPosY == mn.myPosY and mn.myPrevPosX == mn.myPosX:
-                    way[mn.myPrevPosY][mn.myPrevPosX] = 'M'
-                else:
-                    way[mn.myPrevPosY][mn.myPrevPosX] = '0'
-
+                #if mn.myPrevPosY == mn.myPosY and mn.myPrevPosX == mn.myPosX:
+                #    way[mn.myPrevPosY][mn.myPrevPosX] = 'M'
+                #else:
+                #way[mn.myPosY][mn.myPosX] = 'M'  # Показывает текущую позицию (До выбора следующего пути по алгоритму!)
+                if way[mn.myPrevPosY][mn.myPrevPosX] != 'H':
+                    way[mn.myPrevPosY][mn.myPrevPosX] = '0'  # Отмечаем на карте, что ушли с предыдущей позиции
                 Monster.algMove(mn, hero, way)
             else:
                 mn.moveTime -= 1
-                #if mn.myPrevPosY != mn.myPosY and mn.myPrevPosX != mn.myPosX:
-                way[mn.myPrevPosY][mn.myPrevPosX] = 'M'
+                #way[mn.myPrevPosY][mn.myPrevPosX] = 'M' #На карте видна лишь предыдущая позиция! Куда двигается монстр - не видно!
+        for mn in masMons:
+            way[mn.myPrevPosY][mn.myPrevPosX] = 'M' #На карте видна лишь предыдущая позиция! Куда двигается монстр - не видно!
 
         if PLAY:
             maps.printInfo(hero, way)
