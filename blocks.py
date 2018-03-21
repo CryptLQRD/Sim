@@ -13,7 +13,6 @@ PLATFORM_COLOR = "#003300"  #"#FF6262"
 BLACK_COLOR = "#000000"  #"#FF6262"
 WHITE_COLOR = "#ffffff"
 ICON_DIR = os.path.dirname(__file__) #  Полный путь к каталогу с файлами
-count = 0
 
 
 ANIMATION_BLOCKTELEPORT = [
@@ -29,6 +28,11 @@ ANIMATION_BIGENERGY = [
             ('%s/blocks/big_energy2.png' % ICON_DIR),
             ('%s/blocks/big_energy3.png' % ICON_DIR),
             ('%s/blocks/big_energy4.png' % ICON_DIR)]
+
+ANIMATION_BLACKHOLE = [
+            ('%s/blocks/blackhole_0.png' % ICON_DIR),
+            ('%s/blocks/blackhole_1.png' % ICON_DIR),
+            ('%s/blocks/blackhole_2.png' % ICON_DIR)]
 
 def levelSize(total_level_width, total_level_height): #Функция для определения размера уровня необходимая для метода teleporting класса BigEnergy
     global LevelHeight
@@ -59,6 +63,18 @@ class BlockDie(Platform): #Класс объекта "Шипы"
         Platform.__init__(self, x, y)
         self.image = image.load("%s/blocks/dieBlock.png" % ICON_DIR)
 
+class BlackHole(Platform): #Класс объекта "Шипы"
+    def __init__(self, x, y):
+        Platform.__init__(self, x, y)
+        boltAnim = []
+        for anim in ANIMATION_BLACKHOLE:
+            boltAnim.append((anim, 0.15))
+        self.boltAnim = pyganim.PygAnimation(boltAnim)
+        self.boltAnim.play()
+
+    def update(self):
+        self.image.fill(Color(PLATFORM_COLOR))
+        self.boltAnim.blit(self.image, (0, 0))
 
 class BlockTeleport(Platform): #Класс объекта "Портал телепортации"
     def __init__(self, x, y, goX, goY):

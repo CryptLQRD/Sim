@@ -10,7 +10,7 @@ import random
 import maps
 from typing import List
 
-MOVE_SPEED = 8
+MOVE_SPEED = 32 #Для плавного движения изменить на 8
 WIDTH = 32 #24
 HEIGHT = 32 #30
 COLOR =  "#888888"
@@ -24,6 +24,7 @@ class Player(sprite.Sprite): # Класс игрока
         sprite.Sprite.__init__(self)
         self.myPosX = -1 #Позиция X игрока в массиве
         self.myPosY = -1 #Позиция Y игрока в массиве
+        self.MOVE_SPEED = MOVE_SPEED
         self.xvel = 0   #скорость перемещения. 0 - стоять на месте
         self.yvel = 0 # скорость вертикального перемещения
         self.startX = x # текущая позиция x
@@ -32,6 +33,7 @@ class Player(sprite.Sprite): # Класс игрока
         self.score = 0
         self.live = 3
         self.imDie = False
+        self.imSlow = False
         self.winner = False
         self.Fleft = True #Вспомогательная переменная для анимации
         self.image = Surface((WIDTH,HEIGHT))
@@ -42,34 +44,34 @@ class Player(sprite.Sprite): # Класс игрока
 
     def updatePlayer(self,  left, right, up, down, platforms, way: List[List[int]]): # Метод "передвижения"
         if left:
-            self.xvel = -MOVE_SPEED # Лево = x- n
+            self.xvel = -self.MOVE_SPEED # Лево = x- n
             self.image = image.load("%s/player/0_24-32.png" % ICON_DIR)
             self.Fleft = True
         if right:
-            self.xvel = MOVE_SPEED # Право = x + n
+            self.xvel = self.MOVE_SPEED # Право = x + n
             self.image = image.load("%s/player/1_24-32.png" % ICON_DIR)
             self.Fleft = False
         if up:
-            self.yvel = -MOVE_SPEED # Лево = x- n
+            self.yvel = -self.MOVE_SPEED # Лево = x- n
             if self.Fleft==True:
                 self.image = image.load("%s/player/0_24-32.png" % ICON_DIR)
             else:
                 self.image = image.load("%s/player/1_24-32.png" % ICON_DIR)
         if down:
-            self.yvel = MOVE_SPEED # Право = x + n
+            self.yvel = self.MOVE_SPEED # Право = x + n
             self.image.fill(Color(COLOR))
             if self.Fleft==True:
                 self.image = image.load("%s/player/0_24-32.png" % ICON_DIR)
             else:
                 self.image = image.load("%s/player/1_24-32.png" % ICON_DIR)
 
-
         if not(left or right): # стоим, когда нет указаний идти
             self.xvel = 0
         if not(up or down): # стоим, когда нет указаний идти
             self.yvel = 0
 
-        self.onGround = False; # Мы не знаем, когда мы на земле...   
+
+        #self.onGround = False; # Мы не знаем, когда мы на земле...
         
         self.rect.x += self.xvel # переносим свои положение на xvel
         self.collide(self.xvel, 0, platforms, way)
@@ -101,7 +103,12 @@ class Player(sprite.Sprite): # Класс игрока
                     #way[int(p.rect.y / 32)][int(p.rect.x / 32)] = 'E'
                     #del(p)
                     #blocks.BigEnergy.kill(p) # убирает объект, но как бы остается на месте
-
+                #self.imSlow = False
+                #self.MOVE_SPEED = MOVE_SPEED
+                elif isinstance(p, blocks.BlackHole):
+                    #self.imSlow = True
+                    #self.MOVE_SPEED = MOVE_SPEED/2
+                    1
                 else:
                     if xvel > 0:                      # если движется вправо
                         self.rect.right = p.rect.left # то не движется вправо
@@ -111,12 +118,12 @@ class Player(sprite.Sprite): # Класс игрока
 
                     if yvel > 0:                      # если падает вниз
                         self.rect.bottom = p.rect.top # то не падает вниз
-                        self.onGround = True          # и становится на что-то твердое
-                        self.yvel = 0                 # и энергия падения пропадает
+                        #self.onGround = True          # и становится на что-то твердое
+                        #self.yvel = 0                 # и энергия падения пропадает
 
                     if yvel < 0:                      # если движется вверх
                         self.rect.top = p.rect.bottom # то не движется вверх
-                        self.yvel = 0                 # и энергия прыжка пропадает
+                        #self.yvel = 0                 # и энергия прыжка пропадает
 
 
     def teleporting(self, goX, goY): # переносим себя на полученные координаты

@@ -26,14 +26,14 @@ def printInfo (hero, way: List[List[int]]):
                 print(colored(way[i][j], 'magenta'), end=' ')
             elif way[i][j] == 'M':
                 print(colored(way[i][j], 'red'), end=' ')
-            elif way[i][j] == 'W':
+            elif way[i][j] == '@':
                 print(colored(way[i][j], 'cyan'), end=' ')
             elif way[i][j] == 0 or way[i][j] == '0':
                 print(colored(way[i][j], 'white'), end=' ')
             elif way[i][j] == '+':
                 print(colored(way[i][j], 'grey'), end=' ')
-            #elif way[i][j] == '???':
-            #    print(colored(way[i][j], 'green'), end=' ')
+            elif way[i][j] == 'W':
+                print(colored(way[i][j], 'green'), end=' ')
             else: print(way[i][j], end=' ')
         print()
     print('')

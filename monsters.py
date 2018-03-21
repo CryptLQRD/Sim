@@ -39,7 +39,7 @@ ANIMATION_WRAITHLEFT  = [('%s/monsters/wraith_l.png' % ICON_DIR)]
 ANIMATION_WRAITHRIGHT = [('%s/monsters/wraith_r.png' % ICON_DIR)]
 
 class Monster(sprite.Sprite): # Класс монстров
-    def __init__(self, x, y, moveOnLeft, moveOnUp, MOVE_SPEED):
+    def __init__(self, x, y, moveOnLeft, moveOnUp, startMoveTime):
         sprite.Sprite.__init__(self)
         self.image = Surface((MONSTER_WIDTH, MONSTER_HEIGHT))
         self.image.fill(Color(MONSTER_COLOR))
@@ -51,12 +51,13 @@ class Monster(sprite.Sprite): # Класс монстров
         self.myPosY = -1
         self.myPrevPosX = int(self.startX / 32)
         self.myPrevPosY = int(self.startY / 32)
+        self.startMoveTime = startMoveTime - 1
         self.moveTime = 0
         self.moveOnLeft = False
         self.moveOnRight = moveOnLeft
         self.moveOnUp = moveOnUp
         self.moveOnDown = False
-        self.MOVE_SPEED = MOVE_SPEED
+        self.MOVE_SPEED = 32 #MOVE_SPEED
         self.left = False
         self.right = False
         self.up = False
@@ -193,20 +194,34 @@ class Monster(sprite.Sprite): # Класс монстров
             #print("Monster: Down   Y=" + str(self.myPosY + 1) + '   X='+ str(self.myPosX))
 
         Monster.moveOn(self, self.left, self.right, self.up, self.down, hero, way)
-        self.moveTime = 32/self.MOVE_SPEED - 1
+        self.moveTime = self.startMoveTime  #32/self.MOVE_SPEED - 1 Для плавного движения
 
     def update(self, platforms, way: List[List[int]], hero):  # по принципу героя
 
-        if (self.yvel != 0):
-            if (self.yvel < 0):
+        #if (self.yvel != 0):
+        #    if (self.yvel < 0):
+        #        self.image.fill(Color(MONSTER_COLOR))
+        #        self.boltAnimUp.blit(self.image, (0, 0))
+        #    else:
+        #        self.image.fill(Color(MONSTER_COLOR))
+        #        self.boltAnimDown.blit(self.image, (0, 0))
+        #if (self.xvel != 0):
+        #    if (self.xvel < 0):
+        #        self.image.fill(Color(MONSTER_COLOR))
+        #        self.boltAnimLeft.blit(self.image, (0, 0))
+        #    else:
+        #        self.image.fill(Color(MONSTER_COLOR))
+        #        self.boltAnimRight.blit(self.image, (0, 0))
+        if (self.moveOnUp == True and self.moveOnDown == False) or (self.moveOnUp == False and self.moveOnDown == True):
+            if self.moveOnUp == True:
                 self.image.fill(Color(MONSTER_COLOR))
                 self.boltAnimUp.blit(self.image, (0, 0))
             else:
                 self.image.fill(Color(MONSTER_COLOR))
                 self.boltAnimDown.blit(self.image, (0, 0))
 
-        if (self.xvel != 0):
-            if (self.xvel < 0):
+        if (self.moveOnLeft == True and self.moveOnRight == False) or (self.moveOnLeft == False and self.moveOnRight == True):
+            if self.moveOnLeft == True:
                 self.image.fill(Color(MONSTER_COLOR))
                 self.boltAnimLeft.blit(self.image, (0, 0))
             else:
@@ -293,8 +308,8 @@ class Monster(sprite.Sprite): # Класс монстров
         self.collide(platforms, hero, way)
 
 class Bat(Monster):
-    def __init__(self, x, y, moveOnLeft, moveOnUp, MOVE_SPEED):
-        Monster.__init__(self, x, y, moveOnLeft, moveOnUp, MOVE_SPEED)
+    def __init__(self, x, y, moveOnLeft, moveOnUp, startMoveTime):
+        Monster.__init__(self, x, y, moveOnLeft, moveOnUp, startMoveTime)
         #self.rect = Rect(x, y, 29, 29)
         # Анимация полета направо
         boltAnim = []
@@ -321,10 +336,9 @@ class Bat(Monster):
         self.boltAnimDown = pyganim.PygAnimation(boltAnim)
         self.boltAnimDown.play()
 
-
 class Wraith(Monster):
-    def __init__(self, x, y, moveOnLeft, moveOnUp, MOVE_SPEED):
-        Monster.__init__(self, x, y, moveOnLeft, moveOnUp, MOVE_SPEED)
+    def __init__(self, x, y, moveOnLeft, moveOnUp, startMoveTime):
+        Monster.__init__(self, x, y, moveOnLeft, moveOnUp, startMoveTime)
         # Анимация полета направо
         boltAnim = []
         for anim in ANIMATION_WRAITHLEFT:

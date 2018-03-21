@@ -206,10 +206,15 @@ def algWave (hero, way: List[List[int]]):
         left = True
         down = True
         print("Left-Down")
+
     moveOn(left, right, up, down, hero, way)
     if moveTimeFlag == True:
         moveTime = 0
-    else: moveTime = 3
+    elif hero.imSlow == True and (right==True and down==True):
+        moveTime = 100 #((left and down) or (left and up) or (right and down) or (right and up)): moveTime = 25
+        #print("TUT")
+    elif hero.imSlow == True: moveTime = 10
+    else: moveTime = 7 #Для плавного движения moveTime = 3
     return left, right, up, down, moveTime
 
 def algWaveFindExit (symbol, hero, way: List[List[int]], masBE: List[int]):

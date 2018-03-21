@@ -33,9 +33,9 @@ BACKGROUND_COLOR = "#003300"
 #REPEAT = False # Включить\Выключить повторние игры с начала
 levelName = 'lvl1.txt' #Название уровня
 FILE_DIR = os.path.dirname(__file__)
-PLAY = True  # Включить\Выключить управление игроком
+PLAY = False  # Включить\Выключить управление игроком
 REPEAT = True  # Включить\Выключить повторние игры с начала
-STARTDELAY = 40 #Базовая скорость симулятора. Чем больше значение, тем быстрее симулятор. Чем меньше значение, тем медленее симулятор.
+STARTDELAY = 20 #Базовая скорость симулятора. Чем больше значение, тем быстрее симулятор. Чем меньше значение, тем медленее симулятор.
 
 class Camera(object):
     def __init__(self, camera_func, width, height):
@@ -189,6 +189,12 @@ def main():
                 entities.add(bd)
                 platforms.append(bd)
                 way[int(y/32)][int(x/32)] = 'B' #Если есть данный блок, то заполняем массив B
+            if col == "@":
+                bh = blocks.BlackHole(x,y)
+                entities.add(bh)
+                platforms.append(bh)
+                animatedEntities.add(bh)
+                way[int(y/32)][int(x/32)] = '0' #'@' #Если есть данный блок, то заполняем массив @
             if col == "E":
                 be = blocks.BigEnergy(x,y)
                 entities.add(be)
@@ -213,6 +219,7 @@ def main():
 
     for mn in masMons:
         Monster.myCoord(mn)
+        mn.moveTime = mn.startMoveTime
         way[mn.myPosY][mn.myPosX] = 'M'  # Если есть данный блок, то заполняем массив M
 
     bigEnergyCounter = maps.amountBigEnerge(way)
@@ -257,9 +264,15 @@ def main():
                 for mn in masMons:  # Возвращаем монстров на свою позицию
                     Monster.teleporting(mn, mn.startX, mn.startY, platforms, hero, way)
                     Monster.myCoord(mn)
-                    mn.moveTime = 0
+                    mn.moveTime = mn.startMoveTime
                     way[int(mn.rect.y / 32)][int(mn.rect.x / 32)] = 'M'
-                    Monster.algMove(mn, hero, way)
+                    #mn.myPosX = int(mn.rect.x / 32)
+                    #mn.myPosY = int(mn.rect.y / 32)
+                    #mn.myPrevPosX = -1
+                    #mn.myPrevPosY = -1
+                    print('x:   ' + str(mn.rect.x / 32))
+                    print('y:   ' + str(mn.rect.y / 32))
+                    #Monster.algMove(mn, hero, way)
                 for be in masBE: # Распределяем энергии по карте
                     blocks.BigEnergy.teleporting(be, 32 * random.randint(6, 6), 224, platforms, True)
                     while (hero.rect.x == be.rect.x and hero.rect.y == be.rect.y) or (ex.rect.x == be.rect.x and ex.rect.y == be.rect.y) or (way[int(be.rect.y / 32)][int(be.rect.x / 32)] == 'M'):
@@ -373,6 +386,7 @@ def main():
                 #print ("Время движения: " + str(moveTime))
             else:
                 moveTime -= 1
+                left = right = up = down = False #Для плавного движения это убирается
 
 
         for mn in masMons: #Алгоритм движения монстров
@@ -380,18 +394,22 @@ def main():
                 #if mn.myPrevPosY == mn.myPosY and mn.myPrevPosX == mn.myPosX:
                 #    way[mn.myPrevPosY][mn.myPrevPosX] = 'M'
                 #else:
-                #way[mn.myPosY][mn.myPosX] = 'M'  # Показывает текущую позицию (До выбора следующего пути по алгоритму!)
-                if way[mn.myPrevPosY][mn.myPrevPosX] != 'H':
-                    way[mn.myPrevPosY][mn.myPrevPosX] = '0'  # Отмечаем на карте, что ушли с предыдущей позиции
+                way[mn.myPosY][mn.myPosX] = '0'  # Показывает текущую позицию (До выбора следующего пути по алгоритму!)
+                #if way[mn.myPrevPosY][mn.myPrevPosX] != 'H':
+                #    way[mn.myPrevPosY][mn.myPrevPosX] = '0'  # Отмечаем на карте, что ушли с предыдущей позиции
                 Monster.algMove(mn, hero, way)
+
             else:
                 mn.moveTime -= 1
+                mn.left = mn.right = mn.up = mn.down = False #Для плавного движения это убирается
                 #way[mn.myPrevPosY][mn.myPrevPosX] = 'M' #На карте видна лишь предыдущая позиция! Куда двигается монстр - не видно!
-        for mn in masMons:
-            way[mn.myPrevPosY][mn.myPrevPosX] = 'M' #На карте видна лишь предыдущая позиция! Куда двигается монстр - не видно!
 
-        if PLAY:
-            maps.printInfo(hero, way)
+        for mn in masMons:
+            way[mn.myPosY][mn.myPosX] = 'M' #На карте видна лишь предыдущая позиция! Куда двигается монстр - не видно!
+
+        #for mn in masMons: #Для плавного движения
+        #    way[mn.myPrevPosY][mn.myPrevPosX] = 'M' #На карте видна лишь предыдущая позиция! Куда двигается монстр - не видно!
+
 
         window.blit(screen, (0,0)) # Каждую итерацию необходимо всё перерисовывать экран
         animatedEntities.update()  # показываеaм анимацию
@@ -406,6 +424,9 @@ def main():
         window.blit(score_font.render("Жизни: " + str(hero.live), 1, (255, 255, 255)), (WIN_WIDTH-165, 1))
 
         pygame.display.update()     # обновление и вывод всех изменений на экран
+
+        if PLAY:
+            maps.printInfo(hero, way)
 
 
 masBE = []  # Создаем массив для каждого элемента BigEnergy
