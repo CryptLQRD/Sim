@@ -11,6 +11,7 @@ import maps
 import player
 from pygame import *
 import pygame
+from termcolor import colored
 
 def algRandom(hero, way: List[List[int]]):
     maps.printInfo (hero, way)
@@ -207,25 +208,31 @@ def algWave (hero, way: List[List[int]]):
         print("Left-Down")
 
     moveOn(left, right, up, down, hero, way)
-    maps.printInfo (hero, way)
+    #maps.printInfo (hero, way)
     if moveTimeFlag == True:
         moveTime = 0
-    elif hero.imSlow == True: moveTime = 10
-    else: moveTime = 0#4 #Для плавного движения moveTime = 3
+    #elif hero.imSlow == True: moveTime = 10
+    else: moveTime = hero.startMoveTime#4 #Для плавного движения moveTime = 3
     return left, right, up, down, moveTime
 
-def algWaveFindExit (symbol, hero, way: List[List[int]], masBE: List[int]):
+def algWaveFindExit (symbol, hero, way: List[List[int]], masBE: List[int], monWay: List[List[int]]):
     #Сперва ищем все пути до цели
     n = 1
+    exitCounter = 0
+    maxEC = len(way)*len(way[0])#50
     exitFlag = False
     x = hero.myPosX#blocks.Exit.myPosX#hero.myPosX
     y = hero.myPosY#blocks.Exit.myPosY#hero.myPosY
     exitFlag = findWays(y, x, n, exitFlag, 0, symbol, way)
-    while exitFlag != True:
+    while exitFlag != True and exitCounter < maxEC:
         for i in range(len(way)):
             for j in range(len(way[i])):
                 if way[i][j] == n:
+                    exitCounter = 0
                     exitFlag = findWays(i, j, n+1, exitFlag, 0, symbol, way) # посылаю координаты y и x; следующее число; проверку на конец алг; знак который буду менять; что ищу; массив
+        exitCounter += 1
+        if exitCounter > maxEC-1:
+            print(colored("ВНИМАНИЕ:", 'red'), " Выход из поиска маршрута!   exitCounter=" + str(exitCounter))
         if exitFlag != True:
             n += 1
     #maps.printInfo(hero, way) # Выводим информацию о посланной волне
@@ -256,23 +263,28 @@ def algWaveFindExit (symbol, hero, way: List[List[int]], masBE: List[int]):
                 print('Выбрана начальная точка: BigEnergy.myPosX: ' + str(be.myPosX) + '   BigEnergy.myPosY: ' + str(be.myPosY))
                 #break
                 #maps.printInfo(hero, way)
-        exitFlag, nextStep = findBackWay(y, x, '+', exitFlag, n, 'H', nextStep, way)
+        exitFlag, nextStep = findBackWay(y, x, '+', exitFlag, n, 'H', nextStep, way, monWay)
     elif symbol == 'W':
         x = blocks.Exit.myPosX
         y = blocks.Exit.myPosY
-        exitFlag, nextStep = findBackWay(y, x, '+', exitFlag, n, 'H', nextStep, way)
+        exitFlag, nextStep = findBackWay(y, x, '+', exitFlag, n, 'H', nextStep, way, monWay)
 
     n -= 1
     nextStep = False
-    while exitFlag != True:
+    exitCounter = 0
+    while exitFlag != True and exitCounter < maxEC:
         for i in range(len(way)):
             for j in range(len(way[i])):
                 if way[i][j] == '+':
                     if nextStep == True:
+                        exitCounter = 0
                         break
-                    else: exitFlag, nextStep = findBackWay(i, j, '+',exitFlag, n, 'H', nextStep, way)
+                    else: exitFlag, nextStep = findBackWay(i, j, '+',exitFlag, n, 'H', nextStep, way, monWay)
             if nextStep == True:
                 break
+        exitCounter += 1
+        if exitCounter > maxEC-1:
+            print(colored("ВНИМАНИЕ:", 'red'), " Выход из прокладывания(+) маршрута!   exitCounter=" + str(exitCounter))
         nextStep = False
         if exitFlag != True:
             n -= 1
@@ -340,9 +352,9 @@ def findWays (y, x, n, exitFlag, checkSym, symbol, way: List[List[int]]):
 
 # Построение маршрута от цели, где У и Х - координаты, n - текущее число волны, exitFlag - флаг конца алгоритма, checkSym - какой символ на карте заменяем числом n,
 # symbol - волна будет распространяться пока мы не найдем этот символ на карте, way - наш массив (карта), nextStep - флаг сообщающий о нахождении symbol'а или установке '+' (прокладывание маршрута до цели)
-def findBackWay (y, x, n, exitFlag, checkSym, symbol, nextStep,  way: List[List[int]]):
+def findBackWay (y, x, n, exitFlag, checkSym, symbol, nextStep, way: List[List[int]], monWay: List[List[int]]):
     #Влево-Вверх
-    if (x - 1 >= 0 and y - 1 >= 0 and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M') and way[y - 1][x - 1] == checkSym) or (way[y - 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M')):
+    if (x - 1 >= 0 and y - 1 >= 0 and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M') and way[y - 1][x - 1] == checkSym and (monWay[y - 1][x - 1]) != checkSym) or (way[y - 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M')):
         if way[y - 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M'):
             exitFlag = True
         else:
@@ -350,7 +362,7 @@ def findBackWay (y, x, n, exitFlag, checkSym, symbol, nextStep,  way: List[List[
         nextStep = True
 
     #Влево-Вниз
-    elif (x - 1 >= 0 and y + 1 < len(way) and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M') and way[y + 1][x - 1] == checkSym) or (way[y + 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M')):
+    elif (x - 1 >= 0 and y + 1 < len(way) and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M') and way[y + 1][x - 1] == checkSym and (monWay[y + 1][x - 1]) != checkSym) or (way[y + 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M')):
         if way[y + 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M'):
             exitFlag = True
         else:
@@ -358,7 +370,7 @@ def findBackWay (y, x, n, exitFlag, checkSym, symbol, nextStep,  way: List[List[
         nextStep = True
 
     #Вправо-Вверх
-    elif (x + 1 < len(way[y]) and y - 1 >= 0 and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M') and way[y - 1][x + 1] == checkSym) or (way[y - 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M')):
+    elif (x + 1 < len(way[y]) and y - 1 >= 0 and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M') and way[y - 1][x + 1] == checkSym and (monWay[y - 1][x + 1]) != checkSym) or (way[y - 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M')):
         if way[y - 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M'):
             exitFlag = True
         else:
@@ -366,7 +378,7 @@ def findBackWay (y, x, n, exitFlag, checkSym, symbol, nextStep,  way: List[List[
         nextStep = True
 
     #Вправо-Вниз
-    elif (x + 1 < len(way[y]) and y + 1 < len(way) and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M') and way[y + 1][x + 1] == checkSym) or (way[y + 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M')):
+    elif (x + 1 < len(way[y]) and y + 1 < len(way) and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M') and way[y + 1][x + 1] == checkSym and (monWay[y + 1][x + 1]) != checkSym) or (way[y + 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M')):
         if way[y + 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M'):
             exitFlag = True
         else:
@@ -374,7 +386,7 @@ def findBackWay (y, x, n, exitFlag, checkSym, symbol, nextStep,  way: List[List[
         nextStep = True
 
     #Вверх
-    elif (y - 1 >= 0 and way[y - 1][x] != 'B' and way[y - 1][x] != 'M' and way[y - 1][x] == checkSym) or way[y - 1][x] == symbol:
+    elif (y - 1 >= 0 and way[y - 1][x] != 'B' and way[y - 1][x] != 'M' and way[y - 1][x] == checkSym and (monWay[y - 1][x]) != checkSym) or way[y - 1][x] == symbol:
         if way[y - 1][x] == symbol:
             exitFlag = True
         else:
@@ -382,7 +394,7 @@ def findBackWay (y, x, n, exitFlag, checkSym, symbol, nextStep,  way: List[List[
         nextStep = True
 
     #Вниз
-    elif (y + 1 < len(way) and way[y + 1][x] != 'B' and way[y + 1][x] != 'M' and way[y + 1][x] == checkSym) or way[y + 1][x] == symbol:
+    elif (y + 1 < len(way) and way[y + 1][x] != 'B' and way[y + 1][x] != 'M' and way[y + 1][x] == checkSym and (monWay[y + 1][x]) != checkSym) or way[y + 1][x] == symbol:
         if way[y + 1][x] == symbol:
             exitFlag = True
         else:
@@ -390,7 +402,7 @@ def findBackWay (y, x, n, exitFlag, checkSym, symbol, nextStep,  way: List[List[
         nextStep = True
 
     #Влево
-    elif (x - 1 >= 0 and way[y][x - 1] != 'B' and way[y][x - 1] != 'M' and way[y][x - 1] == checkSym) or way[y][x - 1] == symbol:
+    elif (x - 1 >= 0 and way[y][x - 1] != 'B' and way[y][x - 1] != 'M' and way[y][x - 1] == checkSym and (monWay[y][x - 1]) != checkSym) or way[y][x - 1] == symbol:
         if way[y][x - 1] == symbol:
             exitFlag = True
         else:
@@ -398,7 +410,7 @@ def findBackWay (y, x, n, exitFlag, checkSym, symbol, nextStep,  way: List[List[
         nextStep = True
 
     #Вправо
-    elif (x + 1 < len(way[y]) and way[y][x + 1] != 'B' and way[y][x + 1] != 'M' and way[y][x + 1] == checkSym) or way[y][x + 1] == symbol:
+    elif (x + 1 < len(way[y]) and way[y][x + 1] != 'B' and way[y][x + 1] != 'M' and way[y][x + 1] == checkSym and (monWay[y][x + 1]) != checkSym) or way[y][x + 1] == symbol:
         if way[y][x + 1] == symbol:
             exitFlag = True
         else:

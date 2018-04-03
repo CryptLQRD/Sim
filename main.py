@@ -18,6 +18,7 @@ import maps
 import time as tm
 from time import sleep
 import random
+from termcolor import colored
 
 
 
@@ -35,7 +36,7 @@ levelName = 'lvl1.txt' #Название уровня
 FILE_DIR = os.path.dirname(__file__)
 PLAY = False  # Включить\Выключить управление игроком
 REPEAT = True  # Включить\Выключить повторние игры с начала
-STARTDELAY = 5 #Базовая скорость симулятора. Чем больше значение, тем быстрее симулятор. Чем меньше значение, тем медленее симулятор.
+STARTDELAY = 10 #Базовая скорость симулятора. Чем больше значение, тем быстрее симулятор. Чем меньше значение, тем медленее симулятор.
 
 class Camera(object):
     def __init__(self, camera_func, width, height):
@@ -230,16 +231,16 @@ def main():
     bigEnergyCounter = maps.amountBigEnerge(way)
     if not PLAY:
         if (amountBigEnergy == 0):
-            alg.algWaveFindExit('W', hero, way, 0)
+            alg.algWaveFindExit('W', hero, way, 0, monWay)
         else:
-            alg.algWaveFindExit('E', hero, way, masBE)
+            alg.algWaveFindExit('E', hero, way, masBE, monWay)
     elif PLAY:
         maps.printInfo(hero, way) # Выводим карту уровня, если управляет игрок
 
 
     #maps.clearNumberFromMap(way)
-
-    moveTime = 0  # Необходима для плавного движения персонажа т.к. его скорость 8 пикселей, а не 32, как расчитана карта(массив)
+    #hero.startMoveTime = 3
+    moveTime = hero.startMoveTime  # Необходима для плавного движения персонажа т.к. его скорость 8 пикселей, а не 32, как расчитана карта(массив)
     # определение времени
     #todayTime = datetime.datetime.today()   #date = todayTime.strftime("%d-%m-%y")   #time = todayTime.strftime("%H-%M-%S")
     DELAY = STARTDELAY
@@ -264,7 +265,7 @@ def main():
                 hero.score = 0      # Возвращаем стартовое значение очков
                 maps.clearMap(way)  # Очищаем карту от предыдущих путей, энергий, монстров, героя
                 #maps.clearHeroFromMap(way)
-                moveTime = 0
+                moveTime = hero.startMoveTime
                 way[hero.myPosY][hero.myPosX] = 'H'
                 for mn in masMons:  # Возвращаем монстров на свою позицию
                     Monster.teleporting(mn, mn.startX, mn.startY, platforms, hero, way)
@@ -286,13 +287,14 @@ def main():
                     blocks.BigEnergy.myCoord(be)
                     way[int(be.rect.y / 32)][int(be.rect.x / 32)] = 'E'
                 amountBigEnergy = maps.amountBigEnerge(way)
+                maps.printInfo(hero, way)
                 if not PLAY:
                     if (amountBigEnergy == 0):
                         print('Прокладываю путь до W')
-                        alg.algWaveFindExit('W', hero, way, 0) #Прокладываем новый маршрут до конечной точки
+                        alg.algWaveFindExit('W', hero, way, 0, monWay) #Прокладываем новый маршрут до конечной точки
                     else:
                         print('Прокладываю путь до E')
-                        alg.algWaveFindExit('E', hero, way, masBE) #[amountBigEnergy-1]) #Прокладываем новый маршрут до конечной точки
+                        alg.algWaveFindExit('E', hero, way, masBE, monWay) #[amountBigEnergy-1]) #Прокладываем новый маршрут до конечной точки
                 elif PLAY:
                     maps.printInfo(hero, way)
                 #maps.printInfo(hero, way)  # Выводим карту на экран
@@ -300,6 +302,32 @@ def main():
                 startTime = datetime.datetime.now()
             else:
                 raise SystemExit("QUIT")
+
+        for mn in masMons:  # Алгоритм движения монстров
+            if mn.moveTime <= 0:
+                maps.clearMonsterWayFromMap(monWay)
+        for mn in masMons:  # Алгоритм движения монстров
+            if mn.moveTime <= 0:
+                # if mn.myPrevPosY == mn.myPosY and mn.myPrevPosX == mn.myPosX:
+                #    way[mn.myPrevPosY][mn.myPrevPosX] = 'M'
+                # else:
+                way[mn.myPosY][mn.myPosX] = '0'  # Показывает текущую позицию (До выбора следующего пути по алгоритму!)
+                monWay[mn.myPosY][mn.myPosX] = '0'
+                # if way[mn.myPrevPosY][mn.myPrevPosX] != 'H':
+                #    way[mn.myPrevPosY][mn.myPrevPosX] = '0'  # Отмечаем на карте, что ушли с предыдущей позиции
+                Monster.algMove(mn, hero, way)
+                Monster.monsterWay(mn, monWay)
+
+            else:
+                mn.moveTime -= 1
+                mn.left = mn.right = mn.up = mn.down = False  # Для плавного движения это убирается
+                # way[mn.myPrevPosY][mn.myPrevPosX] = 'M' #На карте видна лишь предыдущая позиция! Куда двигается монстр - не видно!
+
+        for mn in masMons:
+            way[mn.myPosY][mn.myPosX] = 'M'  # На карте видна лишь предыдущая позиция! Куда двигается монстр - не видно!
+            monWay[mn.myPosY][mn.myPosX] = 'M'  # На карте видна лишь предыдущая позиция! Куда двигается монстр - не видно!
+        maps.printMonsterInfo(monWay)
+
         for e in pygame.event.get(): # Обрабатываем события
             if e.type == QUIT or (e.type == KEYUP and e.key == K_ESCAPE):
                 print('Соединение разорвано!')
@@ -355,7 +383,7 @@ def main():
 
 
         if not PLAY:
-            if moveTime == 0 or (hero.imDie == True and hero.live > 0):
+            if moveTime <= 0 or (hero.imDie == True and hero.live > 0):
                 #if amountBigEnergy >= 0:  # Если энергии, которые присутствовали на карте ещё не собраны
                     bigEnergyCounter = maps.amountBigEnerge(way)  # тогда сверяем их с текущим количеством на карте
                     print('BigEnergyCounter: ' + str(bigEnergyCounter) + '  ;  AmountBigEnergy: ' + str(amountBigEnergy))
@@ -363,7 +391,7 @@ def main():
                     if hero.imDie == True:
                         hero.imDie = False
                         maps.clearHeroFromMap(way)
-                        moveTime = 0
+                        moveTime = hero.startMoveTime
                         way[hero.myPosY][hero.myPosX] = 'H'
                     if bigEnergyCounter != amountBigEnergy and amountBigEnergy >= 0:
                         amountBigEnergy = maps.amountBigEnerge(way)
@@ -375,12 +403,12 @@ def main():
                     #amountBigEnergy -= 1  # Уменьшаем общее кол-во энергий
                     if bigEnergyCounter <= 0 or amountBigEnergy <= 0: # если энергии на карте закончились, тогда строим путь к выходу
                         print('Прокладываю путь до W')
-                        alg.algWaveFindExit('W', hero, way, 0) #amountBigEnergy-1
+                        alg.algWaveFindExit('W', hero, way, 0, monWay) #amountBigEnergy-1
                     else:
                         print('Прокладываю путь до E')
-                        alg.algWaveFindExit('E', hero, way, masBE)#[amountBigEnergy-1])
-                    #maps.printInfo(hero, way)
-                    maps.clearNumFromMap(way)  # очищаю карту от всех возможных путей(чисел) и оставляю только проложенный (+) (для удобства отображения)
+                        alg.algWaveFindExit('E', hero, way, masBE, monWay)#[amountBigEnergy-1])
+                    maps.printInfo(hero, way)
+                    #maps.clearNumFromMap(way)  # очищаю карту от всех возможных путей(чисел) и оставляю только проложенный (+) (для удобства отображения)
             #else: print('Проскочил')
             if moveTime <= 0: # если перемещение героя в планируемую точку закончилось, вычисляем следующее движение
                 #for be in masBE:
@@ -394,28 +422,6 @@ def main():
             else:
                 moveTime -= 1
                 left = right = up = down = False #Для плавного движения это убирается
-
-        maps.clearMonsterWayFromMap(monWay)
-        for mn in masMons: #Алгоритм движения монстров
-            if mn.moveTime <= 0:
-                #if mn.myPrevPosY == mn.myPosY and mn.myPrevPosX == mn.myPosX:
-                #    way[mn.myPrevPosY][mn.myPrevPosX] = 'M'
-                #else:
-                way[mn.myPosY][mn.myPosX] = '0'  # Показывает текущую позицию (До выбора следующего пути по алгоритму!)
-                monWay[mn.myPosY][mn.myPosX] = '0'
-                #if way[mn.myPrevPosY][mn.myPrevPosX] != 'H':
-                #    way[mn.myPrevPosY][mn.myPrevPosX] = '0'  # Отмечаем на карте, что ушли с предыдущей позиции
-                Monster.algMove(mn, hero, way)
-                Monster.monsterWay (mn, monWay)
-
-            else:
-                mn.moveTime -= 1
-                mn.left = mn.right = mn.up = mn.down = False #Для плавного движения это убирается
-                #way[mn.myPrevPosY][mn.myPrevPosX] = 'M' #На карте видна лишь предыдущая позиция! Куда двигается монстр - не видно!
-
-        for mn in masMons:
-            way[mn.myPosY][mn.myPosX] = 'M' #На карте видна лишь предыдущая позиция! Куда двигается монстр - не видно!
-            monWay[mn.myPosY][mn.myPosX] = 'M'  # На карте видна лишь предыдущая позиция! Куда двигается монстр - не видно!
 
         #for mn in masMons: #Для плавного движения
         #    way[mn.myPrevPosY][mn.myPrevPosX] = 'M' #На карте видна лишь предыдущая позиция! Куда двигается монстр - не видно!
@@ -437,7 +443,7 @@ def main():
 
         if PLAY:
             maps.printInfo(hero, way)
-        maps.printMonsterInfo(monWay)
+
 
 
 masBE = []  # Создаем массив для каждого элемента BigEnergy
