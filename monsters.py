@@ -8,6 +8,7 @@ import os
 import random
 import blocks
 import player
+import maps
 
 MONSTER_WIDTH = 32
 MONSTER_HEIGHT = 32
@@ -150,6 +151,87 @@ class Monster(sprite.Sprite): # Класс монстров
             #    hero.myPosY = int(hero.startY / 32)
             #way[self.myPosY][self.myPosX] = 'M'
 
+    def monsterWay (self, monWay: List[List[int]]):
+        if self.moveOnUp == True or self.moveOnDown == True:
+            number = 0
+            for i in range(len(monWay)):
+                if i == 0:
+                    1
+                else:
+                    if self.moveOnUp == True and self.moveOnDown == False:
+                        if monWay[self.myPosY - i][self.myPosX] != 'B' and monWay[self.myPosY - i][self.myPosX] != 'W':
+                            monWay[self.myPosY - i][self.myPosX] = 'M' + str(i)
+                            #monWay[self.myPosY + i][self.myPosX] = 'M' + str(i*2 + 1)
+                        #elif (self.moveOnUp == True and self.moveOnDown == False) and monWay[self.myPosY - i][self.myPosX] == 'B' and monWay[self.myPosY - i][self.myPosX] == 'W':
+                        else:
+                            number = i
+                            break
+                    if self.moveOnUp == False and self.moveOnDown == True:
+                        if monWay[self.myPosY + i][self.myPosX] != 'B' and monWay[self.myPosY + i][self.myPosX] != 'W':
+                            monWay[self.myPosY + i][self.myPosX] = 'M' + str(i)
+                            #monWay[self.myPosY - i][self.myPosX] = 'M' + str(i*2 + 1)
+                        #elif (self.moveOnUp == False and self.moveOnDown == True) and monWay[self.myPosY + i][self.myPosX] == 'B' and monWay[self.myPosY + i][self.myPosX] == 'W':
+                        else:
+                            number = i
+                            break
+                #print (i)
+            for i in range(len(monWay)):
+                if i == 0:
+                    1
+                else:
+                    if self.moveOnUp == True and self.moveOnDown == False:
+                        if monWay[self.myPosY + i][self.myPosX] != 'B' and monWay[self.myPosY + i][self.myPosX] != 'W':
+                            #monWay[self.myPosY - i][self.myPosX] = 'M' + str(i)
+                            monWay[self.myPosY + i][self.myPosX] = 'M' + str(number*2 - 2 + i)
+                        #elif (self.moveOnUp == True and self.moveOnDown == False) and monWay[self.myPosY - i][self.myPosX] == 'B' and monWay[self.myPosY - i][self.myPosX] == 'W':
+                        else:
+                            break
+                    if self.moveOnUp == False and self.moveOnDown == True:
+                        if monWay[self.myPosY - i][self.myPosX] != 'B' and monWay[self.myPosY - i][self.myPosX] != 'W':
+                            #monWay[self.myPosY + i][self.myPosX] = 'M' + str(i)
+                            monWay[self.myPosY - i][self.myPosX] = 'M' + str(number*2 - 2 + i)
+                        #elif (self.moveOnUp == False and self.moveOnDown == True) and monWay[self.myPosY + i][self.myPosX] == 'B' and monWay[self.myPosY + i][self.myPosX] == 'W':
+                        else:
+                            break
+        if self.moveOnLeft == True or self.moveOnRight == True:
+            number = 0
+            for i in range(len(monWay[0])):
+                if i == 0:
+                    1
+                else:
+                    if self.moveOnLeft == True and self.moveOnRight == False:
+                        if monWay[self.myPosY][self.myPosX - i] != 'B' and monWay[self.myPosY][self.myPosX - i] != 'W':
+                            monWay[self.myPosY][self.myPosX - i] = 'M' + str(i)
+                        else:
+                            number = i
+                            break
+                    if self.moveOnLeft == False and self.moveOnRight == True:
+                        if monWay[self.myPosY][self.myPosX + i] != 'B' and monWay[self.myPosY][self.myPosX + i] != 'W':
+                            monWay[self.myPosY][self.myPosX + i] = 'M' + str(i)
+                        else:
+                            number = i
+                            break
+                #print (i)
+            for i in range(len(monWay[0])):
+                if i == 0:
+                    1
+                else:
+                    if self.moveOnLeft == True and self.moveOnRight == False:
+                        if monWay[self.myPosY][self.myPosX + i] != 'B' and monWay[self.myPosY][self.myPosX + i] != 'W':
+                            #monWay[self.myPosY - i][self.myPosX] = 'M' + str(i)
+                            monWay[self.myPosY][self.myPosX + i] = 'M' + str(number*2 - 2 + i)
+                        #elif (self.moveOnUp == True and self.moveOnDown == False) and monWay[self.myPosY - i][self.myPosX] == 'B' and monWay[self.myPosY - i][self.myPosX] == 'W':
+                        else:
+                            break
+                    if self.moveOnLeft == False and self.moveOnRight == True:
+                        if monWay[self.myPosY][self.myPosX - i] != 'B' and monWay[self.myPosY][self.myPosX - i] != 'W':
+                            #monWay[self.myPosY + i][self.myPosX] = 'M' + str(i)
+                            monWay[self.myPosY][self.myPosX - i] = 'M' + str(number*2 - 2 + i)
+                        #elif (self.moveOnUp == False and self.moveOnDown == True) and monWay[self.myPosY + i][self.myPosX] == 'B' and monWay[self.myPosY + i][self.myPosX] == 'W':
+                        else:
+                            break
+
+
     def algMove(self, hero, way: List[List[int]]):
         #print ('Left: ' + str(self.moveOnLeft) + '   Right: '+ str(self.moveOnRight))
         if (self.moveOnLeft == True and self.moveOnRight == False) or (self.moveOnLeft == False and self.moveOnRight == True):
@@ -259,10 +341,12 @@ class Monster(sprite.Sprite): # Класс монстров
                 if isinstance(p, blocks.BigEnergy):  # Если коснулись энергии то телепортируем её в другое место
                     if (way[int(p.rect.y / 32)][int(p.rect.x / 32)] != 'H') or (blocks.Exit.myPosX != int(p.rect.x/32) and blocks.Exit.myPosY != int(p.rect.y/32)) or (way[int(p.rect.y / 32)][int(p.rect.x / 32)] != 'M'): #or (self.myPosX == int(p.rect.x / 32) and self.myPosY == int(p.rect.y / 32)):
                         way[int(p.rect.y / 32)][int(p.rect.x / 32)] = '0'
-                    blocks.BigEnergy.teleporting(p, 1, 1, platforms, True)
+                    check = blocks.BigEnergy.moveEnergy(p, platforms, way)
                     #Проверка и отрисовка, нужны Hero и Way
-                    while (hero.rect.x == p.rect.x and hero.rect.y == p.rect.y) or (hero.startX == p.rect.x and hero.startY == p.rect.y) or (way[int(p.rect.y / 32)][int(p.rect.x / 32)] == 'H') or (blocks.Exit.myPosX == int(p.rect.x/32) and blocks.Exit.myPosY == int(p.rect.y/32)) or (way[int(p.rect.y / 32)][int(p.rect.x / 32)] == 'M'): #or (self.myPosX == int(p.rect.x / 32) and self.myPosY == int(p.rect.y / 32)):
-                        blocks.BigEnergy.teleporting(p, 32, 32 * random.randint(4, 5), platforms, True)
+                    #while (hero.rect.x == p.rect.x and hero.rect.y == p.rect.y) or (hero.startX == p.rect.x and hero.startY == p.rect.y) or (way[int(p.rect.y / 32)][int(p.rect.x / 32)] == 'H') or (blocks.Exit.myPosX == int(p.rect.x/32) and blocks.Exit.myPosY == int(p.rect.y/32)) or (way[int(p.rect.y / 32)][int(p.rect.x / 32)] == 'M') or (way[int(p.rect.y / 32)][int(p.rect.x / 32)] == 'B' or (way[int(p.rect.y / 32)][int(p.rect.x / 32)] == '*')): #or (self.myPosX == int(p.rect.x / 32) and self.myPosY == int(p.rect.y / 32)):
+                    while check == False:
+                        check = blocks.BigEnergy.moveEnergy(p, platforms, way)
+                        #blocks.BigEnergy.teleporting(p, 32, 32 * random.randint(4, 5), platforms, True)
                     blocks.BigEnergy.myCoord(p)
                     way[int(p.rect.y / 32)][int(p.rect.x / 32)] = 'E'
                 elif isinstance(p, Monster): # Если коснулись другого монстра, то игнорируем

@@ -94,7 +94,7 @@ class Player(sprite.Sprite): # Класс игрока
                     self.teleporting(self.startX, self.startY)
                 elif isinstance(p, blocks.BigEnergy): # если коснулись энергии
                     self.score += 1
-                    blocks.BigEnergy.teleporting(p, -64 * self.score, 32 * random.randint(1, 5), platforms, False)
+                    blocks.BigEnergy.teleporting(p, -64 * self.score, 32 * random.randint(1, 5), platforms, False, way)
                     #self.energyTP = True
                     #if (self.rect.x == p.rect.x and self.rect.y == p.rect.y) or (blocks.Exit.myPosX == int(p.rect.x/32) and blocks.Exit.myPosY == int(p.rect.y/32)):
                     #    blocks.BigEnergy.teleporting(p, -160, 32 * random.randint(1, 15), platforms, True)
