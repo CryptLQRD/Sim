@@ -99,7 +99,7 @@ class BigEnergy(Platform): #Класс объекта "Энергия"
         #self.rect = Rect(x, y, PLATFORM_WIDTH, PLATFORM_HEIGHT)
         boltAnim = []
         for anim in ANIMATION_BIGENERGY:
-            boltAnim.append((anim, 0.15))
+            boltAnim.append((anim, 0.12))
         self.boltAnim = pyganim.PygAnimation(boltAnim)
         self.boltAnim.play()
 

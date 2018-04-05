@@ -14,12 +14,12 @@ player 64 128
 
 
 
-monsterBat 96 32 1 0 5
-monsterBat 128 192 0 1 5
-monsterBat 224 160 1 0 5
+monsterBat 96 32 1 0 2
+monsterBat 128 192 0 1 1
+monsterBat 224 160 1 0 2
 
 /
-224
+
 
 monsterBat 160 64 0 0 1
 monsterBat 160 160 0 0 1

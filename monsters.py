@@ -15,7 +15,7 @@ MONSTER_HEIGHT = 32
 MONSTER_COLOR = "#FF6262" #Синий-"#2110FF" , Розовый-"#FF6262"
 ICON_DIR = os.path.dirname(__file__) #  Полный путь к каталогу с файлами
 
-ANIMATION_BAT_DELAY = 0.15
+ANIMATION_BAT_DELAY = 0.30
 ANIMATION_BATFLYLEFT  = [('%s/monsters/bat/bat_fly_l1.png' % ICON_DIR),
                          ('%s/monsters/bat/bat_fly_l2.png' % ICON_DIR),
                          ('%s/monsters/bat/bat_fly_l3.png' % ICON_DIR),
@@ -160,17 +160,13 @@ class Monster(sprite.Sprite): # Класс монстров
                 else:
                     if self.moveOnUp == True and self.moveOnDown == False:
                         if monWay[self.myPosY - i][self.myPosX] != 'B' and monWay[self.myPosY - i][self.myPosX] != 'W':
-                            monWay[self.myPosY - i][self.myPosX] = i#'M' + str(i)
-                            #monWay[self.myPosY + i][self.myPosX] = 'M' + str(i*2 + 1)
-                        #elif (self.moveOnUp == True and self.moveOnDown == False) and monWay[self.myPosY - i][self.myPosX] == 'B' and monWay[self.myPosY - i][self.myPosX] == 'W':
+                            monWay[self.myPosY - i][self.myPosX] = i*(self.startMoveTime + 1) + self.moveTime - self.startMoveTime
                         else:
                             number = i
                             break
                     if self.moveOnUp == False and self.moveOnDown == True:
                         if monWay[self.myPosY + i][self.myPosX] != 'B' and monWay[self.myPosY + i][self.myPosX] != 'W':
-                            monWay[self.myPosY + i][self.myPosX] = i#'M' + str(i)
-                            #monWay[self.myPosY - i][self.myPosX] = 'M' + str(i*2 + 1)
-                        #elif (self.moveOnUp == False and self.moveOnDown == True) and monWay[self.myPosY + i][self.myPosX] == 'B' and monWay[self.myPosY + i][self.myPosX] == 'W':
+                            monWay[self.myPosY + i][self.myPosX] = i*(self.startMoveTime + 1) + self.moveTime - self.startMoveTime
                         else:
                             number = i
                             break
@@ -182,15 +178,13 @@ class Monster(sprite.Sprite): # Класс монстров
                     if self.moveOnUp == True and self.moveOnDown == False:
                         if monWay[self.myPosY + i][self.myPosX] != 'B' and monWay[self.myPosY + i][self.myPosX] != 'W':
                             #monWay[self.myPosY - i][self.myPosX] = 'M' + str(i)
-                            monWay[self.myPosY + i][self.myPosX] = (number*2 - 2 + i)#'M' + str(number*2 - 2 + i)
-                        #elif (self.moveOnUp == True and self.moveOnDown == False) and monWay[self.myPosY - i][self.myPosX] == 'B' and monWay[self.myPosY - i][self.myPosX] == 'W':
+                            monWay[self.myPosY + i][self.myPosX] = (number-1)*(self.startMoveTime + 1)*2 + i*(self.startMoveTime + 1)  + self.moveTime - self.startMoveTime
                         else:
                             break
                     if self.moveOnUp == False and self.moveOnDown == True:
                         if monWay[self.myPosY - i][self.myPosX] != 'B' and monWay[self.myPosY - i][self.myPosX] != 'W':
                             #monWay[self.myPosY + i][self.myPosX] = 'M' + str(i)
-                            monWay[self.myPosY - i][self.myPosX] = (number*2 - 2 + i)#'M' + str(number*2 - 2 + i)
-                        #elif (self.moveOnUp == False and self.moveOnDown == True) and monWay[self.myPosY + i][self.myPosX] == 'B' and monWay[self.myPosY + i][self.myPosX] == 'W':
+                            monWay[self.myPosY - i][self.myPosX] = (number-1)*(self.startMoveTime + 1)*2 + i*(self.startMoveTime + 1)  + self.moveTime - self.startMoveTime
                         else:
                             break
         if self.moveOnLeft == True or self.moveOnRight == True:
@@ -201,13 +195,13 @@ class Monster(sprite.Sprite): # Класс монстров
                 else:
                     if self.moveOnLeft == True and self.moveOnRight == False:
                         if monWay[self.myPosY][self.myPosX - i] != 'B' and monWay[self.myPosY][self.myPosX - i] != 'W':
-                            monWay[self.myPosY][self.myPosX - i] = i#'M' + str(i)
+                            monWay[self.myPosY][self.myPosX - i] = i*(self.startMoveTime + 1) + self.moveTime - self.startMoveTime
                         else:
                             number = i
                             break
                     if self.moveOnLeft == False and self.moveOnRight == True:
                         if monWay[self.myPosY][self.myPosX + i] != 'B' and monWay[self.myPosY][self.myPosX + i] != 'W':
-                            monWay[self.myPosY][self.myPosX + i] = i#'M' + str(i)
+                            monWay[self.myPosY][self.myPosX + i] = i*(self.startMoveTime + 1) + self.moveTime - self.startMoveTime
                         else:
                             number = i
                             break
@@ -218,16 +212,12 @@ class Monster(sprite.Sprite): # Класс монстров
                 else:
                     if self.moveOnLeft == True and self.moveOnRight == False:
                         if monWay[self.myPosY][self.myPosX + i] != 'B' and monWay[self.myPosY][self.myPosX + i] != 'W':
-                            #monWay[self.myPosY - i][self.myPosX] = 'M' + str(i)
-                            monWay[self.myPosY][self.myPosX + i] = (number*2 - 2 + i)#'M' + str(number*2 - 2 + i)
-                        #elif (self.moveOnUp == True and self.moveOnDown == False) and monWay[self.myPosY - i][self.myPosX] == 'B' and monWay[self.myPosY - i][self.myPosX] == 'W':
+                            monWay[self.myPosY][self.myPosX + i] = (number-1)*(self.startMoveTime + 1)*2 + i*(self.startMoveTime + 1)  + self.moveTime - self.startMoveTime
                         else:
                             break
                     if self.moveOnLeft == False and self.moveOnRight == True:
                         if monWay[self.myPosY][self.myPosX - i] != 'B' and monWay[self.myPosY][self.myPosX - i] != 'W':
-                            #monWay[self.myPosY + i][self.myPosX] = 'M' + str(i)
-                            monWay[self.myPosY][self.myPosX - i] = (number*2 - 2 + i)#'M' + str(number*2 - 2 + i)
-                        #elif (self.moveOnUp == False and self.moveOnDown == True) and monWay[self.myPosY + i][self.myPosX] == 'B' and monWay[self.myPosY + i][self.myPosX] == 'W':
+                            monWay[self.myPosY][self.myPosX - i] = (number-1)*(self.startMoveTime + 1)*2 + i*(self.startMoveTime + 1)  + self.moveTime - self.startMoveTime
                         else:
                             break
 
