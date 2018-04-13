@@ -110,3 +110,9 @@ def clearMonsterWayFromMap (way: List[List[int]]):
         for j in range(len(way[i])):
             if way[i][j] != 'B' and way[i][j] != 'W' and way[i][j] != 'M':
                 way[i][j] = 0
+
+def clearMonsterMap (way: List[List[int]]):
+    for i in range(len(way)):
+        for j in range(len(way[i])):
+            if way[i][j] != 'B' and way[i][j] != 'W':
+                way[i][j] = 0

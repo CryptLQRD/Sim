@@ -12,9 +12,10 @@ import maps
 
 MONSTER_WIDTH = 32
 MONSTER_HEIGHT = 32
-MONSTER_COLOR = "#FF6262" #Синий-"#2110FF" , Розовый-"#FF6262"
+MONSTER_COLOR = "#000000"#"#FF6262" #Синий-"#2110FF" , Розовый-"#FF6262"
 ICON_DIR = os.path.dirname(__file__) #  Полный путь к каталогу с файлами
 
+# Анимации для мыши
 ANIMATION_BAT_DELAY = 0.30
 ANIMATION_BATFLYLEFT  = [('%s/monsters/bat/bat_fly_l1.png' % ICON_DIR),
                          ('%s/monsters/bat/bat_fly_l2.png' % ICON_DIR),
@@ -36,16 +37,61 @@ ANIMATION_BATFLYDOWN = [('%s/monsters/bat/bat_stay_1.png' % ICON_DIR),
                         ('%s/monsters/bat/bat_stay_3.png' % ICON_DIR),
                         ('%s/monsters/bat/bat_stay_2.png' % ICON_DIR)]
 
+# Анимации для птицы
+ANIMATION_BIRD_DELAY = 0.30
+ANIMATION_BIRDFLYLEFT  = [('%s/monsters/bird/bird_left1.png' % ICON_DIR),
+                         ('%s/monsters/bird/bird_left2.png' % ICON_DIR),
+                         ('%s/monsters/bird/bird_left3.png' % ICON_DIR),
+                         ('%s/monsters/bird/bird_left2.png' % ICON_DIR)]
+
+ANIMATION_BIRDFLYRIGHT = [('%s/monsters/bird/bird_right1.png' % ICON_DIR),
+                         ('%s/monsters/bird/bird_right2.png' % ICON_DIR),
+                         ('%s/monsters/bird/bird_right3.png' % ICON_DIR),
+                         ('%s/monsters/bird/bird_right2.png' % ICON_DIR)]
+
+ANIMATION_BIRDFLYUP = [('%s/monsters/bird/bird_up1.png' % ICON_DIR),
+                      ('%s/monsters/bird/bird_up2.png' % ICON_DIR),
+                      ('%s/monsters/bird/bird_up3.png' % ICON_DIR),
+                      ('%s/monsters/bird/bird_up2.png' % ICON_DIR)]
+
+ANIMATION_BIRDFLYDOWN = [('%s/monsters/bird/bird_down1.png' % ICON_DIR),
+                        ('%s/monsters/bird/bird_down2.png' % ICON_DIR),
+                        ('%s/monsters/bird/bird_down3.png' % ICON_DIR),
+                        ('%s/monsters/bird/bird_down2.png' % ICON_DIR)]
+
+# Анимации для птицы
+ANIMATION_PURSUER_DELAY = 0.25
+ANIMATION_PURSUERFLYLEFT  = [('%s/monsters/pursuer/pursuer_left1.gif' % ICON_DIR),
+                         ('%s/monsters/pursuer/pursuer_left2.gif' % ICON_DIR),
+                         ('%s/monsters/pursuer/pursuer_left3.gif' % ICON_DIR),
+                         ('%s/monsters/pursuer/pursuer_left2.gif' % ICON_DIR)]
+
+ANIMATION_PURSUERFLYRIGHT = [('%s/monsters/pursuer/pursuer_right1.png' % ICON_DIR),
+                         ('%s/monsters/pursuer/pursuer_right2.png' % ICON_DIR),
+                         ('%s/monsters/pursuer/pursuer_right3.png' % ICON_DIR),
+                         ('%s/monsters/pursuer/pursuer_right2.png' % ICON_DIR)]
+
+ANIMATION_PURSUERFLYUP = [('%s/monsters/pursuer/pursuer_up1.gif' % ICON_DIR),
+                      ('%s/monsters/pursuer/pursuer_up2.gif' % ICON_DIR),
+                      ('%s/monsters/pursuer/pursuer_up3.gif' % ICON_DIR),
+                      ('%s/monsters/pursuer/pursuer_up2.gif' % ICON_DIR)]
+
+ANIMATION_PURSUERFLYDOWN = [('%s/monsters/pursuer/pursuer_down1.gif' % ICON_DIR),
+                        ('%s/monsters/pursuer/pursuer_down2.gif' % ICON_DIR),
+                        ('%s/monsters/pursuer/pursuer_down3.gif' % ICON_DIR),
+                        ('%s/monsters/pursuer/pursuer_down2.gif' % ICON_DIR)]
+
 ANIMATION_WRAITHLEFT  = [('%s/monsters/wraith_l.png' % ICON_DIR)]
 ANIMATION_WRAITHRIGHT = [('%s/monsters/wraith_r.png' % ICON_DIR)]
 
 class Monster(sprite.Sprite): # Класс монстров
-    def __init__(self, x, y, moveOnLeft, moveOnUp, startMoveTime):
+    def __init__(self, x, y, moveOnLeft, moveOnUp, algorithm, startMoveTime):
         sprite.Sprite.__init__(self)
         self.image = Surface((MONSTER_WIDTH, MONSTER_HEIGHT))
         self.image.fill(Color(MONSTER_COLOR))
         self.rect = Rect(x, y, MONSTER_WIDTH, MONSTER_HEIGHT)
         self.image.set_colorkey(Color(MONSTER_COLOR))
+        self.algorithm = algorithm
         self.startX = x # начальные координаты
         self.startY = y
         self.myPosX = -1
@@ -151,7 +197,9 @@ class Monster(sprite.Sprite): # Класс монстров
             #    hero.myPosY = int(hero.startY / 32)
             #way[self.myPosY][self.myPosX] = 'M'
 
-    def monsterWay (self, monWay: List[List[int]]):
+
+
+    def monsterPatrolWay (self, monWay: List[List[int]]):
         if self.moveOnUp == True or self.moveOnDown == True:
             number = 0
             for i in range(len(monWay)):
@@ -221,8 +269,7 @@ class Monster(sprite.Sprite): # Класс монстров
                         else:
                             break
 
-
-    def algMove(self, hero, way: List[List[int]]):
+    def patrolMove(self, hero, way: List[List[int]]):
         #print ('Left: ' + str(self.moveOnLeft) + '   Right: '+ str(self.moveOnRight))
         if (self.moveOnLeft == True and self.moveOnRight == False) or (self.moveOnLeft == False and self.moveOnRight == True):
             if way[self.myPosY][self.myPosX - 1] == 'B':
@@ -267,6 +314,75 @@ class Monster(sprite.Sprite): # Класс монстров
 
         Monster.moveOn(self, self.left, self.right, self.up, self.down, hero, way)
         self.moveTime = self.startMoveTime  #32/self.MOVE_SPEED - 1 Для плавного движения
+
+
+    def monsterRandWay(self, monWay: List[List[int]]):
+        if monWay[self.myPosY - 1][self.myPosX] != 'B' and monWay[self.myPosY - 1][self.myPosX] != 'W':
+            monWay[self.myPosY - 1][self.myPosX] = self.moveTime
+        if monWay[self.myPosY + 1][self.myPosX] != 'B' and monWay[self.myPosY + 1][self.myPosX] != 'W':
+            monWay[self.myPosY + 1][self.myPosX] = self.moveTime
+        if monWay[self.myPosY][self.myPosX + 1] != 'B' and monWay[self.myPosY][self.myPosX + 1] != 'W':
+            monWay[self.myPosY][self.myPosX + 1] = self.moveTime
+        if monWay[self.myPosY][self.myPosX - 1] != 'B' and monWay[self.myPosY][self.myPosX - 1] != 'W':
+            monWay[self.myPosY][self.myPosX - 1] = self.moveTime
+
+    def randMove(self, hero, way: List[List[int]]):
+        number = random.randint(1, 4)
+        # print('Число: ' + str(number))
+
+        self.left = False
+        self.right = False
+        self.up = False
+        self.down = False
+        self.moveOnLeft = False
+        self.moveOnRight = False
+        self.moveOnUp = False
+        self.moveOnDown = False
+
+        while self.left != True and self.right != True and self.up != True and self.down != True:
+            if number == 1:  # Условие для прохода влево
+                if way[self.myPosY][self.myPosX - 1] != 'B' and way[self.myPosY][self.myPosX - 1] != 'W':
+                    self.left = True
+                    self.moveOnLeft = True
+                    # print("Left")
+                else:
+                    number = random.randint(1, 4)
+                    # print("Stop: Left")  # number = 10
+
+            elif number == 2:  # Условие для прохода вправо
+                if way[self.myPosY][self.myPosX + 1] != 'B' and way[self.myPosY][self.myPosX + 1] != 'W':
+                    self.right = True
+                    self.moveOnRight = True
+                    # print("Right")
+                else:
+                    number = random.randint(1, 4)
+                    # print("Stop: Right")  # number = 10
+
+            elif number == 3:  # Условие для прохода вверх
+                if way[self.myPosY - 1][self.myPosX] != 'B' and way[self.myPosY - 1][self.myPosX] != 'W':
+                    self.up = True
+                    self.moveOnUp = True
+                    # print("Up")
+                else:
+                    number = random.randint(1, 4)
+                    # print("Stop: Up")  # number = 10
+
+            elif number == 4:  # Условие для прохода вниз
+                if way[self.myPosY + 1][self.myPosX] != 'B' and way[self.myPosY + 1][self.myPosX] != 'W':
+                    self.down = True
+                    self.moveOnDown = True
+                    # print("Down")
+                else:
+                    number = random.randint(1, 4)
+                    # print("Stop: Down")  # number = 10
+
+        Monster.moveOn(self, self.left, self.right, self.up, self.down, hero, way)
+        self.moveTime = self.startMoveTime  # 32/self.MOVE_SPEED - 1 Для плавного движения
+
+
+    def pursueMove(self, hero, way: List[List[int]]):
+        1
+
 
     def update(self, platforms, way: List[List[int]], hero):  # по принципу героя
 
@@ -382,8 +498,8 @@ class Monster(sprite.Sprite): # Класс монстров
         self.collide(platforms, hero, way)
 
 class Bat(Monster):
-    def __init__(self, x, y, moveOnLeft, moveOnUp, startMoveTime):
-        Monster.__init__(self, x, y, moveOnLeft, moveOnUp, startMoveTime)
+    def __init__(self, x, y, moveOnLeft, moveOnUp, algorithm, startMoveTime):
+        Monster.__init__(self, x, y, moveOnLeft, moveOnUp, algorithm, startMoveTime)
         #self.rect = Rect(x, y, 29, 29)
         # Анимация полета направо
         boltAnim = []
@@ -410,9 +526,67 @@ class Bat(Monster):
         self.boltAnimDown = pyganim.PygAnimation(boltAnim)
         self.boltAnimDown.play()
 
+class Bird(Monster):
+    def __init__(self, x, y, moveOnLeft, moveOnUp, algorithm, startMoveTime):
+        Monster.__init__(self, x, y, moveOnLeft, moveOnUp, algorithm, startMoveTime)
+        #self.rect = Rect(x, y, 29, 29)
+        # Анимация полета направо
+        boltAnim = []
+        for anim in ANIMATION_BIRDFLYLEFT:
+            boltAnim.append((anim, ANIMATION_BIRD_DELAY))
+        self.boltAnimLeft = pyganim.PygAnimation(boltAnim)
+        self.boltAnimLeft.play()
+        # Анимация полета налево
+        boltAnim = []
+        for anim in ANIMATION_BIRDFLYRIGHT:
+            boltAnim.append((anim, ANIMATION_BIRD_DELAY))
+        self.boltAnimRight = pyganim.PygAnimation(boltAnim)
+        self.boltAnimRight.play()
+        # Анимация полета наверх
+        boltAnim = []
+        for anim in ANIMATION_BIRDFLYUP:
+            boltAnim.append((anim, ANIMATION_BIRD_DELAY))
+        self.boltAnimUp = pyganim.PygAnimation(boltAnim)
+        self.boltAnimUp.play()
+        # Анимация полета вниз
+        boltAnim = []
+        for anim in ANIMATION_BIRDFLYDOWN:
+            boltAnim.append((anim, ANIMATION_BIRD_DELAY))
+        self.boltAnimDown = pyganim.PygAnimation(boltAnim)
+        self.boltAnimDown.play()
+
+class Pursuer(Monster):
+    def __init__(self, x, y, moveOnLeft, moveOnUp, algorithm, startMoveTime):
+        Monster.__init__(self, x, y, moveOnLeft, moveOnUp, algorithm, startMoveTime)
+        #self.rect = Rect(x, y, 29, 29)
+        # Анимация полета направо
+        boltAnim = []
+        for anim in ANIMATION_PURSUERFLYLEFT:
+            boltAnim.append((anim, ANIMATION_PURSUER_DELAY))
+        self.boltAnimLeft = pyganim.PygAnimation(boltAnim)
+        self.boltAnimLeft.play()
+        # Анимация полета налево
+        boltAnim = []
+        for anim in ANIMATION_PURSUERFLYRIGHT:
+            boltAnim.append((anim, ANIMATION_PURSUER_DELAY))
+        self.boltAnimRight = pyganim.PygAnimation(boltAnim)
+        self.boltAnimRight.play()
+        # Анимация полета наверх
+        boltAnim = []
+        for anim in ANIMATION_PURSUERFLYUP:
+            boltAnim.append((anim, ANIMATION_PURSUER_DELAY))
+        self.boltAnimUp = pyganim.PygAnimation(boltAnim)
+        self.boltAnimUp.play()
+        # Анимация полета вниз
+        boltAnim = []
+        for anim in ANIMATION_PURSUERFLYDOWN:
+            boltAnim.append((anim, ANIMATION_PURSUER_DELAY))
+        self.boltAnimDown = pyganim.PygAnimation(boltAnim)
+        self.boltAnimDown.play()
+
 class Wraith(Monster):
-    def __init__(self, x, y, moveOnLeft, moveOnUp, startMoveTime):
-        Monster.__init__(self, x, y, moveOnLeft, moveOnUp, startMoveTime)
+    def __init__(self, x, y, moveOnLeft, moveOnUp, algorithm, startMoveTime):
+        Monster.__init__(self, x, y, moveOnLeft, moveOnUp, algorithm, startMoveTime)
         # Анимация полета направо
         boltAnim = []
         for anim in ANIMATION_WRAITHLEFT:

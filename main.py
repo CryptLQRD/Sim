@@ -91,15 +91,28 @@ def loadLevel(): # Работа с файлом уровня
                     platforms.append(tp)
                     animatedEntities.add(tp)
                 if commands[0] == "monsterBat":  # если первая команда monster, то создаем монстра
-                    mn = Bat(int(commands[1]), int(commands[2]), int(commands[3]), int(commands[4]), int(commands[5]))
+                    mn = Bat(int(commands[1]), int(commands[2]), int(commands[3]), int(commands[4]), int(commands[5]), int(commands[6]))
                     entities.add(mn)
                     platforms.append(mn)
                     monsters.add(mn)
                     #Добавляем монстра в массив
                     masMons.append(mn)
-                    #monsters.myCoord(mn)
                 if commands[0] == "monsterWraith":  # если первая команда monster, то создаем монстра
-                    mn = Wraith(int(commands[1]), int(commands[2]), int(commands[3]), int(commands[4]), int(commands[5]))
+                    mn = Wraith(int(commands[1]), int(commands[2]), int(commands[3]), int(commands[4]), int(commands[5]), int(commands[6]))
+                    entities.add(mn)
+                    platforms.append(mn)
+                    monsters.add(mn)
+                    #Добавляем монстра в массив
+                    masMons.append(mn)
+                if commands[0] == "monsterBird":  # если первая команда monster, то создаем монстра
+                    mn = Bird(int(commands[1]), int(commands[2]), int(commands[3]), int(commands[4]), int(commands[5]), int(commands[6]))
+                    entities.add(mn)
+                    platforms.append(mn)
+                    monsters.add(mn)
+                    #Добавляем монстра в массив
+                    masMons.append(mn)
+                if commands[0] == "monsterPursuer":  # если первая команда monster, то создаем монстра
+                    mn = Pursuer(int(commands[1]), int(commands[2]), int(commands[3]), int(commands[4]), int(commands[5]), int(commands[6]))
                     entities.add(mn)
                     platforms.append(mn)
                     monsters.add(mn)
@@ -269,6 +282,7 @@ def main():
                 hero.live = 3       # Возвращаем стартовое значение жизней
                 hero.score = 0      # Возвращаем стартовое значение очков
                 maps.clearMap(way)  # Очищаем карту от предыдущих путей, энергий, монстров, героя
+                maps.clearMonsterMap(monWay)  # Очищаем карту от предыдущих путей, энергий, монстров, героя
                 #maps.clearHeroFromMap(way)
                 moveTime = hero.startMoveTime
                 way[hero.myPosY][hero.myPosX] = 'H'
@@ -375,16 +389,26 @@ def main():
                     monWay[mn.myPosY][mn.myPosX] = '0'
                     # if way[mn.myPrevPosY][mn.myPrevPosX] != 'H':
                     #    way[mn.myPrevPosY][mn.myPrevPosX] = '0'  # Отмечаем на карте, что ушли с предыдущей позиции
-
-                    Monster.algMove(mn, hero, way)
-                    #mn.n = 0
-                    Monster.monsterWay(mn, monWay)
+                    if mn.algorithm == 111:
+                        Monster.patrolMove(mn, hero, way)
+                        Monster.monsterPatrolWay(mn, monWay)
+                    elif mn.algorithm == 222:
+                        Monster.randMove(mn, hero, way)
+                        Monster.monsterRandWay(mn, monWay)
+                    elif mn.algorithm == 333:
+                        1#Monster.pursueMove(mn, hero, way)
+                        #Monster.monsterPursueWay(mn, monWay)
 
                 else:
                     mn.moveTime -= 1
                     mn.left = mn.right = mn.up = mn.down = False  # Для плавного движения это убирается
                     #mn.n = 1
-                    Monster.monsterWay(mn, monWay)
+                    if mn.algorithm == 111:
+                        Monster.monsterPatrolWay(mn, monWay)
+                    elif mn.algorithm == 222:
+                        Monster.monsterRandWay(mn, monWay)
+                    elif mn.algorithm == 333:
+                        1#Monster.monsterPursueWay(mn, monWay)
                     # way[mn.myPrevPosY][mn.myPrevPosX] = 'M' #На карте видна лишь предыдущая позиция! Куда двигается монстр - не видно!
 
             for mn in masMons:
