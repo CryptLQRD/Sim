@@ -34,9 +34,9 @@ BACKGROUND_COLOR = "#003300"
 #REPEAT = False # Включить\Выключить повторние игры с начала
 levelName = 'lvl1.txt' #Название уровня
 FILE_DIR = os.path.dirname(__file__)
-PLAY = True # Включить\Выключить управление игроком
+PLAY = False # Включить\Выключить управление игроком
 REPEAT = True  # Включить\Выключить повторние игры с начала
-STARTDELAY = 10 #Базовая скорость симулятора. Чем больше значение, тем быстрее симулятор. Чем меньше значение, тем медленее симулятор.
+STARTDELAY = 16 #Базовая скорость симулятора. Чем больше значение, тем быстрее симулятор. Чем меньше значение, тем медленее симулятор.
 
 class Camera(object):
     def __init__(self, camera_func, width, height):
@@ -240,6 +240,9 @@ def main():
         mn.moveTime = mn.startMoveTime
         way[mn.myPosY][mn.myPosX] = 'M'  # Если есть данный блок, то заполняем массив M
         monWay[mn.myPosY][mn.myPosX] = 'M'  # Если есть данный блок, то заполняем массив M для монстра
+        if mn.algorithm == 333:
+            mn.myTargetPosX = mn.myPosX
+            mn.myTargetPosY = mn.myPosY
 
     #bigEnergyCounter = maps.amountBigEnerge(way)
     if not PLAY:
@@ -292,6 +295,9 @@ def main():
                     mn.moveTime = mn.startMoveTime
                     way[int(mn.rect.y / 32)][int(mn.rect.x / 32)] = 'M'
                     monWay[int(mn.rect.y / 32)][int(mn.rect.x / 32)] = 'M'
+                    if mn.algorithm == 333:
+                        mn.myTargetPosX = mn.myPosX
+                        mn.myTargetPosY = mn.myPosY
                     #mn.myPosX = int(mn.rect.x / 32)
                     #mn.myPosY = int(mn.rect.y / 32)
                     #mn.myPrevPosX = -1
@@ -374,12 +380,16 @@ def main():
                     left = False
                 #if e.type == KEYUP and e.key == K_LSHIFT:
                 #    lS = False
+                maps.clearHeroFromMap(way)
+                way[int(hero.rect.y / 32)][int(hero.rect.x / 32)] = 'H'
+
 
         if slowSpeed == 0:
             slowSpeed = wait
-            for mn in masMons:  # Алгоритм движения монстров
-                if mn.moveTime <= 0:
-                    maps.clearMonsterWayFromMap(monWay)
+            #for mn in masMons:  # Возможно будет актуально, как будет карта личных маршрутов монстров. Но moveTime вычитается чуть позже и из-за этого не обновляется маршрут pendingMove
+                #if mn.moveTime <= 0:
+                #    maps.clearMonsterWayFromMap(monWay)
+            maps.clearMonsterWayFromMap(monWay)
             for mn in masMons:  # Алгоритм движения монстров
                 if mn.moveTime <= 0:
                     # if mn.myPrevPosY == mn.myPosY and mn.myPrevPosX == mn.myPosX:
@@ -396,19 +406,21 @@ def main():
                         Monster.randMove(mn, hero, way)
                         Monster.monsterRandWay(mn, monWay)
                     elif mn.algorithm == 333:
-                        1#Monster.pursueMove(mn, hero, way)
+                        Monster.pendingMove(mn, monWay , way)
+                        Monster.monsterPendingWay(mn, monWay)
+                        #Monster.pursueMove(mn, hero, way)
                         #Monster.monsterPursueWay(mn, monWay)
 
                 else:
                     mn.moveTime -= 1
                     mn.left = mn.right = mn.up = mn.down = False  # Для плавного движения это убирается
-                    #mn.n = 1
                     if mn.algorithm == 111:
                         Monster.monsterPatrolWay(mn, monWay)
                     elif mn.algorithm == 222:
                         Monster.monsterRandWay(mn, monWay)
                     elif mn.algorithm == 333:
-                        1#Monster.monsterPursueWay(mn, monWay)
+                        Monster.checkForPendingMove(mn, monWay, way)
+                        Monster.monsterPendingWay(mn, monWay)
                     # way[mn.myPrevPosY][mn.myPrevPosX] = 'M' #На карте видна лишь предыдущая позиция! Куда двигается монстр - не видно!
 
             for mn in masMons:

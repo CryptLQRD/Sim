@@ -98,6 +98,8 @@ class Monster(sprite.Sprite): # Класс монстров
         self.myPosY = -1
         self.myPrevPosX = int(self.startX / 32)
         self.myPrevPosY = int(self.startY / 32)
+        self.myTargetPosX = -1
+        self.myTargetPosY = -1
         self.startMoveTime = startMoveTime - 1
         self.moveTime = 0
         self.moveOnLeft = False
@@ -114,16 +116,13 @@ class Monster(sprite.Sprite): # Класс монстров
         self.xvel = 0 # cкорость передвижения по горизонтали, 0 - стоит на месте
         self.yvel = 0 # скорость движения по вертикали, 0 - не двигается
 
-    def moveOn(self, left, right, up, down, hero, way: List[List[int]]):
+    def moveOn(self, left, right, up, down):
         if left == True and up == True:  # Движение влево-вверх в матрице
             #way[self.myPosY][self.myPosX] = '0'
             self.myPrevPosX = self.myPosX
             self.myPrevPosY = self.myPosY
             self.myPosX -= 1
             self.myPosY -= 1
-            #if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
-            #    hero.myPosX = int(hero.startX / 32)
-            #    hero.myPosY = int(hero.startY / 32)
             #way[self.myPosY][self.myPosX] = 'M'
 
         elif right == True and up == True:  # Движение вправо-вверх в матрице
@@ -132,9 +131,6 @@ class Monster(sprite.Sprite): # Класс монстров
             self.myPrevPosY = self.myPosY
             self.myPosX += 1
             self.myPosY -= 1
-            #if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
-            #    hero.myPosX = int(hero.startX / 32)
-            #    hero.myPosY = int(hero.startY / 32)
             #way[self.myPosY][self.myPosX] = 'M'
 
         elif right == True and down == True:  # Движение вправо-вниз в матрице
@@ -143,9 +139,6 @@ class Monster(sprite.Sprite): # Класс монстров
             self.myPrevPosY = self.myPosY
             self.myPosX += 1
             self.myPosY += 1
-            #if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
-            #    hero.myPosX = int(hero.startX / 32)
-            #    hero.myPosY = int(hero.startY / 32)
             #way[self.myPosY][self.myPosX] = 'M'
 
         elif left == True and down == True:  # Движение влево-вниз в матрице
@@ -154,9 +147,6 @@ class Monster(sprite.Sprite): # Класс монстров
             self.myPrevPosY = self.myPosY
             self.myPosX -= 1
             self.myPosY += 1
-            #if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
-            #    hero.myPosX = int(hero.startX / 32)
-            #    hero.myPosY = int(hero.startY / 32)
             #way[self.myPosY][self.myPosX] = 'M'
 
         elif left == True:  # Движение влево в матрице
@@ -164,8 +154,6 @@ class Monster(sprite.Sprite): # Класс монстров
             self.myPrevPosX = self.myPosX
             self.myPrevPosY = self.myPosY
             self.myPosX -= 1
-            if way[self.myPosY][self.myPosX] == 'H' and self.myPosY == hero.myPosY and self.myPosX == hero.myPosX:
-                hero.die()
             #way[self.myPosY][self.myPosX] = 'M'
 
         elif right == True:  # Движение вправо в матрице
@@ -173,8 +161,6 @@ class Monster(sprite.Sprite): # Класс монстров
             self.myPrevPosX = self.myPosX
             self.myPrevPosY = self.myPosY
             self.myPosX += 1
-            if way[self.myPosY][self.myPosX] == 'H' and self.myPosY == hero.myPosY and self.myPosX == hero.myPosX:
-                hero.die()
             #way[self.myPosY][self.myPosX] = 'M'
 
         elif up == True:  # Движение вверх в матрице
@@ -182,9 +168,6 @@ class Monster(sprite.Sprite): # Класс монстров
             self.myPrevPosX = self.myPosX
             self.myPrevPosY = self.myPosY
             self.myPosY -= 1
-            #if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
-            #    hero.myPosX = int(hero.startX / 32)
-            #    hero.myPosY = int(hero.startY / 32)
             #way[self.myPosY][self.myPosX] = 'M'
 
         elif down == True:  # Движение вниз в матрице
@@ -192,11 +175,7 @@ class Monster(sprite.Sprite): # Класс монстров
             self.myPrevPosX = self.myPosX
             self.myPrevPosY = self.myPosY
             self.myPosY += 1
-            #if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
-            #    hero.myPosX = int(hero.startX / 32)
-            #    hero.myPosY = int(hero.startY / 32)
             #way[self.myPosY][self.myPosX] = 'M'
-
 
 
     def monsterPatrolWay (self, monWay: List[List[int]]):
@@ -312,19 +291,20 @@ class Monster(sprite.Sprite): # Класс монстров
             self.down = True
             #print("Monster: Down   Y=" + str(self.myPosY + 1) + '   X='+ str(self.myPosX))
 
-        Monster.moveOn(self, self.left, self.right, self.up, self.down, hero, way)
+        Monster.moveOn(self, self.left, self.right, self.up, self.down)
         self.moveTime = self.startMoveTime  #32/self.MOVE_SPEED - 1 Для плавного движения
+
 
 
     def monsterRandWay(self, monWay: List[List[int]]):
         if monWay[self.myPosY - 1][self.myPosX] != 'B' and monWay[self.myPosY - 1][self.myPosX] != 'W':
-            monWay[self.myPosY - 1][self.myPosX] = self.moveTime
+            monWay[self.myPosY - 1][self.myPosX] = self.moveTime + 1
         if monWay[self.myPosY + 1][self.myPosX] != 'B' and monWay[self.myPosY + 1][self.myPosX] != 'W':
-            monWay[self.myPosY + 1][self.myPosX] = self.moveTime
+            monWay[self.myPosY + 1][self.myPosX] = self.moveTime + 1
         if monWay[self.myPosY][self.myPosX + 1] != 'B' and monWay[self.myPosY][self.myPosX + 1] != 'W':
-            monWay[self.myPosY][self.myPosX + 1] = self.moveTime
+            monWay[self.myPosY][self.myPosX + 1] = self.moveTime + 1
         if monWay[self.myPosY][self.myPosX - 1] != 'B' and monWay[self.myPosY][self.myPosX - 1] != 'W':
-            monWay[self.myPosY][self.myPosX - 1] = self.moveTime
+            monWay[self.myPosY][self.myPosX - 1] = self.moveTime + 1
 
     def randMove(self, hero, way: List[List[int]]):
         number = random.randint(1, 4)
@@ -376,12 +356,254 @@ class Monster(sprite.Sprite): # Класс монстров
                     number = random.randint(1, 4)
                     # print("Stop: Down")  # number = 10
 
-        Monster.moveOn(self, self.left, self.right, self.up, self.down, hero, way)
+        Monster.moveOn(self, self.left, self.right, self.up, self.down)
         self.moveTime = self.startMoveTime  # 32/self.MOVE_SPEED - 1 Для плавного движения
+
+
+
+    def monsterPendingWay(self, monWay: List[List[int]]):
+        if self.myTargetPosX != self.myPosX or self.myTargetPosY != self.myPosY:
+            #if self.moveOnUp == True or self.moveOnDown == True: #Так же если убираю случайное блуждание скорее всего потребуется вернуть и закомменченое внутри
+                for i in range(len(monWay)):
+                    if i == 0: 1
+                    else:
+                        if self.myPosY >= self.myTargetPosY: # and self.moveOnUp == True and self.moveOnDown == False:
+                            if self.myPosY - i >= self.myTargetPosY:
+                                monWay[self.myPosY - i][self.myPosX] = i*(self.startMoveTime + 1) + self.moveTime - self.startMoveTime
+                            else: break
+                        if self.myPosY <= self.myTargetPosY: # and self.moveOnUp == False and self.moveOnDown == True:
+                            if self.myPosY + i <= self.myTargetPosY:
+                                monWay[self.myPosY + i][self.myPosX] = i*(self.startMoveTime + 1) + self.moveTime - self.startMoveTime
+                            else: break
+            #if self.moveOnLeft == True or self.moveOnRight == True: #Так же если убираю случайное блуждание скорее всего потребуется вернуть и закомменченое внутри
+                for i in range(len(monWay[0])):
+                    if i == 0: 1
+                    else:
+                        if self.myPosX >= self.myTargetPosX: # and self.moveOnLeft == True and self.moveOnRight == False:
+                            if self.myPosX - i >= self.myTargetPosX:
+                                monWay[self.myPosY][self.myPosX - i] = i*(self.startMoveTime + 1) + self.moveTime - self.startMoveTime
+                            else: break
+                        if self.myPosX + i <= self.myTargetPosX: # and self.moveOnLeft == False and self.moveOnRight == True:
+                            if self.myPosX + i <= self.myTargetPosX:
+                                monWay[self.myPosY][self.myPosX + i] = i*(self.startMoveTime + 1) + self.moveTime - self.startMoveTime
+                            else: break
+
+        elif self.myTargetPosX == self.myPosX and self.myTargetPosY == self.myPosY: #self.moveTime <= 0 and
+            if monWay[self.myPosY - 1][self.myPosX] != 'B' and monWay[self.myPosY - 1][self.myPosX] != 'W':
+                monWay[self.myPosY - 1][self.myPosX] = self.moveTime + 1 #Если убираю случайное блуждание, то ставлю здесь #1
+            if monWay[self.myPosY + 1][self.myPosX] != 'B' and monWay[self.myPosY + 1][self.myPosX] != 'W':
+                monWay[self.myPosY + 1][self.myPosX] = self.moveTime + 1 #Если убираю случайное блуждание, то ставлю здесь #1
+            if monWay[self.myPosY][self.myPosX - 1] != 'B' and monWay[self.myPosY][self.myPosX - 1] != 'W':
+                monWay[self.myPosY][self.myPosX - 1] = self.moveTime + 1 #Если убираю случайное блуждание, то ставлю здесь #1
+            if monWay[self.myPosY][self.myPosX + 1] != 'B' and monWay[self.myPosY][self.myPosX + 1] != 'W':
+                monWay[self.myPosY][self.myPosX + 1] = self.moveTime + 1 #Если убираю случайное блуждание, то ставлю здесь #1
+
+    def pendingMove(self, monWay: List[List[int]], way: List[List[int]]):
+        self.left = False
+        self.right = False
+        self.up = False
+        self.down = False
+        #self.moveOnLeft = False
+        #self.moveOnRight = False
+        #self.moveOnUp = False
+        #self.moveOnDown = False
+        #print("TargetPosX: " + str(self.myTargetPosX) + "    myPosX: " + str(self.myPosX))
+        #print("TargetPosY: " + str(self.myTargetPosY) + "    myPosY: " + str(self.myPosY))
+        if (self.myTargetPosX != self.myPosX) or (self.myTargetPosY != self.myPosY):
+            #Сюда можно целиком переместить checkForPendingMove, но там работает быстрее за счет постоянного пробегания moveTime
+            if self.myPosX > self.myTargetPosX:
+                self.left = True
+                self.moveOnLeft = True
+                self.moveOnRight = False
+                self.moveOnUp = False
+                self.moveOnDown = False
+            elif self.myPosX < self.myTargetPosX:
+                self.right = True
+                self.moveOnRight = True
+                self.moveOnLeft = False
+                self.moveOnUp = False
+                self.moveOnDown = False
+            elif self.myPosY < self.myTargetPosY:
+                self.down = True
+                self.moveOnDown = True
+                self.moveOnLeft = False
+                self.moveOnRight = False
+                self.moveOnUp = False
+            elif self.myPosY > self.myTargetPosY:
+                self.up = True
+                self.moveOnUp = True
+                self.moveOnLeft = False
+                self.moveOnRight = False
+                self.moveOnDown = False
+        else:
+            stopUp = False
+            stopDown = False
+            stopLeft = False
+            stopRight = False
+            for i in range(len(monWay)):
+                if i == 0:
+                    1
+                else:
+                    if  stopUp == False:
+                        if monWay[self.myPosY - i][self.myPosX] != 'B' and monWay[self.myPosY - i][self.myPosX] != 'W':
+                            if way[self.myPosY - i][self.myPosX] == 'H':
+                                self.myTargetPosX = self.myPosX
+                                self.myTargetPosY = self.myPosY - i
+                                self.up = True
+                                self.moveOnUp = True
+                                self.moveOnLeft = False
+                                self.moveOnRight = False
+                                self.moveOnDown = False
+                        else: stopUp = True
+                    if stopDown == False:
+                        if monWay[self.myPosY + i][self.myPosX] != 'B' and monWay[self.myPosY + i][self.myPosX] != 'W':
+                            if way[self.myPosY + i][self.myPosX] == 'H':
+                                self.myTargetPosX = self.myPosX
+                                self.myTargetPosY = self.myPosY + i
+                                self.down = True
+                                self.moveOnDown = True
+                                self.moveOnLeft = False
+                                self.moveOnRight = False
+                                self.moveOnUp = False
+                        else: stopDown = True
+            for i in range(len(monWay[0])):
+                if i == 0:
+                    1
+                else:
+                    if  stopLeft == False:
+                        if monWay[self.myPosY][self.myPosX - i] != 'B' and monWay[self.myPosY][self.myPosX - i] != 'W':
+                            if way[self.myPosY][self.myPosX - i] == 'H':
+                                self.myTargetPosX = self.myPosX - i
+                                self.myTargetPosY = self.myPosY
+                                self.left = True
+                                self.moveOnLeft = True
+                                self.moveOnRight = False
+                                self.moveOnUp = False
+                                self.moveOnDown = False
+                        else: stopLeft = True
+                    if stopRight == False:
+                        if monWay[self.myPosY][self.myPosX + i] != 'B' and monWay[self.myPosY][self.myPosX + i] != 'W':
+                            if way[self.myPosY][self.myPosX + i] == 'H':
+                                self.myTargetPosX = self.myPosX + i
+                                self.myTargetPosY = self.myPosY
+                                self.right = True
+                                self.moveOnRight = True
+                                self.moveOnLeft = False
+                                self.moveOnUp = False
+                                self.moveOnDown = False
+                        else: stopRight = True
+
+        #Если не видим героя, то делаем шаг в случайную сторону
+        if self.myTargetPosX == self.myPosX and self.myTargetPosY == self.myPosY:
+            number = random.randint(1, 4)
+            # print('Число: ' + str(number))
+
+            while self.left != True and self.right != True and self.up != True and self.down != True:
+                if number == 1:  # Условие для прохода влево
+                    if way[self.myPosY][self.myPosX - 1] != 'B' and way[self.myPosY][self.myPosX - 1] != 'W':
+                        self.left = True
+                        self.myTargetPosX = self.myPosX - 1
+                        self.myTargetPosY = self.myPosY
+                        self.moveOnLeft = True
+                        self.moveOnRight = False
+                        self.moveOnUp = False
+                        self.moveOnDown = False
+                        # print("Left")
+                    else:
+                        number = random.randint(1, 4)
+                        # print("Stop: Left")  # number = 10
+
+                elif number == 2:  # Условие для прохода вправо
+                    if way[self.myPosY][self.myPosX + 1] != 'B' and way[self.myPosY][self.myPosX + 1] != 'W':
+                        self.right = True
+                        self.myTargetPosX = self.myPosX + 1
+                        self.myTargetPosY = self.myPosY
+                        self.moveOnRight = True
+                        self.moveOnLeft = False
+                        self.moveOnUp = False
+                        self.moveOnDown = False
+                        # print("Right")
+                    else:
+                        number = random.randint(1, 4)
+                        # print("Stop: Right")  # number = 10
+
+                elif number == 3:  # Условие для прохода вверх
+                    if way[self.myPosY - 1][self.myPosX] != 'B' and way[self.myPosY - 1][self.myPosX] != 'W':
+                        self.up = True
+                        self.myTargetPosX = self.myPosX
+                        self.myTargetPosY = self.myPosY - 1
+                        self.moveOnUp = True
+                        self.moveOnLeft = False
+                        self.moveOnRight = False
+                        self.moveOnDown = False
+                        # print("Up")
+                    else:
+                        number = random.randint(1, 4)
+                        # print("Stop: Up")  # number = 10
+
+                elif number == 4:  # Условие для прохода вниз
+                    if way[self.myPosY + 1][self.myPosX] != 'B' and way[self.myPosY + 1][self.myPosX] != 'W':
+                        self.down = True
+                        self.myTargetPosX = self.myPosX
+                        self.myTargetPosY = self.myPosY + 1
+                        self.moveOnDown = True
+                        self.moveOnLeft = False
+                        self.moveOnRight = False
+                        self.moveOnUp = False
+                        # print("Down")
+                    else:
+                        number = random.randint(1, 4)
+
+        Monster.moveOn(self, self.left, self.right, self.up, self.down)
+        self.moveTime = self.startMoveTime #(self.startMoveTime + 1)*number - 1
+
+    def checkForPendingMove(self, monWay, way):
+        stopUp = False
+        stopDown = False
+        stopLeft = False
+        stopRight = False
+        for i in range(len(monWay)):
+            if i == 0:
+                1
+            else:
+                if stopUp == False:
+                    if monWay[self.myPosY - i][self.myPosX] != 'B' and monWay[self.myPosY - i][self.myPosX] != 'W':
+                        if way[self.myPosY - i][self.myPosX] == 'H':
+                            self.myTargetPosX = self.myPosX
+                            self.myTargetPosY = self.myPosY - i
+                    else:
+                        stopUp = True
+                if stopDown == False:
+                    if monWay[self.myPosY + i][self.myPosX] != 'B' and monWay[self.myPosY + i][self.myPosX] != 'W':
+                        if way[self.myPosY + i][self.myPosX] == 'H':
+                            self.myTargetPosX = self.myPosX
+                            self.myTargetPosY = self.myPosY + i
+                    else:
+                        stopDown = True
+        for i in range(len(monWay[0])):
+            if i == 0:
+                1
+            else:
+                if stopLeft == False:
+                    if monWay[self.myPosY][self.myPosX - i] != 'B' and monWay[self.myPosY][self.myPosX - i] != 'W':
+                        if way[self.myPosY][self.myPosX - i] == 'H':
+                            self.myTargetPosX = self.myPosX - i
+                            self.myTargetPosY = self.myPosY
+                    else:
+                        stopLeft = True
+                if stopRight == False:
+                    if monWay[self.myPosY][self.myPosX + i] != 'B' and monWay[self.myPosY][self.myPosX + i] != 'W':
+                        if way[self.myPosY][self.myPosX + i] == 'H':
+                            self.myTargetPosX = self.myPosX + i
+                            self.myTargetPosY = self.myPosY
+                    else:
+                        stopRight = True
+
 
 
     def pursueMove(self, hero, way: List[List[int]]):
         1
+
 
 
     def update(self, platforms, way: List[List[int]], hero):  # по принципу героя

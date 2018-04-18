@@ -35,7 +35,7 @@ class Player(sprite.Sprite): # Класс игрока
         self.imDie = False
         self.imSlow = False
         self.winner = False
-        self.startMoveTime = 0
+        self.startMoveTime = 2
         self.Fleft = True #Вспомогательная переменная для анимации
         self.image = Surface((WIDTH,HEIGHT))
         #self.image.fill(Color(COLOR))  #Покрасить героя в серый цвет
