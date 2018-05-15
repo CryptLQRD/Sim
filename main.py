@@ -3,7 +3,7 @@
 
 import os
 import pygame
-import numpy
+import numpy as np
 import pyganim
 from pygame import *
 #from player import *
@@ -18,6 +18,7 @@ import maps
 import time as tm
 from time import sleep
 import random
+import observations
 from termcolor import colored
 
 
@@ -253,9 +254,26 @@ def main():
     elif PLAY:
         maps.printInfo(hero, way) # Выводим карту уровня, если управляет игрок
 
+    #Для идентификации монстров
+    #print('')
+    #amountMonster = maps.amountMonster(way) #Подсчитываем кол-во монстров на карте
+    #monParam = 5 # Имя X Y Alg moveTime #Кол-во параметров массива для каждого монстра
+    #hero.monInfo = [[0] * monParam for i in range(amountMonster)] # Создается массив по кол-ву монстров
 
-    #maps.clearNumberFromMap(way)
-    #hero.startMoveTime = 3
+    # hero.monInfo[0][1][]
+    
+
+    #hero.monArray1 = np.array(['Number', 'Name', 'x', 'y', 'Alg', 'moveTime'])
+
+    for mn in masMons:
+        hero.monInfo.append(observations.ObservedMonster(-999999, -999999, observations=[observations.Observation(timestamp=0, x=int(mn.startX/32), y=int(mn.startY/32))]))
+    #    hero.monArray1 = np.append(hero.monArray1, [mn, 'Name', 'x', 'y', 'Alg', 'moveTime'])
+    #    print('Array: \n' + str(hero.monArray1))
+    #1 monstr, 1 zahod, 3 elem
+
+    #maps.printHeroInfo(hero.monInfo) # Вывод информации о массиве
+    #print('')
+
     moveTime = hero.startMoveTime  # Необходима для плавного движения персонажа т.к. его скорость 8 пикселей, а не 32, как расчитана карта(массив)
     # определение времени
     #todayTime = datetime.datetime.today()   #date = todayTime.strftime("%d-%m-%y")   #time = todayTime.strftime("%H-%M-%S")
@@ -430,6 +448,7 @@ def main():
                 #maps.printMonsterInfo(monWay)
 
             if not PLAY:
+                alg.identificationAlg(hero, way, masMons)
                 if moveTime <= 0 or (hero.imDie == True and hero.live > 0):
                     #if amountBigEnergy >= 0:  # Если энергии, которые присутствовали на карте ещё не собраны
                         bigEnergyCounter = maps.amountBigEnerge(way)  # тогда сверяем их с текущим количеством на карте

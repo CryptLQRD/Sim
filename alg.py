@@ -11,7 +11,161 @@ import maps
 import player
 from pygame import *
 import pygame
+import numpy as np
+import observations
 from termcolor import colored
+
+def moveOn (left, right, up, down, hero, way: List[List[int]]):
+    if left==True and up==True: #Движение влево-вверх в матрице
+        way[hero.myPosY][hero.myPosX] = '0'
+        hero.myPosX -= 1
+        hero.myPosY -= 1
+        if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
+            hero.myPosX = int(hero.startX / 32)
+            hero.myPosY = int(hero.startY / 32)
+        way[hero.myPosY][hero.myPosX] = 'H'
+
+    elif right==True and up==True: #Движение вправо-вверх в матрице
+        way[hero.myPosY][hero.myPosX] = '0'
+        hero.myPosX += 1
+        hero.myPosY -= 1
+        if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
+            hero.myPosX = int(hero.startX / 32)
+            hero.myPosY = int(hero.startY / 32)
+        way[hero.myPosY][hero.myPosX] = 'H'
+
+    elif right==True and down==True: #Движение вправо-вниз в матрице
+        way[hero.myPosY][hero.myPosX] = '0'
+        hero.myPosX += 1
+        hero.myPosY += 1
+        if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
+            hero.myPosX = int(hero.startX / 32)
+            hero.myPosY = int(hero.startY / 32)
+        way[hero.myPosY][hero.myPosX] = 'H'
+
+    elif left==True and down==True: #Движение влево-вниз в матрице
+        way[hero.myPosY][hero.myPosX] = '0'
+        hero.myPosX -= 1
+        hero.myPosY += 1
+        if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
+            hero.myPosX = int(hero.startX / 32)
+            hero.myPosY = int(hero.startY / 32)
+        way[hero.myPosY][hero.myPosX] = 'H'
+
+    elif left==True: #Движение влево в матрице
+        way[hero.myPosY][hero.myPosX] = '0'
+        hero.myPosX -= 1
+        if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
+            hero.myPosX = int(hero.startX / 32)
+            hero.myPosY = int(hero.startY / 32)
+        way[hero.myPosY][hero.myPosX] = 'H'
+
+    elif right==True: #Движение вправо в матрице
+        way[hero.myPosY][hero.myPosX] = '0'
+        hero.myPosX += 1
+        if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
+            hero.myPosX = int(hero.startX / 32)
+            hero.myPosY = int(hero.startY / 32)
+        way[hero.myPosY][hero.myPosX] = 'H'
+
+    elif up == True: #Движение вверх в матрице
+        way[hero.myPosY][hero.myPosX] = '0'
+        hero.myPosY -= 1
+        if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
+            hero.myPosX = int(hero.startX / 32)
+            hero.myPosY = int(hero.startY / 32)
+        way[hero.myPosY][hero.myPosX] = 'H'
+
+    elif down == True: #Движение вниз в матрице
+        way[hero.myPosY][hero.myPosX] = '0'
+        hero.myPosY += 1
+        if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
+            hero.myPosX = int(hero.startX / 32)
+            hero.myPosY = int(hero.startY / 32)
+        way[hero.myPosY][hero.myPosX] = 'H'
+
+def identificationAlg (hero, way: List[List[int]], masMon):
+    if True:
+        hero.obsCount += 1
+        depth = 100 # Стоит делить на moveTime отдельного монстра, иначе следует сделать переменные с сохранением предыдущих результатов (Пример stepX и stepY) При depth=60 и moveTime=4 step =15
+        alg111Check = 20
+        if hero.obsCount < depth:
+            epi = 0
+            counter = hero.obsCount
+        else:
+            counter = depth#
+            epi = hero.obsCount - depth
+        monCounter = -1
+        print() #Пустой принт для удобства отображения в консоли
+        for i in range(len(way)):
+            for j in range(len(way[i])):
+                if way[i][j] == 'M':
+                    monCounter += 1
+                    print ('Индекс монстра: ' + str(monCounter))
+                    observations.addObservation(hero.monInfo, observations.Observation(timestamp=hero.obsCount, x=j, y=i), index=monCounter)
+                    #MoveTime
+                    newTimestamp = -1
+                    x = hero.monInfo[monCounter].observations[epi].x
+                    y = hero.monInfo[monCounter].observations[epi].y
+                    if hero.monInfo[monCounter].moveTime < 0:
+                        for k in range(counter):
+                            if x != hero.monInfo[monCounter].observations[epi + k].x or y != hero.monInfo[monCounter].observations[epi + k].y:
+                                x = hero.monInfo[monCounter].observations[epi + k].x
+                                y = hero.monInfo[monCounter].observations[epi + k].y
+                                if newTimestamp != -1:
+                                    hero.monInfo[monCounter].moveTime = hero.monInfo[monCounter].observations[epi + k].timestamp - newTimestamp
+                                    newTimestamp = -1
+                                else: newTimestamp = hero.monInfo[monCounter].observations[epi + k].timestamp
+                    #Alg
+                    x = hero.monInfo[monCounter].observations[epi].x
+                    y = hero.monInfo[monCounter].observations[epi].y
+                    stepX = 0
+                    stepY = 0
+                    if hero.monInfo[monCounter].alg < 0:
+                        for k in range(counter):
+                            if x != hero.monInfo[monCounter].observations[epi + k].x or y != hero.monInfo[monCounter].observations[epi + k].y:
+                                if x != hero.monInfo[monCounter].observations[epi + k].x:
+                                    stepX += 1 #Если поменялся X, то проверяем меняетлся ли Y
+                                    stepY = 0
+                                    x = hero.monInfo[monCounter].observations[epi + k].x
+                                if y != hero.monInfo[monCounter].observations[epi + k].y:
+                                    stepY += 1 #Если поменялся X, то проверяем меняетлся ли Y
+                                    stepX = 0
+                                    y = hero.monInfo[monCounter].observations[epi + k].y
+                                # Alg 111
+                                if stepX >= alg111Check or stepY >= alg111Check:
+                                    final111algCheck = 0
+                                    if stepX > alg111Check:
+                                        for c in range(hero.obsCount):
+                                            if hero.monInfo[monCounter].observations[0].y == hero.monInfo[monCounter].observations[c].y:
+                                                final111algCheck += 1
+                                                print('Monster with final111algCheck {} and hero.obsCount {}'.format(final111algCheck, hero.obsCount))
+                                    elif stepY > alg111Check:
+                                        for c in range(hero.obsCount):
+                                            if hero.monInfo[monCounter].observations[0].x == hero.monInfo[monCounter].observations[c].x:
+                                                final111algCheck += 1
+                                                print('Monster with final111algCheck {} and hero.obsCount {}'.format(final111algCheck, hero.obsCount))
+                                    if final111algCheck == hero.obsCount:
+                                        hero.monInfo[monCounter].alg = 111
+                                #print('Monster with stepX {} and stepY {}'.format(stepX, stepY))
+                            #if newTimestamp == -1:
+                            #    newTimestamp = hero.monInfo[monCounter].observations[epi + k].timestamp
+                            #elif hero.monInfo[monCounter].moveTime == :
+                            #    hero.monInfo[monCounter].moveTime = hero.monInfo[monCounter].observations[epi + k].timestamp - newTimestamp
+
+                        #hero.monInfo[monCounter].observations[epi+k].x = epi
+
+                    #observations.ObservedMonster(Alg, moveTime, observations.Observation)
+                    #hero.monInfo[monCounter].observations[hero.obsCount].x = 90   #Аналог   monsters[0].observations[1].x = 90
+                    #hero.monInfo[monCounter].alg = 111
+                    if hero.obsCount % 10 == 0:
+                        observations.print_all_observations(hero.monInfo)
+                        #print(hero.monInfo[monCounter].observations[hero.obsCount])
+                    #print(hero.monInfo[monCounter].alg)
+    else: 1
+
+    #maps.printHeroInfo (hero.monInfo)
+
 
 def algRandom(hero, way: List[List[int]]):
     maps.printInfo (hero, way)
@@ -85,75 +239,6 @@ def algRandom(hero, way: List[List[int]]):
     moveOn (left, right, up, down, hero, way)
     moveTime = 3 #*random.randint(1, 4)
     return left, right, up, down, moveTime
-
-def moveOn (left, right, up, down, hero, way: List[List[int]]):
-    if left==True and up==True: #Движение влево-вверх в матрице
-        way[hero.myPosY][hero.myPosX] = '0'
-        hero.myPosX -= 1
-        hero.myPosY -= 1
-        if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
-            hero.myPosX = int(hero.startX / 32)
-            hero.myPosY = int(hero.startY / 32)
-        way[hero.myPosY][hero.myPosX] = 'H'
-
-    elif right==True and up==True: #Движение вправо-вверх в матрице
-        way[hero.myPosY][hero.myPosX] = '0'
-        hero.myPosX += 1
-        hero.myPosY -= 1
-        if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
-            hero.myPosX = int(hero.startX / 32)
-            hero.myPosY = int(hero.startY / 32)
-        way[hero.myPosY][hero.myPosX] = 'H'
-
-    elif right==True and down==True: #Движение вправо-вниз в матрице
-        way[hero.myPosY][hero.myPosX] = '0'
-        hero.myPosX += 1
-        hero.myPosY += 1
-        if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
-            hero.myPosX = int(hero.startX / 32)
-            hero.myPosY = int(hero.startY / 32)
-        way[hero.myPosY][hero.myPosX] = 'H'
-
-    elif left==True and down==True: #Движение влево-вниз в матрице
-        way[hero.myPosY][hero.myPosX] = '0'
-        hero.myPosX -= 1
-        hero.myPosY += 1
-        if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
-            hero.myPosX = int(hero.startX / 32)
-            hero.myPosY = int(hero.startY / 32)
-        way[hero.myPosY][hero.myPosX] = 'H'
-
-    elif left==True: #Движение влево в матрице
-        way[hero.myPosY][hero.myPosX] = '0'
-        hero.myPosX -= 1
-        if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
-            hero.myPosX = int(hero.startX / 32)
-            hero.myPosY = int(hero.startY / 32)
-        way[hero.myPosY][hero.myPosX] = 'H'
-
-    elif right==True: #Движение вправо в матрице
-        way[hero.myPosY][hero.myPosX] = '0'
-        hero.myPosX += 1
-        if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
-            hero.myPosX = int(hero.startX / 32)
-            hero.myPosY = int(hero.startY / 32)
-        way[hero.myPosY][hero.myPosX] = 'H'
-
-    elif up == True: #Движение вверх в матрице
-        way[hero.myPosY][hero.myPosX] = '0'
-        hero.myPosY -= 1
-        if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
-            hero.myPosX = int(hero.startX / 32)
-            hero.myPosY = int(hero.startY / 32)
-        way[hero.myPosY][hero.myPosX] = 'H'
-
-    elif down == True: #Движение вниз в матрице
-        way[hero.myPosY][hero.myPosX] = '0'
-        hero.myPosY += 1
-        if blocks.Exit.myPosY == hero.myPosY and blocks.Exit.myPosX == hero.myPosX:
-            hero.myPosX = int(hero.startX / 32)
-            hero.myPosY = int(hero.startY / 32)
-        way[hero.myPosY][hero.myPosX] = 'H'
 
 
 def algWave (hero, way: List[List[int]]):

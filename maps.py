@@ -40,6 +40,16 @@ def printInfo (hero, way: List[List[int]]):
     print("Позиция  ГЕРОЯ  в массиве  X: " + str(hero.myPosX) + "  Y: " + str(hero.myPosY))
     print("Позиция ПОРТАЛА в массиве  X: " + str(blocks.Exit.myPosX)  + "  Y: " + str(blocks.Exit.myPosY))
 
+def printHeroInfo (way: List[List[int]]):
+    print ('\nГерой: знания о монстрах')
+    for i in range(len(way)):
+        for j in range(len(way[i])):
+            #for k in range(len(way[k])):
+            #if way[i][j] == 'E':
+            print(colored(way[i][j], 'blue'), end=' ')
+        print()
+    print()
+
 def amountBigEnerge (way: List[List[int]]):
     bigEnergyCounter = 0
     for i in range(len(way)):
@@ -48,6 +58,23 @@ def amountBigEnerge (way: List[List[int]]):
                 bigEnergyCounter += 1
     #print("Число больших энергий: = " + str(bigEnergyCounter))
     return bigEnergyCounter
+
+def amountMonster (way: List[List[int]]):
+    monsterCounter = 0
+    for i in range(len(way)):
+        for j in range(len(way[i])):
+            if way[i][j] == 'M':
+                monsterCounter += 1
+    #print("Число больших энергий: = " + str(bigEnergyCounter))
+    return monsterCounter
+
+#def positionMonster (way: List[List[int]], hero):
+#    for i in range(len(way)):
+#        for j in range(len(way[i])):
+#            if way[i][j] == 'M':
+#                hero.monInfo
+    #print("Число больших энергий: = " + str(bigEnergyCounter))
+#    return monsterCounter
 
 def clearMap (way: List[List[int]]):
     for i in range(len(way)):

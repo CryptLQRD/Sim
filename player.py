@@ -8,7 +8,9 @@ import monsters
 import os
 import random
 import maps
+import numpy as np
 from typing import List
+import observations
 
 MOVE_SPEED = 32 #Для плавного движения изменить на 8
 WIDTH = 32 #24
@@ -36,6 +38,16 @@ class Player(sprite.Sprite): # Класс игрока
         self.imSlow = False
         self.winner = False
         self.startMoveTime = 2
+
+        #self.monInfo = 0
+        self.obsCount = 0
+        self.monInfo = []  # type: List[observations.ObservedMonster]
+        #self.a = []
+        #self.b = []
+        #self.monArray1 = ([[]]) hero.monArray1[0] = np.vstack([hero.monArray1[0], newrow])
+        self.monArray1 = ([])
+        #self.arrayB = np.array([])
+
         self.Fleft = True #Вспомогательная переменная для анимации
         self.image = Surface((WIDTH,HEIGHT))
         #self.image.fill(Color(COLOR))  #Покрасить героя в серый цвет
