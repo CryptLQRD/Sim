@@ -39,14 +39,23 @@ class Player(sprite.Sprite): # Класс игрока
         self.winner = False
         self.startMoveTime = 2
 
-        #self.monInfo = 0
+        #Для алг идентификации
         self.obsCount = 0
         self.monInfo = []  # type: List[observations.ObservedMonster]
-        #self.a = []
-        #self.b = []
-        #self.monArray1 = ([[]]) hero.monArray1[0] = np.vstack([hero.monArray1[0], newrow])
-        self.monArray1 = ([])
-        #self.arrayB = np.array([])
+        self.indexForThisMon = []
+        self.myLastPosXforMonTop = -1
+        self.myLastPosYforMonTop = -1
+        self.oCforLastMonTop = -1
+        self.myLastPosXforMonBot = -1
+        self.myLastPosYforMonBot = -1
+        self.oCforLastMonBot = -1
+        self.myLastPosXforMonRight = -1
+        self.myLastPosYforMonRight = -1
+        self.oCforLastMonRight = -1
+        self.myLastPosXforMonLeft = -1
+        self.myLastPosYforMonLeft = -1
+        self.oCforLastMonLeft = -1
+        self.finalAlgCheck = []
 
         self.Fleft = True #Вспомогательная переменная для анимации
         self.image = Surface((WIDTH,HEIGHT))

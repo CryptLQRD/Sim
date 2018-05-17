@@ -31,6 +31,16 @@ def addObservation(monsters: List[ObservedMonster], observation: Observation, in
     else:
         monsters.append(ObservedMonster(observations=[observation]))
 
+#def addObservation(monsters: List[ObservedMonster], observation: Observation, index: int = -1): #add_observation
+    # find the matching monster
+#    known_monster = index >= 0
+#    monster_index = index
+
+#    if known_monster:
+#        monsters[monster_index].observations.append(observation)
+#    else:
+#        monsters.append(ObservedMonster(observations=[observation]))
+
 
 def print_all_observations(monsters: List[ObservedMonster]):
     for monster in monsters:
@@ -38,6 +48,13 @@ def print_all_observations(monsters: List[ObservedMonster]):
         for obs in monster.observations:
             print('> timestamp={} x={} y={}'.format(obs.timestamp, obs.x, obs.y))
         print()
+
+def printObs(monsters: List[ObservedMonster], index): #add_observation
+    monster_index = index
+    print('Monster with alg {} and moveTime {}'.format(monsters[monster_index].alg, monsters[monster_index].moveTime))
+    for obs in monsters[monster_index].observations:
+        print('> timestamp={} x={} y={}'.format(obs.timestamp, obs.x, obs.y))
+    print()
 
 
 if __name__ == '__main__':

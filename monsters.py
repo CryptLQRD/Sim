@@ -107,6 +107,7 @@ class Monster(sprite.Sprite): # Класс монстров
         self.moveOnUp = moveOnUp
         self.moveOnDown = False
         self.MOVE_SPEED = 32 #MOVE_SPEED
+        self.index = -1
         self.left = False
         self.right = False
         self.up = False
@@ -566,6 +567,7 @@ class Monster(sprite.Sprite): # Класс монстров
             if i == 0:
                 1
             else:
+                #print('Q: X=' + str(self.myPosX) + ' Y=' + str(self.myPosY - i) + ' way: ' + str(way[self.myPosY - i][self.myPosX]))
                 if stopUp == False:
                     if monWay[self.myPosY - i][self.myPosX] != 'B' and monWay[self.myPosY - i][self.myPosX] != 'W':
                         if way[self.myPosY - i][self.myPosX] == 'H':
@@ -584,6 +586,7 @@ class Monster(sprite.Sprite): # Класс монстров
             if i == 0:
                 1
             else:
+                #print('Q: X=' + str(self.myPosX - i) + ' Y=' + str(self.myPosY) + ' way: ' + str(way[self.myPosY][self.myPosX - i]))
                 if stopLeft == False:
                     if monWay[self.myPosY][self.myPosX - i] != 'B' and monWay[self.myPosY][self.myPosX - i] != 'W':
                         if way[self.myPosY][self.myPosX - i] == 'H':
@@ -722,6 +725,7 @@ class Monster(sprite.Sprite): # Класс монстров
 class Bat(Monster):
     def __init__(self, x, y, moveOnLeft, moveOnUp, algorithm, startMoveTime):
         Monster.__init__(self, x, y, moveOnLeft, moveOnUp, algorithm, startMoveTime)
+        self.name = 'Bat'
         #self.rect = Rect(x, y, 29, 29)
         # Анимация полета направо
         boltAnim = []
@@ -751,6 +755,7 @@ class Bat(Monster):
 class Bird(Monster):
     def __init__(self, x, y, moveOnLeft, moveOnUp, algorithm, startMoveTime):
         Monster.__init__(self, x, y, moveOnLeft, moveOnUp, algorithm, startMoveTime)
+        self.name = 'Bird'
         #self.rect = Rect(x, y, 29, 29)
         # Анимация полета направо
         boltAnim = []
@@ -780,6 +785,7 @@ class Bird(Monster):
 class Pursuer(Monster):
     def __init__(self, x, y, moveOnLeft, moveOnUp, algorithm, startMoveTime):
         Monster.__init__(self, x, y, moveOnLeft, moveOnUp, algorithm, startMoveTime)
+        self.name = 'Pursuer'
         #self.rect = Rect(x, y, 29, 29)
         # Анимация полета направо
         boltAnim = []
@@ -809,6 +815,7 @@ class Pursuer(Monster):
 class Wraith(Monster):
     def __init__(self, x, y, moveOnLeft, moveOnUp, algorithm, startMoveTime):
         Monster.__init__(self, x, y, moveOnLeft, moveOnUp, algorithm, startMoveTime)
+        self.name = 'Wraith'
         # Анимация полета направо
         boltAnim = []
         for anim in ANIMATION_WRAITHLEFT:

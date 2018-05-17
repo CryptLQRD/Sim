@@ -14,24 +14,21 @@ player 64 128
 
 monsterBat  96  32  1 0 111 4
 
+monsterBird 320 96 1 0 222 5
 
-
-
+monsterPursuer 256 160 1 0 333 2
 
 /
 MName X Y LR UD Al MS
 
-monsterBird 320 96 1 0 222 8
+monsterBat  128 192 0 1 111 4
 
-monsterPursuer 256 160 1 0 333 2
+monsterBat  96  32  1 0 111 4
 
 
 
 monsterBat  128 192 0 1 111 4
 
-monsterBird 320 96 1 0 222 8
-
-monsterPursuer 256 160 1 0 333 2
 
 monsterBat 160 64 0 0 1
 monsterBat 160 160 0 0 1

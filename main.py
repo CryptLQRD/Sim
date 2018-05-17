@@ -236,11 +236,15 @@ def main():
         y += blocks.PLATFORM_HEIGHT    #то же самое и с высотой
         x = 0                   #на каждой новой строчке начинаем с нуля
 
+    index = 0
     for mn in masMons:
         Monster.myCoord(mn)
+        mn.index = index
+        #print(mn.index)
         mn.moveTime = mn.startMoveTime
         way[mn.myPosY][mn.myPosX] = 'M'  # Если есть данный блок, то заполняем массив M
         monWay[mn.myPosY][mn.myPosX] = 'M'  # Если есть данный блок, то заполняем массив M для монстра
+        index += 1
         if mn.algorithm == 333:
             mn.myTargetPosX = mn.myPosX
             mn.myTargetPosY = mn.myPosY
@@ -266,7 +270,8 @@ def main():
     #hero.monArray1 = np.array(['Number', 'Name', 'x', 'y', 'Alg', 'moveTime'])
 
     for mn in masMons:
-        hero.monInfo.append(observations.ObservedMonster(-999999, -999999, observations=[observations.Observation(timestamp=0, x=int(mn.startX/32), y=int(mn.startY/32))]))
+        hero.monInfo.append(observations.ObservedMonster(-999999, -999999, observations=[observations.Observation(timestamp=-1, x=int(mn.startX/32), y=int(mn.startY/32))]))
+        observations.addObservation(hero.monInfo, observations.Observation(timestamp=0, x=int(mn.startX/32), y=int(mn.startY/32)), index=mn.index)
     #    hero.monArray1 = np.append(hero.monArray1, [mn, 'Name', 'x', 'y', 'Alg', 'moveTime'])
     #    print('Array: \n' + str(hero.monArray1))
     #1 monstr, 1 zahod, 3 elem
@@ -370,7 +375,7 @@ def main():
                     print('Скорость симулятора понижена!   DELAY = ' + str(DELAY))
                 else: print('Отказ! Достигнута минимальная разрешенная скорость!   DELAY = ' + str(DELAY))
             if e.type == KEYDOWN and e.key == K_EQUALS:
-                DELAY += 1
+                DELAY += 5
                 #DELAY += 50
                 print('Скорость симулятора повышена!   DELAY = ' + str(DELAY))
             if e.type == KEYDOWN and e.key == K_BACKSPACE:
