@@ -87,11 +87,11 @@ def moveOn (left, right, up, down, hero, way: List[List[int]]):
 def identificationAlg (hero, way: List[List[int]], masMons):
     if True:
         hero.obsCount += 1
-        depth = 100 # Стоит делить на moveTime отдельного монстра, иначе следует сделать переменные с сохранением предыдущих результатов (Пример stepX и stepY) При depth=60 и moveTime=4 step =15
+        depth = 240 # Стоит делить на moveTime отдельного монстра, иначе следует сделать переменные с сохранением предыдущих результатов (Пример stepX и stepY) При depth=60 и moveTime=4 step =15
         alg111Check = 20
         checkList = []
-        alg222 = 105   #кол-во проверок для alg222
-        alg333 = 80    #кол-во проверок для alg333
+        alg222 = 275   #кол-во проверок для alg222
+        alg333 = 160    #кол-во проверок для alg333
         if hero.obsCount < depth:
             epi = 0
             counter = hero.obsCount
@@ -99,6 +99,7 @@ def identificationAlg (hero, way: List[List[int]], masMons):
             counter = depth#
             epi = hero.obsCount - depth
         monCounter = -1
+        amountMon = 0
         print() #Пустой принт для удобства отображения в консоли
         for i in range(len(way)):
             for j in range(len(way[i])):
@@ -106,6 +107,7 @@ def identificationAlg (hero, way: List[List[int]], masMons):
                     for mn in masMons:
                         if j == mn.myPosX and i == mn.myPosY:
                             if checkList.count(mn.index) == 0:
+                                amountMon += 1
                                 #print('checkList.count(mn.index) {}'.format(checkList.count(mn.index)))
                                 #print('X: ' + str(mn.myPosX))
                                 #print('j: ' + str(j))
@@ -115,225 +117,236 @@ def identificationAlg (hero, way: List[List[int]], masMons):
                                 monCounter = mn.index
                                 checkList.append(mn.index)
                                 #print (checkList)
-                    #monCounter += 1
-                    print ('Индекс монстра: ' + str(monCounter) + '   Имя: ' + str(mon.name))
-                    observations.addObservation(hero.monInfo, observations.Observation(timestamp=hero.obsCount, x=j, y=i), index=monCounter)
-                    #Вычисляем MoveTime монстров
-                    newTimestamp = -1
-                    x = hero.monInfo[monCounter].observations[epi].x #Устанавливаю текущий х и у
-                    y = hero.monInfo[monCounter].observations[epi].y
-                    if hero.monInfo[monCounter].moveTime < 0: #если у текущего монстра не определен МТ
-                        for k in range(counter):
-                            if x != hero.monInfo[monCounter].observations[epi + k].x or y != hero.monInfo[monCounter].observations[epi + k].y: #если х или у поменялись
-                                x = hero.monInfo[monCounter].observations[epi + k].x
-                                y = hero.monInfo[monCounter].observations[epi + k].y
-                                if newTimestamp != -1: # проверяем сделано ли за эту проверку это 2-ой раз? Если да, то разница и является МТ
-                                    hero.monInfo[monCounter].moveTime = hero.monInfo[monCounter].observations[epi + k].timestamp - newTimestamp
-                                    newTimestamp = -1
-                                else: newTimestamp = hero.monInfo[monCounter].observations[epi + k].timestamp #иначе устанавливаем 1-ый Timestamp
-                    #Вычисляем Alg монстров
-                    x = hero.monInfo[monCounter].observations[epi].x
-                    y = hero.monInfo[monCounter].observations[epi].y
-                    stepX = 0
-                    stepY = 0
-                    Q = 0
-                    if hero.monInfo[monCounter].alg < 0:
-                        for k in range(counter):
-                            #print('K: ' + str(k))
-                            if x != hero.monInfo[monCounter].observations[epi + k].x or y != hero.monInfo[monCounter].observations[epi + k].y:
-                                if x != hero.monInfo[monCounter].observations[epi + k].x:
-                                    stepX += 1 #Если поменялся X, то проверяем меняетлся ли Y
-                                    stepY = 0
-                                    x = hero.monInfo[monCounter].observations[epi + k].x
-                                if y != hero.monInfo[monCounter].observations[epi + k].y:
-                                    stepY += 1 #Если поменялся X, то проверяем меняетлся ли Y
-                                    stepX = 0
-                                    y = hero.monInfo[monCounter].observations[epi + k].y
-                                # Alg 111
-                                if stepX >= alg111Check or stepY >= alg111Check: #Если много раз менялся только х или у, то проверяем мб это алг 111
-                                    final111algCheck = 0
-                                    if stepX > alg111Check:
-                                        for c in range(hero.obsCount):
-                                            if hero.monInfo[monCounter].observations[0].y == hero.monInfo[monCounter].observations[c].y:
-                                                final111algCheck += 1
-                                                #print('Monster with final111algCheck {} and hero.obsCount {}'.format(final111algCheck, hero.obsCount))
-                                    elif stepY > alg111Check:
-                                        for c in range(hero.obsCount):
-                                            if hero.monInfo[monCounter].observations[0].x == hero.monInfo[monCounter].observations[c].x:
-                                                final111algCheck += 1
-                                                #print('Monster with final111algCheck {} and hero.obsCount {}'.format(final111algCheck, hero.obsCount))
-                                    if final111algCheck == hero.obsCount:
-                                        hero.monInfo[monCounter].alg = 111
-                                else:
-                                    check = 0
-                                    for q in range(len(way)):
-                                        if q == 0:
-                                            1
-                                        else:
-                                            #Проверка монстров сверху
-                                            if hero.myPosY - q < 0:
-                                                1
-                                                #print('Q для верха: X=' + str(hero.myPosX) + ' Y=' + str(hero.myPosY - q) + ' way: ' + str(way[hero.myPosY - q][hero.myPosX]))
+                                #monCounter += 1
+                                print ('Индекс монстра: ' + str(monCounter) + '   Имя: ' + str(mon.name))
+                                observations.addObservation(hero.monInfo, observations.Observation(timestamp=hero.obsCount, x=j, y=i), index=monCounter)
+                                #Вычисляем MoveTime монстров
+                                newTimestamp = -1
+                                x = hero.monInfo[monCounter].observations[epi].x #Устанавливаю текущий х и у
+                                y = hero.monInfo[monCounter].observations[epi].y
+                                if hero.monInfo[monCounter].moveTime < 0: #если у текущего монстра не определен МТ
+                                    for k in range(counter):
+                                        if x != hero.monInfo[monCounter].observations[epi + k].x or y != hero.monInfo[monCounter].observations[epi + k].y: #если х или у поменялись
+                                            x = hero.monInfo[monCounter].observations[epi + k].x
+                                            y = hero.monInfo[monCounter].observations[epi + k].y
+                                            if newTimestamp != -1: # проверяем сделано ли за эту проверку это 2-ой раз? Если да, то разница и является МТ
+                                                hero.monInfo[monCounter].moveTime = hero.monInfo[monCounter].observations[epi + k].timestamp - newTimestamp - 1
+                                                newTimestamp = -1
+                                            else: newTimestamp = hero.monInfo[monCounter].observations[epi + k].timestamp #иначе устанавливаем 1-ый Timestamp
+                                #Вычисляем Alg монстров
+                                x = hero.monInfo[monCounter].observations[epi].x
+                                y = hero.monInfo[monCounter].observations[epi].y
+                                stepX = 0
+                                stepY = 0
+                                Q = 0
+                                if hero.monInfo[monCounter].alg < 0:
+                                    for k in range(counter):
+                                        #print('K: ' + str(k))
+                                        if x != hero.monInfo[monCounter].observations[epi + k].x or y != hero.monInfo[monCounter].observations[epi + k].y:
+                                            if x != hero.monInfo[monCounter].observations[epi + k].x:
+                                                stepX += 1 #Если поменялся X, то проверяем меняетлся ли Y
+                                                stepY = 0
+                                                x = hero.monInfo[monCounter].observations[epi + k].x
+                                            if y != hero.monInfo[monCounter].observations[epi + k].y:
+                                                stepY += 1 #Если поменялся X, то проверяем меняетлся ли Y
+                                                stepX = 0
+                                                y = hero.monInfo[monCounter].observations[epi + k].y
+                                            # Alg 111
+                                            if stepX >= alg111Check or stepY >= alg111Check: #Если много раз менялся только х или у, то проверяем мб это алг 111
+                                                final111algCheck = 0
+                                                if stepX > alg111Check:
+                                                    for c in range(hero.obsCount):
+                                                        if hero.monInfo[monCounter].observations[0].y == hero.monInfo[monCounter].observations[c].y:
+                                                            final111algCheck += 1
+                                                            #print('Monster with final111algCheck {} and hero.obsCount {}'.format(final111algCheck, hero.obsCount))
+                                                elif stepY > alg111Check:
+                                                    for c in range(hero.obsCount):
+                                                        if hero.monInfo[monCounter].observations[0].x == hero.monInfo[monCounter].observations[c].x:
+                                                            final111algCheck += 1
+                                                            #print('Monster with final111algCheck {} and hero.obsCount {}'.format(final111algCheck, hero.obsCount))
+                                                if final111algCheck == hero.obsCount:
+                                                    hero.monInfo[monCounter].alg = 111
                                             else:
-                                                #print('Q для верха: X=' + str(hero.myPosX) + ' Y=' + str(hero.myPosY - q) + ' way: ' + str(way[hero.myPosY - q][hero.myPosX]))
-                                                if way[hero.myPosY - q][hero.myPosX] != 'B' and way[hero.myPosY - q][hero.myPosX] != 'W':
-                                                    if way[hero.myPosY - q][hero.myPosX] == 'M':
-                                                        # print('ВИЖУ МОНСТРА: X=' + str(hero.myPosX) + ' Y='+ str(hero.myPosY - q))
-                                                        Q = q
-                                                        if checkList.count(monCounter) == 0:
-                                                            hero.indexForThisMon.append(monCounter)
-                                                        hero.oCforLastMonTop = hero.obsCount
-                                                        hero.myLastPosXforMonTop = hero.myPosX
-                                                        hero.myLastPosYforMonTop = hero.myPosY
-                                                        #print('Q=' + str(Q))
-                                                # print('stepX=' + str(stepX) + ' stepY='+ str(stepY))
-                                                elif (hero.monInfo[monCounter].observations[hero.oCforLastMonTop].x == hero.monInfo[monCounter].observations[epi + k].x) and (stepX == 0) and (stepY > 3 and stepY >= Q) and (way[hero.myLastPosYforMonTop][hero.myLastPosXforMonTop] == 'M' and (hero.myLastPosXforMonTop == mon.myPosX and hero.myLastPosYforMonTop == mon.myPosY)):
-                                                    if checkList.count(monCounter) == 1:
-                                                        checkList.remove(monCounter)
-                                                    #hero.final333algCheck += 1
-                                                    hero.finalAlgCheck.append(monCounter)
-                                                    # hero.indexForThisMon = monCounter
-                                                    if  hero.finalAlgCheck.count(monCounter) > alg333:
-                                                        hero.monInfo[monCounter].alg = 333
-                                                        check = 0
-                                                elif (((hero.monInfo[monCounter].observations[hero.oCforLastMonTop].x != hero.monInfo[monCounter].observations[epi + k].x) and (stepX > 0)) or (hero.monInfo[monCounter].observations[hero.oCforLastMonTop].y > hero.monInfo[monCounter].observations[epi + k].y)) and checkList.count(monCounter) == 1:
-                                                    check += 1
-                                                    if checkList.count(monCounter) == 1:
-                                                        checkList.remove(monCounter)
-                                                    if Q < check:
-                                                        hero.finalAlgCheck.append(monCounter)
-                                                    if  hero.finalAlgCheck.count(monCounter) > alg222:
-                                                        hero.monInfo[monCounter].alg = 222
-                                    for q in range(len(way)):
-                                        if q == 0:
-                                            1
-                                        else:
-                                            #Проверка монстров снизу
-                                            if hero.myPosY + q >= len(way):
-                                                1
-                                                #print('Q для низа: X=' + str(hero.myPosX) + ' Y=' + str(hero.myPosY - q) + ' way: ' + str(way[hero.myPosY - q][hero.myPosX]))
-                                            else:
-                                                #print('Q для низа: X=' + str(hero.myPosX) + ' Y='+ str(hero.myPosY + q) + ' way: ' + str(way[hero.myPosY + q][hero.myPosX]))
-                                                if way[hero.myPosY + q][hero.myPosX] != 'B' and way[hero.myPosY + q][hero.myPosX] != 'W':
-                                                    if way[hero.myPosY + q][hero.myPosX] == 'M':
-                                                        # print('ВИЖУ МОНСТРА: X=' + str(hero.myPosX) + ' Y='+ str(hero.myPosY - q))
-                                                        Q = q
-                                                        if checkList.count(monCounter) == 0:
-                                                            hero.indexForThisMon.append(monCounter)
-                                                        hero.oCforLastMonBot = hero.obsCount
-                                                        hero.myLastPosXforMonBot = hero.myPosX
-                                                        hero.myLastPosYforMonBot = hero.myPosY
-                                                        #print('Q=' + str(Q))
-                                                # print('stepX=' + str(stepX) + ' stepY='+ str(stepY))
-                                                elif (hero.monInfo[monCounter].observations[hero.oCforLastMonBot].x == hero.monInfo[monCounter].observations[epi + k].x) and (stepX == 0) and (stepY > 3 and stepY >= Q) and (way[hero.myLastPosYforMonBot][hero.myLastPosXforMonBot] == 'M' and (hero.myLastPosXforMonBot == mon.myPosX and hero.myLastPosYforMonBot == mon.myPosY)):
-                                                    if checkList.count(monCounter) == 1:
-                                                        checkList.remove(monCounter)
-                                                    #hero.final333algCheck += 1
-                                                    hero.finalAlgCheck.append(monCounter)
-                                                    # hero.indexForThisMon = monCounter
-                                                    if  hero.finalAlgCheck.count(monCounter) > alg333:
-                                                        hero.monInfo[monCounter].alg = 333
-                                                        check = 0
-                                                elif (((hero.monInfo[monCounter].observations[hero.oCforLastMonBot].x != hero.monInfo[monCounter].observations[epi + k].x) and (stepX > 0)) or (hero.monInfo[monCounter].observations[hero.oCforLastMonBot].y < hero.monInfo[monCounter].observations[epi + k].y)) and checkList.count(monCounter) == 1:
-                                                    check += 1
-                                                    if checkList.count(monCounter) == 1:
-                                                        checkList.remove(monCounter)
-                                                    if Q < check:
-                                                        hero.finalAlgCheck.append(monCounter)
-                                                    if  hero.finalAlgCheck.count(monCounter) > alg222:
-                                                        hero.monInfo[monCounter].alg = 222
-                                    for q in range(len(way[0])):
-                                        if q == 0:
-                                            1
-                                        else:
-                                            # Проверка монстров справа
-                                            if hero.myPosX + q >= len(way[0]):
-                                                1
-                                            else:
-                                                #print('Q для права: X=' + str(hero.myPosX + q) + ' Y=' + str(hero.myPosY) + ' way: ' + str(way[hero.myPosY][hero.myPosX + q]))
-                                                if way[hero.myPosY][hero.myPosX + q] != 'B' and way[hero.myPosY][hero.myPosX + q] != 'W':
-                                                    if way[hero.myPosY][hero.myPosX + q] == 'M':
-                                                        # print('ВИЖУ МОНСТРА: X=' + str(hero.myPosX) + ' Y='+ str(hero.myPosY - q))
-                                                        Q = q
-                                                        if checkList.count(monCounter) == 0:
-                                                            hero.indexForThisMon.append(monCounter)
-                                                        hero.oCforLastMonRight = hero.obsCount
-                                                        hero.myLastPosXforMonRight = hero.myPosX
-                                                        hero.myLastPosYforMonRight = hero.myPosY
-                                                        #print('Q=' + str(Q))
-                                                # print('stepX=' + str(stepX) + ' stepY='+ str(stepY))
-                                                elif (hero.monInfo[monCounter].observations[hero.oCforLastMonRight].y == hero.monInfo[monCounter].observations[epi + k].y) and (stepY == 0) and (stepX > 3 and stepX >= Q) and (way[hero.myLastPosYforMonRight][hero.myLastPosXforMonRight] == 'M' and (hero.myLastPosXforMonRight == mon.myPosX and hero.myLastPosYforMonRight == mon.myPosY)):
-                                                    if checkList.count(monCounter) == 1:
-                                                        checkList.remove(monCounter)
-                                                    #hero.final333algCheck += 1
-                                                    hero.finalAlgCheck.append(monCounter)
-                                                    # hero.indexForThisMon = monCounter
-                                                    if  hero.finalAlgCheck.count(monCounter) > alg333:
-                                                        hero.monInfo[monCounter].alg = 333
-                                                        check = 0
-                                                elif (((hero.monInfo[monCounter].observations[hero.oCforLastMonRight].y != hero.monInfo[monCounter].observations[epi + k].y) and (stepY > 0)) or (hero.monInfo[monCounter].observations[hero.oCforLastMonRight].x < hero.monInfo[monCounter].observations[epi + k].x)) and checkList.count(monCounter) == 1:
-                                                    check += 1
-                                                    if checkList.count(monCounter) == 1:
-                                                        checkList.remove(monCounter)
-                                                    if Q < check:
-                                                        hero.finalAlgCheck.append(monCounter)
-                                                    if  hero.finalAlgCheck.count(monCounter) > alg222:
-                                                        hero.monInfo[monCounter].alg = 222
-                                    for q in range(len(way[0])):
-                                        if q == 0:
-                                            1
-                                        else:
-                                            # Проверка монстров слева
-                                            if hero.myPosX - q < 0:
-                                                1
-                                            else:
-                                                #print('Q для лева: X=' + str(hero.myPosX - q) + ' Y=' + str(hero.myPosY) + ' way: ' + str(way[hero.myPosY][hero.myPosX - q]))
-                                                if way[hero.myPosY][hero.myPosX - q] != 'B' and way[hero.myPosY][hero.myPosX - q] != 'W':
-                                                    if way[hero.myPosY][hero.myPosX - q] == 'M':
-                                                        # print('ВИЖУ МОНСТРА: X=' + str(hero.myPosX) + ' Y='+ str(hero.myPosY - q))
-                                                        Q = q
-                                                        if checkList.count(monCounter) == 0:
-                                                            hero.indexForThisMon.append(monCounter)
-                                                        hero.oCforLastMonLeft = hero.obsCount
-                                                        hero.myLastPosXforMonLeft = hero.myPosX
-                                                        hero.myLastPosYforMonLeft = hero.myPosY
-                                                        #print('Q=' + str(Q))
-                                                # print('stepX=' + str(stepX) + ' stepY='+ str(stepY))
-                                                elif (hero.monInfo[monCounter].observations[hero.oCforLastMonLeft].y == hero.monInfo[monCounter].observations[epi + k].y) and (stepY == 0) and (stepX > 3 and stepX >= Q) and (way[hero.myLastPosYforMonLeft][hero.myLastPosXforMonLeft] == 'M' and (hero.myLastPosXforMonLeft == mon.myPosX and hero.myLastPosYforMonLeft == mon.myPosY)):
-                                                    if checkList.count(monCounter) == 1:
-                                                        checkList.remove(monCounter)
-                                                    #hero.final333algCheck += 1
-                                                    hero.finalAlgCheck.append(monCounter)
-                                                    # hero.indexForThisMon = monCounter
-                                                    if hero.finalAlgCheck.count(monCounter) > alg333:
-                                                        hero.monInfo[monCounter].alg = 333
-                                                        check = 0
-                                                elif (((hero.monInfo[monCounter].observations[hero.oCforLastMonLeft].y != hero.monInfo[monCounter].observations[epi + k].y) and (stepY > 0)) or (hero.monInfo[monCounter].observations[hero.oCforLastMonLeft].x > hero.monInfo[monCounter].observations[epi + k].x)) and checkList.count(monCounter) == 1:
-                                                    check += 1
-                                                    if checkList.count(monCounter) == 1:
-                                                        checkList.remove(monCounter)
-                                                    if Q < check:
-                                                        hero.finalAlgCheck.append(monCounter)
-                                                    if  hero.finalAlgCheck.count(monCounter) > alg222:
-                                                        hero.monInfo[monCounter].alg = 222
+                                                check = 0
+                                                for q in range(len(way)):
+                                                    if q == 0:
+                                                        1
+                                                    else:
+                                                        #Проверка монстров сверху
+                                                        if hero.myPosY - q < 0:
+                                                            1
+                                                            #print('Q для верха: X=' + str(hero.myPosX) + ' Y=' + str(hero.myPosY - q) + ' way: ' + str(way[hero.myPosY - q][hero.myPosX]))
+                                                        else:
+                                                            #print('Q для верха: X=' + str(hero.myPosX) + ' Y=' + str(hero.myPosY - q) + ' way: ' + str(way[hero.myPosY - q][hero.myPosX]))
+                                                            #print ('monCounter: ' + str(monCounter) + '   k: ' + str(k))
+                                                            #print('hero.oCforLastMonTop: ' + str(hero.oCforLastMonTop) + '   epi + k: ' + str(epi + k))
+                                                            if way[hero.myPosY - q][hero.myPosX] != 'B' and way[hero.myPosY - q][hero.myPosX] != 'W':
+                                                                if way[hero.myPosY - q][hero.myPosX] == 'M':
+                                                                    # print('ВИЖУ МОНСТРА: X=' + str(hero.myPosX) + ' Y='+ str(hero.myPosY - q))
+                                                                    Q = q
+                                                                    if hero.indexForThisMon.count(monCounter) == 0:
+                                                                        hero.indexForThisMon.append(monCounter)
+                                                                    hero.oCforLastMonTop = hero.obsCount
+                                                                    hero.myLastPosXforMonTop = hero.myPosX
+                                                                    hero.myLastPosYforMonTop = hero.myPosY
+                                                                    #print('Q=' + str(Q))
+                                                            # print('stepX=' + str(stepX) + ' stepY='+ str(stepY))
+                                                            elif (hero.monInfo[monCounter].observations[hero.oCforLastMonTop].x == hero.monInfo[monCounter].observations[epi + k].x) and (stepX == 0) and (stepY > 2 and stepY >= Q) and (way[hero.myLastPosYforMonTop][hero.myLastPosXforMonTop] == 'M' and (hero.myLastPosXforMonTop == mon.myPosX and hero.myLastPosYforMonTop == mon.myPosY) and (hero.monInfo[monCounter].observations[hero.oCforLastMonTop].y < hero.monInfo[monCounter].observations[epi + k].y)):
+                                                                if hero.indexForThisMon.count(monCounter) == 1:
+                                                                    hero.indexForThisMon.remove(monCounter)
+                                                                #hero.final333algCheck += 1
+                                                                for qSum in range(Q):
+                                                                    hero.finalAlgCheck.append(monCounter)
+                                                                check = 0
+                                                                # hero.indexForThisMon = monCounter
+                                                                if  hero.finalAlgCheck.count(monCounter) > alg333:
+                                                                    hero.monInfo[monCounter].alg = 333
+                                                                    check = 0
+                                                            elif (((hero.monInfo[monCounter].observations[hero.oCforLastMonTop].x != hero.monInfo[monCounter].observations[epi + k].x) and (stepX > 0)) or (hero.monInfo[monCounter].observations[hero.oCforLastMonTop].y > hero.monInfo[monCounter].observations[epi + k].y)) and hero.indexForThisMon.count(monCounter) == 1:
+                                                                check += 1
+                                                                if hero.indexForThisMon.count(monCounter) == 1:
+                                                                    hero.indexForThisMon.remove(monCounter)
+                                                                if Q < check:
+                                                                    hero.finalAlgCheck.append(monCounter)
+                                                                if  hero.finalAlgCheck.count(monCounter) > alg222:
+                                                                    hero.monInfo[monCounter].alg = 222
+                                                for q in range(len(way)):
+                                                    if q == 0:
+                                                        1
+                                                    else:
+                                                        #Проверка монстров снизу
+                                                        if hero.myPosY + q >= len(way):
+                                                            1
+                                                            #print('Q для низа: X=' + str(hero.myPosX) + ' Y=' + str(hero.myPosY - q) + ' way: ' + str(way[hero.myPosY - q][hero.myPosX]))
+                                                        else:
+                                                            #print('Q для низа: X=' + str(hero.myPosX) + ' Y='+ str(hero.myPosY + q) + ' way: ' + str(way[hero.myPosY + q][hero.myPosX]))
+                                                            if way[hero.myPosY + q][hero.myPosX] != 'B' and way[hero.myPosY + q][hero.myPosX] != 'W':
+                                                                if way[hero.myPosY + q][hero.myPosX] == 'M':
+                                                                    # print('ВИЖУ МОНСТРА: X=' + str(hero.myPosX) + ' Y='+ str(hero.myPosY - q))
+                                                                    Q = q
+                                                                    if hero.indexForThisMon.count(monCounter) == 0:
+                                                                        hero.indexForThisMon.append(monCounter)
+                                                                    hero.oCforLastMonBot = hero.obsCount
+                                                                    hero.myLastPosXforMonBot = hero.myPosX
+                                                                    hero.myLastPosYforMonBot = hero.myPosY
+                                                                    #print('Q=' + str(Q))
+                                                            # print('stepX=' + str(stepX) + ' stepY='+ str(stepY))
+                                                            elif (hero.monInfo[monCounter].observations[hero.oCforLastMonBot].x == hero.monInfo[monCounter].observations[epi + k].x) and (stepX == 0) and (stepY > 2 and stepY >= Q) and (way[hero.myLastPosYforMonBot][hero.myLastPosXforMonBot] == 'M' and (hero.myLastPosXforMonBot == mon.myPosX and hero.myLastPosYforMonBot == mon.myPosY) and (hero.monInfo[monCounter].observations[hero.oCforLastMonBot].y > hero.monInfo[monCounter].observations[epi + k].y)):
+                                                                if hero.indexForThisMon.count(monCounter) == 1:
+                                                                    hero.indexForThisMon.remove(monCounter)
+                                                                #hero.final333algCheck += 1
+                                                                for qSum in range(Q):
+                                                                    hero.finalAlgCheck.append(monCounter)
+                                                                check = 0
+                                                                # hero.indexForThisMon = monCounter
+                                                                if  hero.finalAlgCheck.count(monCounter) > alg333:
+                                                                    hero.monInfo[monCounter].alg = 333
+                                                                    check = 0
+                                                            elif (((hero.monInfo[monCounter].observations[hero.oCforLastMonBot].x != hero.monInfo[monCounter].observations[epi + k].x) and (stepX > 0)) or (hero.monInfo[monCounter].observations[hero.oCforLastMonBot].y < hero.monInfo[monCounter].observations[epi + k].y)) and hero.indexForThisMon.count(monCounter) == 1:
+                                                                check += 1
+                                                                if hero.indexForThisMon.count(monCounter) == 1:
+                                                                    hero.indexForThisMon.remove(monCounter)
+                                                                if Q < check:
+                                                                    hero.finalAlgCheck.append(monCounter)
+                                                                if  hero.finalAlgCheck.count(monCounter) > alg222:
+                                                                    hero.monInfo[monCounter].alg = 222
+                                                for q in range(len(way[0])):
+                                                    if q == 0:
+                                                        1
+                                                    else:
+                                                        # Проверка монстров справа
+                                                        if hero.myPosX + q >= len(way[0]):
+                                                            1
+                                                        else:
+                                                            #print('Q для права: X=' + str(hero.myPosX + q) + ' Y=' + str(hero.myPosY) + ' way: ' + str(way[hero.myPosY][hero.myPosX + q]))
+                                                            #print('hero.oCforLastMonRight' + str(hero.oCforLastMonRight) + '   epi + k: ' + str(epi+k))
+                                                            if way[hero.myPosY][hero.myPosX + q] != 'B' and way[hero.myPosY][hero.myPosX + q] != 'W':
+                                                                if way[hero.myPosY][hero.myPosX + q] == 'M':
+                                                                    # print('ВИЖУ МОНСТРА: X=' + str(hero.myPosX) + ' Y='+ str(hero.myPosY - q))
+                                                                    Q = q
+                                                                    if hero.indexForThisMon.count(monCounter) == 0:
+                                                                        hero.indexForThisMon.append(monCounter)
+                                                                    hero.oCforLastMonRight = hero.obsCount
+                                                                    hero.myLastPosXforMonRight = hero.myPosX
+                                                                    hero.myLastPosYforMonRight = hero.myPosY
+                                                                    #print('Q=' + str(Q))
+                                                            # print('stepX=' + str(stepX) + ' stepY='+ str(stepY))
+                                                            elif (hero.monInfo[monCounter].observations[hero.oCforLastMonRight].y == hero.monInfo[monCounter].observations[epi + k].y) and (stepY == 0) and (stepX > 2 and stepX >= Q) and (way[hero.myLastPosYforMonRight][hero.myLastPosXforMonRight] == 'M' and (hero.myLastPosXforMonRight == mon.myPosX and hero.myLastPosYforMonRight == mon.myPosY) and (hero.monInfo[monCounter].observations[hero.oCforLastMonRight].x > hero.monInfo[monCounter].observations[epi + k].x)):
+                                                                if hero.indexForThisMon.count(monCounter) == 1:
+                                                                    hero.indexForThisMon.remove(monCounter)
+                                                                #hero.final333algCheck += 1
+                                                                for qSum in range(Q):
+                                                                    hero.finalAlgCheck.append(monCounter)
+                                                                check = 0
+                                                                # hero.indexForThisMon = monCounter
+                                                                if  hero.finalAlgCheck.count(monCounter) > alg333:
+                                                                    hero.monInfo[monCounter].alg = 333
+                                                                    check = 0
+                                                            elif (((hero.monInfo[monCounter].observations[hero.oCforLastMonRight].y != hero.monInfo[monCounter].observations[epi + k].y) and (stepY > 0)) or (hero.monInfo[monCounter].observations[hero.oCforLastMonRight].x < hero.monInfo[monCounter].observations[epi + k].x)) and hero.indexForThisMon.count(monCounter) == 1:
+                                                                check += 1
+                                                                if hero.indexForThisMon.count(monCounter) == 1:
+                                                                    hero.indexForThisMon.remove(monCounter)
+                                                                if Q < check:
+                                                                    hero.finalAlgCheck.append(monCounter)
+                                                                if  hero.finalAlgCheck.count(monCounter) > alg222:
+                                                                    hero.monInfo[monCounter].alg = 222
+                                                for q in range(len(way[0])):
+                                                    if q == 0:
+                                                        1
+                                                    else:
+                                                        # Проверка монстров слева
+                                                        if hero.myPosX - q < 0:
+                                                            1
+                                                        else:
+                                                            #print('Q для лева: X=' + str(hero.myPosX - q) + ' Y=' + str(hero.myPosY) + ' way: ' + str(way[hero.myPosY][hero.myPosX - q]))
+                                                            if way[hero.myPosY][hero.myPosX - q] != 'B' and way[hero.myPosY][hero.myPosX - q] != 'W':
+                                                                if way[hero.myPosY][hero.myPosX - q] == 'M':
+                                                                    # print('ВИЖУ МОНСТРА: X=' + str(hero.myPosX) + ' Y='+ str(hero.myPosY - q))
+                                                                    Q = q
+                                                                    if hero.indexForThisMon.count(monCounter) == 0:
+                                                                        hero.indexForThisMon.append(monCounter)
+                                                                    hero.oCforLastMonLeft = hero.obsCount
+                                                                    hero.myLastPosXforMonLeft = hero.myPosX
+                                                                    hero.myLastPosYforMonLeft = hero.myPosY
+                                                                    #print('Q=' + str(Q))
+                                                            # print('stepX=' + str(stepX) + ' stepY='+ str(stepY))
+                                                            elif (hero.monInfo[monCounter].observations[hero.oCforLastMonLeft].y == hero.monInfo[monCounter].observations[epi + k].y) and (stepY == 0) and (stepX > 2 and stepX >= Q) and (way[hero.myLastPosYforMonLeft][hero.myLastPosXforMonLeft] == 'M' and (hero.myLastPosXforMonLeft == mon.myPosX and hero.myLastPosYforMonLeft == mon.myPosY) and (hero.monInfo[monCounter].observations[hero.oCforLastMonLeft].x < hero.monInfo[monCounter].observations[epi + k].x)):
+                                                                if hero.indexForThisMon.count(monCounter) == 1:
+                                                                    hero.indexForThisMon.remove(monCounter)
+                                                                #hero.final333algCheck += 1
+                                                                for qSum in range(Q):
+                                                                    hero.finalAlgCheck.append(monCounter)
+                                                                check = 0
+                                                                # hero.indexForThisMon = monCounter
+                                                                if hero.finalAlgCheck.count(monCounter) > alg333:
+                                                                    hero.monInfo[monCounter].alg = 333
+                                                                    check = 0
+                                                            elif (((hero.monInfo[monCounter].observations[hero.oCforLastMonLeft].y != hero.monInfo[monCounter].observations[epi + k].y) and (stepY > 0)) or (hero.monInfo[monCounter].observations[hero.oCforLastMonLeft].x > hero.monInfo[monCounter].observations[epi + k].x)) and hero.indexForThisMon.count(monCounter) == 1:
+                                                                check += 1
+                                                                if hero.indexForThisMon.count(monCounter) == 1:
+                                                                    hero.indexForThisMon.remove(monCounter)
+                                                                if Q < check:
+                                                                    hero.finalAlgCheck.append(monCounter)
+                                                                if  hero.finalAlgCheck.count(monCounter) > alg222:
+                                                                    hero.monInfo[monCounter].alg = 222
 
 
-                                #print('Monster with stepX {} and stepY {}'.format(stepX, stepY))
-                            #if newTimestamp == -1:
-                            #    newTimestamp = hero.monInfo[monCounter].observations[epi + k].timestamp
-                            #elif hero.monInfo[monCounter].moveTime == :
-                            #    hero.monInfo[monCounter].moveTime = hero.monInfo[monCounter].observations[epi + k].timestamp - newTimestamp
+                                            #print('Monster with stepX {} and stepY {}'.format(stepX, stepY))
+                                        #if newTimestamp == -1:
+                                        #    newTimestamp = hero.monInfo[monCounter].observations[epi + k].timestamp
+                                        #elif hero.monInfo[monCounter].moveTime == :
+                                        #    hero.monInfo[monCounter].moveTime = hero.monInfo[monCounter].observations[epi + k].timestamp - newTimestamp
 
-                        #hero.monInfo[monCounter].observations[epi+k].x = epi
+                                    #hero.monInfo[monCounter].observations[epi+k].x = epi
 
-                    #observations.ObservedMonster(Alg, moveTime, observations.Observation)
-                    #hero.monInfo[monCounter].observations[hero.obsCount].x = 90   #Аналог   monsters[0].observations[1].x = 90
-                    #hero.monInfo[monCounter].alg = 111
-                    if hero.obsCount % 10 == 0:
-                        #observations.print_all_observations(hero.monInfo)
-                        observations.printObs(hero.monInfo, monCounter)
-                        #print(hero.monInfo[monCounter].observations[hero.obsCount])
-                    #print(hero.monInfo[monCounter].alg)
+                                #observations.ObservedMonster(Alg, moveTime, observations.Observation)
+                                #hero.monInfo[monCounter].observations[hero.obsCount].x = 90   #Аналог   monsters[0].observations[1].x = 90
+                                #hero.monInfo[monCounter].alg = 111
+                                if hero.obsCount % 10 == 0:
+                                    #observations.print_all_observations(hero.monInfo)
+                                    observations.printObs(hero.monInfo, monCounter)
+                                    #print(hero.monInfo[monCounter].observations[hero.obsCount])
+                                #print(hero.monInfo[monCounter].alg)
     else: 1
 
     #maps.printHeroInfo (hero.monInfo)
@@ -467,10 +480,10 @@ def algWave (hero, way: List[List[int]]):
     moveOn(left, right, up, down, hero, way)
     #maps.printInfo (hero, way)
     if moveTimeFlag == True:
-        moveTime = 0
+        hero.moveTime = 0
     #elif hero.imSlow == True: moveTime = 10
-    else: moveTime = hero.startMoveTime#4 #Для плавного движения moveTime = 3
-    return left, right, up, down, moveTime
+    else: hero.moveTime = hero.startMoveTime#4 #Для плавного движения moveTime = 3
+    return left, right, up, down, hero.moveTime
 
 def algWaveFindExit (symbol, hero, way: List[List[int]], masBE: List[int], monWay: List[List[int]]):
     #Сперва ищем все пути до цели
@@ -497,12 +510,21 @@ def algWaveFindExit (symbol, hero, way: List[List[int]], masBE: List[int], monWa
     #Теперь записываем путь для последующего движения
     exitFlag = False
     nextStep = False
-    if (way[y][x+1] == 'E' or way[y+1][x] == 'E' or way[y][x-1] == 'E' or way[y-1][x] == 'E') \
-            or (way[y + 1][x + 1] == 'E' and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M') and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M'))\
-            or (way[y - 1][x + 1] == 'E' and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M') and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M')) \
-            or (way[y + 1][x - 1] == 'E' and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M') and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M')) \
-            or (way[y - 1][x - 1] == 'E' and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M') and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M')):
+    if ((way[y][x + 1] == 'E' and monWay[y][x + 1] != hero.startMoveTime*hero.known) or (way[y + 1][x] == 'E' and monWay[y + 1][x] != hero.startMoveTime*hero.known)\
+        or (way[y][x - 1] == 'E' and monWay[y][x - 1] != hero.startMoveTime*hero.known) or (way[y - 1][x] == 'E' and monWay[y - 1][x] != hero.startMoveTime*hero.known)) \
+        or (way[y + 1][x + 1] == 'E' and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M') and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (monWay[y + 1][x + 1] != hero.startMoveTime*hero.known))\
+        or (way[y - 1][x + 1] == 'E' and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M') and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (monWay[y - 1][x + 1] != hero.startMoveTime*hero.known))\
+        or (way[y + 1][x - 1] == 'E' and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M') and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (monWay[y + 1][x - 1] != hero.startMoveTime*hero.known))\
+        or (way[y - 1][x - 1] == 'E' and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M') and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (monWay[y - 1][x - 1] != hero.startMoveTime*hero.known)):
+
         exitFlag = True # Заканчиваем работу алгоритма т.к. энергия уже находится рядом с героем.
+    #if (way[y][x + 1] == 'E' or way[y + 1][x] == 'E' or way[y][x - 1] == 'E' or way[y - 1][x] == 'E') \
+    #        or (way[y + 1][x + 1] == 'E' and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M') and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M')) \
+    #        or (way[y - 1][x + 1] == 'E' and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M') and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M')) \
+    #        or (way[y + 1][x - 1] == 'E' and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M') and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M')) \
+    #        or (way[y - 1][x - 1] == 'E' and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M') and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M')):
+    #        exitFlag = True  # Заканчиваем работу алгоритма т.к. энергия уже находится рядом с героем.
+        #!= (hero.startMoveTime)
         #maps.printInfo(hero, way)
     elif symbol == 'E':
         print("Кол-во шагов алгоритма: N=" + str(n))
@@ -520,11 +542,11 @@ def algWaveFindExit (symbol, hero, way: List[List[int]], masBE: List[int], monWa
                 print('Выбрана начальная точка: BigEnergy.myPosX: ' + str(be.myPosX) + '   BigEnergy.myPosY: ' + str(be.myPosY))
                 #break
                 #maps.printInfo(hero, way)
-        exitFlag, nextStep = findBackWay(y, x, '+', exitFlag, n, 'H', nextStep, way, monWay)
+        exitFlag, nextStep = findBackWay(y, x, '+', exitFlag, n, 'H', nextStep, way, monWay, hero)
     elif symbol == 'W':
         x = blocks.Exit.myPosX
         y = blocks.Exit.myPosY
-        exitFlag, nextStep = findBackWay(y, x, '+', exitFlag, n, 'H', nextStep, way, monWay)
+        exitFlag, nextStep = findBackWay(y, x, '+', exitFlag, n, 'H', nextStep, way, monWay, hero)
 
     n -= 1
     nextStep = False
@@ -536,7 +558,7 @@ def algWaveFindExit (symbol, hero, way: List[List[int]], masBE: List[int], monWa
                     if nextStep == True:
                         exitCounter = 0
                         break
-                    else: exitFlag, nextStep = findBackWay(i, j, '+',exitFlag, n, 'H', nextStep, way, monWay)
+                    else: exitFlag, nextStep = findBackWay(i, j, '+',exitFlag, n, 'H', nextStep, way, monWay, hero)
             if nextStep == True:
                 break
         exitCounter += 1
@@ -609,9 +631,9 @@ def findWays (y, x, n, exitFlag, checkSym, symbol, way: List[List[int]]):
 
 # Построение маршрута от цели, где У и Х - координаты, n - текущее число волны, exitFlag - флаг конца алгоритма, checkSym - какой символ на карте заменяем числом n,
 # symbol - волна будет распространяться пока мы не найдем этот символ на карте, way - наш массив (карта), nextStep - флаг сообщающий о нахождении symbol'а или установке '+' (прокладывание маршрута до цели)
-def findBackWay (y, x, n, exitFlag, checkSym, symbol, nextStep, way: List[List[int]], monWay: List[List[int]]):
+def findBackWay (y, x, n, exitFlag, checkSym, symbol, nextStep, way: List[List[int]], monWay: List[List[int]], hero):
     #Влево-Вверх
-    if (x - 1 >= 0 and y - 1 >= 0 and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M') and way[y - 1][x - 1] == checkSym and (monWay[y - 1][x - 1]) != checkSym) or (way[y - 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M')):
+    if (x - 1 >= 0 and y - 1 >= 0 and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M') and way[y - 1][x - 1] == checkSym and (monWay[y - 1][x - 1]) != checkSym*hero.known and (monWay[y - 1][x - 1]) != (hero.startMoveTime*hero.known)) or (way[y - 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M')):
         if way[y - 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M'):
             exitFlag = True
         else:
@@ -619,7 +641,7 @@ def findBackWay (y, x, n, exitFlag, checkSym, symbol, nextStep, way: List[List[i
         nextStep = True
 
     #Влево-Вниз
-    elif (x - 1 >= 0 and y + 1 < len(way) and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M') and way[y + 1][x - 1] == checkSym and (monWay[y + 1][x - 1]) != checkSym) or (way[y + 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M')):
+    elif (x - 1 >= 0 and y + 1 < len(way) and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M') and way[y + 1][x - 1] == checkSym and (monWay[y + 1][x - 1]) != checkSym*hero.known and (monWay[y + 1][x - 1]) != (hero.startMoveTime*hero.known)) or (way[y + 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M')):
         if way[y + 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M'):
             exitFlag = True
         else:
@@ -627,7 +649,7 @@ def findBackWay (y, x, n, exitFlag, checkSym, symbol, nextStep, way: List[List[i
         nextStep = True
 
     #Вправо-Вверх
-    elif (x + 1 < len(way[y]) and y - 1 >= 0 and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M') and way[y - 1][x + 1] == checkSym and (monWay[y - 1][x + 1]) != checkSym) or (way[y - 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M')):
+    elif (x + 1 < len(way[y]) and y - 1 >= 0 and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M') and way[y - 1][x + 1] == checkSym and (monWay[y - 1][x + 1]) != checkSym*hero.known and (monWay[y - 1][x + 1]) != (hero.startMoveTime*hero.known)) or (way[y - 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M')):
         if way[y - 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M'):
             exitFlag = True
         else:
@@ -635,7 +657,7 @@ def findBackWay (y, x, n, exitFlag, checkSym, symbol, nextStep, way: List[List[i
         nextStep = True
 
     #Вправо-Вниз
-    elif (x + 1 < len(way[y]) and y + 1 < len(way) and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M') and way[y + 1][x + 1] == checkSym and (monWay[y + 1][x + 1]) != checkSym) or (way[y + 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M')):
+    elif (x + 1 < len(way[y]) and y + 1 < len(way) and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M') and way[y + 1][x + 1] == checkSym and (monWay[y + 1][x + 1]) != checkSym*hero.known and (monWay[y + 1][x + 1]) != (hero.startMoveTime*hero.known)) or (way[y + 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M')):
         if way[y + 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M'):
             exitFlag = True
         else:
@@ -643,7 +665,7 @@ def findBackWay (y, x, n, exitFlag, checkSym, symbol, nextStep, way: List[List[i
         nextStep = True
 
     #Вверх
-    elif (y - 1 >= 0 and way[y - 1][x] != 'B' and way[y - 1][x] != 'M' and way[y - 1][x] == checkSym and (monWay[y - 1][x]) != checkSym) or way[y - 1][x] == symbol:
+    elif (y - 1 >= 0 and way[y - 1][x] != 'B' and way[y - 1][x] != 'M' and way[y - 1][x] == checkSym and (monWay[y - 1][x]) != checkSym*hero.known and (monWay[y - 1][x]) != (hero.startMoveTime*hero.known)) or way[y - 1][x] == symbol:
         if way[y - 1][x] == symbol:
             exitFlag = True
         else:
@@ -651,7 +673,7 @@ def findBackWay (y, x, n, exitFlag, checkSym, symbol, nextStep, way: List[List[i
         nextStep = True
 
     #Вниз
-    elif (y + 1 < len(way) and way[y + 1][x] != 'B' and way[y + 1][x] != 'M' and way[y + 1][x] == checkSym and (monWay[y + 1][x]) != checkSym) or way[y + 1][x] == symbol:
+    elif (y + 1 < len(way) and way[y + 1][x] != 'B' and way[y + 1][x] != 'M' and way[y + 1][x] == checkSym and (monWay[y + 1][x]) != checkSym*hero.known and (monWay[y + 1][x]) != (hero.startMoveTime*hero.known)) or way[y + 1][x] == symbol:
         if way[y + 1][x] == symbol:
             exitFlag = True
         else:
@@ -659,7 +681,7 @@ def findBackWay (y, x, n, exitFlag, checkSym, symbol, nextStep, way: List[List[i
         nextStep = True
 
     #Влево
-    elif (x - 1 >= 0 and way[y][x - 1] != 'B' and way[y][x - 1] != 'M' and way[y][x - 1] == checkSym and (monWay[y][x - 1]) != checkSym) or way[y][x - 1] == symbol:
+    elif (x - 1 >= 0 and way[y][x - 1] != 'B' and way[y][x - 1] != 'M' and way[y][x - 1] == checkSym and (monWay[y][x - 1]) != checkSym*hero.known and (monWay[y][x - 1]) != (hero.startMoveTime*hero.known)) or way[y][x - 1] == symbol:
         if way[y][x - 1] == symbol:
             exitFlag = True
         else:
@@ -667,7 +689,7 @@ def findBackWay (y, x, n, exitFlag, checkSym, symbol, nextStep, way: List[List[i
         nextStep = True
 
     #Вправо
-    elif (x + 1 < len(way[y]) and way[y][x + 1] != 'B' and way[y][x + 1] != 'M' and way[y][x + 1] == checkSym and (monWay[y][x + 1]) != checkSym) or way[y][x + 1] == symbol:
+    elif (x + 1 < len(way[y]) and way[y][x + 1] != 'B' and way[y][x + 1] != 'M' and way[y][x + 1] == checkSym and (monWay[y][x + 1]) != checkSym*hero.known and (monWay[y][x + 1]) != (hero.startMoveTime*hero.known)) or way[y][x + 1] == symbol:
         if way[y][x + 1] == symbol:
             exitFlag = True
         else:

@@ -100,10 +100,10 @@ class Monster(sprite.Sprite): # Класс монстров
         self.myPrevPosY = int(self.startY / 32)
         self.myTargetPosX = -1
         self.myTargetPosY = -1
-        self.startMoveTime = startMoveTime - 1
+        self.startMoveTime = startMoveTime #- 1
         self.moveTime = 0
-        self.moveOnLeft = False
-        self.moveOnRight = moveOnLeft
+        self.moveOnLeft = moveOnLeft
+        self.moveOnRight = False
         self.moveOnUp = moveOnUp
         self.moveOnDown = False
         self.MOVE_SPEED = 32 #MOVE_SPEED

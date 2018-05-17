@@ -51,7 +51,14 @@ def print_all_observations(monsters: List[ObservedMonster]):
 
 def printObs(monsters: List[ObservedMonster], index): #add_observation
     monster_index = index
-    print('Monster with alg {} and moveTime {}'.format(monsters[monster_index].alg, monsters[monster_index].moveTime))
+    if monsters[monster_index].alg == 111:
+        alg = 'Patrol-1'
+    elif monsters[monster_index].alg == 222:
+        alg = 'Walk-2'
+    elif monsters[monster_index].alg == 333:
+        alg = 'Pursues-3'
+    else: alg = 'Unknown'
+    print('Monster with alg {} and moveTime {}'.format(alg, monsters[monster_index].moveTime)) #monsters[monster_index].alg
     for obs in monsters[monster_index].observations:
         print('> timestamp={} x={} y={}'.format(obs.timestamp, obs.x, obs.y))
     print()

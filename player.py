@@ -33,11 +33,13 @@ class Player(sprite.Sprite): # Класс игрока
         self.startY = y # текущая позиция y
         self.onGround = False # На земле ли я?
         self.score = 0
-        self.live = 3
+        self.live = 2
         self.imDie = False
         self.imSlow = False
         self.winner = False
+        self.moveTime = -1
         self.startMoveTime = 2
+        self.known = -1
 
         #Для алг идентификации
         self.obsCount = 0
@@ -57,6 +59,7 @@ class Player(sprite.Sprite): # Класс игрока
         self.oCforLastMonLeft = -1
         self.finalAlgCheck = []
 
+        self.episod = 0
         self.Fleft = True #Вспомогательная переменная для анимации
         self.image = Surface((WIDTH,HEIGHT))
         #self.image.fill(Color(COLOR))  #Покрасить героя в серый цвет

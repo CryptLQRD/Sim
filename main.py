@@ -37,6 +37,7 @@ levelName = 'lvl1.txt' #Название уровня
 FILE_DIR = os.path.dirname(__file__)
 PLAY = False # Включить\Выключить управление игроком
 REPEAT = True  # Включить\Выключить повторние игры с начала
+amEpisod = 5   # Через какое кол-во эпизодов алгоритмы монстров меняются
 STARTDELAY = 16 #Базовая скорость симулятора. Чем больше значение, тем быстрее симулятор. Чем меньше значение, тем медленее симулятор.
 
 class Camera(object):
@@ -121,10 +122,10 @@ def loadLevel(): # Работа с файлом уровня
                     masMons.append(mn)
 
 
-def saveResult(hero, workTime): # Работа с файлом result
+def saveResult(hero, workTime, masMons): # Работа с файлом result
     #Определяем № эпизода
     resultFile = open('%s/levels/episodes/result.txt' % FILE_DIR)
-    episod = 0
+    #episod = 0
     line = " "
     commands = []
     if line[0] != "":
@@ -132,13 +133,13 @@ def saveResult(hero, workTime): # Работа с файлом result
             commands = line.split()  # разбиваем ее на отдельные команды
             if len(commands) > 1:  # если количество команд > 1, то ищем эти команды
                 if commands[0] == "Эпизод" and commands[1] == "№":
-                    episod = int(commands[2])
-    episod += 1
+                    hero.episod = int(commands[2])
+    hero.episod += 1
     resultFile.close()
 
     #Сохраняем в файл
     resultFile = open('%s/levels/episodes/result.txt' % FILE_DIR, 'a')
-    resultFile.write('Эпизод № '+ str(episod) + '   Время: ' + str(workTime) + '   Уровень: ' +  levelName +'\n') # выполнения эпизода
+    resultFile.write('Эпизод № '+ str(hero.episod) + '   Время: ' + str(workTime) + '   Уровень: ' +  levelName +'\n') # выполнения эпизода
     if (hero.live <= 0):
         resultFile.write('Поражение!')
     elif (hero.winner):
@@ -146,6 +147,12 @@ def saveResult(hero, workTime): # Работа с файлом result
     else:
         resultFile.write('Соединение разорвано!')
     resultFile.write('  |  Счёт: ' + str(hero.score) + '  |  Жизни: ' + str(hero.live) + '\n\n')
+    for mn in masMons:
+        resultFile.write('MONSTER: ' + str(mn.name) + ' | Alg: ' + str(mn.algorithm) + ' | startMT: ' + str(mn.startMoveTime) + '\n')
+    for mn in masMons:
+        resultFile.write('Инфо! Имя: ' + str(mn.name) +' | Индекс: ' + str(mn.index) + ' | Alg: ' + str(hero.monInfo[mn.index].alg) + ' | startMT: ' + str(hero.monInfo[mn.index].moveTime) + '\n')
+    resultFile.write('\n\n\n')
+    #print('Name: ' + str(mn.name) + '  Alg: ' + str(mn.algorithm) + '  moveTime: ' + str(mn.moveTime))
     resultFile.close()
 
 
@@ -272,6 +279,8 @@ def main():
     for mn in masMons:
         hero.monInfo.append(observations.ObservedMonster(-999999, -999999, observations=[observations.Observation(timestamp=-1, x=int(mn.startX/32), y=int(mn.startY/32))]))
         observations.addObservation(hero.monInfo, observations.Observation(timestamp=0, x=int(mn.startX/32), y=int(mn.startY/32)), index=mn.index)
+        #print('Name: ' + str(mn.name) + '  Alg: ' + str(mn.algorithm) + '  moveTime: ' + str(mn.moveTime))
+
     #    hero.monArray1 = np.append(hero.monArray1, [mn, 'Name', 'x', 'y', 'Alg', 'moveTime'])
     #    print('Array: \n' + str(hero.monArray1))
     #1 monstr, 1 zahod, 3 elem
@@ -279,7 +288,7 @@ def main():
     #maps.printHeroInfo(hero.monInfo) # Вывод информации о массиве
     #print('')
 
-    moveTime = hero.startMoveTime  # Необходима для плавного движения персонажа т.к. его скорость 8 пикселей, а не 32, как расчитана карта(массив)
+    hero.moveTime = hero.startMoveTime  # Необходима для плавного движения персонажа т.к. его скорость 8 пикселей, а не 32, как расчитана карта(массив)
     # определение времени
     #todayTime = datetime.datetime.today()   #date = todayTime.strftime("%d-%m-%y")   #time = todayTime.strftime("%H-%M-%S")
     slowSpeed = 0  # Переменная для искуственного замедления симулятора
@@ -300,24 +309,64 @@ def main():
             finishTime = datetime.datetime.now() # Время конца цикла
             workTime = finishTime - startTime    # Вычисление времени работы цикла
             #print (workTime) # если написать workTime.seconds то выведется время в секундах
-            saveResult(hero, workTime)
+            saveResult(hero, workTime, masMons)
             if (REPEAT == True):
                 print('Новый эпизод!')
                 hero.winner = False # Возвращаем стартовое значение поля победы
                 hero.imDie = False
-                hero.live = 3       # Возвращаем стартовое значение жизней
+                hero.live = 2       # Возвращаем стартовое значение жизней
                 hero.score = 0      # Возвращаем стартовое значение очков
                 maps.clearMap(way)  # Очищаем карту от предыдущих путей, энергий, монстров, героя
                 maps.clearMonsterMap(monWay)  # Очищаем карту от предыдущих путей, энергий, монстров, героя
                 #maps.clearHeroFromMap(way)
-                moveTime = hero.startMoveTime
+                hero.moveTime = hero.startMoveTime
                 way[hero.myPosY][hero.myPosX] = 'H'
+                if hero.episod % amEpisod == 0: #Для изменения алгоритмов монстров
+                    hero.monInfo = [] #append(observations.ObservedMonster(-999999, -999999, observations=[observations.Observation(timestamp=-1, x=int(mn.startX / 32), y=int(mn.startY / 32))]))
+                    hero.obsCount = 0
+                    hero.indexForThisMon = []
+                    hero.myLastPosXforMonTop = -1
+                    hero.myLastPosYforMonTop = -1
+                    hero.oCforLastMonTop = -1
+                    hero.myLastPosXforMonBot = -1
+                    hero.myLastPosYforMonBot = -1
+                    hero.oCforLastMonBot = -1
+                    hero.myLastPosXforMonRight = -1
+                    hero.myLastPosYforMonRight = -1
+                    hero.oCforLastMonRight = -1
+                    hero.myLastPosXforMonLeft = -1
+                    hero.myLastPosYforMonLeft = -1
+                    hero.oCforLastMonLeft = -1
+                    hero.finalAlgCheck = []
+                    hero.known = -1
                 for mn in masMons:  # Возвращаем монстров на свою позицию
                     Monster.teleporting(mn, mn.startX, mn.startY, platforms, hero, way)
                     Monster.myCoord(mn)
                     mn.moveTime = mn.startMoveTime
                     way[int(mn.rect.y / 32)][int(mn.rect.x / 32)] = 'M'
                     monWay[int(mn.rect.y / 32)][int(mn.rect.x / 32)] = 'M'
+                    if hero.episod % amEpisod == 0:
+                        hero.monInfo.append(observations.ObservedMonster(-999999, -999999, observations=[observations.Observation(timestamp=-1, x=int(mn.startX / 32), y=int(mn.startY / 32))]))
+                        observations.addObservation(hero.monInfo,observations.Observation(timestamp=0, x=int(mn.startX / 32),y=int(mn.startY / 32)), index=mn.index)
+                        numberAlg = random.randint(1, 3)
+                        numberMT = random.randint(2, 5)
+                        #print ('number: ' + str(numberAlg))
+                        if numberAlg == 1:
+                            mn.algorithm = 111
+                            mn.startMoveTime = numberMT
+                            mn.moveOnLeft = mn.moveOnRight = mn.moveOnUp = mn.moveOnDown = False
+                            numberLRUD = random.randint(1, 4)
+                            if numberLRUD == 1: mn.moveOnLeft = True
+                            if numberLRUD == 2: mn.moveOnRight = True
+                            if numberLRUD == 3: mn.moveOnUp = True
+                            if numberLRUD == 4: mn.moveOnDown = True
+                        elif numberAlg == 2:
+                            mn.algorithm = 222
+                            mn.startMoveTime = numberMT
+                        elif numberAlg == 3:
+                            mn.algorithm = 333
+                            mn.startMoveTime = numberMT
+                        print('Name: ' + str(mn.name) + '  Alg: ' + str(mn.algorithm) + '  moveTime: ' + str(mn.moveTime))
                     if mn.algorithm == 333:
                         mn.myTargetPosX = mn.myPosX
                         mn.myTargetPosY = mn.myPosY
@@ -357,7 +406,7 @@ def main():
                 #Подсчитываем время
                 finishTime = datetime.datetime.now() # Время конца цикла
                 workTime = finishTime - startTime    # Вычисление времени работы цикла
-                saveResult(hero, workTime)
+                saveResult(hero, workTime, masMons)
                 raise SystemExit("QUIT")
             if e.type == KEYUP and e.key == K_SPACE:
                 print('Пауза!')
@@ -454,7 +503,15 @@ def main():
 
             if not PLAY:
                 alg.identificationAlg(hero, way, masMons)
-                if moveTime <= 0 or (hero.imDie == True and hero.live > 0):
+                knownCount = 0
+                for mn in masMons:
+                    if hero.monInfo[mn.index].alg < -1 or hero.monInfo[mn.index].moveTime < -1:
+                        knownCount += 1
+                print('knownCount: ' + str(knownCount))
+                #print('hero.known: ' + str(hero.known))
+                if knownCount == 0: hero.known = 1
+                else: hero.known = -1
+                if hero.moveTime <= 0 or (hero.imDie == True and hero.live > 0):
                     #if amountBigEnergy >= 0:  # Если энергии, которые присутствовали на карте ещё не собраны
                         bigEnergyCounter = maps.amountBigEnerge(way)  # тогда сверяем их с текущим количеством на карте
                         print('BigEnergyCounter: ' + str(bigEnergyCounter) + '  ;  AmountBigEnergy: ' + str(amountBigEnergy))
@@ -462,7 +519,7 @@ def main():
                         if hero.imDie == True:
                             hero.imDie = False
                             maps.clearHeroFromMap(way)
-                            moveTime = hero.startMoveTime
+                            hero.moveTime = hero.startMoveTime
                             way[hero.myPosY][hero.myPosX] = 'H'
                         if bigEnergyCounter != amountBigEnergy and amountBigEnergy >= 0:
                             amountBigEnergy = maps.amountBigEnerge(way)
@@ -481,17 +538,17 @@ def main():
                         maps.printInfo(hero, way)
                         #maps.clearNumFromMap(way)  # очищаю карту от всех возможных путей(чисел) и оставляю только проложенный (+) (для удобства отображения)
                 #else: print('Проскочил')
-                if moveTime <= 0: # если перемещение героя в планируемую точку закончилось, вычисляем следующее движение
+                if hero.moveTime <= 0: # если перемещение героя в планируемую точку закончилось, вычисляем следующее движение
                     #for be in masBE:
                     #    blocks.BigEnergy.myCoord(be)
                     #    if be.myPosY > 0 and be.myPosX > 0 and way[be.myPosY][be.myPosX] != 'M':
                     #        way[be.myPosY][be.myPosX] = 'E'
-                    left, right, up, down, moveTime = alg.algWave(hero, way)
+                    left, right, up, down, hero.moveTime = alg.algWave(hero, way)
                     #maps.clearNumFromMap(way) # очищаю карту от всех возможных путей(чисел) и оставляю только проложенный (+) (для удобства отображения)
 
                     #print ("Время движения: " + str(moveTime))
                 else:
-                    moveTime -= 1
+                    hero.moveTime -= 1
                     left = right = up = down = False #Для плавного движения это убирается
         else: slowSpeed -= 1
 
