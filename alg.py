@@ -90,16 +90,17 @@ def identificationAlg (hero, way: List[List[int]], masMons):
         depth = 240 # Стоит делить на moveTime отдельного монстра, иначе следует сделать переменные с сохранением предыдущих результатов (Пример stepX и stepY) При depth=60 и moveTime=4 step =15
         alg111Check = 20
         checkList = []
-        alg222 = 275   #кол-во проверок для alg222
-        alg333 = 160    #кол-во проверок для alg333
+        alg222 = 75    #кол-во проверок для alg222
+        alg333 = 50    #кол-во проверок для alg333
         if hero.obsCount < depth:
             epi = 0
             counter = hero.obsCount
         else:
             counter = depth#
             epi = hero.obsCount - depth
-        monCounter = -1
+        #monCounter = -1
         amountMon = 0
+        delFromList = 3
         print() #Пустой принт для удобства отображения в консоли
         for i in range(len(way)):
             for j in range(len(way[i])):
@@ -139,6 +140,9 @@ def identificationAlg (hero, way: List[List[int]], masMons):
                                 stepX = 0
                                 stepY = 0
                                 Q = 0
+                                invis = False
+                                flag222alg = False
+                                flag333alg = False
                                 if hero.monInfo[monCounter].alg < 0:
                                     for k in range(counter):
                                         #print('K: ' + str(k))
@@ -170,7 +174,7 @@ def identificationAlg (hero, way: List[List[int]], masMons):
                                                 check = 0
                                                 for q in range(len(way)):
                                                     if q == 0:
-                                                        1
+                                                        invis = False
                                                     else:
                                                         #Проверка монстров сверху
                                                         if hero.myPosY - q < 0:
@@ -180,10 +184,14 @@ def identificationAlg (hero, way: List[List[int]], masMons):
                                                             #print('Q для верха: X=' + str(hero.myPosX) + ' Y=' + str(hero.myPosY - q) + ' way: ' + str(way[hero.myPosY - q][hero.myPosX]))
                                                             #print ('monCounter: ' + str(monCounter) + '   k: ' + str(k))
                                                             #print('hero.oCforLastMonTop: ' + str(hero.oCforLastMonTop) + '   epi + k: ' + str(epi + k))
-                                                            if way[hero.myPosY - q][hero.myPosX] != 'B' and way[hero.myPosY - q][hero.myPosX] != 'W':
+                                                            if way[hero.myPosY - q][hero.myPosX] == 'B' or way[hero.myPosY - q][hero.myPosX] == 'W':
+                                                                invis = True
+                                                            elif way[hero.myPosY - q][hero.myPosX] != 'B' and way[hero.myPosY - q][hero.myPosX] != 'W' and invis == False:
                                                                 if way[hero.myPosY - q][hero.myPosX] == 'M':
                                                                     # print('ВИЖУ МОНСТРА: X=' + str(hero.myPosX) + ' Y='+ str(hero.myPosY - q))
                                                                     Q = q
+                                                                    mon.reward = q
+                                                                    #print(colored("Q (top)=" + str(Q),'red'))
                                                                     if hero.indexForThisMon.count(monCounter) == 0:
                                                                         hero.indexForThisMon.append(monCounter)
                                                                     hero.oCforLastMonTop = hero.obsCount
@@ -191,28 +199,37 @@ def identificationAlg (hero, way: List[List[int]], masMons):
                                                                     hero.myLastPosYforMonTop = hero.myPosY
                                                                     #print('Q=' + str(Q))
                                                             # print('stepX=' + str(stepX) + ' stepY='+ str(stepY))
-                                                            elif (hero.monInfo[monCounter].observations[hero.oCforLastMonTop].x == hero.monInfo[monCounter].observations[epi + k].x) and (stepX == 0) and (stepY > 2 and stepY >= Q) and (way[hero.myLastPosYforMonTop][hero.myLastPosXforMonTop] == 'M' and (hero.myLastPosXforMonTop == mon.myPosX and hero.myLastPosYforMonTop == mon.myPosY) and (hero.monInfo[monCounter].observations[hero.oCforLastMonTop].y < hero.monInfo[monCounter].observations[epi + k].y)):
+                                                            elif (hero.monInfo[monCounter].observations[hero.oCforLastMonTop].x == hero.monInfo[monCounter].observations[epi + k].x) and (stepX == 0) and (stepY > 2 and stepY >= Q) and (way[hero.myLastPosYforMonTop][hero.myLastPosXforMonTop] == 'M' and (hero.myLastPosXforMonTop == mon.myPosX and hero.myLastPosYforMonTop == mon.myPosY) and (hero.monInfo[monCounter].observations[hero.oCforLastMonTop].y < hero.monInfo[monCounter].observations[epi + k].y)) and flag333alg == False:
                                                                 if hero.indexForThisMon.count(monCounter) == 1:
                                                                     hero.indexForThisMon.remove(monCounter)
+                                                                flag333alg = True
                                                                 #hero.final333algCheck += 1
-                                                                for qSum in range(Q):
-                                                                    hero.finalAlgCheck.append(monCounter)
+                                                                for qSum in range(mon.reward):
+                                                                    hero.finalAlgCheck333.append(monCounter)
+                                                                    #print(colored('qSumTop: ' + str(qSum) + ' ', 'red'))
                                                                 check = 0
+                                                                print(colored("Монстру " + str(mon.name) + ' (ind:' + str(monCounter) + ') добавлено ' + str(mon.reward) + ' Alg333(Top)', 'red'))
                                                                 # hero.indexForThisMon = monCounter
-                                                                if  hero.finalAlgCheck.count(monCounter) > alg333:
+                                                                for dFL in range(delFromList):
+                                                                    if hero.finalAlgCheck222.count(monCounter) > 0:
+                                                                        hero.finalAlgCheck222.remove(monCounter)
+                                                                if  hero.finalAlgCheck333.count(monCounter) > alg333:
                                                                     hero.monInfo[monCounter].alg = 333
                                                                     check = 0
-                                                            elif (((hero.monInfo[monCounter].observations[hero.oCforLastMonTop].x != hero.monInfo[monCounter].observations[epi + k].x) and (stepX > 0)) or (hero.monInfo[monCounter].observations[hero.oCforLastMonTop].y > hero.monInfo[monCounter].observations[epi + k].y)) and hero.indexForThisMon.count(monCounter) == 1:
+                                                            elif (((hero.monInfo[monCounter].observations[hero.oCforLastMonTop].x != hero.monInfo[monCounter].observations[epi + k].x) and (stepX > 0)) or (hero.monInfo[monCounter].observations[hero.oCforLastMonTop].y > hero.monInfo[monCounter].observations[epi + k].y)) and hero.indexForThisMon.count(monCounter) == 1 and flag222alg == False:
                                                                 check += 1
+                                                                flag222alg = True
+                                                                print(colored("Монстру " + str(mon.name) + ' (ind:' + str(monCounter) + ') добавлено ' + str(1) + 'Alg222(Top)', 'green'))
                                                                 if hero.indexForThisMon.count(monCounter) == 1:
                                                                     hero.indexForThisMon.remove(monCounter)
                                                                 if Q < check:
-                                                                    hero.finalAlgCheck.append(monCounter)
-                                                                if  hero.finalAlgCheck.count(monCounter) > alg222:
+                                                                    hero.finalAlgCheck222.append(monCounter)
+                                                                if  hero.finalAlgCheck222.count(monCounter) > alg222:
                                                                     hero.monInfo[monCounter].alg = 222
+
                                                 for q in range(len(way)):
                                                     if q == 0:
-                                                        1
+                                                        invis = False
                                                     else:
                                                         #Проверка монстров снизу
                                                         if hero.myPosY + q >= len(way):
@@ -220,10 +237,14 @@ def identificationAlg (hero, way: List[List[int]], masMons):
                                                             #print('Q для низа: X=' + str(hero.myPosX) + ' Y=' + str(hero.myPosY - q) + ' way: ' + str(way[hero.myPosY - q][hero.myPosX]))
                                                         else:
                                                             #print('Q для низа: X=' + str(hero.myPosX) + ' Y='+ str(hero.myPosY + q) + ' way: ' + str(way[hero.myPosY + q][hero.myPosX]))
-                                                            if way[hero.myPosY + q][hero.myPosX] != 'B' and way[hero.myPosY + q][hero.myPosX] != 'W':
+                                                            if way[hero.myPosY + q][hero.myPosX] == 'B' or way[hero.myPosY + q][hero.myPosX] == 'W':
+                                                                invis = True
+                                                            elif way[hero.myPosY + q][hero.myPosX] != 'B' and way[hero.myPosY + q][hero.myPosX] != 'W' and invis == False:
                                                                 if way[hero.myPosY + q][hero.myPosX] == 'M':
                                                                     # print('ВИЖУ МОНСТРА: X=' + str(hero.myPosX) + ' Y='+ str(hero.myPosY - q))
                                                                     Q = q
+                                                                    mon.reward = q
+                                                                    #print(colored("Q (bot)=" + str(Q), 'red'))
                                                                     if hero.indexForThisMon.count(monCounter) == 0:
                                                                         hero.indexForThisMon.append(monCounter)
                                                                     hero.oCforLastMonBot = hero.obsCount
@@ -231,28 +252,38 @@ def identificationAlg (hero, way: List[List[int]], masMons):
                                                                     hero.myLastPosYforMonBot = hero.myPosY
                                                                     #print('Q=' + str(Q))
                                                             # print('stepX=' + str(stepX) + ' stepY='+ str(stepY))
-                                                            elif (hero.monInfo[monCounter].observations[hero.oCforLastMonBot].x == hero.monInfo[monCounter].observations[epi + k].x) and (stepX == 0) and (stepY > 2 and stepY >= Q) and (way[hero.myLastPosYforMonBot][hero.myLastPosXforMonBot] == 'M' and (hero.myLastPosXforMonBot == mon.myPosX and hero.myLastPosYforMonBot == mon.myPosY) and (hero.monInfo[monCounter].observations[hero.oCforLastMonBot].y > hero.monInfo[monCounter].observations[epi + k].y)):
+                                                            elif (hero.monInfo[monCounter].observations[hero.oCforLastMonBot].x == hero.monInfo[monCounter].observations[epi + k].x) and (stepX == 0) and (stepY > 2 and stepY >= Q) and (way[hero.myLastPosYforMonBot][hero.myLastPosXforMonBot] == 'M' and (hero.myLastPosXforMonBot == mon.myPosX and hero.myLastPosYforMonBot == mon.myPosY) and (hero.monInfo[monCounter].observations[hero.oCforLastMonBot].y > hero.monInfo[monCounter].observations[epi + k].y)) and flag333alg == False:
                                                                 if hero.indexForThisMon.count(monCounter) == 1:
                                                                     hero.indexForThisMon.remove(monCounter)
+                                                                flag333alg = True
                                                                 #hero.final333algCheck += 1
-                                                                for qSum in range(Q):
-                                                                    hero.finalAlgCheck.append(monCounter)
+                                                                for qSum in range(mon.reward):
+                                                                    hero.finalAlgCheck333.append(monCounter)
+                                                                    #print(colored('qSumBot: ' + str(qSum) + ' ', 'red'))
                                                                 check = 0
+                                                                print(colored("Монстру " + str(mon.name) + ' (ind:' + str(monCounter) + ') добавлено ' + str(mon.reward) + 'Alg333(Bot)', 'red'))
+                                                                for dFL in range(delFromList):
+                                                                    if hero.finalAlgCheck222.count(monCounter) > 0:
+                                                                        hero.finalAlgCheck222.remove(monCounter)
                                                                 # hero.indexForThisMon = monCounter
-                                                                if  hero.finalAlgCheck.count(monCounter) > alg333:
+                                                                if  hero.finalAlgCheck333.count(monCounter) > alg333:
                                                                     hero.monInfo[monCounter].alg = 333
+
                                                                     check = 0
-                                                            elif (((hero.monInfo[monCounter].observations[hero.oCforLastMonBot].x != hero.monInfo[monCounter].observations[epi + k].x) and (stepX > 0)) or (hero.monInfo[monCounter].observations[hero.oCforLastMonBot].y < hero.monInfo[monCounter].observations[epi + k].y)) and hero.indexForThisMon.count(monCounter) == 1:
+                                                            elif (((hero.monInfo[monCounter].observations[hero.oCforLastMonBot].x != hero.monInfo[monCounter].observations[epi + k].x) and (stepX > 0)) or (hero.monInfo[monCounter].observations[hero.oCforLastMonBot].y < hero.monInfo[monCounter].observations[epi + k].y)) and hero.indexForThisMon.count(monCounter) == 1 and flag222alg == False:
                                                                 check += 1
+                                                                flag222alg = True
+                                                                print(colored("Монстру " + str(mon.name) + ' (ind:' + str(monCounter) + ') добавлено ' + str(1) + 'Alg222(Bot)', 'green'))
                                                                 if hero.indexForThisMon.count(monCounter) == 1:
                                                                     hero.indexForThisMon.remove(monCounter)
                                                                 if Q < check:
-                                                                    hero.finalAlgCheck.append(monCounter)
-                                                                if  hero.finalAlgCheck.count(monCounter) > alg222:
+                                                                    hero.finalAlgCheck222.append(monCounter)
+                                                                if  hero.finalAlgCheck222.count(monCounter) > alg222:
                                                                     hero.monInfo[monCounter].alg = 222
+
                                                 for q in range(len(way[0])):
                                                     if q == 0:
-                                                        1
+                                                        invis = False
                                                     else:
                                                         # Проверка монстров справа
                                                         if hero.myPosX + q >= len(way[0]):
@@ -260,49 +291,67 @@ def identificationAlg (hero, way: List[List[int]], masMons):
                                                         else:
                                                             #print('Q для права: X=' + str(hero.myPosX + q) + ' Y=' + str(hero.myPosY) + ' way: ' + str(way[hero.myPosY][hero.myPosX + q]))
                                                             #print('hero.oCforLastMonRight' + str(hero.oCforLastMonRight) + '   epi + k: ' + str(epi+k))
-                                                            if way[hero.myPosY][hero.myPosX + q] != 'B' and way[hero.myPosY][hero.myPosX + q] != 'W':
+                                                            if way[hero.myPosY][hero.myPosX + q] == 'B' or way[hero.myPosY][hero.myPosX + q] == 'W':
+                                                                invis = True
+                                                                #print(colored("q (rgh)=" + str(q) + '   invis = ' + str(invis),'red'))
+                                                            elif way[hero.myPosY][hero.myPosX + q] != 'B' and way[hero.myPosY][hero.myPosX + q] != 'W' and invis == False:
                                                                 if way[hero.myPosY][hero.myPosX + q] == 'M':
                                                                     # print('ВИЖУ МОНСТРА: X=' + str(hero.myPosX) + ' Y='+ str(hero.myPosY - q))
                                                                     Q = q
+                                                                    mon.reward = q
+                                                                    #print(colored("Q (rgh)=" + str(Q), 'red'))
                                                                     if hero.indexForThisMon.count(monCounter) == 0:
                                                                         hero.indexForThisMon.append(monCounter)
                                                                     hero.oCforLastMonRight = hero.obsCount
                                                                     hero.myLastPosXforMonRight = hero.myPosX
                                                                     hero.myLastPosYforMonRight = hero.myPosY
+                                                                    #print(colored('hero.oCforLastMonRight: ' + str(hero.oCforLastMonRight) + ' ', 'green'))
                                                                     #print('Q=' + str(Q))
                                                             # print('stepX=' + str(stepX) + ' stepY='+ str(stepY))
-                                                            elif (hero.monInfo[monCounter].observations[hero.oCforLastMonRight].y == hero.monInfo[monCounter].observations[epi + k].y) and (stepY == 0) and (stepX > 2 and stepX >= Q) and (way[hero.myLastPosYforMonRight][hero.myLastPosXforMonRight] == 'M' and (hero.myLastPosXforMonRight == mon.myPosX and hero.myLastPosYforMonRight == mon.myPosY) and (hero.monInfo[monCounter].observations[hero.oCforLastMonRight].x > hero.monInfo[monCounter].observations[epi + k].x)):
+                                                            elif (hero.monInfo[monCounter].observations[hero.oCforLastMonRight].y == hero.monInfo[monCounter].observations[epi + k].y) and (stepY == 0) and (stepX > 2 and stepX >= Q) and (way[hero.myLastPosYforMonRight][hero.myLastPosXforMonRight] == 'M' and (hero.myLastPosXforMonRight == mon.myPosX and hero.myLastPosYforMonRight == mon.myPosY) and (hero.monInfo[monCounter].observations[hero.oCforLastMonRight].x > hero.monInfo[monCounter].observations[epi + k].x)) and flag333alg == False:
                                                                 if hero.indexForThisMon.count(monCounter) == 1:
                                                                     hero.indexForThisMon.remove(monCounter)
+                                                                flag333alg = True
                                                                 #hero.final333algCheck += 1
-                                                                for qSum in range(Q):
-                                                                    hero.finalAlgCheck.append(monCounter)
+                                                                for qSum in range(mon.reward):
+                                                                    hero.finalAlgCheck333.append(monCounter)
+                                                                    #print(colored('qSumRgh: ' + str(qSum) + ' ', 'red'))
                                                                 check = 0
+                                                                print(colored("Монстру " + str(mon.name) + ' (ind:' + str(monCounter) + ') добавлено ' + str(mon.reward) + ' Alg333(Rgh)', 'red'))
+                                                                for dFL in range(delFromList):
+                                                                    if hero.finalAlgCheck222.count(monCounter) > 0:
+                                                                        hero.finalAlgCheck222.remove(monCounter)
                                                                 # hero.indexForThisMon = monCounter
-                                                                if  hero.finalAlgCheck.count(monCounter) > alg333:
+                                                                if  hero.finalAlgCheck333.count(monCounter) > alg333:
                                                                     hero.monInfo[monCounter].alg = 333
-                                                                    check = 0
-                                                            elif (((hero.monInfo[monCounter].observations[hero.oCforLastMonRight].y != hero.monInfo[monCounter].observations[epi + k].y) and (stepY > 0)) or (hero.monInfo[monCounter].observations[hero.oCforLastMonRight].x < hero.monInfo[monCounter].observations[epi + k].x)) and hero.indexForThisMon.count(monCounter) == 1:
+                                                            elif (((hero.monInfo[monCounter].observations[hero.oCforLastMonRight].y != hero.monInfo[monCounter].observations[epi + k].y) and (stepY > 0)) or (hero.monInfo[monCounter].observations[hero.oCforLastMonRight].x < hero.monInfo[monCounter].observations[epi + k].x)) and hero.indexForThisMon.count(monCounter) == 1 and flag222alg == False:
                                                                 check += 1
+                                                                flag222alg = True
+                                                                print(colored("Монстру " + str(mon.name) + ' (ind:' + str(monCounter) + ') добавлено ' + str(1) + 'Alg222(Rgh)', 'green'))
                                                                 if hero.indexForThisMon.count(monCounter) == 1:
                                                                     hero.indexForThisMon.remove(monCounter)
                                                                 if Q < check:
-                                                                    hero.finalAlgCheck.append(monCounter)
-                                                                if  hero.finalAlgCheck.count(monCounter) > alg222:
+                                                                    hero.finalAlgCheck222.append(monCounter)
+                                                                if  hero.finalAlgCheck222.count(monCounter) > alg222:
                                                                     hero.monInfo[monCounter].alg = 222
+
                                                 for q in range(len(way[0])):
                                                     if q == 0:
-                                                        1
+                                                        invis = False
                                                     else:
                                                         # Проверка монстров слева
                                                         if hero.myPosX - q < 0:
                                                             1
                                                         else:
                                                             #print('Q для лева: X=' + str(hero.myPosX - q) + ' Y=' + str(hero.myPosY) + ' way: ' + str(way[hero.myPosY][hero.myPosX - q]))
-                                                            if way[hero.myPosY][hero.myPosX - q] != 'B' and way[hero.myPosY][hero.myPosX - q] != 'W':
+                                                            if way[hero.myPosY][hero.myPosX - q] == 'B' or way[hero.myPosY][hero.myPosX - q] == 'W':
+                                                                invis = True
+                                                            elif way[hero.myPosY][hero.myPosX - q] != 'B' and way[hero.myPosY][hero.myPosX - q] != 'W' and invis == False:
                                                                 if way[hero.myPosY][hero.myPosX - q] == 'M':
                                                                     # print('ВИЖУ МОНСТРА: X=' + str(hero.myPosX) + ' Y='+ str(hero.myPosY - q))
                                                                     Q = q
+                                                                    mon.reward = q
+                                                                    #print(colored("Q (lft)=" + str(Q), 'red'))
                                                                     if hero.indexForThisMon.count(monCounter) == 0:
                                                                         hero.indexForThisMon.append(monCounter)
                                                                     hero.oCforLastMonLeft = hero.obsCount
@@ -310,24 +359,34 @@ def identificationAlg (hero, way: List[List[int]], masMons):
                                                                     hero.myLastPosYforMonLeft = hero.myPosY
                                                                     #print('Q=' + str(Q))
                                                             # print('stepX=' + str(stepX) + ' stepY='+ str(stepY))
-                                                            elif (hero.monInfo[monCounter].observations[hero.oCforLastMonLeft].y == hero.monInfo[monCounter].observations[epi + k].y) and (stepY == 0) and (stepX > 2 and stepX >= Q) and (way[hero.myLastPosYforMonLeft][hero.myLastPosXforMonLeft] == 'M' and (hero.myLastPosXforMonLeft == mon.myPosX and hero.myLastPosYforMonLeft == mon.myPosY) and (hero.monInfo[monCounter].observations[hero.oCforLastMonLeft].x < hero.monInfo[monCounter].observations[epi + k].x)):
+                                                            elif (hero.monInfo[monCounter].observations[hero.oCforLastMonLeft].y == hero.monInfo[monCounter].observations[epi + k].y) and (stepY == 0) and (stepX > 2 and stepX >= Q) and (way[hero.myLastPosYforMonLeft][hero.myLastPosXforMonLeft] == 'M' and (hero.myLastPosXforMonLeft == mon.myPosX and hero.myLastPosYforMonLeft == mon.myPosY) and (hero.monInfo[monCounter].observations[hero.oCforLastMonLeft].x < hero.monInfo[monCounter].observations[epi + k].x)) and flag333alg == False:
                                                                 if hero.indexForThisMon.count(monCounter) == 1:
                                                                     hero.indexForThisMon.remove(monCounter)
+                                                                flag333alg = True
                                                                 #hero.final333algCheck += 1
-                                                                for qSum in range(Q):
-                                                                    hero.finalAlgCheck.append(monCounter)
+                                                                for qSum in range(mon.reward):
+                                                                    hero.finalAlgCheck333.append(monCounter)
+                                                                    #print(colored('qSumLft: ' + str(qSum) + ' ', 'red'))
                                                                 check = 0
+
                                                                 # hero.indexForThisMon = monCounter
-                                                                if hero.finalAlgCheck.count(monCounter) > alg333:
+                                                                print(colored("Монстру " + str(mon.name) + ' (ind:' + str(monCounter) + ') добавлено ' + str(mon.reward) + 'Alg333(Lft)', 'red'))
+                                                                for dFL in range(delFromList):
+                                                                    if hero.finalAlgCheck222.count(monCounter) > 0:
+                                                                        hero.finalAlgCheck222.remove(monCounter)
+                                                                #print ('Индекс монстра: ' + str(monCounter) + '   Имя: ' + str())
+                                                                if hero.finalAlgCheck333.count(monCounter) > alg333:
                                                                     hero.monInfo[monCounter].alg = 333
                                                                     check = 0
-                                                            elif (((hero.monInfo[monCounter].observations[hero.oCforLastMonLeft].y != hero.monInfo[monCounter].observations[epi + k].y) and (stepY > 0)) or (hero.monInfo[monCounter].observations[hero.oCforLastMonLeft].x > hero.monInfo[monCounter].observations[epi + k].x)) and hero.indexForThisMon.count(monCounter) == 1:
+                                                            elif (((hero.monInfo[monCounter].observations[hero.oCforLastMonLeft].y != hero.monInfo[monCounter].observations[epi + k].y) and (stepY > 0)) or (hero.monInfo[monCounter].observations[hero.oCforLastMonLeft].x > hero.monInfo[monCounter].observations[epi + k].x)) and hero.indexForThisMon.count(monCounter) == 1 and flag222alg == False:
                                                                 check += 1
+                                                                flag222alg = True
+                                                                print(colored("Монстру " + str(mon.name) + ' (ind:' + str(monCounter) + ') добавлено ' + str(1) + 'Alg222(Lft)', 'green'))
                                                                 if hero.indexForThisMon.count(monCounter) == 1:
                                                                     hero.indexForThisMon.remove(monCounter)
                                                                 if Q < check:
-                                                                    hero.finalAlgCheck.append(monCounter)
-                                                                if  hero.finalAlgCheck.count(monCounter) > alg222:
+                                                                    hero.finalAlgCheck222.append(monCounter)
+                                                                if  hero.finalAlgCheck222.count(monCounter) > alg222:
                                                                     hero.monInfo[monCounter].alg = 222
 
 

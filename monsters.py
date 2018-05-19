@@ -108,6 +108,7 @@ class Monster(sprite.Sprite): # Класс монстров
         self.moveOnDown = False
         self.MOVE_SPEED = 32 #MOVE_SPEED
         self.index = -1
+        self.reward = 0
         self.left = False
         self.right = False
         self.up = False

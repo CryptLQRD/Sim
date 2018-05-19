@@ -4,8 +4,8 @@
 -      E   --|
 --   -      -|
 -E   E      -|
-- -         -|
--     E   -E-|
+- -    - -  -|
+-     E ---E-|
 -E          -|
 -------------|
 ]
@@ -21,10 +21,6 @@ monsterPursuer 256 160 1 0 333 1
 
 /
 MName X Y LR UD Al MS
-
-
-
-monsterBat  96  32  1 0 111 4
 
 
 

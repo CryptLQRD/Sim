@@ -37,7 +37,7 @@ levelName = 'lvl1.txt' #Название уровня
 FILE_DIR = os.path.dirname(__file__)
 PLAY = False # Включить\Выключить управление игроком
 REPEAT = True  # Включить\Выключить повторние игры с начала
-amEpisod = 5   # Через какое кол-во эпизодов алгоритмы монстров меняются
+amEpisod = 8000000   # Через какое кол-во эпизодов алгоритмы монстров меняются
 STARTDELAY = 16 #Базовая скорость симулятора. Чем больше значение, тем быстрее симулятор. Чем меньше значение, тем медленее симулятор.
 
 class Camera(object):
@@ -124,18 +124,8 @@ def loadLevel(): # Работа с файлом уровня
 
 def saveResult(hero, workTime, masMons): # Работа с файлом result
     #Определяем № эпизода
-    resultFile = open('%s/levels/episodes/result.txt' % FILE_DIR)
-    #episod = 0
-    line = " "
-    commands = []
-    if line[0] != "":
-        for line in resultFile.readlines():
-            commands = line.split()  # разбиваем ее на отдельные команды
-            if len(commands) > 1:  # если количество команд > 1, то ищем эти команды
-                if commands[0] == "Эпизод" and commands[1] == "№":
-                    hero.episod = int(commands[2])
+    numEpisod (hero)
     hero.episod += 1
-    resultFile.close()
 
     #Сохраняем в файл
     resultFile = open('%s/levels/episodes/result.txt' % FILE_DIR, 'a')
@@ -150,12 +140,23 @@ def saveResult(hero, workTime, masMons): # Работа с файлом result
     for mn in masMons:
         resultFile.write('MONSTER: ' + str(mn.name) + ' | Alg: ' + str(mn.algorithm) + ' | startMT: ' + str(mn.startMoveTime) + '\n')
     for mn in masMons:
-        resultFile.write('Инфо! Имя: ' + str(mn.name) +' | Индекс: ' + str(mn.index) + ' | Alg: ' + str(hero.monInfo[mn.index].alg) + ' | startMT: ' + str(hero.monInfo[mn.index].moveTime) + '\n')
+        resultFile.write('ID:' + str(mn.index) +' | Имя: ' + str(mn.name) + ' | Alg: ' + str(hero.monInfo[mn.index].alg) + ' | startMT: ' + str(hero.monInfo[mn.index].moveTime) + '\n')
     resultFile.write('\n\n\n')
     #print('Name: ' + str(mn.name) + '  Alg: ' + str(mn.algorithm) + '  moveTime: ' + str(mn.moveTime))
     resultFile.close()
 
-
+def numEpisod (hero):
+    resultFile = open('%s/levels/episodes/result.txt' % FILE_DIR)
+    #episod = 0
+    line = " "
+    commands = []
+    if line[0] != "":
+        for line in resultFile.readlines():
+            commands = line.split()  # разбиваем ее на отдельные команды
+            if len(commands) > 1:  # если количество команд > 1, то ищем эти команды
+                if commands[0] == "Эпизод" and commands[1] == "№":
+                    hero.episod = int(commands[2])
+    resultFile.close()
 
 def main():
     loadLevel()
@@ -182,6 +183,7 @@ def main():
 
     entities.add(hero)
     timer = pygame.time.Clock()
+    numEpisod(hero) # Определяю номер эпизода (это для удобства вывода)
 
     total_level_width  = len(level[0])*blocks.PLATFORM_WIDTH # Высчитываем фактическую ширину уровня
     total_level_height = len(level)*blocks.PLATFORM_HEIGHT   # Высчитываем фактическую высоту уровня
@@ -507,7 +509,7 @@ def main():
                 for mn in masMons:
                     if hero.monInfo[mn.index].alg < -1 or hero.monInfo[mn.index].moveTime < -1:
                         knownCount += 1
-                print('knownCount: ' + str(knownCount))
+                print('knownCount: ' + str(knownCount) + ' | Episod: ' + str(hero.episod))
                 #print('hero.known: ' + str(hero.known))
                 if knownCount == 0: hero.known = 1
                 else: hero.known = -1

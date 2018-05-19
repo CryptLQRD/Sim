@@ -57,7 +57,8 @@ class Player(sprite.Sprite): # Класс игрока
         self.myLastPosXforMonLeft = -1
         self.myLastPosYforMonLeft = -1
         self.oCforLastMonLeft = -1
-        self.finalAlgCheck = []
+        self.finalAlgCheck222 = []
+        self.finalAlgCheck333 = []
 
         self.episod = 0
         self.Fleft = True #Вспомогательная переменная для анимации
