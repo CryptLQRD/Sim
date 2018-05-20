@@ -1,0 +1,3334 @@
+Эпизод № 1   Время: 0:00:12.514224   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 2   Время: 0:00:06.643961   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 3   Время: 0:00:04.296080   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 4   Время: 0:00:03.609246   Уровень: lvl1.txt
+Поражение!  |  Счёт: 4  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 111 | startMT: 1
+
+
+
+Эпизод № 5   Время: 0:00:11.822369   Уровень: lvl1.txt
+Поражение!  |  Счёт: 7  |  Жизни: -1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 6   Время: 0:00:01.504731   Уровень: lvl1.txt
+Поражение!  |  Счёт: 0  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 7   Время: 0:00:10.733227   Уровень: lvl1.txt
+Поражение!  |  Счёт: 7  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 8   Время: 0:00:31.953195   Уровень: lvl1.txt
+Поражение!  |  Счёт: 7  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 9   Время: 0:00:07.647702   Уровень: lvl1.txt
+Поражение!  |  Счёт: 7  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 10   Время: 0:00:01.291636   Уровень: lvl1.txt
+Поражение!  |  Счёт: 0  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 11   Время: 0:00:01.925609   Уровень: lvl1.txt
+Поражение!  |  Счёт: 2  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 12   Время: 0:00:02.122415   Уровень: lvl1.txt
+Поражение!  |  Счёт: 1  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 13   Время: 0:00:09.103918   Уровень: lvl1.txt
+Поражение!  |  Счёт: 3  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 14   Время: 0:00:15.508774   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 15   Время: 0:00:10.100791   Уровень: lvl1.txt
+Поражение!  |  Счёт: 4  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 16   Время: 0:00:05.232125   Уровень: lvl1.txt
+Соединение разорвано!  |  Счёт: 4  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 17   Время: 0:00:30.095281   Уровень: lvl1.txt
+Поражение!  |  Счёт: 6  |  Жизни: -1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 18   Время: 0:00:09.819360   Уровень: lvl1.txt
+Поражение!  |  Счёт: 2  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 19   Время: 0:00:50.005135   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 20   Время: 0:00:24.197680   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 21   Время: 0:00:05.789796   Уровень: lvl1.txt
+Поражение!  |  Счёт: 3  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 22   Время: 0:00:03.028348   Уровень: lvl1.txt
+Поражение!  |  Счёт: 4  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 23   Время: 0:00:05.297559   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 24   Время: 0:00:06.875814   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 25   Время: 0:00:03.019244   Уровень: lvl1.txt
+Поражение!  |  Счёт: 4  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 26   Время: 0:00:08.352214   Уровень: lvl1.txt
+Поражение!  |  Счёт: 7  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 27   Время: 0:00:01.111101   Уровень: lvl1.txt
+Поражение!  |  Счёт: 1  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 28   Время: 0:00:01.267923   Уровень: lvl1.txt
+Поражение!  |  Счёт: 1  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 29   Время: 0:00:01.406992   Уровень: lvl1.txt
+Поражение!  |  Счёт: 1  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 30   Время: 0:00:01.072071   Уровень: lvl1.txt
+Поражение!  |  Счёт: 1  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 31   Время: 0:00:03.769156   Уровень: lvl1.txt
+Поражение!  |  Счёт: 7  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 32   Время: 0:00:01.304512   Уровень: lvl1.txt
+Поражение!  |  Счёт: 0  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 33   Время: 0:00:01.470492   Уровень: lvl1.txt
+Поражение!  |  Счёт: 2  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 34   Время: 0:00:05.328712   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 35   Время: 0:00:01.305861   Уровень: lvl1.txt
+Поражение!  |  Счёт: 1  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 36   Время: 0:00:05.382945   Уровень: lvl1.txt
+Поражение!  |  Счёт: 7  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 37   Время: 0:00:01.549207   Уровень: lvl1.txt
+Поражение!  |  Счёт: 0  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 38   Время: 0:00:02.853995   Уровень: lvl1.txt
+Поражение!  |  Счёт: 3  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 39   Время: 0:00:02.608206   Уровень: lvl1.txt
+Поражение!  |  Счёт: 3  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 40   Время: 0:00:04.073761   Уровень: lvl1.txt
+Поражение!  |  Счёт: 3  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 41   Время: 0:00:03.004074   Уровень: lvl1.txt
+Победа!  |  Счёт: 6  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 42   Время: 0:00:10.364720   Уровень: lvl1.txt
+Поражение!  |  Счёт: 2  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 43   Время: 0:00:01.061665   Уровень: lvl1.txt
+Поражение!  |  Счёт: 1  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 44   Время: 0:00:04.932252   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 45   Время: 0:00:31.633690   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 46   Время: 0:00:01.197400   Уровень: lvl1.txt
+Поражение!  |  Счёт: 2  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 47   Время: 0:00:15.847531   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 48   Время: 0:00:03.349332   Уровень: lvl1.txt
+Поражение!  |  Счёт: 5  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 49   Время: 0:00:01.368344   Уровень: lvl1.txt
+Поражение!  |  Счёт: 0  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 111 | startMT: 1
+
+
+
+Эпизод № 50   Время: 0:00:03.974380   Уровень: lvl1.txt
+Поражение!  |  Счёт: 3  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 51   Время: 0:00:03.812867   Уровень: lvl1.txt
+Поражение!  |  Счёт: 7  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 52   Время: 0:01:28.487493   Уровень: lvl1.txt
+Поражение!  |  Счёт: 7  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 53   Время: 0:01:21.601981   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 54   Время: 0:00:34.008786   Уровень: lvl1.txt
+Поражение!  |  Счёт: 7  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 55   Время: 0:01:40.640285   Уровень: lvl1.txt
+Поражение!  |  Счёт: 7  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 56   Время: 0:00:20.363767   Уровень: lvl1.txt
+Поражение!  |  Счёт: 4  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 57   Время: 0:01:18.754998   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 58   Время: 0:00:08.839478   Уровень: lvl1.txt
+Поражение!  |  Счёт: 7  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 59   Время: 0:00:32.337088   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 60   Время: 0:00:04.997021   Уровень: lvl1.txt
+Поражение!  |  Счёт: 4  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 61   Время: 0:00:02.913261   Уровень: lvl1.txt
+Поражение!  |  Счёт: 2  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 62   Время: 0:00:04.223651   Уровень: lvl1.txt
+Поражение!  |  Счёт: 6  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 63   Время: 0:00:03.731335   Уровень: lvl1.txt
+Поражение!  |  Счёт: 6  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 64   Время: 0:00:04.775160   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 65   Время: 0:00:04.880605   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 66   Время: 0:00:01.380425   Уровень: lvl1.txt
+Поражение!  |  Счёт: 2  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 67   Время: 0:00:02.584678   Уровень: lvl1.txt
+Поражение!  |  Счёт: 4  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 68   Время: 0:00:04.393959   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 69   Время: 0:00:02.270309   Уровень: lvl1.txt
+Поражение!  |  Счёт: 3  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 70   Время: 0:00:02.739537   Уровень: lvl1.txt
+Поражение!  |  Счёт: 1  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 71   Время: 0:00:04.072895   Уровень: lvl1.txt
+Поражение!  |  Счёт: 7  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 72   Время: 0:00:02.666407   Уровень: lvl1.txt
+Поражение!  |  Счёт: 4  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 73   Время: 0:00:03.505424   Уровень: lvl1.txt
+Поражение!  |  Счёт: 4  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 74   Время: 0:00:05.645961   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 75   Время: 0:00:03.092475   Уровень: lvl1.txt
+Поражение!  |  Счёт: 4  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 76   Время: 0:00:01.444445   Уровень: lvl1.txt
+Поражение!  |  Счёт: 1  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 77   Время: 0:00:05.930942   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 78   Время: 0:00:03.299124   Уровень: lvl1.txt
+Поражение!  |  Счёт: 7  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 79   Время: 0:00:05.177387   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 80   Время: 0:00:05.074944   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 81   Время: 0:00:05.537880   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 82   Время: 0:00:05.190502   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 83   Время: 0:00:03.460681   Уровень: lvl1.txt
+Поражение!  |  Счёт: 7  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 84   Время: 0:00:02.452883   Уровень: lvl1.txt
+Поражение!  |  Счёт: 2  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 85   Время: 0:00:04.163554   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 86   Время: 0:00:01.684246   Уровень: lvl1.txt
+Победа!  |  Счёт: 4  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 87   Время: 0:00:05.220220   Уровень: lvl1.txt
+Поражение!  |  Счёт: 1  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 88   Время: 0:00:04.690445   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 89   Время: 0:00:04.471428   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 90   Время: 0:00:05.710479   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 91   Время: 0:00:06.924159   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 92   Время: 0:00:06.334139   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 93   Время: 0:00:04.150171   Уровень: lvl1.txt
+Поражение!  |  Счёт: 4  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 94   Время: 0:00:02.786607   Уровень: lvl1.txt
+Победа!  |  Счёт: 6  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 95   Время: 0:00:01.532008   Уровень: lvl1.txt
+Поражение!  |  Счёт: 1  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 96   Время: 0:00:05.647326   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 97   Время: 0:02:02.195233   Уровень: lvl1.txt
+Поражение!  |  Счёт: 4  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 98   Время: 0:00:05.521704   Уровень: lvl1.txt
+Поражение!  |  Счёт: 7  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 99   Время: 0:00:05.045927   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 100   Время: 0:00:07.160952   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 101   Время: 0:00:07.164138   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 102   Время: 0:00:04.330215   Уровень: lvl1.txt
+Поражение!  |  Счёт: 7  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 103   Время: 0:00:03.859572   Уровень: lvl1.txt
+Поражение!  |  Счёт: 7  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 104   Время: 0:00:03.512950   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 105   Время: 0:00:08.401876   Уровень: lvl1.txt
+Поражение!  |  Счёт: 7  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 106   Время: 0:00:01.036407   Уровень: lvl1.txt
+Поражение!  |  Счёт: 1  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 107   Время: 0:00:02.769875   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 108   Время: 0:00:02.770676   Уровень: lvl1.txt
+Поражение!  |  Счёт: 5  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 109   Время: 0:00:02.814505   Уровень: lvl1.txt
+Поражение!  |  Счёт: 6  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 110   Время: 0:00:03.356133   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 111   Время: 0:00:02.115754   Уровень: lvl1.txt
+Поражение!  |  Счёт: 4  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 112   Время: 0:00:03.135607   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 113   Время: 0:00:01.340594   Уровень: lvl1.txt
+Поражение!  |  Счёт: 3  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 114   Время: 0:00:02.571015   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 115   Время: 0:00:02.219947   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 116   Время: 0:00:05.260690   Уровень: lvl1.txt
+Поражение!  |  Счёт: 6  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 117   Время: 0:00:02.775104   Уровень: lvl1.txt
+Поражение!  |  Счёт: 6  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 118   Время: 0:00:01.040646   Уровень: lvl1.txt
+Поражение!  |  Счёт: 1  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 119   Время: 0:00:04.649044   Уровень: lvl1.txt
+Поражение!  |  Счёт: 7  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 120   Время: 0:00:01.452274   Уровень: lvl1.txt
+Поражение!  |  Счёт: 2  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 121   Время: 0:00:05.690143   Уровень: lvl1.txt
+Поражение!  |  Счёт: 7  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 122   Время: 0:00:03.201063   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 123   Время: 0:00:02.480615   Уровень: lvl1.txt
+Поражение!  |  Счёт: 6  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 124   Время: 0:00:01.383927   Уровень: lvl1.txt
+Поражение!  |  Счёт: 2  |  Жизни: -1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 125   Время: 0:00:03.199249   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 126   Время: 0:00:03.746198   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 127   Время: 0:00:02.992840   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 128   Время: 0:00:03.002103   Уровень: lvl1.txt
+Поражение!  |  Счёт: 6  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 129   Время: 0:00:01.805111   Уровень: lvl1.txt
+Победа!  |  Счёт: 5  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 130   Время: 0:00:01.074602   Уровень: lvl1.txt
+Поражение!  |  Счёт: 1  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 131   Время: 0:00:01.787162   Уровень: lvl1.txt
+Поражение!  |  Счёт: 4  |  Жизни: -1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 132   Время: 0:00:02.259750   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 133   Время: 0:00:02.585825   Уровень: lvl1.txt
+Поражение!  |  Счёт: 6  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 134   Время: 0:00:03.080901   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 135   Время: 0:00:02.309861   Уровень: lvl1.txt
+Поражение!  |  Счёт: 5  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 136   Время: 0:00:03.248037   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 137   Время: 0:00:02.977607   Уровень: lvl1.txt
+Поражение!  |  Счёт: 6  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 138   Время: 0:00:03.517440   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 139   Время: 0:00:03.994272   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 140   Время: 0:00:02.793316   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 141   Время: 0:00:03.575972   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 142   Время: 0:00:03.440763   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 143   Время: 0:00:03.215736   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 144   Время: 0:00:01.926148   Уровень: lvl1.txt
+Поражение!  |  Счёт: 5  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 145   Время: 0:00:01.967569   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 146   Время: 0:00:06.084802   Уровень: lvl1.txt
+Поражение!  |  Счёт: 7  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 147   Время: 0:00:02.936030   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 148   Время: 0:00:03.034994   Уровень: lvl1.txt
+Поражение!  |  Счёт: 7  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 149   Время: 0:00:03.110492   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 150   Время: 0:00:01.322052   Уровень: lvl1.txt
+Поражение!  |  Счёт: 1  |  Жизни: -1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 151   Время: 0:00:02.627375   Уровень: lvl1.txt
+Поражение!  |  Счёт: 6  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 152   Время: 0:00:02.550386   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 153   Время: 0:00:03.907104   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 154   Время: 0:00:02.425442   Уровень: lvl1.txt
+Поражение!  |  Счёт: 5  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 155   Время: 0:00:05.695263   Уровень: lvl1.txt
+Поражение!  |  Счёт: 7  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 156   Время: 0:00:07.731820   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 157   Время: 0:00:04.380872   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 158   Время: 0:00:15.046474   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 159   Время: 0:00:05.614308   Уровень: lvl1.txt
+Поражение!  |  Счёт: 4  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 160   Время: 0:00:12.518697   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 161   Время: 0:00:14.169149   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 162   Время: 0:00:10.088761   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 163   Время: 0:00:09.629725   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 164   Время: 0:00:15.383666   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 165   Время: 0:00:16.029092   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 166   Время: 0:00:11.486672   Уровень: lvl1.txt
+Поражение!  |  Счёт: 6  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 167   Время: 0:00:11.649084   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 168   Время: 0:00:05.701132   Уровень: lvl1.txt
+Поражение!  |  Счёт: 2  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 222 | startMT: 1
+
+
+
+Эпизод № 169   Время: 0:00:22.143750   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 170   Время: 0:00:12.089691   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 171   Время: 0:00:10.491611   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 172   Время: 0:00:00.178293   Уровень: lvl1.txt
+Соединение разорвано!  |  Счёт: 0  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 173   Время: 0:00:32.076367   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 174   Время: 0:00:24.161183   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 175   Время: 0:00:03.964656   Уровень: lvl1.txt
+Соединение разорвано!  |  Счёт: 1  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 176   Время: 0:00:22.083632   Уровень: lvl1.txt
+Соединение разорвано!  |  Счёт: 6  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 177   Время: 0:00:20.792088   Уровень: lvl0.txt
+Поражение!  |  Счёт: 0  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 2
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 2
+
+
+
+Эпизод № 178   Время: 0:00:01.541062   Уровень: lvl0.txt
+Соединение разорвано!  |  Счёт: 0  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 2
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 2
+
+
+
+Эпизод № 179   Время: 0:00:12.396610   Уровень: lvl0.txt
+Соединение разорвано!  |  Счёт: 0  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 2
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 2
+
+
+
+Эпизод № 180   Время: 0:00:15.871832   Уровень: lvl0.txt
+Соединение разорвано!  |  Счёт: 0  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+
+
+
+Эпизод № 181   Время: 0:00:16.064022   Уровень: lvl0.txt
+Соединение разорвано!  |  Счёт: 0  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+
+
+
+Эпизод № 182   Время: 0:00:04.200726   Уровень: lvl0.txt
+Соединение разорвано!  |  Счёт: 0  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+
+
+
+Эпизод № 183   Время: 0:00:09.107858   Уровень: lvl0.txt
+Победа!  |  Счёт: 1  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+
+
+
+Эпизод № 184   Время: 0:00:09.202108   Уровень: lvl0.txt
+Поражение!  |  Счёт: 1  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+
+
+
+Эпизод № 185   Время: 0:00:01.787858   Уровень: lvl0.txt
+Соединение разорвано!  |  Счёт: 0  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+
+
+
+Эпизод № 186   Время: 0:00:07.493401   Уровень: lvl0.txt
+Соединение разорвано!  |  Счёт: 1  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+
+
+
+Эпизод № 187   Время: 0:00:06.377446   Уровень: lvl0.txt
+Соединение разорвано!  |  Счёт: 0  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+
+
+
+Эпизод № 188   Время: 0:00:16.734911   Уровень: lvl0.txt
+Соединение разорвано!  |  Счёт: 0  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+
+
+
+Эпизод № 189   Время: 0:00:20.465129   Уровень: lvl0.txt
+Соединение разорвано!  |  Счёт: 1  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+
+
+
+Эпизод № 190   Время: 0:00:15.058065   Уровень: lvl0.txt
+Соединение разорвано!  |  Счёт: 0  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 4
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 4
+
+
+
+Эпизод № 191   Время: 0:00:25.119348   Уровень: lvl0.txt
+Поражение!  |  Счёт: 0  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 4
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 4
+
+
+
+Эпизод № 192   Время: 0:00:00.040927   Уровень: lvl0.txt
+Соединение разорвано!  |  Счёт: 0  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 4
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 4
+
+
+
+Эпизод № 193   Время: 0:01:45.029262   Уровень: lvl0.txt
+Поражение!  |  Счёт: 0  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 4
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 4
+
+
+
+Эпизод № 194   Время: 0:00:25.307492   Уровень: lvl0.txt
+Поражение!  |  Счёт: 1  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 4
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 4
+
+
+
+Эпизод № 195   Время: 0:00:20.034104   Уровень: lvl0.txt
+Соединение разорвано!  |  Счёт: 0  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 4
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 4
+
+
+
+Эпизод № 196   Время: 0:00:38.776282   Уровень: lvl0.txt
+Поражение!  |  Счёт: 0  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 4
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 4
+
+
+
+Эпизод № 197   Время: 0:00:00.243345   Уровень: lvl0.txt
+Соединение разорвано!  |  Счёт: 0  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 4
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 4
+
+
+
+Эпизод № 198   Время: 0:00:55.438824   Уровень: lvl0.txt
+Соединение разорвано!  |  Счёт: 0  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 4
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 4
+
+
+
+Эпизод № 199   Время: 0:00:13.884261   Уровень: lvl0.txt
+Соединение разорвано!  |  Счёт: 1  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 4
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 4
+
+
+
+Эпизод № 200   Время: 0:00:16.330251   Уровень: lvl0.txt
+Соединение разорвано!  |  Счёт: 0  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 4
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 4
+
+
+
+Эпизод № 201   Время: 0:00:12.769799   Уровень: lvl0.txt
+Соединение разорвано!  |  Счёт: 0  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 4
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 4
+
+
+
+Эпизод № 202   Время: 0:00:07.127838   Уровень: lvl0.txt
+Соединение разорвано!  |  Счёт: 0  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 2
+MONSTER: Bat | Alg: 111 | startMT: 2
+MONSTER: Bat | Alg: 111 | startMT: 2
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 2
+ID:1 | Имя: Bat | Alg: -999999 | startMT: 2
+ID:2 | Имя: Bat | Alg: -999999 | startMT: 2
+
+
+
+Эпизод № 203   Время: 0:00:18.595843   Уровень: lvl0.txt
+Соединение разорвано!  |  Счёт: 0  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bat | Alg: 111 | startMT: 3
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:2 | Имя: Bat | Alg: -999999 | startMT: 3
+
+
+
+Эпизод № 204   Время: 0:00:00.655382   Уровень: lvl0.txt
+Поражение!  |  Счёт: 0  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bat | Alg: 111 | startMT: 3
+ID:0 | Имя: Bat | Alg: -999999 | startMT: -999999
+ID:1 | Имя: Bat | Alg: -999999 | startMT: -999999
+ID:2 | Имя: Bat | Alg: -999999 | startMT: -999999
+ID:3 | Имя: Bat | Alg: -999999 | startMT: -999999
+
+
+
+Эпизод № 205   Время: 0:00:00.842975   Уровень: lvl0.txt
+Поражение!  |  Счёт: 0  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bat | Alg: 111 | startMT: 3
+ID:0 | Имя: Bat | Alg: -999999 | startMT: -999999
+ID:1 | Имя: Bat | Alg: -999999 | startMT: -999999
+ID:2 | Имя: Bat | Alg: -999999 | startMT: -999999
+ID:3 | Имя: Bat | Alg: -999999 | startMT: -999999
+
+
+
+Эпизод № 206   Время: 0:00:08.532432   Уровень: lvl0.txt
+Поражение!  |  Счёт: 1  |  Жизни: -2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bat | Alg: 111 | startMT: 3
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:2 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:3 | Имя: Bat | Alg: -999999 | startMT: 3
+
+
+
+Эпизод № 207   Время: 0:00:00.845055   Уровень: lvl0.txt
+Поражение!  |  Счёт: 0  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bat | Alg: 111 | startMT: 3
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:2 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:3 | Имя: Bat | Alg: -999999 | startMT: 3
+
+
+
+Эпизод № 208   Время: 0:00:00.851456   Уровень: lvl0.txt
+Поражение!  |  Счёт: 0  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bat | Alg: 111 | startMT: 3
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:2 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:3 | Имя: Bat | Alg: -999999 | startMT: 3
+
+
+
+Эпизод № 209   Время: 0:00:01.357173   Уровень: lvl0.txt
+Соединение разорвано!  |  Счёт: 0  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bat | Alg: 111 | startMT: 3
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:2 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:3 | Имя: Bat | Alg: -999999 | startMT: 3
+
+
+
+Эпизод № 210   Время: 0:00:13.448428   Уровень: lvl0.txt
+Соединение разорвано!  |  Счёт: 0  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bat | Alg: 111 | startMT: 3
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:2 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:3 | Имя: Bat | Alg: -999999 | startMT: 3
+
+
+
+Эпизод № 211   Время: 0:00:04.765740   Уровень: lvl0.txt
+Соединение разорвано!  |  Счёт: 0  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bat | Alg: 111 | startMT: 3
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:2 | Имя: Bat | Alg: -999999 | startMT: 3
+
+
+
+Эпизод № 212   Время: 0:00:05.569629   Уровень: lvl0.txt
+Соединение разорвано!  |  Счёт: 0  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bat | Alg: 111 | startMT: 3
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:2 | Имя: Bat | Alg: -999999 | startMT: 3
+
+
+
+Эпизод № 213   Время: 0:00:12.514650   Уровень: lvl0.txt
+Соединение разорвано!  |  Счёт: 0  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bat | Alg: 111 | startMT: 3
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:2 | Имя: Bat | Alg: -999999 | startMT: 3
+
+
+
+Эпизод № 214   Время: 0:00:22.633490   Уровень: lvl0.txt
+Поражение!  |  Счёт: 0  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 4
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bat | Alg: 111 | startMT: 5
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 4
+ID:1 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:2 | Имя: Bat | Alg: -999999 | startMT: 5
+
+
+
+Эпизод № 215   Время: 0:00:20.979944   Уровень: lvl0.txt
+Поражение!  |  Счёт: 1  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 4
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bat | Alg: 111 | startMT: 5
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 4
+ID:1 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:2 | Имя: Bat | Alg: 333 | startMT: 5
+
+
+
+Эпизод № 216   Время: 0:00:22.829859   Уровень: lvl0.txt
+Поражение!  |  Счёт: 0  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 4
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bat | Alg: 111 | startMT: 5
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 4
+ID:1 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:2 | Имя: Bat | Alg: 333 | startMT: 5
+
+
+
+Эпизод № 217   Время: 0:00:08.052024   Уровень: lvl0.txt
+Соединение разорвано!  |  Счёт: 0  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 4
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bat | Alg: 111 | startMT: 5
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 4
+ID:1 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:2 | Имя: Bat | Alg: 333 | startMT: 5
+
+
+
+Эпизод № 218   Время: 0:00:17.126503   Уровень: lvl1.txt
+Поражение!  |  Счёт: 6  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 219   Время: 0:00:42.543140   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 220   Время: 0:00:15.795384   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 221   Время: 0:00:02.754391   Уровень: lvl1.txt
+Соединение разорвано!  |  Счёт: 3  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 222   Время: 0:00:08.472609   Уровень: lvl1.txt
+Поражение!  |  Счёт: 7  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 223   Время: 0:00:05.735552   Уровень: lvl1.txt
+Поражение!  |  Счёт: 6  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 224   Время: 0:00:03.722627   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 225   Время: 0:00:01.519167   Уровень: lvl1.txt
+Поражение!  |  Счёт: 1  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 226   Время: 0:00:01.457093   Уровень: lvl1.txt
+Поражение!  |  Счёт: 1  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 227   Время: 0:00:04.705586   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 228   Время: 0:00:04.502300   Уровень: lvl1.txt
+Поражение!  |  Счёт: 6  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 229   Время: 0:00:03.531282   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 1
+
+
+
+Эпизод № 230   Время: 0:00:01.787297   Уровень: lvl1.txt
+Победа!  |  Счёт: 6  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 231   Время: 0:00:01.135688   Уровень: lvl1.txt
+Поражение!  |  Счёт: 1  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 232   Время: 0:00:03.232250   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 233   Время: 0:00:00.936125   Уровень: lvl1.txt
+Поражение!  |  Счёт: 2  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 234   Время: 0:00:03.172029   Уровень: lvl1.txt
+Поражение!  |  Счёт: 7  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 235   Время: 0:00:04.451475   Уровень: lvl1.txt
+Поражение!  |  Счёт: 7  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 236   Время: 0:00:01.882512   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 237   Время: 0:00:02.150037   Уровень: lvl1.txt
+Поражение!  |  Счёт: 7  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 238   Время: 0:00:03.170367   Уровень: lvl1.txt
+Поражение!  |  Счёт: 6  |  Жизни: -1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 239   Время: 0:00:00.927089   Уровень: lvl1.txt
+Поражение!  |  Счёт: 1  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 240   Время: 0:00:03.335014   Уровень: lvl1.txt
+Поражение!  |  Счёт: 7  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 241   Время: 0:00:01.004751   Уровень: lvl1.txt
+Поражение!  |  Счёт: 0  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 242   Время: 0:00:02.723971   Уровень: lvl1.txt
+Поражение!  |  Счёт: 5  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 243   Время: 0:00:02.666191   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 244   Время: 0:00:01.549240   Уровень: lvl1.txt
+Поражение!  |  Счёт: 3  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 245   Время: 0:00:03.711011   Уровень: lvl1.txt
+Поражение!  |  Счёт: 7  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 246   Время: 0:00:01.102553   Уровень: lvl1.txt
+Поражение!  |  Счёт: 1  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 247   Время: 0:00:04.064006   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 248   Время: 0:00:02.020802   Уровень: lvl1.txt
+Поражение!  |  Счёт: 5  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 249   Время: 0:00:03.804304   Уровень: lvl1.txt
+Поражение!  |  Счёт: 7  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 250   Время: 0:00:01.270983   Уровень: lvl1.txt
+Поражение!  |  Счёт: 2  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 251   Время: 0:00:01.165452   Уровень: lvl1.txt
+Поражение!  |  Счёт: 2  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 252   Время: 0:00:01.003530   Уровень: lvl1.txt
+Поражение!  |  Счёт: 0  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 253   Время: 0:00:01.232948   Уровень: lvl1.txt
+Поражение!  |  Счёт: 1  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 254   Время: 0:00:02.177085   Уровень: lvl1.txt
+Поражение!  |  Счёт: 4  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 255   Время: 0:00:01.210577   Уровень: lvl1.txt
+Поражение!  |  Счёт: 1  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 256   Время: 0:00:03.672140   Уровень: lvl1.txt
+Поражение!  |  Счёт: 7  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 333 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 257   Время: 0:00:03.098161   Уровень: lvl1.txt
+Поражение!  |  Счёт: 7  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 333 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 258   Время: 0:00:04.556666   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 333 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 259   Время: 0:00:01.491518   Уровень: lvl1.txt
+Поражение!  |  Счёт: 1  |  Жизни: -1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 333 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 260   Время: 0:01:36.345255   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 333 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 261   Время: 0:00:05.320222   Уровень: lvl1.txt
+Поражение!  |  Счёт: 4  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 333 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 262   Время: 0:00:07.662114   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 333 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 263   Время: 0:00:03.811517   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 333 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 264   Время: 0:00:04.717557   Уровень: lvl1.txt
+Поражение!  |  Счёт: 7  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 333 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 265   Время: 0:00:07.752453   Уровень: lvl1.txt
+Поражение!  |  Счёт: 7  |  Жизни: -1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 333 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 266   Время: 0:00:07.332821   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 333 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 267   Время: 0:00:05.972781   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 333 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 268   Время: 0:00:04.382101   Уровень: lvl1.txt
+Победа!  |  Счёт: 5  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 333 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 269   Время: 0:00:12.214077   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 333 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 270   Время: 0:00:08.606035   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 333 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 271   Время: 0:00:10.782193   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 333 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 272   Время: 0:00:13.859617   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 333 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 273   Время: 0:00:12.341851   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 333 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 274   Время: 0:00:06.119298   Уровень: lvl1.txt
+Поражение!  |  Счёт: 5  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 333 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 275   Время: 0:00:02.221848   Уровень: lvl1.txt
+Поражение!  |  Счёт: 2  |  Жизни: -1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 333 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 276   Время: 0:00:06.342525   Уровень: lvl1.txt
+Поражение!  |  Счёт: 7  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 333 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 277   Время: 0:00:07.062969   Уровень: lvl1.txt
+Поражение!  |  Счёт: 7  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 333 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 278   Время: 0:00:08.022372   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 333 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 279   Время: 0:00:11.175724   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 333 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 280   Время: 0:00:07.477682   Уровень: lvl1.txt
+Поражение!  |  Счёт: 7  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 333 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 281   Время: 0:00:07.436130   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 1
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 333 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 282   Время: 0:00:04.004636   Уровень: lvl1.txt
+Поражение!  |  Счёт: 4  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 333 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 283   Время: 0:00:04.005240   Уровень: lvl1.txt
+Поражение!  |  Счёт: 5  |  Жизни: 0
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 333 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 284   Время: 0:00:05.810967   Уровень: lvl1.txt
+Победа!  |  Счёт: 7  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 333 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+
+Эпизод № 285   Время: 0:00:00.562476   Уровень: lvl1.txt
+Соединение разорвано!  |  Счёт: 2  |  Жизни: 2
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 5
+MONSTER: Pursuer | Alg: 333 | startMT: 1
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 333 | startMT: 5
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 1
+
+
+

@@ -9,6 +9,7 @@ import random
 import blocks
 import player
 import maps
+from termcolor import colored
 
 MONSTER_WIDTH = 32
 MONSTER_HEIGHT = 32
@@ -185,7 +186,10 @@ class Monster(sprite.Sprite): # Класс монстров
             number = 0
             for i in range(len(monWay)):
                 if i == 0:
-                    1
+                    if monWay[self.myPosY][self.myPosX + 1] != 'B' and monWay[self.myPosY][self.myPosX + 1] != 'W':
+                        monWay[self.myPosY][self.myPosX + 1] = 1 * (self.startMoveTime + 1) + self.moveTime - self.startMoveTime
+                    if monWay[self.myPosY][self.myPosX - 1] != 'B' and monWay[self.myPosY][self.myPosX - 1] != 'W':
+                        monWay[self.myPosY][self.myPosX - 1] = 1 * (self.startMoveTime + 1) + self.moveTime - self.startMoveTime
                 else:
                     if self.moveOnUp == True and self.moveOnDown == False:
                         if monWay[self.myPosY - i][self.myPosX] != 'B' and monWay[self.myPosY - i][self.myPosX] != 'W':
@@ -220,7 +224,10 @@ class Monster(sprite.Sprite): # Класс монстров
             number = 0
             for i in range(len(monWay[0])):
                 if i == 0:
-                    1
+                    if monWay[self.myPosY + 1][self.myPosX] != 'B' and monWay[self.myPosY + 1][self.myPosX] != 'W':
+                        monWay[self.myPosY + 1][self.myPosX] = 1 * (self.startMoveTime + 1) + self.moveTime - self.startMoveTime
+                    if monWay[self.myPosY - 1][self.myPosX] != 'B' and monWay[self.myPosY - 1][self.myPosX] != 'W':
+                        monWay[self.myPosY - 1][self.myPosX] = 1 * (self.startMoveTime + 1) + self.moveTime - self.startMoveTime
                 else:
                     if self.moveOnLeft == True and self.moveOnRight == False:
                         if monWay[self.myPosY][self.myPosX - i] != 'B' and monWay[self.myPosY][self.myPosX - i] != 'W':
@@ -250,7 +257,36 @@ class Monster(sprite.Sprite): # Класс монстров
                         else:
                             break
 
-    def patrolMove(self, hero, way: List[List[int]]):
+    def patrolMove(self, way: List[List[int]]):
+        #Случайное изменение маршрута #and way[self.myPosY][self.myPosX - 1] != 'W' and way[self.myPosY][self.myPosX + 1] != 'W')
+        if ((way[self.myPosY][self.myPosX - 1] == 'B' or way[self.myPosY][self.myPosX - 1] == 'W') and (way[self.myPosY][self.myPosX + 1] == 'B' or way[self.myPosY][self.myPosX + 1] == 'W')) or \
+           ((way[self.myPosY - 1][self.myPosX] == 'B' or way[self.myPosY - 1][self.myPosX] == 'W') and (way[self.myPosY + 1][self.myPosX] == 'B' or way[self.myPosY + 1][self.myPosX] == 'W')):
+            1
+        else:
+            numLRUD = random.randint(1, 100)
+            #print(colored("numLRUD=" + str(numLRUD), 'red'))
+            if numLRUD <= 0:
+                if self.moveOnLeft == True or self.moveOnRight == True:
+                    self.moveOnLeft = False
+                    self.moveOnRight = False
+                    numUD = random.randint(1, 2)
+                    if numUD == 1:
+                        self.moveOnUp = True
+                        self.moveOnDown = False
+                    else:
+                        self.moveOnUp = False
+                        self.moveOnDown = True
+                elif self.moveOnUp == True or self.moveOnDown == True:
+                    self.moveOnUp = False
+                    self.moveOnDown = False
+                    numUD = random.randint(1, 2)
+                    if numUD == 1:
+                        self.moveOnLeft = True
+                        self.moveOnRight = False
+                    else:
+                        self.moveOnLeft = False
+                        self.moveOnRight = True
+
         #print ('Left: ' + str(self.moveOnLeft) + '   Right: '+ str(self.moveOnRight))
         if (self.moveOnLeft == True and self.moveOnRight == False) or (self.moveOnLeft == False and self.moveOnRight == True):
             if way[self.myPosY][self.myPosX - 1] == 'B':
@@ -367,7 +403,11 @@ class Monster(sprite.Sprite): # Класс монстров
         if self.myTargetPosX != self.myPosX or self.myTargetPosY != self.myPosY:
             #if self.moveOnUp == True or self.moveOnDown == True: #Так же если убираю случайное блуждание скорее всего потребуется вернуть и закомменченое внутри
                 for i in range(len(monWay)):
-                    if i == 0: 1
+                    if i == 0:
+                        if monWay[self.myPosY][self.myPosX + 1] != 'B' and monWay[self.myPosY][self.myPosX + 1] != 'W':
+                            monWay[self.myPosY][self.myPosX + 1] = 1 * (self.startMoveTime + 1) + self.moveTime - self.startMoveTime
+                        if monWay[self.myPosY][self.myPosX - 1] != 'B' and monWay[self.myPosY][self.myPosX - 1] != 'W':
+                            monWay[self.myPosY][self.myPosX - 1] = 1 * (self.startMoveTime + 1) + self.moveTime - self.startMoveTime
                     else:
                         if self.myPosY >= self.myTargetPosY: # and self.moveOnUp == True and self.moveOnDown == False:
                             if self.myPosY - i >= self.myTargetPosY:
@@ -379,7 +419,11 @@ class Monster(sprite.Sprite): # Класс монстров
                             else: break
             #if self.moveOnLeft == True or self.moveOnRight == True: #Так же если убираю случайное блуждание скорее всего потребуется вернуть и закомменченое внутри
                 for i in range(len(monWay[0])):
-                    if i == 0: 1
+                    if i == 0:
+                        if monWay[self.myPosY + 1][self.myPosX] != 'B' and monWay[self.myPosY + 1][self.myPosX] != 'W':
+                            monWay[self.myPosY + 1][self.myPosX] = 1 * (self.startMoveTime + 1) + self.moveTime - self.startMoveTime
+                        if monWay[self.myPosY - 1][self.myPosX] != 'B' and monWay[self.myPosY - 1][self.myPosX] != 'W':
+                            monWay[self.myPosY - 1][self.myPosX] = 1 * (self.startMoveTime + 1) + self.moveTime - self.startMoveTime
                     else:
                         if self.myPosX >= self.myTargetPosX: # and self.moveOnLeft == True and self.moveOnRight == False:
                             if self.myPosX - i >= self.myTargetPosX:

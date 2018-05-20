@@ -41,6 +41,12 @@ class Player(sprite.Sprite): # Класс игрока
         self.startMoveTime = 2
         self.known = -1
 
+        self.checkMoveTime = 0
+        self.lastLeft = False
+        self.lastUp = False
+        self.lastRight = False
+        self.lastDown = False
+
         #Для алг идентификации
         self.obsCount = 0
         self.monInfo = []  # type: List[observations.ObservedMonster]
@@ -57,6 +63,7 @@ class Player(sprite.Sprite): # Класс игрока
         self.myLastPosXforMonLeft = -1
         self.myLastPosYforMonLeft = -1
         self.oCforLastMonLeft = -1
+        self.finalAlgCheck111 = []
         self.finalAlgCheck222 = []
         self.finalAlgCheck333 = []
 
@@ -68,7 +75,7 @@ class Player(sprite.Sprite): # Класс игрока
         self.rect = Rect(x, y, WIDTH, HEIGHT) # прямоугольный объект
         #self.image.set_colorkey(Color(COLOR)) # делаем фон прозрачным
 
-    def updatePlayer(self,  left, right, up, down, platforms, way: List[List[int]]): # Метод "передвижения"
+    def updatePlayer(self, left, right, up, down, platforms, way: List[List[int]]): # Метод "передвижения"
         if left:
             self.xvel = -self.MOVE_SPEED # Лево = x- n
             self.image = image.load("%s/player/0_24-32.png" % ICON_DIR)

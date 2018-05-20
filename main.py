@@ -339,7 +339,9 @@ def main():
                     hero.myLastPosXforMonLeft = -1
                     hero.myLastPosYforMonLeft = -1
                     hero.oCforLastMonLeft = -1
-                    hero.finalAlgCheck = []
+                    hero.finalAlgCheck111 = []
+                    hero.finalAlgCheck222 = []
+                    hero.finalAlgCheck333 = []
                     hero.known = -1
                 for mn in masMons:  # Возвращаем монстров на свою позицию
                     Monster.teleporting(mn, mn.startX, mn.startY, platforms, hero, way)
@@ -422,7 +424,7 @@ def main():
                             raise SystemExit("QUIT")
             if e.type == KEYDOWN and e.key == K_MINUS:
                 if DELAY > 2:
-                    DELAY -= 1
+                    DELAY -= 5
                     print('Скорость симулятора понижена!   DELAY = ' + str(DELAY))
                 else: print('Отказ! Достигнута минимальная разрешенная скорость!   DELAY = ' + str(DELAY))
             if e.type == KEYDOWN and e.key == K_EQUALS:
@@ -474,7 +476,7 @@ def main():
                     # if way[mn.myPrevPosY][mn.myPrevPosX] != 'H':
                     #    way[mn.myPrevPosY][mn.myPrevPosX] = '0'  # Отмечаем на карте, что ушли с предыдущей позиции
                     if mn.algorithm == 111:
-                        Monster.patrolMove(mn, hero, way)
+                        Monster.patrolMove(mn, way)
                         Monster.monsterPatrolWay(mn, monWay)
                     elif mn.algorithm == 222:
                         Monster.randMove(mn, hero, way)
@@ -500,6 +502,7 @@ def main():
             for mn in masMons:
                 way[mn.myPosY][mn.myPosX] = 'M'  # На карте видна лишь предыдущая позиция! Куда двигается монстр - не видно!
                 monWay[mn.myPosY][mn.myPosX] = 'M'  # На карте видна лишь предыдущая позиция! Куда двигается монстр - не видно!
+                #print(str(mn.name) + ' MOVETIME: ' + str(mn.moveTime))
                 #if mn.moveTime == mn.startMoveTime:
                 #maps.printMonsterInfo(monWay)
 
@@ -513,6 +516,12 @@ def main():
                 #print('hero.known: ' + str(hero.known))
                 if knownCount == 0: hero.known = 1
                 else: hero.known = -1
+
+                if hero.lastLeft == hero.lastRight == hero.lastUp == hero.lastDown == False:
+                    hero.checkMoveTime += 1   #print(colored(str(hero.checkMoveTime), 'cyan'))
+                    if hero.checkMoveTime > hero.startMoveTime:
+                        hero.moveTime = 0
+                else: hero.checkMoveTime = 0
                 if hero.moveTime <= 0 or (hero.imDie == True and hero.live > 0):
                     #if amountBigEnergy >= 0:  # Если энергии, которые присутствовали на карте ещё не собраны
                         bigEnergyCounter = maps.amountBigEnerge(way)  # тогда сверяем их с текущим количеством на карте
@@ -537,7 +546,12 @@ def main():
                         else:
                             print('Прокладываю путь до E')
                             alg.algWaveFindExit('E', hero, way, masBE, monWay)#[amountBigEnergy-1])
+
                         maps.printInfo(hero, way)
+
+                        #Если на позиции героя иконка монстра, а герой еще жив, значит они совершат движение одновременно
+                        #if way[hero.myPosY][hero.myPosX] == 'M':
+                        #    hero.wait = True
                         #maps.clearNumFromMap(way)  # очищаю карту от всех возможных путей(чисел) и оставляю только проложенный (+) (для удобства отображения)
                 #else: print('Проскочил')
                 if hero.moveTime <= 0: # если перемещение героя в планируемую точку закончилось, вычисляем следующее движение
@@ -545,6 +559,7 @@ def main():
                     #    blocks.BigEnergy.myCoord(be)
                     #    if be.myPosY > 0 and be.myPosX > 0 and way[be.myPosY][be.myPosX] != 'M':
                     #        way[be.myPosY][be.myPosX] = 'E'
+
                     left, right, up, down, hero.moveTime = alg.algWave(hero, way)
                     #maps.clearNumFromMap(way) # очищаю карту от всех возможных путей(чисел) и оставляю только проложенный (+) (для удобства отображения)
 

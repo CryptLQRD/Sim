@@ -2,21 +2,22 @@
 -------------|
 -E       - W-|
 -      E   --|
---   -      -|
+-     -     -|
+--          -|
 -E   E      -|
-- -    - -  -|
--     E ---E-|
+- -         -|
+-     E  --E-|
 -E          -|
 -------------|
 ]
 
-player 64 128
+player 64 160
 
-monsterBat  96  32  1 0 111 3
+monsterBat  160  96  1 0 111 3
 
-monsterBird 320 96 1 0 222 4
+monsterBird 320 96 1 0 222 5
 
-monsterPursuer 256 160 1 0 333 1
+monsterPursuer 256 192 1 0 333 1
 
 
 /
