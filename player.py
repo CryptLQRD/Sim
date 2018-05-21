@@ -33,6 +33,7 @@ class Player(sprite.Sprite): # Класс игрока
         self.startY = y # текущая позиция y
         self.onGround = False # На земле ли я?
         self.score = 0
+        self.finalScore = 0
         self.live = 2
         self.imDie = False
         self.imSlow = False

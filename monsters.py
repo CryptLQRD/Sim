@@ -82,8 +82,11 @@ ANIMATION_PURSUERFLYDOWN = [('%s/monsters/pursuer/pursuer_down1.gif' % ICON_DIR)
                         ('%s/monsters/pursuer/pursuer_down3.gif' % ICON_DIR),
                         ('%s/monsters/pursuer/pursuer_down2.gif' % ICON_DIR)]
 
+ANIMATION_WRAITH_DELAY = 0.30
 ANIMATION_WRAITHLEFT  = [('%s/monsters/wraith_l.png' % ICON_DIR)]
 ANIMATION_WRAITHRIGHT = [('%s/monsters/wraith_r.png' % ICON_DIR)]
+ANIMATION_WRAITHUP  = [('%s/monsters/wraith_l.png' % ICON_DIR)]
+ANIMATION_WRAITHDOWN = [('%s/monsters/wraith_r.png' % ICON_DIR)]
 
 class Monster(sprite.Sprite): # Класс монстров
     def __init__(self, x, y, moveOnLeft, moveOnUp, algorithm, startMoveTime):
@@ -265,7 +268,7 @@ class Monster(sprite.Sprite): # Класс монстров
         else:
             numLRUD = random.randint(1, 100)
             #print(colored("numLRUD=" + str(numLRUD), 'red'))
-            if numLRUD <= 0:
+            if numLRUD <= 3:
                 if self.moveOnLeft == True or self.moveOnRight == True:
                     self.moveOnLeft = False
                     self.moveOnRight = False
@@ -864,12 +867,24 @@ class Wraith(Monster):
         # Анимация полета направо
         boltAnim = []
         for anim in ANIMATION_WRAITHLEFT:
-            boltAnim.append((anim, ANIMATION_BAT_DELAY))
+            boltAnim.append((anim, ANIMATION_WRAITH_DELAY))
         self.boltAnimLeft = pyganim.PygAnimation(boltAnim)
         self.boltAnimLeft.play()
         # Анимация полета налево
         boltAnim = []
         for anim in ANIMATION_WRAITHRIGHT:
-            boltAnim.append((anim, ANIMATION_BAT_DELAY))
+            boltAnim.append((anim, ANIMATION_WRAITH_DELAY))
         self.boltAnimRight = pyganim.PygAnimation(boltAnim)
         self.boltAnimRight.play()
+        # Анимация полета вниз
+        boltAnim = []
+        for anim in ANIMATION_WRAITHDOWN:
+            boltAnim.append((anim, ANIMATION_WRAITH_DELAY))
+        self.boltAnimDown = pyganim.PygAnimation(boltAnim)
+        self.boltAnimDown.play()
+        # Анимация полета вверх
+        boltAnim = []
+        for anim in ANIMATION_WRAITHUP:
+            boltAnim.append((anim, ANIMATION_WRAITH_DELAY))
+        self.boltAnimUp = pyganim.PygAnimation(boltAnim)
+        self.boltAnimUp.play()

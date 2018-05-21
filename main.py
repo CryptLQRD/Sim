@@ -37,7 +37,7 @@ levelName = 'lvl1.txt' #Название уровня
 FILE_DIR = os.path.dirname(__file__)
 PLAY = False # Включить\Выключить управление игроком
 REPEAT = True  # Включить\Выключить повторние игры с начала
-amEpisod = 8000000   # Через какое кол-во эпизодов алгоритмы монстров меняются
+amEpisod = 12   # Через какое кол-во эпизодов алгоритмы монстров меняются
 STARTDELAY = 16 #Базовая скорость симулятора. Чем больше значение, тем быстрее симулятор. Чем меньше значение, тем медленее симулятор.
 
 class Camera(object):
@@ -127,7 +127,20 @@ def saveResult(hero, workTime, masMons): # Работа с файлом result
     numEpisod (hero)
     hero.episod += 1
 
-    #Сохраняем в файл
+    winScore = 15
+    monScore = 0
+    hero.finalScore = hero.score + (hero.live) * 5
+    if (hero.winner):
+        hero.finalScore += winScore
+    for mn in masMons:
+        if hero.monInfo[mn.index].alg == mn.algorithm:
+            monScore += 5
+    #print('monScore ' + str(monScore))
+    hero.finalScore += monScore
+    #hero.finalScore -= workTime.seconds
+
+
+        #Сохраняем в файл
     resultFile = open('%s/levels/episodes/result.txt' % FILE_DIR, 'a')
     resultFile.write('Эпизод № '+ str(hero.episod) + '   Время: ' + str(workTime) + '   Уровень: ' +  levelName +'\n') # выполнения эпизода
     if (hero.live <= 0):
@@ -136,7 +149,8 @@ def saveResult(hero, workTime, masMons): # Работа с файлом result
         resultFile.write('Победа!')
     else:
         resultFile.write('Соединение разорвано!')
-    resultFile.write('  |  Счёт: ' + str(hero.score) + '  |  Жизни: ' + str(hero.live) + '\n\n')
+    resultFile.write('  |  Энергии: ' + str(hero.score) + '  |  Жизни: ' + str(hero.live) + '  |  Счёт: ' + str(hero.finalScore) \
+                     + '  ('+ str(hero.score) + ' + ' + str((hero.live)*5) + ' + ' + str(monScore) + ' + ' + str(winScore)  + ')' + '\n\n') #+ ' - ' + str(workTime.seconds) + ')'
     for mn in masMons:
         resultFile.write('MONSTER: ' + str(mn.name) + ' | Alg: ' + str(mn.algorithm) + ' | startMT: ' + str(mn.startMoveTime) + '\n')
     for mn in masMons:
@@ -353,7 +367,7 @@ def main():
                         hero.monInfo.append(observations.ObservedMonster(-999999, -999999, observations=[observations.Observation(timestamp=-1, x=int(mn.startX / 32), y=int(mn.startY / 32))]))
                         observations.addObservation(hero.monInfo,observations.Observation(timestamp=0, x=int(mn.startX / 32),y=int(mn.startY / 32)), index=mn.index)
                         numberAlg = random.randint(1, 3)
-                        numberMT = random.randint(2, 5)
+                        numberMT = random.randint(1, 4)
                         #print ('number: ' + str(numberAlg))
                         if numberAlg == 1:
                             mn.algorithm = 111
@@ -424,7 +438,7 @@ def main():
                             raise SystemExit("QUIT")
             if e.type == KEYDOWN and e.key == K_MINUS:
                 if DELAY > 2:
-                    DELAY -= 5
+                    DELAY -= 4
                     print('Скорость симулятора понижена!   DELAY = ' + str(DELAY))
                 else: print('Отказ! Достигнута минимальная разрешенная скорость!   DELAY = ' + str(DELAY))
             if e.type == KEYDOWN and e.key == K_EQUALS:
@@ -509,10 +523,13 @@ def main():
             if not PLAY:
                 alg.identificationAlg(hero, way, masMons)
                 knownCount = 0
+                how333 = 0
                 for mn in masMons:
                     if hero.monInfo[mn.index].alg < -1 or hero.monInfo[mn.index].moveTime < -1:
                         knownCount += 1
-                print('knownCount: ' + str(knownCount) + ' | Episod: ' + str(hero.episod))
+                    if hero.monInfo[mn.index].alg == 333:
+                        how333 += 1
+                print('Монстров осталось изучить: ' + str(knownCount) + ' | Episod: ' + str(hero.episod))
                 #print('hero.known: ' + str(hero.known))
                 if knownCount == 0: hero.known = 1
                 else: hero.known = -1
@@ -540,14 +557,25 @@ def main():
                                 way[be.myPosY][be.myPosX] = 'E'
                         maps.clearWayNumFromMap(way) # Очищаем карту, чтобы можно было проложить новый маршрут до другого объекта
                         #amountBigEnergy -= 1  # Уменьшаем общее кол-во энергий
-                        if bigEnergyCounter <= 0 or amountBigEnergy <= 0: # если энергии на карте закончились, тогда строим путь к выходу
-                            print('Прокладываю путь до W')
-                            alg.algWaveFindExit('W', hero, way, 0, monWay) #amountBigEnergy-1
+                        #print('Кол-во монстров: ' + str(index) + ' (' + str((index-1)/2) +') | Алг333: ' + str(how333))
+                        if (index-1)/2 >= how333:    #Если количество монстров с алгоритмом 333 меньше чем половина монстров, то
+                            if bigEnergyCounter <= 0 or amountBigEnergy <= 0: # если энергии на карте закончились, тогда строим путь к выходу
+                                print('Прокладываю путь до W')
+                                alg.algWaveFindExit('W', hero, way, 0, monWay) #amountBigEnergy-1
+                            else:
+                                print('Прокладываю путь до E')
+                                alg.algWaveFindExit('E', hero, way, masBE, monWay)#[amountBigEnergy-1])
                         else:
-                            print('Прокладываю путь до E')
-                            alg.algWaveFindExit('E', hero, way, masBE, monWay)#[amountBigEnergy-1])
-
-                        maps.printInfo(hero, way)
+                            symbol = alg.calcWay(hero, way)
+                            #print('symbol: ' + str(symbol))
+                            #maps.clearWayNumFromMap(way)  # Очищаем карту, чтобы можно было проложить новый маршрут до другого объекта
+                            if symbol == 'W':
+                                print('Прокладываю путь до W')
+                                alg.algWaveFindExit('W', hero, way, 0, monWay) #amountBigEnergy-1
+                            else:
+                                print('Прокладываю путь до E')
+                                alg.algWaveFindExit('E', hero, way, masBE, monWay)#[amountBigEnergy-1])
+                        #maps.printInfo(hero, way) #Если раскоментить здесь: Отображает виденее героя и его действия
 
                         #Если на позиции героя иконка монстра, а герой еще жив, значит они совершат движение одновременно
                         #if way[hero.myPosY][hero.myPosX] == 'M':
@@ -561,12 +589,15 @@ def main():
                     #        way[be.myPosY][be.myPosX] = 'E'
 
                     left, right, up, down, hero.moveTime = alg.algWave(hero, way)
+                    #maps.printInfo(hero, way) #Если раскоментить здесь: Отображает место куда герой уже наступил
                     #maps.clearNumFromMap(way) # очищаю карту от всех возможных путей(чисел) и оставляю только проложенный (+) (для удобства отображения)
 
                     #print ("Время движения: " + str(moveTime))
                 else:
                     hero.moveTime -= 1
                     left = right = up = down = False #Для плавного движения это убирается
+                    maps.clearWayNumFromMap(way)
+                    maps.printInfo(hero, way)
         else: slowSpeed -= 1
 
         #for mn in masMons: #Для плавного движения
