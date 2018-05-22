@@ -57,6 +57,8 @@ def printObs(monsters: List[ObservedMonster], index, fullInfo): #add_observation
         alg = 'Walk-2'
     elif monsters[monster_index].alg == 333:
         alg = 'Pursues-3'
+    elif monsters[monster_index].alg == 444:
+        alg = 'Bomb-4'
     else: alg = 'Unknown'
     print('Monster with alg {} and moveTime {}'.format(alg, monsters[monster_index].moveTime)) #monsters[monster_index].alg
     if fullInfo == True:

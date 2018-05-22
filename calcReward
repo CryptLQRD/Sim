@@ -1,0 +1,53 @@
+import os
+import datetime
+
+FILE_DIR = os.path.dirname(__file__)
+
+def calcReward (startEp):
+    todayTime = datetime.datetime.today()   #date = todayTime.strftime("%d-%m-%y")
+    time = todayTime.strftime("%H-%M-%S")
+    episod = 0
+    start = False
+    score = 0
+    MAXepisod = 0
+    MAXscore = 0
+    levelName = 0
+    wins = 0
+    defeat = 0
+    resultFile = open('%s/levels/episodes/result.txt' % FILE_DIR)
+    calcReward = open('%s/levels/episodes/Reward.txt' % FILE_DIR, 'a')
+
+    line = " "
+    commands = []
+    if line[0] != "":
+        for line in resultFile.readlines():
+            commands = line.split()  # разбиваем ее на отдельные команды
+            if len(commands) > 1:  # если количество команд > 1, то ищем эти команды
+                if commands[0] == "Эпизод" and commands[1] == "№":
+                    if commands[2] == str(startEp):
+                        start = True#hero.episod = int(commands[2])
+                    episod = int(commands[2])
+                    levelName = str(commands[6])
+                if start==True:
+                    if commands[0] == "Победа!":
+                        wins += 1
+                    if commands[0] == "Поражение!":
+                        defeat += 1
+                if len(commands) > 8:
+                    if start==True:
+                        if commands[8] == "Счёт:":
+                            score += float(commands[9])
+                            if MAXscore < float(commands[9]):
+                                MAXscore = float(commands[9])
+                                MAXepisod = episod
+    print(' Score: ' + str(score))
+    print('Episod: ' + str(episod))
+    print('Score/Episod: ' + str(score/episod))
+    calcReward.write('Эпизоды № ' + str(startEp) + '-' + str(episod) + ' | Средний счет: ' + str(score/episod) + ' | [' + str(MAXepisod) + ':' + str(MAXscore) + ']' + ' | Побед: ' + str(wins) + ' | Поражений: ' + str(defeat) + ' | Уровень: ' + str(levelName) + ' | Выполнено: ' + str(time) +'\n\n')#'   Время: ' + str(time) + '   Уровень: ' + levelName + '\n')  # выполнения эпизода
+
+    calcReward.close()
+    resultFile.close()
+
+if __name__ == '__main__':
+    startEp = 1
+    calcReward(startEp)

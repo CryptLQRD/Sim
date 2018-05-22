@@ -1,4 +1,60 @@
-Эпизод № 1   Время: 0:00:07.104123   Уровень: lvl1.txt
+Эпизоды № 1-100 | Средний счет: 27.195999999999994 | [29:32.3] | Побед: 91 | Поражений: 9 | Уровень: lvl1.txt | Выполнено: 05-06-17
+
+Эпизод № 1   Время: 0:00:07.894778   Уровень: lvl1.txt
+Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 29.4  (10 + 10 + 15 - 5.6)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 2
+ID:3 | Имя: Wraith | Alg: -999999 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 2   Время: 0:00:06.933083   Уровень: lvl1.txt
+Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 29.9  (10 + 10 + 15 - 5.1)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 2
+ID:3 | Имя: Wraith | Alg: -999999 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 3   Время: 0:00:04.536277   Уровень: lvl1.txt
+Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 31.4  (10 + 10 + 15 - 3.6)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
+ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 4   Время: 0:00:06.211576   Уровень: lvl1.txt
 Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 30.0  (10 + 10 + 15 - 5.0)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
@@ -9,15 +65,15 @@ MONSTER: Bomb | Alg: 444 | startMT: 0
 MONSTER: Bomb | Alg: 444 | startMT: 0
 ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
 ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 2
-ID:3 | Имя: Wraith | Alg: -999999 | startMT: 2
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
 ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
 ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 2   Время: 0:00:06.608255   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 1  |  Счёт: 24.9  (10 + 5 + 15 - 5.1)
+Эпизод № 5   Время: 0:00:03.192905   Уровень: lvl1.txt
+Победа!  |  Энергии: 7  |  Жизни: 2  |  Счёт: 29.5  (7 + 10 + 15 - 2.5)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
 MONSTER: Bird | Alg: 222 | startMT: 4
@@ -27,15 +83,15 @@ MONSTER: Bomb | Alg: 444 | startMT: 0
 MONSTER: Bomb | Alg: 444 | startMT: 0
 ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
 ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 2
-ID:3 | Имя: Wraith | Alg: -999999 | startMT: 2
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
 ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
 ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 3   Время: 0:00:05.213076   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 1  |  Счёт: 26.1  (10 + 5 + 15 - 3.9)
+Эпизод № 6   Время: 0:00:03.104951   Уровень: lvl1.txt
+Победа!  |  Энергии: 5  |  Жизни: 2  |  Счёт: 27.5  (5 + 10 + 15 - 2.5)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
 MONSTER: Bird | Alg: 222 | startMT: 4
@@ -45,87 +101,15 @@ MONSTER: Bomb | Alg: 444 | startMT: 0
 MONSTER: Bomb | Alg: 444 | startMT: 0
 ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
 ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 2
-ID:3 | Имя: Wraith | Alg: -999999 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 4   Время: 0:00:07.328962   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 29.0  (10 + 10 + 15 - 6.0)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: -999999 | startMT: 3
-ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 2
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
 ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
 ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
 ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 5   Время: 0:00:04.863672   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 30.5  (10 + 10 + 15 - 4.5)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 6   Время: 0:00:04.593376   Уровень: lvl1.txt
-Поражение!  |  Энергии: 10  |  Жизни: 0  |  Счёт: 7.0  (10 + 0 + 0 - 3.0)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 7   Время: 0:00:03.863097   Уровень: lvl1.txt
-Победа!  |  Энергии: 9  |  Жизни: 2  |  Счёт: 30.3  (9 + 10 + 15 - 3.7)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: -999999 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 8   Время: 0:00:04.510523   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 30.9  (10 + 10 + 15 - 4.1)
+Эпизод № 7   Время: 0:00:02.893701   Уровень: lvl1.txt
+Победа!  |  Энергии: 7  |  Жизни: 2  |  Счёт: 29.4  (7 + 10 + 15 - 2.6)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
 MONSTER: Bird | Alg: 222 | startMT: 4
@@ -142,80 +126,8 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 9   Время: 0:00:04.485385   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 30.2  (10 + 10 + 15 - 4.8)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 10   Время: 0:00:03.902813   Уровень: lvl1.txt
-Победа!  |  Энергии: 9  |  Жизни: 1  |  Счёт: 25.2  (9 + 5 + 15 - 3.8)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 11   Время: 0:00:03.511814   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 31.2  (10 + 10 + 15 - 3.8)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 12   Время: 0:00:03.526107   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 31.1  (10 + 10 + 15 - 3.9)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: -999999 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 13   Время: 0:00:03.253856   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 31.4  (10 + 10 + 15 - 3.6)
+Эпизод № 8   Время: 0:00:02.307319   Уровень: lvl1.txt
+Победа!  |  Энергии: 8  |  Жизни: 2  |  Счёт: 30.7  (8 + 10 + 15 - 2.3)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
 MONSTER: Bird | Alg: 222 | startMT: 4
@@ -232,8 +144,8 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 14   Время: 0:00:03.784037   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 30.7  (10 + 10 + 15 - 4.3)
+Эпизод № 9   Время: 0:00:02.338152   Уровень: lvl1.txt
+Победа!  |  Энергии: 8  |  Жизни: 2  |  Счёт: 30.7  (8 + 10 + 15 - 2.3)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
 MONSTER: Bird | Alg: 222 | startMT: 4
@@ -250,25 +162,7 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 15   Время: 0:00:04.359892   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 30.3  (10 + 10 + 15 - 4.7)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 16   Время: 0:00:01.730756   Уровень: lvl1.txt
+Эпизод № 10   Время: 0:00:01.835700   Уровень: lvl1.txt
 Победа!  |  Энергии: 6  |  Жизни: 2  |  Счёт: 29.0  (6 + 10 + 15 - 2.0)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
@@ -286,8 +180,8 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 17   Время: 0:00:04.898533   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 1  |  Счёт: 24.7  (10 + 5 + 15 - 5.3)
+Эпизод № 11   Время: 0:00:02.770101   Уровень: lvl1.txt
+Победа!  |  Энергии: 7  |  Жизни: 2  |  Счёт: 29.1  (7 + 10 + 15 - 2.9)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
 MONSTER: Bird | Alg: 222 | startMT: 4
@@ -304,7 +198,169 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 18   Время: 0:00:03.414608   Уровень: lvl1.txt
+Эпизод № 12   Время: 0:00:02.988996   Уровень: lvl1.txt
+Победа!  |  Энергии: 9  |  Жизни: 2  |  Счёт: 31.1  (9 + 10 + 15 - 2.9)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 13   Время: 0:00:01.962035   Уровень: lvl1.txt
+Победа!  |  Энергии: 6  |  Жизни: 2  |  Счёт: 28.8  (6 + 10 + 15 - 2.2)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 14   Время: 0:00:02.454950   Уровень: lvl1.txt
+Победа!  |  Энергии: 9  |  Жизни: 2  |  Счёт: 31.3  (9 + 10 + 15 - 2.7)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 15   Время: 0:00:04.642903   Уровень: lvl1.txt
+Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 30.9  (10 + 10 + 15 - 4.1)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 16   Время: 0:00:03.417106   Уровень: lvl1.txt
+Поражение!  |  Энергии: 9  |  Жизни: 0  |  Счёт: 6.3  (9 + 0 + 0 - 2.7)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 17   Время: 0:00:02.519279   Уровень: lvl1.txt
+Победа!  |  Энергии: 6  |  Жизни: 2  |  Счёт: 28.5  (6 + 10 + 15 - 2.5)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 18   Время: 0:00:02.517008   Уровень: lvl1.txt
+Победа!  |  Энергии: 8  |  Жизни: 2  |  Счёт: 30.2  (8 + 10 + 15 - 2.8)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 19   Время: 0:00:01.637240   Уровень: lvl1.txt
+Победа!  |  Энергии: 6  |  Жизни: 2  |  Счёт: 29.2  (6 + 10 + 15 - 1.8)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 20   Время: 0:00:03.084293   Уровень: lvl1.txt
+Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 31.7  (10 + 10 + 15 - 3.3)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 21   Время: 0:00:03.689702   Уровень: lvl1.txt
 Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 31.1  (10 + 10 + 15 - 3.9)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
@@ -322,8 +378,8 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 19   Время: 0:00:02.997256   Уровень: lvl1.txt
-Победа!  |  Энергии: 8  |  Жизни: 1  |  Счёт: 25.0  (8 + 5 + 15 - 3.0)
+Эпизод № 22   Время: 0:00:01.869854   Уровень: lvl1.txt
+Победа!  |  Энергии: 5  |  Жизни: 2  |  Счёт: 28.0  (5 + 10 + 15 - 2.0)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
 MONSTER: Bird | Alg: 222 | startMT: 4
@@ -340,511 +396,7 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 20   Время: 0:00:04.693411   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 1  |  Счёт: 25.3  (10 + 5 + 15 - 4.7)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 21   Время: 0:00:04.300027   Уровень: lvl1.txt
-Поражение!  |  Энергии: 9  |  Жизни: 0  |  Счёт: 5.4  (9 + 0 + 0 - 3.6)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 22   Время: 0:00:03.817548   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 1  |  Счёт: 26.3  (10 + 5 + 15 - 3.7)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 23   Время: 0:00:01.765264   Уровень: lvl1.txt
-Победа!  |  Энергии: 7  |  Жизни: 2  |  Счёт: 30.0  (7 + 10 + 15 - 2.0)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 24   Время: 0:00:05.083814   Уровень: lvl1.txt
-Поражение!  |  Энергии: 10  |  Жизни: 0  |  Счёт: 5.4  (10 + 0 + 0 - 4.6)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 25   Время: 0:00:04.692427   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 1  |  Счёт: 25.4  (10 + 5 + 15 - 4.6)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 26   Время: 0:00:03.067210   Уровень: lvl1.txt
-Победа!  |  Энергии: 8  |  Жизни: 2  |  Счёт: 29.6  (8 + 10 + 15 - 3.4)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 27   Время: 0:00:04.751213   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 1  |  Счёт: 25.1  (10 + 5 + 15 - 4.9)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 28   Время: 0:00:04.434834   Уровень: lvl1.txt
-Поражение!  |  Энергии: 9  |  Жизни: 0  |  Счёт: 5.2  (9 + 0 + 0 - 3.8)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 29   Время: 0:00:04.123859   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 30.7  (10 + 10 + 15 - 4.3)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 30   Время: 0:00:03.580470   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 30.9  (10 + 10 + 15 - 4.1)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 31   Время: 0:00:02.123185   Уровень: lvl1.txt
-Поражение!  |  Энергии: 6  |  Жизни: 0  |  Счёт: 4.7  (6 + 0 + 0 - 1.3)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 32   Время: 0:00:03.590315   Уровень: lvl1.txt
-Победа!  |  Энергии: 8  |  Жизни: 1  |  Счёт: 24.4  (8 + 5 + 15 - 3.6)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 33   Время: 0:00:05.906849   Уровень: lvl1.txt
-Поражение!  |  Энергии: 10  |  Жизни: 0  |  Счёт: 19.7  (10 + 0 + 15 - 5.3)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 34   Время: 0:00:03.837663   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 30.9  (10 + 10 + 15 - 4.1)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 35   Время: 0:00:02.494654   Уровень: lvl1.txt
-Победа!  |  Энергии: 8  |  Жизни: 2  |  Счёт: 30.3  (8 + 10 + 15 - 2.7)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 36   Время: 0:00:01.270842   Уровень: lvl1.txt
-Победа!  |  Энергии: 4  |  Жизни: 2  |  Счёт: 27.6  (4 + 10 + 15 - 1.4)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 37   Время: 0:00:03.315171   Уровень: lvl1.txt
-Победа!  |  Энергии: 9  |  Жизни: 2  |  Счёт: 30.3  (9 + 10 + 15 - 3.7)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 38   Время: 0:00:04.572148   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 30.2  (10 + 10 + 15 - 4.8)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 39   Время: 0:00:02.773013   Уровень: lvl1.txt
-Победа!  |  Энергии: 9  |  Жизни: 2  |  Счёт: 31.0  (9 + 10 + 15 - 3.0)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 40   Время: 0:00:04.616114   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 1  |  Счёт: 25.4  (10 + 5 + 15 - 4.6)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 41   Время: 0:00:03.512421   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 31.2  (10 + 10 + 15 - 3.8)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 42   Время: 0:00:02.717759   Уровень: lvl1.txt
-Победа!  |  Энергии: 7  |  Жизни: 2  |  Счёт: 29.0  (7 + 10 + 15 - 3.0)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 43   Время: 0:00:04.254216   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 1  |  Счёт: 26.0  (10 + 5 + 15 - 4.0)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 44   Время: 0:00:03.026647   Уровень: lvl1.txt
-Победа!  |  Энергии: 7  |  Жизни: 2  |  Счёт: 29.0  (7 + 10 + 15 - 3.0)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 45   Время: 0:00:01.628663   Уровень: lvl1.txt
-Победа!  |  Энергии: 5  |  Жизни: 2  |  Счёт: 28.2  (5 + 10 + 15 - 1.8)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 46   Время: 0:00:03.783080   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 30.7  (10 + 10 + 15 - 4.3)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 47   Время: 0:00:03.308312   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 31.2  (10 + 10 + 15 - 3.8)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 48   Время: 0:00:04.269211   Уровень: lvl1.txt
+Эпизод № 23   Время: 0:00:04.191905   Уровень: lvl1.txt
 Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 30.6  (10 + 10 + 15 - 4.4)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
@@ -862,8 +414,8 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 49   Время: 0:00:03.422594   Уровень: lvl1.txt
-Победа!  |  Энергии: 9  |  Жизни: 2  |  Счёт: 30.2  (9 + 10 + 15 - 3.8)
+Эпизод № 24   Время: 0:00:03.238907   Уровень: lvl1.txt
+Победа!  |  Энергии: 8  |  Жизни: 1  |  Счёт: 24.8  (8 + 5 + 15 - 3.2)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
 MONSTER: Bird | Alg: 222 | startMT: 4
@@ -880,8 +432,8 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 50   Время: 0:00:05.619203   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 30.5  (10 + 10 + 15 - 4.5)
+Эпизод № 25   Время: 0:00:02.686551   Уровень: lvl1.txt
+Поражение!  |  Энергии: 8  |  Жизни: 0  |  Счёт: 5.7  (8 + 0 + 0 - 2.3)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
 MONSTER: Bird | Alg: 222 | startMT: 4
@@ -898,61 +450,7 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 51   Время: 0:00:01.321670   Уровень: lvl1.txt
-Победа!  |  Энергии: 4  |  Жизни: 2  |  Счёт: 27.5  (4 + 10 + 15 - 1.5)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 52   Время: 0:00:03.844019   Уровень: lvl1.txt
-Поражение!  |  Энергии: 9  |  Жизни: 0  |  Счёт: 5.6  (9 + 0 + 0 - 3.4)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 53   Время: 0:00:04.468044   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 1  |  Счёт: 25.5  (10 + 5 + 15 - 4.5)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 54   Время: 0:00:01.804052   Уровень: lvl1.txt
+Эпизод № 26   Время: 0:00:01.724570   Уровень: lvl1.txt
 Победа!  |  Энергии: 6  |  Жизни: 2  |  Счёт: 29.1  (6 + 10 + 15 - 1.9)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
@@ -970,7 +468,349 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 55   Время: 0:00:03.731300   Уровень: lvl1.txt
+Эпизод № 27   Время: 0:00:02.955269   Уровень: lvl1.txt
+Победа!  |  Энергии: 7  |  Жизни: 1  |  Счёт: 24.1  (7 + 5 + 15 - 2.9)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 28   Время: 0:00:02.492405   Уровень: lvl1.txt
+Победа!  |  Энергии: 7  |  Жизни: 2  |  Счёт: 29.2  (7 + 10 + 15 - 2.8)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 29   Время: 0:00:02.680259   Уровень: lvl1.txt
+Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 32.3  (10 + 10 + 15 - 2.7)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 30   Время: 0:00:04.288166   Уровень: lvl1.txt
+Поражение!  |  Энергии: 10  |  Жизни: 0  |  Счёт: 6.1  (10 + 0 + 0 - 3.9)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 31   Время: 0:00:04.200044   Уровень: lvl1.txt
+Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 30.4  (10 + 10 + 15 - 4.6)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 32   Время: 0:00:01.352258   Уровень: lvl1.txt
+Победа!  |  Энергии: 6  |  Жизни: 2  |  Счёт: 29.5  (6 + 10 + 15 - 1.5)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 33   Время: 0:00:01.836236   Уровень: lvl1.txt
+Победа!  |  Энергии: 5  |  Жизни: 2  |  Счёт: 28.1  (5 + 10 + 15 - 1.9)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 34   Время: 0:00:02.364264   Уровень: lvl1.txt
+Победа!  |  Энергии: 8  |  Жизни: 2  |  Счёт: 30.4  (8 + 10 + 15 - 2.6)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 35   Время: 0:00:02.019666   Уровень: lvl1.txt
+Победа!  |  Энергии: 5  |  Жизни: 2  |  Счёт: 27.9  (5 + 10 + 15 - 2.1)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 36   Время: 0:00:02.972098   Уровень: lvl1.txt
+Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 31.8  (10 + 10 + 15 - 3.2)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 37   Время: 0:00:01.747093   Уровень: lvl1.txt
+Победа!  |  Энергии: 5  |  Жизни: 2  |  Счёт: 28.1  (5 + 10 + 15 - 1.9)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 38   Время: 0:00:02.742807   Уровень: lvl1.txt
+Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 32.1  (10 + 10 + 15 - 2.9)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 39   Время: 0:00:01.311732   Уровень: lvl1.txt
+Поражение!  |  Энергии: 2  |  Жизни: 0  |  Счёт: 1.3  (2 + 0 + 0 - 0.7)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 40   Время: 0:00:02.558227   Уровень: lvl1.txt
+Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 32.2  (10 + 10 + 15 - 2.8)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 41   Время: 0:00:01.612468   Уровень: lvl1.txt
+Победа!  |  Энергии: 4  |  Жизни: 2  |  Счёт: 27.4  (4 + 10 + 15 - 1.6)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 42   Время: 0:00:02.463530   Уровень: lvl1.txt
+Победа!  |  Энергии: 7  |  Жизни: 2  |  Счёт: 29.3  (7 + 10 + 15 - 2.7)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 43   Время: 0:00:02.030441   Уровень: lvl1.txt
+Победа!  |  Энергии: 8  |  Жизни: 2  |  Счёт: 30.8  (8 + 10 + 15 - 2.2)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 44   Время: 0:00:03.162909   Уровень: lvl1.txt
+Поражение!  |  Энергии: 8  |  Жизни: 0  |  Счёт: 5.3  (8 + 0 + 0 - 2.7)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 45   Время: 0:00:03.992765   Уровень: lvl1.txt
+Победа!  |  Энергии: 9  |  Жизни: 2  |  Счёт: 29.8  (9 + 10 + 15 - 4.2)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 46   Время: 0:00:03.688094   Уровень: lvl1.txt
 Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 31.1  (10 + 10 + 15 - 3.9)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
@@ -988,8 +828,8 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 56   Время: 0:00:04.112060   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 30.7  (10 + 10 + 15 - 4.3)
+Эпизод № 47   Время: 0:00:06.616593   Уровень: lvl1.txt
+Победа!  |  Энергии: 10  |  Жизни: 1  |  Счёт: 24.1  (10 + 5 + 15 - 5.9)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
 MONSTER: Bird | Alg: 222 | startMT: 4
@@ -1006,8 +846,8 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 57   Время: 0:00:01.621661   Уровень: lvl1.txt
-Победа!  |  Энергии: 5  |  Жизни: 2  |  Счёт: 28.3  (5 + 10 + 15 - 1.7)
+Эпизод № 48   Время: 0:00:03.778415   Уровень: lvl1.txt
+Победа!  |  Энергии: 9  |  Жизни: 1  |  Счёт: 25.3  (9 + 5 + 15 - 3.7)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
 MONSTER: Bird | Alg: 222 | startMT: 4
@@ -1024,8 +864,8 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 58   Время: 0:00:03.056492   Уровень: lvl1.txt
-Победа!  |  Энергии: 9  |  Жизни: 2  |  Счёт: 31.2  (9 + 10 + 15 - 2.8)
+Эпизод № 49   Время: 0:00:03.328017   Уровень: lvl1.txt
+Победа!  |  Энергии: 7  |  Жизни: 2  |  Счёт: 28.5  (7 + 10 + 15 - 3.5)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
 MONSTER: Bird | Alg: 222 | startMT: 4
@@ -1042,8 +882,8 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 59   Время: 0:00:06.026223   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 29.6  (10 + 10 + 15 - 5.4)
+Эпизод № 50   Время: 0:00:03.143177   Уровень: lvl1.txt
+Победа!  |  Энергии: 9  |  Жизни: 2  |  Счёт: 30.5  (9 + 10 + 15 - 3.5)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
 MONSTER: Bird | Alg: 222 | startMT: 4
@@ -1060,8 +900,8 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 60   Время: 0:00:06.992318   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 1  |  Счёт: 25.0  (10 + 5 + 15 - 5.0)
+Эпизод № 51   Время: 0:00:03.037720   Уровень: lvl1.txt
+Победа!  |  Энергии: 8  |  Жизни: 2  |  Счёт: 29.6  (8 + 10 + 15 - 3.4)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
 MONSTER: Bird | Alg: 222 | startMT: 4
@@ -1078,8 +918,8 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 61   Время: 0:00:04.287028   Уровень: lvl1.txt
-Победа!  |  Энергии: 9  |  Жизни: 2  |  Счёт: 30.1  (9 + 10 + 15 - 3.9)
+Эпизод № 52   Время: 0:00:02.151317   Уровень: lvl1.txt
+Победа!  |  Энергии: 6  |  Жизни: 2  |  Счёт: 28.6  (6 + 10 + 15 - 2.4)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
 MONSTER: Bird | Alg: 222 | startMT: 4
@@ -1096,8 +936,8 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 62   Время: 0:00:03.241215   Уровень: lvl1.txt
-Победа!  |  Энергии: 8  |  Жизни: 2  |  Счёт: 29.5  (8 + 10 + 15 - 3.5)
+Эпизод № 53   Время: 0:00:02.758444   Уровень: lvl1.txt
+Победа!  |  Энергии: 9  |  Жизни: 2  |  Счёт: 30.9  (9 + 10 + 15 - 3.1)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
 MONSTER: Bird | Alg: 222 | startMT: 4
@@ -1114,8 +954,8 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 63   Время: 0:00:01.422666   Уровень: lvl1.txt
-Победа!  |  Энергии: 5  |  Жизни: 2  |  Счёт: 28.4  (5 + 10 + 15 - 1.6)
+Эпизод № 54   Время: 0:00:03.896882   Уровень: lvl1.txt
+Победа!  |  Энергии: 10  |  Жизни: 1  |  Счёт: 26.1  (10 + 5 + 15 - 3.9)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
 MONSTER: Bird | Alg: 222 | startMT: 4
@@ -1132,8 +972,8 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 64   Время: 0:00:03.921218   Уровень: lvl1.txt
-Поражение!  |  Энергии: 6  |  Жизни: 0  |  Счёт: 4.8  (6 + 0 + 0 - 1.2)
+Эпизод № 55   Время: 0:00:04.519718   Уровень: lvl1.txt
+Поражение!  |  Энергии: 9  |  Жизни: 0  |  Счёт: 4.9  (9 + 0 + 0 - 4.1)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
 MONSTER: Bird | Alg: 222 | startMT: 4
@@ -1150,8 +990,8 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 65   Время: 0:00:02.640882   Уровень: lvl1.txt
-Победа!  |  Энергии: 8  |  Жизни: 1  |  Счёт: 25.5  (8 + 5 + 15 - 2.5)
+Эпизод № 56   Время: 0:00:04.395284   Уровень: lvl1.txt
+Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 30.3  (10 + 10 + 15 - 4.7)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
 MONSTER: Bird | Alg: 222 | startMT: 4
@@ -1168,7 +1008,7 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 66   Время: 0:00:03.104354   Уровень: lvl1.txt
+Эпизод № 57   Время: 0:00:03.218642   Уровень: lvl1.txt
 Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 31.6  (10 + 10 + 15 - 3.4)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
@@ -1186,8 +1026,8 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 67   Время: 0:00:03.632111   Уровень: lvl1.txt
-Победа!  |  Энергии: 9  |  Жизни: 2  |  Счёт: 30.2  (9 + 10 + 15 - 3.8)
+Эпизод № 58   Время: 0:00:02.524931   Уровень: lvl1.txt
+Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 32.3  (10 + 10 + 15 - 2.7)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
 MONSTER: Bird | Alg: 222 | startMT: 4
@@ -1204,8 +1044,8 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 68   Время: 0:00:03.037514   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 31.9  (10 + 10 + 15 - 3.1)
+Эпизод № 59   Время: 0:00:03.792090   Уровень: lvl1.txt
+Победа!  |  Энергии: 9  |  Жизни: 2  |  Счёт: 30.4  (9 + 10 + 15 - 3.6)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
 MONSTER: Bird | Alg: 222 | startMT: 4
@@ -1222,8 +1062,8 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 69   Время: 0:00:05.556294   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 1  |  Счёт: 25.3  (10 + 5 + 15 - 4.7)
+Эпизод № 60   Время: 0:00:02.923201   Уровень: lvl1.txt
+Победа!  |  Энергии: 9  |  Жизни: 2  |  Счёт: 30.9  (9 + 10 + 15 - 3.1)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
 MONSTER: Bird | Alg: 222 | startMT: 4
@@ -1240,8 +1080,8 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 70   Время: 0:00:03.131159   Уровень: lvl1.txt
-Победа!  |  Энергии: 9  |  Жизни: 2  |  Счёт: 30.6  (9 + 10 + 15 - 3.4)
+Эпизод № 61   Время: 0:00:01.875599   Уровень: lvl1.txt
+Победа!  |  Энергии: 5  |  Жизни: 2  |  Счёт: 28.0  (5 + 10 + 15 - 2.0)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
 MONSTER: Bird | Alg: 222 | startMT: 4
@@ -1258,8 +1098,8 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 71   Время: 0:00:05.338186   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 29.6  (10 + 10 + 15 - 5.4)
+Эпизод № 62   Время: 0:00:02.223207   Уровень: lvl1.txt
+Победа!  |  Энергии: 9  |  Жизни: 2  |  Счёт: 31.7  (9 + 10 + 15 - 2.3)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
 MONSTER: Bird | Alg: 222 | startMT: 4
@@ -1276,8 +1116,8 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 72   Время: 0:00:04.474944   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 30.5  (10 + 10 + 15 - 4.5)
+Эпизод № 63   Время: 0:00:03.019187   Уровень: lvl1.txt
+Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 31.8  (10 + 10 + 15 - 3.2)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
 MONSTER: Bird | Alg: 222 | startMT: 4
@@ -1294,8 +1134,8 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 73   Время: 0:00:04.555539   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 1  |  Счёт: 25.9  (10 + 5 + 15 - 4.1)
+Эпизод № 64   Время: 0:00:05.453600   Уровень: lvl1.txt
+Победа!  |  Энергии: 10  |  Жизни: 1  |  Счёт: 24.7  (10 + 5 + 15 - 5.3)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
 MONSTER: Bird | Alg: 222 | startMT: 4
@@ -1312,8 +1152,8 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 74   Время: 0:00:05.373375   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 29.8  (10 + 10 + 15 - 5.2)
+Эпизод № 65   Время: 0:00:02.190581   Уровень: lvl1.txt
+Победа!  |  Энергии: 7  |  Жизни: 2  |  Счёт: 29.8  (7 + 10 + 15 - 2.2)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
 MONSTER: Bird | Alg: 222 | startMT: 4
@@ -1330,8 +1170,8 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 75   Время: 0:00:05.721588   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 1  |  Счёт: 24.6  (10 + 5 + 15 - 5.4)
+Эпизод № 66   Время: 0:00:02.484327   Уровень: lvl1.txt
+Победа!  |  Энергии: 8  |  Жизни: 2  |  Счёт: 30.3  (8 + 10 + 15 - 2.7)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
 MONSTER: Bird | Alg: 222 | startMT: 4
@@ -1348,7 +1188,205 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 76   Время: 0:00:03.427256   Уровень: lvl1.txt
+Эпизод № 67   Время: 0:00:03.102434   Уровень: lvl1.txt
+Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 31.7  (10 + 10 + 15 - 3.3)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 68   Время: 0:00:03.135213   Уровень: lvl1.txt
+Победа!  |  Энергии: 7  |  Жизни: 2  |  Счёт: 28.7  (7 + 10 + 15 - 3.3)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 69   Время: 0:00:04.474951   Уровень: lvl1.txt
+Победа!  |  Энергии: 10  |  Жизни: 1  |  Счёт: 25.6  (10 + 5 + 15 - 4.4)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 70   Время: 0:00:04.574075   Уровень: lvl1.txt
+Поражение!  |  Энергии: 10  |  Жизни: 0  |  Счёт: 6.0  (10 + 0 + 0 - 4.0)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 71   Время: 0:00:02.587648   Уровень: lvl1.txt
+Победа!  |  Энергии: 9  |  Жизни: 2  |  Счёт: 31.1  (9 + 10 + 15 - 2.9)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 72   Время: 0:00:06.262969   Уровень: lvl1.txt
+Победа!  |  Энергии: 10  |  Жизни: 1  |  Счёт: 23.8  (10 + 5 + 15 - 6.2)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 73   Время: 0:00:02.850761   Уровень: lvl1.txt
+Победа!  |  Энергии: 7  |  Жизни: 2  |  Счёт: 29.0  (7 + 10 + 15 - 3.0)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 74   Время: 0:00:01.269114   Уровень: lvl1.txt
+Победа!  |  Энергии: 3  |  Жизни: 2  |  Счёт: 26.7  (3 + 10 + 15 - 1.3)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 75   Время: 0:00:03.315864   Уровень: lvl1.txt
+Победа!  |  Энергии: 9  |  Жизни: 2  |  Счёт: 30.4  (9 + 10 + 15 - 3.6)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 76   Время: 0:00:02.686321   Уровень: lvl1.txt
+Победа!  |  Энергии: 8  |  Жизни: 2  |  Счёт: 30.1  (8 + 10 + 15 - 2.9)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 77   Время: 0:00:03.792599   Уровень: lvl1.txt
+Победа!  |  Энергии: 8  |  Жизни: 1  |  Счёт: 24.1  (8 + 5 + 15 - 3.9)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 78   Время: 0:00:03.518263   Уровень: lvl1.txt
 Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 31.1  (10 + 10 + 15 - 3.9)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
@@ -1366,8 +1404,8 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 77   Время: 0:00:01.790589   Уровень: lvl1.txt
-Поражение!  |  Энергии: 5  |  Жизни: 0  |  Счёт: 3.7  (5 + 0 + 0 - 1.3)
+Эпизод № 79   Время: 0:00:02.886911   Уровень: lvl1.txt
+Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 31.8  (10 + 10 + 15 - 3.2)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
 MONSTER: Bird | Alg: 222 | startMT: 4
@@ -1384,8 +1422,8 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 78   Время: 0:00:03.193987   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 31.5  (10 + 10 + 15 - 3.5)
+Эпизод № 80   Время: 0:00:02.401803   Уровень: lvl1.txt
+Победа!  |  Энергии: 9  |  Жизни: 2  |  Счёт: 31.3  (9 + 10 + 15 - 2.7)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
 MONSTER: Bird | Alg: 222 | startMT: 4
@@ -1402,8 +1440,8 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 79   Время: 0:00:01.818763   Уровень: lvl1.txt
-Победа!  |  Энергии: 6  |  Жизни: 2  |  Счёт: 29.0  (6 + 10 + 15 - 2.0)
+Эпизод № 81   Время: 0:00:04.694427   Уровень: lvl1.txt
+Поражение!  |  Энергии: 10  |  Жизни: 0  |  Счёт: 5.8  (10 + 0 + 0 - 4.2)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
 MONSTER: Bird | Alg: 222 | startMT: 4
@@ -1420,8 +1458,8 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 80   Время: 0:00:02.786055   Уровень: lvl1.txt
-Поражение!  |  Энергии: 7  |  Жизни: 0  |  Счёт: 4.8  (7 + 0 + 0 - 2.2)
+Эпизод № 82   Время: 0:00:02.381010   Уровень: lvl1.txt
+Победа!  |  Энергии: 9  |  Жизни: 2  |  Счёт: 31.3  (9 + 10 + 15 - 2.7)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
 MONSTER: Bird | Alg: 222 | startMT: 4
@@ -1438,8 +1476,8 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 81   Время: 0:00:01.544336   Уровень: lvl1.txt
-Поражение!  |  Энергии: 2  |  Жизни: 0  |  Счёт: 1.1  (2 + 0 + 0 - 0.9)
+Эпизод № 83   Время: 0:00:02.412613   Уровень: lvl1.txt
+Победа!  |  Энергии: 8  |  Жизни: 2  |  Счёт: 30.3  (8 + 10 + 15 - 2.7)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
 MONSTER: Bird | Alg: 222 | startMT: 4
@@ -1456,8 +1494,8 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 82   Время: 0:00:05.147241   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 1  |  Счёт: 25.4  (10 + 5 + 15 - 4.6)
+Эпизод № 84   Время: 0:00:02.105410   Уровень: lvl1.txt
+Победа!  |  Энергии: 8  |  Жизни: 2  |  Счёт: 30.7  (8 + 10 + 15 - 2.3)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
 MONSTER: Bird | Alg: 222 | startMT: 4
@@ -1474,7 +1512,187 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 83   Время: 0:00:04.144114   Уровень: lvl1.txt
+Эпизод № 85   Время: 0:00:04.198807   Уровень: lvl1.txt
+Победа!  |  Энергии: 9  |  Жизни: 1  |  Счёт: 24.8  (9 + 5 + 15 - 4.2)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 86   Время: 0:00:01.959490   Уровень: lvl1.txt
+Победа!  |  Энергии: 6  |  Жизни: 2  |  Счёт: 28.9  (6 + 10 + 15 - 2.1)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 87   Время: 0:00:02.364240   Уровень: lvl1.txt
+Победа!  |  Энергии: 7  |  Жизни: 2  |  Счёт: 29.7  (7 + 10 + 15 - 2.3)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 88   Время: 0:00:18.987889   Уровень: lvl1.txt
+Победа!  |  Энергии: 8  |  Жизни: 2  |  Счёт: 29.9  (8 + 10 + 15 - 3.1)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 89   Время: 0:00:02.295988   Уровень: lvl1.txt
+Победа!  |  Энергии: 7  |  Жизни: 2  |  Счёт: 30.1  (7 + 10 + 15 - 1.9)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 90   Время: 0:00:03.402357   Уровень: lvl1.txt
+Поражение!  |  Энергии: 8  |  Жизни: 0  |  Счёт: 5.0  (8 + 0 + 0 - 3.0)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 91   Время: 0:00:01.742494   Уровень: lvl1.txt
+Победа!  |  Энергии: 7  |  Жизни: 2  |  Счёт: 30.0  (7 + 10 + 15 - 2.0)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 92   Время: 0:00:03.283272   Уровень: lvl1.txt
+Победа!  |  Энергии: 9  |  Жизни: 2  |  Счёт: 30.4  (9 + 10 + 15 - 3.6)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 93   Время: 0:00:01.675394   Уровень: lvl1.txt
+Победа!  |  Энергии: 6  |  Жизни: 2  |  Счёт: 29.1  (6 + 10 + 15 - 1.9)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 94   Время: 0:00:02.564452   Уровень: lvl1.txt
+Победа!  |  Энергии: 7  |  Жизни: 1  |  Счёт: 24.7  (7 + 5 + 15 - 2.3)
+
+MONSTER: Bat | Alg: 111 | startMT: 3
+MONSTER: Bird | Alg: 222 | startMT: 4
+MONSTER: Pursuer | Alg: 333 | startMT: 2
+MONSTER: Wraith | Alg: 333 | startMT: 2
+MONSTER: Bomb | Alg: 444 | startMT: 0
+MONSTER: Bomb | Alg: 444 | startMT: 0
+ID:0 | Имя: Bat | Alg: 111 | startMT: 3
+ID:1 | Имя: Bird | Alg: 222 | startMT: 4
+ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
+ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
+ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
+ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
+
+
+
+Эпизод № 95   Время: 0:00:04.145002   Уровень: lvl1.txt
 Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 30.6  (10 + 10 + 15 - 4.4)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
@@ -1492,8 +1710,8 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 84   Время: 0:00:04.037693   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 30.9  (10 + 10 + 15 - 4.1)
+Эпизод № 96   Время: 0:00:01.388197   Уровень: lvl1.txt
+Победа!  |  Энергии: 5  |  Жизни: 2  |  Счёт: 28.6  (5 + 10 + 15 - 1.4)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
 MONSTER: Bird | Alg: 222 | startMT: 4
@@ -1510,8 +1728,8 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 85   Время: 0:00:02.206512   Уровень: lvl1.txt
-Победа!  |  Энергии: 5  |  Жизни: 2  |  Счёт: 27.5  (5 + 10 + 15 - 2.5)
+Эпизод № 97   Время: 0:00:03.269246   Уровень: lvl1.txt
+Победа!  |  Энергии: 8  |  Жизни: 2  |  Счёт: 29.6  (8 + 10 + 15 - 3.4)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
 MONSTER: Bird | Alg: 222 | startMT: 4
@@ -1528,8 +1746,8 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 86   Время: 0:00:03.517377   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 31.0  (10 + 10 + 15 - 4.0)
+Эпизод № 98   Время: 0:00:02.521264   Уровень: lvl1.txt
+Победа!  |  Энергии: 8  |  Жизни: 2  |  Счёт: 30.5  (8 + 10 + 15 - 2.5)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
 MONSTER: Bird | Alg: 222 | startMT: 4
@@ -1546,8 +1764,8 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 87   Время: 0:00:03.394481   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 31.2  (10 + 10 + 15 - 3.8)
+Эпизод № 99   Время: 0:00:01.375627   Уровень: lvl1.txt
+Победа!  |  Энергии: 3  |  Жизни: 2  |  Счёт: 26.6  (3 + 10 + 15 - 1.4)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
 MONSTER: Bird | Alg: 222 | startMT: 4
@@ -1564,8 +1782,8 @@ ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 
-Эпизод № 88   Время: 0:00:03.150691   Уровень: lvl1.txt
-Поражение!  |  Энергии: 6  |  Жизни: 0  |  Счёт: 3.4  (6 + 0 + 0 - 2.6)
+Эпизод № 100   Время: 0:00:05.266869   Уровень: lvl1.txt
+Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 30.2  (10 + 10 + 15 - 4.8)
 
 MONSTER: Bat | Alg: 111 | startMT: 3
 MONSTER: Bird | Alg: 222 | startMT: 4
@@ -1580,221 +1798,6 @@ ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
 ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
 ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
-
-
-Эпизод № 89   Время: 0:00:01.674914   Уровень: lvl1.txt
-Победа!  |  Энергии: 5  |  Жизни: 2  |  Счёт: 28.2  (5 + 10 + 15 - 1.8)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 90   Время: 0:00:03.065689   Уровень: lvl1.txt
-Победа!  |  Энергии: 6  |  Жизни: 1  |  Счёт: 23.2  (6 + 5 + 15 - 2.8)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 91   Время: 0:00:06.413444   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 28.5  (10 + 10 + 15 - 6.5)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 92   Время: 0:00:02.616518   Уровень: lvl1.txt
-Победа!  |  Энергии: 8  |  Жизни: 1  |  Счёт: 25.5  (8 + 5 + 15 - 2.5)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 93   Время: 0:00:03.467774   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 31.2  (10 + 10 + 15 - 3.8)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 94   Время: 0:00:03.873031   Уровень: lvl1.txt
-Поражение!  |  Энергии: 9  |  Жизни: 0  |  Счёт: 5.7  (9 + 0 + 0 - 3.3)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 95   Время: 0:00:03.553435   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 1  |  Счёт: 26.4  (10 + 5 + 15 - 3.6)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 96   Время: 0:00:03.923677   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 1  |  Счёт: 26.3  (10 + 5 + 15 - 3.7)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 97   Время: 0:00:02.859690   Уровень: lvl1.txt
-Победа!  |  Энергии: 7  |  Жизни: 1  |  Счёт: 24.2  (7 + 5 + 15 - 2.8)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 98   Время: 0:00:03.503565   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 31.1  (10 + 10 + 15 - 3.9)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 99   Время: 0:00:02.121897   Уровень: lvl1.txt
-Победа!  |  Энергии: 8  |  Жизни: 2  |  Счёт: 30.6  (8 + 10 + 15 - 2.4)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
-
-
-
-Эпизод № 100   Время: 0:00:04.130571   Уровень: lvl1.txt
-Победа!  |  Энергии: 10  |  Жизни: 2  |  Счёт: 30.5  (10 + 10 + 15 - 4.5)
-
-MONSTER: Bat | Alg: 111 | startMT: 3
-MONSTER: Bird | Alg: 222 | startMT: 4
-MONSTER: Pursuer | Alg: 333 | startMT: 2
-MONSTER: Wraith | Alg: 333 | startMT: 2
-MONSTER: Bomb | Alg: 444 | startMT: 0
-MONSTER: Bomb | Alg: 444 | startMT: 0
-ID:0 | Имя: Bat | Alg: 111 | startMT: 3
-ID:1 | Имя: Bird | Alg: 222 | startMT: 4
-ID:2 | Имя: Pursuer | Alg: 333 | startMT: 2
-ID:3 | Имя: Wraith | Alg: 333 | startMT: 2
-ID:4 | Имя: Bomb | Alg: 444 | startMT: -999999
-ID:5 | Имя: Bomb | Alg: 444 | startMT: -999999
 
 
 

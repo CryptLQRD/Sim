@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+__metaclass__ = type
 
 from typing import List
 from pygame import *
@@ -606,7 +607,7 @@ class Monster(sprite.Sprite): # Класс монстров
         Monster.moveOn(self, self.left, self.right, self.up, self.down)
         self.moveTime = self.startMoveTime #(self.startMoveTime + 1)*number - 1
 
-    def checkForPendingMove(self, monWay, way):
+    def checkForPendingMove(self, monWay, way): #Алгоритм проверки в процессе движения не найден ли игрок?
         stopUp = False
         stopDown = False
         stopLeft = False
@@ -649,11 +650,6 @@ class Monster(sprite.Sprite): # Класс монстров
                             self.myTargetPosY = self.myPosY
                     else:
                         stopRight = True
-
-
-
-    def pursueMove(self, hero, way: List[List[int]]):
-        1
 
 
 
@@ -888,3 +884,12 @@ class Wraith(Monster):
             boltAnim.append((anim, ANIMATION_WRAITH_DELAY))
         self.boltAnimUp = pyganim.PygAnimation(boltAnim)
         self.boltAnimUp.play()
+
+class Bomb(Monster):
+    def __init__(self, x, y, moveOnLeft, moveOnUp, algorithm, startMoveTime):
+        Monster.__init__(self, x, y, moveOnLeft, moveOnUp, algorithm, startMoveTime)
+        self.name = 'Bomb'
+        moveOnLeft = moveOnUp = startMoveTime = 0
+        # Анимация полета направо
+        self.image = Surface((MONSTER_WIDTH, MONSTER_HEIGHT))
+        self.image = image.load("%s/monsters/bomb.png" % ICON_DIR)

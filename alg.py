@@ -90,9 +90,9 @@ def identificationAlg (hero, way: List[List[int]], masMons):
         depth = 240 # Стоит делить на moveTime отдельного монстра, иначе следует сделать переменные с сохранением предыдущих результатов (Пример stepX и stepY) При depth=60 и moveTime=4 step =15
         checkList = []
         timesXY111alg = 15 # Сколько раз подряд монстр должен сходить по одной и той же координате для того, чтобы алгоритм посчитал его 111
-        alg111 = 100
-        alg222 = 65    #кол-во проверок для alg222
-        alg333 = 23    #кол-во проверок для alg333
+        alg111 = 105 #100,65,23
+        alg222 = 70    #кол-во проверок для alg222
+        alg333 = 20    #кол-во проверок для alg333
         if hero.obsCount < depth:
             epi = 0
             counter = hero.obsCount
@@ -426,7 +426,10 @@ def identificationAlg (hero, way: List[List[int]], masMons):
                                                                     if  hero.finalAlgCheck222.count(monCounter) > alg222:
                                                                         hero.monInfo[monCounter].alg = 222
 
-
+                                            elif stepX == 0 and stepY == 0 and hero.obsCount > 15 and mon.name == 'Bomb':
+                                                for c in range(hero.obsCount):
+                                                    if hero.monInfo[monCounter].observations[0].x == hero.monInfo[monCounter].observations[c].x and hero.monInfo[monCounter].observations[0].y == hero.monInfo[monCounter].observations[c].y:
+                                                        hero.monInfo[monCounter].alg = 444
                                             #print('Monster with stepX {} and stepY {}'.format(stepX, stepY))
                                         #if newTimestamp == -1:
                                         #    newTimestamp = hero.monInfo[monCounter].observations[epi + k].timestamp
@@ -658,7 +661,7 @@ def algWaveFindExit (symbol, hero, way: List[List[int]], masBE: List[int], monWa
         if exitFlag != True:
             n += 1
 
-    maps.printInfo(hero, way) # Выводим информацию о посланной волне
+    #maps.printInfo(hero, way) # Выводим информацию о посланной волне
 
     #Теперь записываем путь для последующего движения
     exitFlag = False

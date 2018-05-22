@@ -40,7 +40,8 @@ class Player(sprite.Sprite): # Класс игрока
         self.winner = False
         self.moveTime = -1
         self.startMoveTime = 2
-        self.known = -1
+        self.known = 1
+        self.amMove = 0
 
         self.checkMoveTime = 0
         self.lastLeft = False
@@ -72,32 +73,39 @@ class Player(sprite.Sprite): # Класс игрока
         self.Fleft = True #Вспомогательная переменная для анимации
         self.image = Surface((WIDTH,HEIGHT))
         #self.image.fill(Color(COLOR))  #Покрасить героя в серый цвет
-        self.image = image.load("%s/player/0_24-32.png" % ICON_DIR)
+        #self.image = image.load("%s/player/0_24-32.png" % ICON_DIR) #Чудесный дракоша
+        self.image = image.load("%s/player/left_golden_dragon.png" % ICON_DIR)
         self.rect = Rect(x, y, WIDTH, HEIGHT) # прямоугольный объект
         #self.image.set_colorkey(Color(COLOR)) # делаем фон прозрачным
 
     def updatePlayer(self, left, right, up, down, platforms, way: List[List[int]]): # Метод "передвижения"
         if left:
             self.xvel = -self.MOVE_SPEED # Лево = x- n
-            self.image = image.load("%s/player/0_24-32.png" % ICON_DIR)
+            #self.image = image.load("%s/player/0_24-32.png" % ICON_DIR)
+            self.image = image.load("%s/player/left_golden_dragon.png" % ICON_DIR)
             self.Fleft = True
         if right:
             self.xvel = self.MOVE_SPEED # Право = x + n
-            self.image = image.load("%s/player/1_24-32.png" % ICON_DIR)
+            #self.image = image.load("%s/player/1_24-32.png" % ICON_DIR)
+            self.image = image.load("%s/player/right_golden_dragon.png" % ICON_DIR)
             self.Fleft = False
         if up:
             self.yvel = -self.MOVE_SPEED # Лево = x- n
             if self.Fleft==True:
-                self.image = image.load("%s/player/0_24-32.png" % ICON_DIR)
+                self.image = image.load("%s/player/left_golden_dragon.png" % ICON_DIR)
+                #self.image = image.load("%s/player/0_24-32.png" % ICON_DIR)
             else:
-                self.image = image.load("%s/player/1_24-32.png" % ICON_DIR)
+                self.image = image.load("%s/player/right_golden_dragon.png" % ICON_DIR)
+                #self.image = image.load("%s/player/1_24-32.png" % ICON_DIR)
         if down:
             self.yvel = self.MOVE_SPEED # Право = x + n
             self.image.fill(Color(COLOR))
             if self.Fleft==True:
-                self.image = image.load("%s/player/0_24-32.png" % ICON_DIR)
+                self.image = image.load("%s/player/left_golden_dragon.png" % ICON_DIR)
+                #self.image = image.load("%s/player/0_24-32.png" % ICON_DIR)
             else:
-                self.image = image.load("%s/player/1_24-32.png" % ICON_DIR)
+                self.image = image.load("%s/player/right_golden_dragon.png" % ICON_DIR)
+                #self.image = image.load("%s/player/1_24-32.png" % ICON_DIR)
 
         if not(left or right): # стоим, когда нет указаний идти
             self.xvel = 0
