@@ -531,7 +531,9 @@ def algWave (hero, way: List[List[int]], monWay: List[List[int]], symbol):
     right = False
     up = False
     down = False
+    imStay = False
     moveTimeFlag = False
+
     if symbol == '@':
         if monWay[hero.myPosY][hero.myPosX - 1] == symbol:
             if way[hero.myPosY][hero.myPosX - 1] == 'W': moveTimeFlag = True
@@ -576,94 +578,96 @@ def algWave (hero, way: List[List[int]], monWay: List[List[int]], symbol):
             left = True
             down = True
             print("Left-Down")
-        #иначе действуем по старому плану
-        elif way[hero.myPosY][hero.myPosX - 1] == '+' or way[hero.myPosY][hero.myPosX - 1] == 'W' or way[hero.myPosY][hero.myPosX - 1] == 'E':
+        #иначе действуем по старому плану #Если буду вставлять копированное снизу, то заменить symbol на E иначе герой будет тупить перед ними!
+        elif (way[hero.myPosY][hero.myPosX - 1] == '+' or way[hero.myPosY][hero.myPosX - 1] == 'W' or way[hero.myPosY][hero.myPosX - 1] == 'E') and (monWay[hero.myPosY][hero.myPosX - 1] != hero.E1 and monWay[hero.myPosY][hero.myPosX - 1] != hero.startMoveTime*hero.known):
             if way[hero.myPosY][hero.myPosX - 1] == 'W': moveTimeFlag = True
             left = True
             print("Left")
 
-        elif way[hero.myPosY][hero.myPosX + 1] == '+' or way[hero.myPosY][hero.myPosX + 1] == 'W' or way[hero.myPosY][hero.myPosX + 1] == 'E':
+        elif (way[hero.myPosY][hero.myPosX + 1] == '+' or way[hero.myPosY][hero.myPosX + 1] == 'W' or way[hero.myPosY][hero.myPosX + 1] == 'E') and (monWay[hero.myPosY][hero.myPosX + 1] != hero.E1 and monWay[hero.myPosY][hero.myPosX + 1] != hero.startMoveTime*hero.known):
             if way[hero.myPosY][hero.myPosX + 1] == 'W': moveTimeFlag = True
             right = True
             print("Right")
 
-        elif way[hero.myPosY - 1][hero.myPosX] == '+' or way[hero.myPosY - 1][hero.myPosX] == 'W' or way[hero.myPosY - 1][hero.myPosX] == 'E':
+        elif (way[hero.myPosY - 1][hero.myPosX] == '+' or way[hero.myPosY - 1][hero.myPosX] == 'W' or way[hero.myPosY - 1][hero.myPosX] == 'E') and (monWay[hero.myPosY - 1][hero.myPosX] != hero.E1 and monWay[hero.myPosY - 1][hero.myPosX] != hero.startMoveTime*hero.known):
             if way[hero.myPosY - 1][hero.myPosX] == 'W': moveTimeFlag = True
             up = True
             print("Up")
 
-        elif way[hero.myPosY + 1][hero.myPosX] == '+' or way[hero.myPosY + 1][hero.myPosX] == 'W' or way[hero.myPosY + 1][hero.myPosX] == 'E':
+        elif (way[hero.myPosY + 1][hero.myPosX] == '+' or way[hero.myPosY + 1][hero.myPosX] == 'W' or way[hero.myPosY + 1][hero.myPosX] == 'E') and (monWay[hero.myPosY + 1][hero.myPosX] != hero.E1 and monWay[hero.myPosY + 1][hero.myPosX] != hero.startMoveTime*hero.known):
             if way[hero.myPosY + 1][hero.myPosX] == 'W': moveTimeFlag = True
             down = True
             print("Down")
 
-        elif (way[hero.myPosY + 1][hero.myPosX + 1] == '+' or way[hero.myPosY + 1][hero.myPosX + 1] == 'W' or way[hero.myPosY + 1][hero.myPosX + 1] == 'E') and (way[hero.myPosY + 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX + 1] != 'B'):
+        elif (way[hero.myPosY + 1][hero.myPosX + 1] == '+' or way[hero.myPosY + 1][hero.myPosX + 1] == 'W' or way[hero.myPosY + 1][hero.myPosX + 1] == 'E') and (way[hero.myPosY + 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX + 1] != 'B' and monWay[hero.myPosY + 1][hero.myPosX + 1] != hero.E1 and monWay[hero.myPosY + 1][hero.myPosX + 1] != hero.startMoveTime*hero.known):
             if way[hero.myPosY + 1][hero.myPosX + 1] == 'W': moveTimeFlag = True
             right = True
             down = True
             print("Right-Down")
 
-        elif (way[hero.myPosY - 1][hero.myPosX + 1] == '+' or way[hero.myPosY - 1][hero.myPosX + 1] == 'W' or way[hero.myPosY - 1][hero.myPosX + 1] == 'E') and (way[hero.myPosY - 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX + 1] != 'B'):
+        elif (way[hero.myPosY - 1][hero.myPosX + 1] == '+' or way[hero.myPosY - 1][hero.myPosX + 1] == 'W' or way[hero.myPosY - 1][hero.myPosX + 1] == 'E') and (way[hero.myPosY - 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX + 1] != 'B' and monWay[hero.myPosY - 1][hero.myPosX + 1] != hero.E1 and monWay[hero.myPosY - 1][hero.myPosX + 1] != hero.startMoveTime*hero.known):
             if way[hero.myPosY - 1][hero.myPosX + 1] == 'W': moveTimeFlag = True
             right = True
             up = True
             print("Right-Up")
 
-        elif (way[hero.myPosY - 1][hero.myPosX - 1] == '+' or way[hero.myPosY - 1][hero.myPosX - 1] == 'W' or way[hero.myPosY - 1][hero.myPosX - 1] == 'E') and (way[hero.myPosY - 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX - 1] != 'B'):
+        elif (way[hero.myPosY - 1][hero.myPosX - 1] == '+' or way[hero.myPosY - 1][hero.myPosX - 1] == 'W' or way[hero.myPosY - 1][hero.myPosX - 1] == 'E') and (way[hero.myPosY - 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX - 1] != 'B' and monWay[hero.myPosY - 1][hero.myPosX - 1] != hero.E1 and monWay[hero.myPosY - 1][hero.myPosX - 1] != hero.startMoveTime*hero.known):
             if way[hero.myPosY - 1][hero.myPosX - 1] == 'W': moveTimeFlag = True
             left = True
             up = True
             print("Left-Up")
 
-        elif (way[hero.myPosY + 1][hero.myPosX - 1] == '+' or way[hero.myPosY + 1][hero.myPosX - 1] == 'W' or way[hero.myPosY + 1][hero.myPosX - 1] == 'E') and (way[hero.myPosY + 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX - 1] != 'B'):
+        elif (way[hero.myPosY + 1][hero.myPosX - 1] == '+' or way[hero.myPosY + 1][hero.myPosX - 1] == 'W' or way[hero.myPosY + 1][hero.myPosX - 1] == 'E') and (way[hero.myPosY + 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX - 1] != 'B' and monWay[hero.myPosY + 1][hero.myPosX - 1] != hero.E1 and monWay[hero.myPosY + 1][hero.myPosX - 1] != hero.startMoveTime*hero.known):
             if way[hero.myPosY + 1][hero.myPosX - 1] == 'W': moveTimeFlag = True
             left = True
             down = True
             print("Left-Down")
+        else: imStay = True
     else:
-        if way[hero.myPosY][hero.myPosX - 1] == '+' or way[hero.myPosY][hero.myPosX - 1] == 'W' or way[hero.myPosY][hero.myPosX - 1] == symbol:
+        if (way[hero.myPosY][hero.myPosX - 1] == '+' or way[hero.myPosY][hero.myPosX - 1] == 'W' or way[hero.myPosY][hero.myPosX - 1] == symbol) and (monWay[hero.myPosY][hero.myPosX - 1] != hero.E1): # and monWay[hero.myPosY][hero.myPosX - 1] != hero.startMoveTime*hero.known):
             if way[hero.myPosY][hero.myPosX - 1] == 'W': moveTimeFlag = True
             left = True
             print("Left")
 
-        elif way[hero.myPosY][hero.myPosX + 1] == '+' or way[hero.myPosY][hero.myPosX + 1] == 'W' or way[hero.myPosY][hero.myPosX + 1] == symbol:
+        elif (way[hero.myPosY][hero.myPosX + 1] == '+' or way[hero.myPosY][hero.myPosX + 1] == 'W' or way[hero.myPosY][hero.myPosX + 1] == symbol) and (monWay[hero.myPosY][hero.myPosX + 1] != hero.E1): # and monWay[hero.myPosY][hero.myPosX + 1] != hero.startMoveTime*hero.known):
             if way[hero.myPosY][hero.myPosX + 1] == 'W': moveTimeFlag = True
             right = True
             print("Right")
 
-        elif way[hero.myPosY - 1][hero.myPosX] == '+' or way[hero.myPosY - 1][hero.myPosX] == 'W' or way[hero.myPosY - 1][hero.myPosX] == symbol:
+        elif (way[hero.myPosY - 1][hero.myPosX] == '+' or way[hero.myPosY - 1][hero.myPosX] == 'W' or way[hero.myPosY - 1][hero.myPosX] == symbol) and (monWay[hero.myPosY - 1][hero.myPosX] != hero.E1): # and monWay[hero.myPosY - 1][hero.myPosX] != hero.startMoveTime*hero.known):
             if way[hero.myPosY - 1][hero.myPosX] == 'W': moveTimeFlag = True
             up = True
             print("Up")
 
-        elif way[hero.myPosY + 1][hero.myPosX] == '+' or way[hero.myPosY + 1][hero.myPosX] == 'W' or way[hero.myPosY + 1][hero.myPosX] == symbol:
+        elif (way[hero.myPosY + 1][hero.myPosX] == '+' or way[hero.myPosY + 1][hero.myPosX] == 'W' or way[hero.myPosY + 1][hero.myPosX] == symbol) and (monWay[hero.myPosY + 1][hero.myPosX] != hero.E1): # and monWay[hero.myPosY + 1][hero.myPosX] != hero.startMoveTime*hero.known):
             if way[hero.myPosY + 1][hero.myPosX] == 'W': moveTimeFlag = True
             down = True
             print("Down")
 
-        elif (way[hero.myPosY + 1][hero.myPosX + 1] == '+' or way[hero.myPosY + 1][hero.myPosX + 1] == 'W' or way[hero.myPosY + 1][hero.myPosX + 1] == symbol) and (way[hero.myPosY + 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX + 1] != 'B'):
+        elif (way[hero.myPosY + 1][hero.myPosX + 1] == '+' or way[hero.myPosY + 1][hero.myPosX + 1] == 'W' or way[hero.myPosY + 1][hero.myPosX + 1] == symbol) and (way[hero.myPosY + 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX + 1] != 'B' and monWay[hero.myPosY + 1][hero.myPosX + 1] != hero.E1): # and monWay[hero.myPosY + 1][hero.myPosX + 1] != hero.startMoveTime*hero.known):
             if way[hero.myPosY + 1][hero.myPosX + 1] == 'W': moveTimeFlag = True
             right = True
             down = True
             print("Right-Down")
 
-        elif (way[hero.myPosY - 1][hero.myPosX + 1] == '+' or way[hero.myPosY - 1][hero.myPosX + 1] == 'W' or way[hero.myPosY - 1][hero.myPosX + 1] == symbol) and (way[hero.myPosY - 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX + 1] != 'B'):
+        elif (way[hero.myPosY - 1][hero.myPosX + 1] == '+' or way[hero.myPosY - 1][hero.myPosX + 1] == 'W' or way[hero.myPosY - 1][hero.myPosX + 1] == symbol) and (way[hero.myPosY - 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX + 1] != 'B' and monWay[hero.myPosY - 1][hero.myPosX + 1] != hero.E1): # and monWay[hero.myPosY - 1][hero.myPosX + 1] != hero.startMoveTime*hero.known):
             if way[hero.myPosY - 1][hero.myPosX + 1] == 'W': moveTimeFlag = True
             right = True
             up = True
             print("Right-Up")
 
-        elif (way[hero.myPosY - 1][hero.myPosX - 1] == '+' or way[hero.myPosY - 1][hero.myPosX - 1] == 'W' or way[hero.myPosY - 1][hero.myPosX - 1] == symbol) and (way[hero.myPosY - 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX - 1] != 'B'):
+        elif (way[hero.myPosY - 1][hero.myPosX - 1] == '+' or way[hero.myPosY - 1][hero.myPosX - 1] == 'W' or way[hero.myPosY - 1][hero.myPosX - 1] == symbol) and (way[hero.myPosY - 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX - 1] != 'B' and monWay[hero.myPosY - 1][hero.myPosX - 1] != hero.E1): # and monWay[hero.myPosY - 1][hero.myPosX - 1] != hero.startMoveTime*hero.known):
             if way[hero.myPosY - 1][hero.myPosX - 1] == 'W': moveTimeFlag = True
             left = True
             up = True
             print("Left-Up")
 
-        elif (way[hero.myPosY + 1][hero.myPosX - 1] == '+' or way[hero.myPosY + 1][hero.myPosX - 1] == 'W' or way[hero.myPosY + 1][hero.myPosX - 1] == symbol) and (way[hero.myPosY + 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX - 1] != 'B'):
+        elif (way[hero.myPosY + 1][hero.myPosX - 1] == '+' or way[hero.myPosY + 1][hero.myPosX - 1] == 'W' or way[hero.myPosY + 1][hero.myPosX - 1] == symbol) and (way[hero.myPosY + 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX - 1] != 'B' and monWay[hero.myPosY + 1][hero.myPosX - 1] != hero.E1): # and monWay[hero.myPosY + 1][hero.myPosX - 1] != hero.startMoveTime*hero.known):
             if way[hero.myPosY + 1][hero.myPosX - 1] == 'W': moveTimeFlag = True
             left = True
             down = True
             print("Left-Down")
+        else: imStay = True
 
     moveOn(left, right, up, down, hero, way)
     #maps.printInfo (hero, way)
@@ -672,7 +676,7 @@ def algWave (hero, way: List[List[int]], monWay: List[List[int]], symbol):
     hero.lastUp = up
     hero.lastDown = down
 
-    if moveTimeFlag == True:
+    if moveTimeFlag == True or imStay == True:
         hero.moveTime = 0
     #elif hero.imSlow == True: moveTime = 10
     else: hero.moveTime = hero.startMoveTime#4 #Для плавного движения moveTime = 3
@@ -772,6 +776,7 @@ def radar(hero, way: List[List[int]], masMons, monWay: List[List[int]]):
 
 def algWaveFindExit (symbol, hero, way: List[List[int]], masBE: List[int], monWay: List[List[int]], masBlHole):
     #Сперва ищем все пути до цели
+    E1 = hero.E1
     n = 1
     exitCounter = 0
     maxEC = len(way)*len(way[0])#50
@@ -796,12 +801,12 @@ def algWaveFindExit (symbol, hero, way: List[List[int]], masBE: List[int], monWa
     #Теперь записываем путь для последующего движения
     exitFlag = False
     nextStep = False
-    if ((way[y][x + 1] == 'E' and monWay[y][x + 1] != hero.startMoveTime*hero.known) or (way[y + 1][x] == 'E' and monWay[y + 1][x] != hero.startMoveTime*hero.known)\
-        or (way[y][x - 1] == 'E' and monWay[y][x - 1] != hero.startMoveTime*hero.known) or (way[y - 1][x] == 'E' and monWay[y - 1][x] != hero.startMoveTime*hero.known)) \
-        or (way[y + 1][x + 1] == 'E' and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M') and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (monWay[y + 1][x + 1] != hero.startMoveTime*hero.known))\
-        or (way[y - 1][x + 1] == 'E' and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M') and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (monWay[y - 1][x + 1] != hero.startMoveTime*hero.known))\
-        or (way[y + 1][x - 1] == 'E' and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M') and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (monWay[y + 1][x - 1] != hero.startMoveTime*hero.known))\
-        or (way[y - 1][x - 1] == 'E' and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M') and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (monWay[y - 1][x - 1] != hero.startMoveTime*hero.known)):
+    if ((way[y][x + 1] == 'E' and monWay[y][x + 1] != E1 and monWay[y][x + 1] != hero.startMoveTime*hero.known) or (way[y + 1][x] == 'E' and monWay[y + 1][x] != E1 and monWay[y + 1][x] != hero.startMoveTime*hero.known)\
+        or (way[y][x - 1] == 'E' and monWay[y][x - 1] != E1 and monWay[y][x - 1] != hero.startMoveTime*hero.known) or (way[y - 1][x] == 'E' and monWay[y - 1][x] != E1 and monWay[y - 1][x] != hero.startMoveTime*hero.known)) \
+        or (way[y + 1][x + 1] == 'E' and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M') and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (monWay[y + 1][x + 1] != E1) and (monWay[y + 1][x + 1] != hero.startMoveTime*hero.known))\
+        or (way[y - 1][x + 1] == 'E' and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M') and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (monWay[y - 1][x + 1] != E1) and (monWay[y - 1][x + 1] != hero.startMoveTime*hero.known))\
+        or (way[y + 1][x - 1] == 'E' and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M') and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (monWay[y + 1][x - 1] != E1) and (monWay[y + 1][x - 1] != hero.startMoveTime*hero.known))\
+        or (way[y - 1][x - 1] == 'E' and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M') and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (monWay[y - 1][x - 1] != E1) and (monWay[y - 1][x - 1] != hero.startMoveTime*hero.known)):
 
         exitFlag = True # Заканчиваем работу алгоритма т.к. энергия уже находится рядом с героем.
     #if (way[y][x + 1] == 'E' or way[y + 1][x] == 'E' or way[y][x - 1] == 'E' or way[y - 1][x] == 'E') \

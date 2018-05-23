@@ -323,6 +323,7 @@ def main():
     slowSpeed = 0  # Переменная для искуственного замедления симулятора
     if PLAY: wait = 0 # Переменная для искуственного замедления симулятора
     else: wait = 4 # Переменная для искуственного замедления симулятора
+    stayHide = 0 # Переменная отвечающая за кол-во шагов (moveTime), которое агент просидит в укрытии после того как опасность уйдет
 
     DELAY = STARTDELAY
     startTime = datetime.datetime.now()
@@ -454,11 +455,11 @@ def main():
                             raise SystemExit("QUIT")
             if e.type == KEYDOWN and e.key == K_MINUS:
                 if DELAY > 2:
-                    DELAY -= 4
+                    DELAY -= 50
                     print('Скорость симулятора понижена!   DELAY = ' + str(DELAY))
                 else: print('Отказ! Достигнута минимальная разрешенная скорость!   DELAY = ' + str(DELAY))
             if e.type == KEYDOWN and e.key == K_EQUALS:
-                DELAY += 5
+                DELAY += 50
                 #DELAY += 50
                 print('Скорость симулятора повышена!   DELAY = ' + str(DELAY))
             if e.type == KEYDOWN and e.key == K_BACKSPACE:
@@ -564,16 +565,9 @@ def main():
                 #knownCount = 0
                 how333 = 0
                 for mn in masMons:
-                #    if hero.monInfo[mn.index].alg < -1 or hero.monInfo[mn.index].moveTime < -1:
-                #        knownCount += 1
                     if hero.monInfo[mn.index].alg == 333:
                         how333 += 1
                 #print('Монстров осталось изучить: ' + str(knownCount) + ' | Episod: ' + str(hero.episod))
-                #print('hero.known: ' + str(hero.known))
-                #if knownCount == 0: hero.known = 1
-                #else: hero.known = -1
-                #print('hero.known: ' + str(hero.known))
-
                 if hero.lastLeft == hero.lastRight == hero.lastUp == hero.lastDown == False:
                     hero.checkMoveTime += 1   #print(colored(str(hero.checkMoveTime), 'cyan'))
                     if hero.checkMoveTime > hero.startMoveTime:
@@ -581,10 +575,8 @@ def main():
                 else: hero.checkMoveTime = 0
                 run = True
                 hide = False
-                #if hero.known != -1:
-                dangerous = alg.radar(hero, way, masMons, monWay)
-                #else:
-                #dangerous = False
+                if hero.known == -1: dangerous = False
+                else: dangerous = alg.radar(hero, way, masMons, monWay)
                 #maps.printInfo(hero, way)
                 if hero.moveTime <= 0 or (hero.imDie == True and hero.live > 0):
                     #if amountBigEnergy >= 0:  # Если энергии, которые присутствовали на карте ещё не собраны
@@ -609,35 +601,37 @@ def main():
                             for bh in masBlHole:
                                 if bh.myPosY == hero.myPosY and bh.myPosX == hero.myPosX:
                                     hide = True
+                                    stayHide = hero.startMoveTime*3
 
-                        if dangerous == True and hide == False:
-                            symbol = alg.calcWay(hero, way, monWay, '@', 'W')
-                            print('Прокладываю путь до @')
-                            if symbol == 'W':
-                                print('Прокладываю путь до W')
-                                alg.algWaveFindExit('W', hero, way, 0, monWay, masBlHole)  # amountBigEnergy-1
-                            else:
-                                print('Прокладываю путь до E')
-                                alg.algWaveFindExit('@', hero, way, masBE, monWay, masBlHole)  # [amountBigEnergy-1])
-                        elif hide == False:
-                            if (index-1-bomb)/2 > how333:    #Если количество монстров с алгоритмом 333 меньше чем половина монстров, то
-                                if bigEnergyCounter <= 0 or amountBigEnergy <= 0: # если энергии на карте закончились, тогда строим путь к выходу
-                                    print('Прокладываю путь до W')
-                                    alg.algWaveFindExit('W', hero, way, 0, monWay, masBlHole) #amountBigEnergy-1
-                                else:
-                                    print('Прокладываю путь до E')
-                                    alg.algWaveFindExit('E', hero, way, masBE, monWay, masBlHole)#[amountBigEnergy-1])
-                            else:
-                                symbol = alg.calcWay(hero, way, monWay, 'E', 'W')
-                                #print('symbol: ' + str(symbol))
-                                #maps.clearWayNumFromMap(way)  # Очищаем карту, чтобы можно было проложить новый маршрут до другого объекта
+                        if stayHide <= 0:
+                            if dangerous == True and hide == False:
+                                symbol = alg.calcWay(hero, way, monWay, '@', 'W')
+                                print('Прокладываю путь до @')
                                 if symbol == 'W':
                                     print('Прокладываю путь до W')
-                                    alg.algWaveFindExit('W', hero, way, 0, monWay, masBlHole) #amountBigEnergy-1
+                                    alg.algWaveFindExit('W', hero, way, 0, monWay, masBlHole)  # amountBigEnergy-1
                                 else:
-                                    print('Прокладываю путь до E')
-                                    alg.algWaveFindExit('E', hero, way, masBE, monWay, masBlHole)#[amountBigEnergy-1])
-
+                                    print('Прокладываю путь до @')
+                                    alg.algWaveFindExit('@', hero, way, masBE, monWay, masBlHole)  # [amountBigEnergy-1])
+                            elif hide == False:
+                                if (index-1-bomb)/2 > how333:    #Если количество монстров с алгоритмом 333 меньше чем половина монстров, то
+                                    if bigEnergyCounter <= 0 or amountBigEnergy <= 0: # если энергии на карте закончились, тогда строим путь к выходу
+                                        print('Прокладываю путь до W')
+                                        alg.algWaveFindExit('W', hero, way, 0, monWay, masBlHole) #amountBigEnergy-1
+                                    else:
+                                        print('Прокладываю путь до E')
+                                        alg.algWaveFindExit('E', hero, way, masBE, monWay, masBlHole)#[amountBigEnergy-1])
+                                else:
+                                    symbol = alg.calcWay(hero, way, monWay, 'E', 'W')
+                                    #print('symbol: ' + str(symbol))
+                                    #maps.clearWayNumFromMap(way)  # Очищаем карту, чтобы можно было проложить новый маршрут до другого объекта
+                                    if symbol == 'W':
+                                        print('Прокладываю путь до W')
+                                        alg.algWaveFindExit('W', hero, way, 0, monWay, masBlHole) #amountBigEnergy-1
+                                    else:
+                                        print('Прокладываю путь до E')
+                                        alg.algWaveFindExit('E', hero, way, masBE, monWay, masBlHole)#[amountBigEnergy-1])
+                        else: stayHide -= 1
                         #maps.printInfo(hero, way) #Если раскоментить здесь: Отображает виденее героя и его действия
 
                         #Если на позиции героя иконка монстра, а герой еще жив, значит они совершат движение одновременно
