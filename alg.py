@@ -84,7 +84,7 @@ def moveOn (left, right, up, down, hero, way: List[List[int]]):
             hero.myPosY = int(hero.startY / 32)
         way[hero.myPosY][hero.myPosX] = 'H'
 
-def identificationAlg (hero, way: List[List[int]], masMons):
+def identificationAlg (hero, way: List[List[int]], masMons, monWay: List[List[int]]):
     if True:
         hero.obsCount += 1
         depth = 240 # Стоит делить на moveTime отдельного монстра, иначе следует сделать переменные с сохранением предыдущих результатов (Пример stepX и stepY) При depth=60 и moveTime=4 step =15
@@ -214,9 +214,9 @@ def identificationAlg (hero, way: List[List[int]], masMons):
                                                                 #print('Q для верха: X=' + str(hero.myPosX) + ' Y=' + str(hero.myPosY - q) + ' way: ' + str(way[hero.myPosY - q][hero.myPosX]))
                                                                 #print ('monCounter: ' + str(monCounter) + '   k: ' + str(k))
                                                                 #print('hero.oCforLastMonTop: ' + str(hero.oCforLastMonTop) + '   epi + k: ' + str(epi + k))
-                                                                if way[hero.myPosY - q][hero.myPosX] == 'B' or way[hero.myPosY - q][hero.myPosX] == 'W':
+                                                                if way[hero.myPosY - q][hero.myPosX] == 'B' or way[hero.myPosY - q][hero.myPosX] == 'W' or monWay[hero.myPosY - q][hero.myPosX] == '@':
                                                                     invis = True
-                                                                elif way[hero.myPosY - q][hero.myPosX] != 'B' and way[hero.myPosY - q][hero.myPosX] != 'W' and invis == False:
+                                                                elif way[hero.myPosY - q][hero.myPosX] != 'B' and way[hero.myPosY - q][hero.myPosX] != 'W' and monWay[hero.myPosY - q][hero.myPosX] != '@' and invis == False:
                                                                     if way[hero.myPosY - q][hero.myPosX] == 'M':
                                                                         # print('ВИЖУ МОНСТРА: X=' + str(hero.myPosX) + ' Y='+ str(hero.myPosY - q))
                                                                         Q = q
@@ -269,9 +269,9 @@ def identificationAlg (hero, way: List[List[int]], masMons):
                                                                 #print('Q для низа: X=' + str(hero.myPosX) + ' Y=' + str(hero.myPosY - q) + ' way: ' + str(way[hero.myPosY - q][hero.myPosX]))
                                                             else:
                                                                 #print('Q для низа: X=' + str(hero.myPosX) + ' Y='+ str(hero.myPosY + q) + ' way: ' + str(way[hero.myPosY + q][hero.myPosX]))
-                                                                if way[hero.myPosY + q][hero.myPosX] == 'B' or way[hero.myPosY + q][hero.myPosX] == 'W':
+                                                                if way[hero.myPosY + q][hero.myPosX] == 'B' or way[hero.myPosY + q][hero.myPosX] == 'W' or monWay[hero.myPosY + q][hero.myPosX] == '@':
                                                                     invis = True
-                                                                elif way[hero.myPosY + q][hero.myPosX] != 'B' and way[hero.myPosY + q][hero.myPosX] != 'W' and invis == False:
+                                                                elif way[hero.myPosY + q][hero.myPosX] != 'B' and way[hero.myPosY + q][hero.myPosX] != 'W' and monWay[hero.myPosY + q][hero.myPosX] != '@' and invis == False:
                                                                     if way[hero.myPosY + q][hero.myPosX] == 'M':
                                                                         # print('ВИЖУ МОНСТРА: X=' + str(hero.myPosX) + ' Y='+ str(hero.myPosY - q))
                                                                         Q = q
@@ -326,10 +326,10 @@ def identificationAlg (hero, way: List[List[int]], masMons):
                                                             else:
                                                                 #print('Q для права: X=' + str(hero.myPosX + q) + ' Y=' + str(hero.myPosY) + ' way: ' + str(way[hero.myPosY][hero.myPosX + q]))
                                                                 #print('hero.oCforLastMonRight' + str(hero.oCforLastMonRight) + '   epi + k: ' + str(epi+k))
-                                                                if way[hero.myPosY][hero.myPosX + q] == 'B' or way[hero.myPosY][hero.myPosX + q] == 'W':
+                                                                if way[hero.myPosY][hero.myPosX + q] == 'B' or way[hero.myPosY][hero.myPosX + q] == 'W' or monWay[hero.myPosY][hero.myPosX + q] == '@':
                                                                     invis = True
                                                                     #print(colored("q (rgh)=" + str(q) + '   invis = ' + str(invis),'red'))
-                                                                elif way[hero.myPosY][hero.myPosX + q] != 'B' and way[hero.myPosY][hero.myPosX + q] != 'W' and invis == False:
+                                                                elif way[hero.myPosY][hero.myPosX + q] != 'B' and way[hero.myPosY][hero.myPosX + q] != 'W' and monWay[hero.myPosY][hero.myPosX + q] != '@' and invis == False:
                                                                     if way[hero.myPosY][hero.myPosX + q] == 'M':
                                                                         # print('ВИЖУ МОНСТРА: X=' + str(hero.myPosX) + ' Y='+ str(hero.myPosY - q))
                                                                         Q = q
@@ -381,9 +381,9 @@ def identificationAlg (hero, way: List[List[int]], masMons):
                                                                 1
                                                             else:
                                                                 #print('Q для лева: X=' + str(hero.myPosX - q) + ' Y=' + str(hero.myPosY) + ' way: ' + str(way[hero.myPosY][hero.myPosX - q]))
-                                                                if way[hero.myPosY][hero.myPosX - q] == 'B' or way[hero.myPosY][hero.myPosX - q] == 'W':
+                                                                if way[hero.myPosY][hero.myPosX - q] == 'B' or way[hero.myPosY][hero.myPosX - q] == 'W' or monWay[hero.myPosY][hero.myPosX - q] == '@':
                                                                     invis = True
-                                                                elif way[hero.myPosY][hero.myPosX - q] != 'B' and way[hero.myPosY][hero.myPosX - q] != 'W' and invis == False:
+                                                                elif way[hero.myPosY][hero.myPosX - q] != 'B' and way[hero.myPosY][hero.myPosX - q] != 'W' and monWay[hero.myPosY][hero.myPosX - q] != '@' and invis == False:
                                                                     if way[hero.myPosY][hero.myPosX - q] == 'M':
                                                                         # print('ВИЖУ МОНСТРА: X=' + str(hero.myPosX) + ' Y='+ str(hero.myPosY - q))
                                                                         Q = q
@@ -526,56 +526,144 @@ def algRandom(hero, way: List[List[int]]):
     return left, right, up, down, moveTime
 
 
-def algWave (hero, way: List[List[int]]):
+def algWave (hero, way: List[List[int]], monWay: List[List[int]], symbol):
     left = False
     right = False
     up = False
     down = False
     moveTimeFlag = False
+    if symbol == '@':
+        if monWay[hero.myPosY][hero.myPosX - 1] == symbol:
+            if way[hero.myPosY][hero.myPosX - 1] == 'W': moveTimeFlag = True
+            left = True
+            print("Left")
 
-    if way[hero.myPosY][hero.myPosX - 1] == '+' or way[hero.myPosY][hero.myPosX - 1] == 'W' or way[hero.myPosY][hero.myPosX - 1] == 'E':
-        if way[hero.myPosY][hero.myPosX - 1] == 'W': moveTimeFlag = True
-        left = True
-        print("Left")
+        elif monWay[hero.myPosY][hero.myPosX + 1] == symbol:
+            if way[hero.myPosY][hero.myPosX + 1] == 'W': moveTimeFlag = True
+            right = True
+            print("Right")
 
-    elif way[hero.myPosY][hero.myPosX + 1] == '+' or way[hero.myPosY][hero.myPosX + 1] == 'W' or way[hero.myPosY][hero.myPosX + 1] == 'E':
-        if way[hero.myPosY][hero.myPosX + 1] == 'W': moveTimeFlag = True
-        right = True
-        print("Right")
+        elif monWay[hero.myPosY - 1][hero.myPosX] == symbol:
+            if way[hero.myPosY - 1][hero.myPosX] == 'W': moveTimeFlag = True
+            up = True
+            print("Up")
 
-    elif way[hero.myPosY - 1][hero.myPosX] == '+' or way[hero.myPosY - 1][hero.myPosX] == 'W' or way[hero.myPosY - 1][hero.myPosX] == 'E':
-        if way[hero.myPosY - 1][hero.myPosX] == 'W': moveTimeFlag = True
-        up = True
-        print("Up")
+        elif monWay[hero.myPosY + 1][hero.myPosX] == symbol:
+            if way[hero.myPosY + 1][hero.myPosX] == 'W': moveTimeFlag = True
+            down = True
+            print("Down")
 
-    elif way[hero.myPosY + 1][hero.myPosX] == '+' or way[hero.myPosY + 1][hero.myPosX] == 'W' or way[hero.myPosY + 1][hero.myPosX] == 'E':
-        if way[hero.myPosY + 1][hero.myPosX] == 'W': moveTimeFlag = True
-        down = True
-        print("Down")
+        elif (monWay[hero.myPosY + 1][hero.myPosX + 1] == symbol) and (way[hero.myPosY + 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX + 1] != 'B'):
+            if way[hero.myPosY + 1][hero.myPosX + 1] == 'W': moveTimeFlag = True
+            right = True
+            down = True
+            print("Right-Down")
 
-    elif (way[hero.myPosY + 1][hero.myPosX + 1] == '+' or way[hero.myPosY + 1][hero.myPosX + 1] == 'W' or way[hero.myPosY + 1][hero.myPosX + 1] == 'E') and (way[hero.myPosY + 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX + 1] != 'B'):
-        if way[hero.myPosY + 1][hero.myPosX + 1] == 'W': moveTimeFlag = True
-        right = True
-        down = True
-        print("Right-Down")
+        elif (monWay[hero.myPosY - 1][hero.myPosX + 1] == symbol) and (way[hero.myPosY - 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX + 1] != 'B'):
+            if way[hero.myPosY - 1][hero.myPosX + 1] == 'W': moveTimeFlag = True
+            right = True
+            up = True
+            print("Right-Up")
 
-    elif (way[hero.myPosY - 1][hero.myPosX + 1] == '+' or way[hero.myPosY - 1][hero.myPosX + 1] == 'W' or way[hero.myPosY - 1][hero.myPosX + 1] == 'E') and (way[hero.myPosY - 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX + 1] != 'B'):
-        if way[hero.myPosY - 1][hero.myPosX + 1] == 'W': moveTimeFlag = True
-        right = True
-        up = True
-        print("Right-Up")
+        elif (monWay[hero.myPosY - 1][hero.myPosX - 1] == symbol) and (way[hero.myPosY - 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX - 1] != 'B'):
+            if way[hero.myPosY - 1][hero.myPosX - 1] == 'W': moveTimeFlag = True
+            left = True
+            up = True
+            print("Left-Up")
 
-    elif (way[hero.myPosY - 1][hero.myPosX - 1] == '+' or way[hero.myPosY - 1][hero.myPosX - 1] == 'W' or way[hero.myPosY - 1][hero.myPosX - 1] == 'E') and (way[hero.myPosY - 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX - 1] != 'B'):
-        if way[hero.myPosY - 1][hero.myPosX - 1] == 'W': moveTimeFlag = True
-        left = True
-        up = True
-        print("Left-Up")
+        elif (monWay[hero.myPosY + 1][hero.myPosX - 1] == symbol) and (way[hero.myPosY + 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX - 1] != 'B'):
+            if way[hero.myPosY + 1][hero.myPosX - 1] == 'W': moveTimeFlag = True
+            left = True
+            down = True
+            print("Left-Down")
+        #иначе действуем по старому плану
+        elif way[hero.myPosY][hero.myPosX - 1] == '+' or way[hero.myPosY][hero.myPosX - 1] == 'W' or way[hero.myPosY][hero.myPosX - 1] == 'E':
+            if way[hero.myPosY][hero.myPosX - 1] == 'W': moveTimeFlag = True
+            left = True
+            print("Left")
 
-    elif (way[hero.myPosY + 1][hero.myPosX - 1] == '+' or way[hero.myPosY + 1][hero.myPosX - 1] == 'W' or way[hero.myPosY + 1][hero.myPosX - 1] == 'E') and (way[hero.myPosY + 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX - 1] != 'B'):
-        if way[hero.myPosY + 1][hero.myPosX - 1] == 'W': moveTimeFlag = True
-        left = True
-        down = True
-        print("Left-Down")
+        elif way[hero.myPosY][hero.myPosX + 1] == '+' or way[hero.myPosY][hero.myPosX + 1] == 'W' or way[hero.myPosY][hero.myPosX + 1] == 'E':
+            if way[hero.myPosY][hero.myPosX + 1] == 'W': moveTimeFlag = True
+            right = True
+            print("Right")
+
+        elif way[hero.myPosY - 1][hero.myPosX] == '+' or way[hero.myPosY - 1][hero.myPosX] == 'W' or way[hero.myPosY - 1][hero.myPosX] == 'E':
+            if way[hero.myPosY - 1][hero.myPosX] == 'W': moveTimeFlag = True
+            up = True
+            print("Up")
+
+        elif way[hero.myPosY + 1][hero.myPosX] == '+' or way[hero.myPosY + 1][hero.myPosX] == 'W' or way[hero.myPosY + 1][hero.myPosX] == 'E':
+            if way[hero.myPosY + 1][hero.myPosX] == 'W': moveTimeFlag = True
+            down = True
+            print("Down")
+
+        elif (way[hero.myPosY + 1][hero.myPosX + 1] == '+' or way[hero.myPosY + 1][hero.myPosX + 1] == 'W' or way[hero.myPosY + 1][hero.myPosX + 1] == 'E') and (way[hero.myPosY + 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX + 1] != 'B'):
+            if way[hero.myPosY + 1][hero.myPosX + 1] == 'W': moveTimeFlag = True
+            right = True
+            down = True
+            print("Right-Down")
+
+        elif (way[hero.myPosY - 1][hero.myPosX + 1] == '+' or way[hero.myPosY - 1][hero.myPosX + 1] == 'W' or way[hero.myPosY - 1][hero.myPosX + 1] == 'E') and (way[hero.myPosY - 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX + 1] != 'B'):
+            if way[hero.myPosY - 1][hero.myPosX + 1] == 'W': moveTimeFlag = True
+            right = True
+            up = True
+            print("Right-Up")
+
+        elif (way[hero.myPosY - 1][hero.myPosX - 1] == '+' or way[hero.myPosY - 1][hero.myPosX - 1] == 'W' or way[hero.myPosY - 1][hero.myPosX - 1] == 'E') and (way[hero.myPosY - 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX - 1] != 'B'):
+            if way[hero.myPosY - 1][hero.myPosX - 1] == 'W': moveTimeFlag = True
+            left = True
+            up = True
+            print("Left-Up")
+
+        elif (way[hero.myPosY + 1][hero.myPosX - 1] == '+' or way[hero.myPosY + 1][hero.myPosX - 1] == 'W' or way[hero.myPosY + 1][hero.myPosX - 1] == 'E') and (way[hero.myPosY + 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX - 1] != 'B'):
+            if way[hero.myPosY + 1][hero.myPosX - 1] == 'W': moveTimeFlag = True
+            left = True
+            down = True
+            print("Left-Down")
+    else:
+        if way[hero.myPosY][hero.myPosX - 1] == '+' or way[hero.myPosY][hero.myPosX - 1] == 'W' or way[hero.myPosY][hero.myPosX - 1] == symbol:
+            if way[hero.myPosY][hero.myPosX - 1] == 'W': moveTimeFlag = True
+            left = True
+            print("Left")
+
+        elif way[hero.myPosY][hero.myPosX + 1] == '+' or way[hero.myPosY][hero.myPosX + 1] == 'W' or way[hero.myPosY][hero.myPosX + 1] == symbol:
+            if way[hero.myPosY][hero.myPosX + 1] == 'W': moveTimeFlag = True
+            right = True
+            print("Right")
+
+        elif way[hero.myPosY - 1][hero.myPosX] == '+' or way[hero.myPosY - 1][hero.myPosX] == 'W' or way[hero.myPosY - 1][hero.myPosX] == symbol:
+            if way[hero.myPosY - 1][hero.myPosX] == 'W': moveTimeFlag = True
+            up = True
+            print("Up")
+
+        elif way[hero.myPosY + 1][hero.myPosX] == '+' or way[hero.myPosY + 1][hero.myPosX] == 'W' or way[hero.myPosY + 1][hero.myPosX] == symbol:
+            if way[hero.myPosY + 1][hero.myPosX] == 'W': moveTimeFlag = True
+            down = True
+            print("Down")
+
+        elif (way[hero.myPosY + 1][hero.myPosX + 1] == '+' or way[hero.myPosY + 1][hero.myPosX + 1] == 'W' or way[hero.myPosY + 1][hero.myPosX + 1] == symbol) and (way[hero.myPosY + 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX + 1] != 'B'):
+            if way[hero.myPosY + 1][hero.myPosX + 1] == 'W': moveTimeFlag = True
+            right = True
+            down = True
+            print("Right-Down")
+
+        elif (way[hero.myPosY - 1][hero.myPosX + 1] == '+' or way[hero.myPosY - 1][hero.myPosX + 1] == 'W' or way[hero.myPosY - 1][hero.myPosX + 1] == symbol) and (way[hero.myPosY - 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX + 1] != 'B'):
+            if way[hero.myPosY - 1][hero.myPosX + 1] == 'W': moveTimeFlag = True
+            right = True
+            up = True
+            print("Right-Up")
+
+        elif (way[hero.myPosY - 1][hero.myPosX - 1] == '+' or way[hero.myPosY - 1][hero.myPosX - 1] == 'W' or way[hero.myPosY - 1][hero.myPosX - 1] == symbol) and (way[hero.myPosY - 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX - 1] != 'B'):
+            if way[hero.myPosY - 1][hero.myPosX - 1] == 'W': moveTimeFlag = True
+            left = True
+            up = True
+            print("Left-Up")
+
+        elif (way[hero.myPosY + 1][hero.myPosX - 1] == '+' or way[hero.myPosY + 1][hero.myPosX - 1] == 'W' or way[hero.myPosY + 1][hero.myPosX - 1] == symbol) and (way[hero.myPosY + 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX - 1] != 'B'):
+            if way[hero.myPosY + 1][hero.myPosX - 1] == 'W': moveTimeFlag = True
+            left = True
+            down = True
+            print("Left-Down")
 
     moveOn(left, right, up, down, hero, way)
     #maps.printInfo (hero, way)
@@ -590,16 +678,16 @@ def algWave (hero, way: List[List[int]]):
     else: hero.moveTime = hero.startMoveTime#4 #Для плавного движения moveTime = 3
     return left, right, up, down, hero.moveTime
 
-def calcWay (hero, way: List[List[int]]):
+def calcWay (hero, way: List[List[int]], monWay: List[List[int]], firstSym, secondSym):
     #maps.clearWayNumFromMap(way)  # Очищаем карту, чтобы можно было проложить новый маршрут до другого объекта
     n = 1
     exitCounter = 0
     maxEC = len(way)*len(way[0])#50
     exitFlag = False
-    symbol = 'E'
+    symbol = firstSym
     x = hero.myPosX#blocks.Exit.myPosX#hero.myPosX
     y = hero.myPosY#blocks.Exit.myPosY#hero.myPosY
-    exitFlag = findWays(y, x, n, exitFlag, 0, symbol, way)
+    exitFlag = findWays(y, x, n, exitFlag, 0, symbol, way, monWay)
     #print('Путь до Е:')
     #maps.printInfo(hero, way)
     while exitFlag != True and exitCounter < maxEC:
@@ -607,7 +695,7 @@ def calcWay (hero, way: List[List[int]]):
             for j in range(len(way[i])):
                 if way[i][j] == n:
                     exitCounter = 0
-                    exitFlag = findWays(i, j, n+1, exitFlag, 0, symbol, way) # посылаю координаты y и x; следующее число; проверку на конец алг; знак который буду менять; что ищу; массив
+                    exitFlag = findWays(i, j, n+1, exitFlag, 0, symbol, way, monWay) # посылаю координаты y и x; следующее число; проверку на конец алг; знак который буду менять; что ищу; массив
         exitCounter += 1
         if exitCounter > maxEC-1:
             print(colored("Неудача:", 'yellow'), " Путь до E не проложить!   exitCounter=" + str(exitCounter))
@@ -620,27 +708,69 @@ def calcWay (hero, way: List[List[int]]):
     n = 1
     exitCounter = 0
     exitFlag = False
-    symbol = 'W'
-    exitFlag = findWays(y, x, n, exitFlag, 0, symbol, way)
+    symbol = secondSym #Обычно ставлю W
+    exitFlag = findWays(y, x, n, exitFlag, 0, symbol, way, monWay)
     while exitFlag != True and exitCounter < maxEC:
         for i in range(len(way)):
             for j in range(len(way[i])):
                 if way[i][j] == n:
                     exitCounter = 0
-                    exitFlag = findWays(i, j, n+1, exitFlag, 0, symbol, way) # посылаю координаты y и x; следующее число; проверку на конец алг; знак который буду менять; что ищу; массив
+                    exitFlag = findWays(i, j, n+1, exitFlag, 0, symbol, way, monWay) # посылаю координаты y и x; следующее число; проверку на конец алг; знак который буду менять; что ищу; массив
         exitCounter += 1
         if exitCounter > maxEC-1:
             print(colored("Неудача:", 'yellow'), " Путь до W не проложить!   exitCounter=" + str(exitCounter))
         if exitFlag != True:
             n += 1
     exitStep = n
-    print ('exitStep:' + str(exitStep) + '   energyStep: ' + str(energyStep))
+    print ('exitStep:' + str(exitStep) + '   objectStep: ' + str(energyStep))
     maps.clearWayNumFromMap(way)  # Очищаем карту, чтобы можно было проложить новый маршрут до другого объекта
     if exitStep <= energyStep:
-        return 'W'
-    else: return 'E'
+        return secondSym #W
+    else: return firstSym#'E'
 
-def algWaveFindExit (symbol, hero, way: List[List[int]], masBE: List[int], monWay: List[List[int]]):
+def radar(hero, way: List[List[int]], masMons, monWay: List[List[int]]):
+    checkList = []
+    exBotY = exLftX = exRghX = exTopY = 1
+    if 0 <= hero.myPosY + 3 < len(monWay):
+        if way[hero.myPosY + 1][hero.myPosX] != 'B' and way[hero.myPosY + 2][hero.myPosX] != 'B' and way[hero.myPosY + 3][hero.myPosX] != 'B':
+            exBotY = 3
+    if 0 <= hero.myPosY - 3 < len(monWay):
+        if way[hero.myPosY - 1][hero.myPosX] != 'B' and way[hero.myPosY - 2][hero.myPosX] != 'B' and way[hero.myPosY - 3][hero.myPosX] != 'B':
+            exTopY = 3
+    if 0 <= hero.myPosX + 3 < len(monWay[0]):
+        if way[hero.myPosY][hero.myPosX + 1] != 'B' and way[hero.myPosY][hero.myPosX + 2] != 'B' and way[hero.myPosY][hero.myPosX + 3] != 'B':
+            exRghX = 3
+    if 0 <= hero.myPosX - 3 < len(monWay[0]):
+        if way[hero.myPosY][hero.myPosX - 1] != 'B' and way[hero.myPosY][hero.myPosX - 2] != 'B' and way[hero.myPosY][hero.myPosX - 3] != 'B':
+            exLftX = 3
+    if         way[hero.myPosY][hero.myPosX + 1] == 'M' or way[hero.myPosY][hero.myPosX + 2] == 'M' or way[hero.myPosY][hero.myPosX + exRghX] == 'M' \
+            or way[hero.myPosY + 1][hero.myPosX] == 'M' or way[hero.myPosY + 2][hero.myPosX] == 'M' or way[hero.myPosY + exBotY][hero.myPosX] == 'M' \
+            or way[hero.myPosY][hero.myPosX - 1] == 'M' or way[hero.myPosY][hero.myPosX - 2] == 'M' or way[hero.myPosY][hero.myPosX - exLftX] == 'M' \
+            or way[hero.myPosY - 1][hero.myPosX] == 'M' or way[hero.myPosY - 2][hero.myPosX] == 'M' or way[hero.myPosY - exTopY][hero.myPosX] == 'M' \
+            or (way[hero.myPosY + 1][hero.myPosX + 1] == 'M') or (way[hero.myPosY + 2][hero.myPosX + 2] == 'M') \
+            or (way[hero.myPosY - 1][hero.myPosX + 1] == 'M') or (way[hero.myPosY - 2][hero.myPosX + 2] == 'M') \
+            or (way[hero.myPosY + 1][hero.myPosX - 1] == 'M') or (way[hero.myPosY + 2][hero.myPosX - 2] == 'M') \
+            or (way[hero.myPosY - 1][hero.myPosX - 1] == 'M') or (way[hero.myPosY - 2][hero.myPosX - 2] == 'M') \
+            or (way[hero.myPosY + 2][hero.myPosX + 1] == 'M') or (way[hero.myPosY + 1][hero.myPosX + 2] == 'M') \
+            or (way[hero.myPosY + 2][hero.myPosX - 1] == 'M') or (way[hero.myPosY + 1][hero.myPosX - 2] == 'M') \
+            or (way[hero.myPosY - 2][hero.myPosX + 1] == 'M') or (way[hero.myPosY - 1][hero.myPosX + 2] == 'M') \
+            or (way[hero.myPosY - 2][hero.myPosX - 1] == 'M') or (way[hero.myPosY - 1][hero.myPosX - 2] == 'M'):
+        for mn in masMons:
+            if (hero.myPosY == mn.myPosX and (hero.myPosX + 1) == mn.myPosY) or (hero.myPosY == mn.myPosX and (hero.myPosX + 2) == mn.myPosY) or (hero.myPosY == mn.myPosX and (hero.myPosX + exRghX) == mn.myPosY) or ((hero.myPosY + 1) == mn.myPosX and hero.myPosX == mn.myPosY) or ((hero.myPosY + 2) == mn.myPosX and hero.myPosX == mn.myPosY) or ((hero.myPosY + exBotY) == mn.myPosX and hero.myPosX == mn.myPosY) or (hero.myPosY == mn.myPosX and (hero.myPosX - 1) == mn.myPosY) or (hero.myPosY == mn.myPosX and (hero.myPosX - 2) == mn.myPosY) or (hero.myPosY == mn.myPosX and (hero.myPosX - exLftX) == mn.myPosY) or ((hero.myPosY - 1) == mn.myPosX and hero.myPosX == mn.myPosY) or ((hero.myPosY - 2) == mn.myPosX and hero.myPosX == mn.myPosY) or ((hero.myPosY - exTopY) == mn.myPosX and hero.myPosX == mn.myPosY) \
+                    or ((hero.myPosY + 1) == mn.myPosX and (hero.myPosX + 1) == mn.myPosY) or ((hero.myPosY + 2) == mn.myPosX and (hero.myPosX + 2) == mn.myPosY) or ((hero.myPosY + 1) == mn.myPosX and (hero.myPosX - 1) == mn.myPosY) or ((hero.myPosY + 2) == mn.myPosX and (hero.myPosX - 2) == mn.myPosY) or ((hero.myPosY - 1) == mn.myPosX and (hero.myPosX + 1) == mn.myPosY) or ((hero.myPosY - 2) == mn.myPosX and (hero.myPosX + 2) == mn.myPosY) or ((hero.myPosY - 1) == mn.myPosX and (hero.myPosX - 1) == mn.myPosY) or ((hero.myPosY - 2) == mn.myPosX and (hero.myPosX - 2) == mn.myPosY) \
+                    or ((hero.myPosY + 1) == mn.myPosX and (hero.myPosX + 2) == mn.myPosY) or ((hero.myPosY + 2) == mn.myPosX and (hero.myPosX + 1) == mn.myPosY) or ((hero.myPosY + 1) == mn.myPosX and (hero.myPosX - 2) == mn.myPosY) or ((hero.myPosY + 2) == mn.myPosX and (hero.myPosX - 1) == mn.myPosY) or ((hero.myPosY - 2) == mn.myPosX and (hero.myPosX + 1) == mn.myPosY) or ((hero.myPosY - 1) == mn.myPosX and (hero.myPosX + 2) == mn.myPosY) or ((hero.myPosY - 2) == mn.myPosX and (hero.myPosX - 1) == mn.myPosY) or ((hero.myPosY - 1) == mn.myPosX and (hero.myPosX - 2) == mn.myPosY):
+                if checkList.count(mn.index) == 0:
+                    checkList.append(mn.index)
+                    if hero.monInfo[mn.index].alg == 333:
+                        print('Монстр с алгоритмом 333 рядом!')
+                        return True
+    else:
+        print('Опасности нет!')
+        return False
+
+
+
+def algWaveFindExit (symbol, hero, way: List[List[int]], masBE: List[int], monWay: List[List[int]], masBlHole):
     #Сперва ищем все пути до цели
     n = 1
     exitCounter = 0
@@ -648,13 +778,13 @@ def algWaveFindExit (symbol, hero, way: List[List[int]], masBE: List[int], monWa
     exitFlag = False
     x = hero.myPosX#blocks.Exit.myPosX#hero.myPosX
     y = hero.myPosY#blocks.Exit.myPosY#hero.myPosY
-    exitFlag = findWays(y, x, n, exitFlag, 0, symbol, way)
+    exitFlag = findWays(y, x, n, exitFlag, 0, symbol, way, monWay)
     while exitFlag != True and exitCounter < maxEC:
         for i in range(len(way)):
             for j in range(len(way[i])):
                 if way[i][j] == n:
                     exitCounter = 0
-                    exitFlag = findWays(i, j, n+1, exitFlag, 0, symbol, way) # посылаю координаты y и x; следующее число; проверку на конец алг; знак который буду менять; что ищу; массив
+                    exitFlag = findWays(i, j, n+1, exitFlag, 0, symbol, way, monWay) # посылаю координаты y и x; следующее число; проверку на конец алг; знак который буду менять; что ищу; массив
         exitCounter += 1
         if exitCounter > maxEC-1:
             print(colored("ВНИМАНИЕ:", 'red'), " Выход из поиска маршрута!   exitCounter=" + str(exitCounter))
@@ -699,6 +829,20 @@ def algWaveFindExit (symbol, hero, way: List[List[int]], masBE: List[int], monWa
                 #break
                 #maps.printInfo(hero, way)
         exitFlag, nextStep = findBackWay(y, x, '+', exitFlag, n, 'H', nextStep, way, monWay, hero)
+    elif symbol == '@':
+        print("Кол-во шагов алгоритма: N=" + str(n))
+        for bh in masBlHole:
+            if way[bh.myPosY-1][bh.myPosX] == n or way[bh.myPosY][bh.myPosX-1] == n or way[bh.myPosY][bh.myPosX+1] == n or way[bh.myPosY +1][bh.myPosX] == n \
+                    or (way[bh.myPosY + 1][bh.myPosX + 1] == n and (way[bh.myPosY + 1][bh.myPosX] != 'B' and way[bh.myPosY + 1][bh.myPosX] != 'M') and (way[bh.myPosY][bh.myPosX + 1] != 'B' and way[bh.myPosY][bh.myPosX + 1] != 'M')) \
+                    or (way[bh.myPosY - 1][bh.myPosX + 1] == n and (way[bh.myPosY - 1][bh.myPosX] != 'B' and way[bh.myPosY - 1][bh.myPosX] != 'M') and (way[bh.myPosY][bh.myPosX + 1] != 'B' and way[bh.myPosY][bh.myPosX + 1] != 'M')) \
+                    or (way[bh.myPosY + 1][bh.myPosX - 1] == n and (way[bh.myPosY + 1][bh.myPosX] != 'B' and way[bh.myPosY + 1][bh.myPosX] != 'M') and (way[bh.myPosY][bh.myPosX - 1] != 'B' and way[bh.myPosY][bh.myPosX - 1] != 'M')) \
+                    or (way[bh.myPosY - 1][bh.myPosX - 1] == n and (way[bh.myPosY - 1][bh.myPosX] != 'B' and way[bh.myPosY - 1][bh.myPosX] != 'M') and (way[bh.myPosY][bh.myPosX - 1] != 'B' and way[bh.myPosY][bh.myPosX - 1] != 'M')):
+                x = bh.myPosX
+                y = bh.myPosY
+                print('Выбрана точка: BlackHole.myPosX: ' + str(bh.myPosX) + '   BlackHole.myPosY: ' + str(bh.myPosY))
+                #break
+                #maps.printInfo(hero, way)
+        exitFlag, nextStep = findBackWay(y, x, '+', exitFlag, n, 'H', nextStep, way, monWay, hero)
     elif symbol == 'W':
         x = blocks.Exit.myPosX
         y = blocks.Exit.myPosY
@@ -728,59 +872,59 @@ def algWaveFindExit (symbol, hero, way: List[List[int]], masBE: List[int], monWa
 
 # Запуск волны, где У и Х - координаты, n - текущее число волны, exitFlag - флаг конца алгоритма, checkSym - какой символ на карте заменяем числом n,
 # symbol - волна будет распространяться пока мы не найдем этот символ на карте, way - наш массив (карта)
-def findWays (y, x, n, exitFlag, checkSym, symbol, way: List[List[int]]):
+def findWays (y, x, n, exitFlag, checkSym, symbol, way: List[List[int]], monWay: List[List[int]]):
     #Вверх
-    if (y - 1 >= 0 and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M') and way[y - 1][x] == checkSym) or way[y - 1][x] == symbol:
-        if way[y - 1][x] == symbol:
+    if (y - 1 >= 0 and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M') and (way[y - 1][x] == checkSym)) or way[y - 1][x] == symbol or monWay[y - 1][x] == symbol:
+        if way[y - 1][x] == symbol or monWay[y - 1][x] == symbol:
             exitFlag = True
         else:
             way[y - 1][x] = n
 
     #Вниз
-    if (y + 1 < len(way) and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M') and way[y + 1][x] == checkSym) or way[y + 1][x] == symbol:
-        if way[y + 1][x] == symbol:
+    if (y + 1 < len(way) and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M') and (way[y + 1][x] == checkSym)) or way[y + 1][x] == symbol or monWay[y + 1][x] == symbol:
+        if way[y + 1][x] == symbol or monWay[y + 1][x] == symbol:
             exitFlag = True
         else:
             way[y + 1][x] = n
 
     #Влево
-    if (x - 1 >= 0 and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and way[y][x - 1] == checkSym) or way[y][x - 1] == symbol:
-        if way[y][x - 1] == symbol:
+    if (x - 1 >= 0 and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y][x - 1] == checkSym)) or way[y][x - 1] == symbol or monWay[y][x - 1] == symbol:
+        if way[y][x - 1] == symbol or monWay[y][x - 1] == symbol:
             exitFlag = True
         else:
             way[y][x - 1] = n
 
     #Вправо
-    if (x + 1 < len(way[y]) and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and way[y][x + 1] == checkSym) or way[y][x + 1] == symbol:
-        if way[y][x + 1] == symbol:
+    if (x + 1 < len(way[y]) and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y][x + 1] == checkSym)) or way[y][x + 1] == symbol or monWay[y][x + 1] == symbol:
+        if way[y][x + 1] == symbol or monWay[y][x + 1] == symbol:
             exitFlag = True
         else:
             way[y][x + 1] = n
 
     #Вправо-Вниз
-    if (x + 1 < len(way[y]) and y + 1 < len(way) and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M') and way[y + 1][x + 1] == checkSym) or (way[y + 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M')):
-        if way[y + 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M'):
+    if (x + 1 < len(way[y]) and y + 1 < len(way) and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M') and way[y + 1][x + 1] == checkSym) or (way[y + 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M')) or (monWay[y + 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M')):
+        if (way[y + 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M')) or (monWay[y + 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M')):
             exitFlag = True
         else:
             way[y + 1][x + 1] = n
 
     #Вправо-Вверх
-    if (x + 1 < len(way[y]) and y - 1 >= 0 and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M') and way[y - 1][x + 1] == checkSym) or (way[y - 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M')):
-        if way[y - 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M'):
+    if (x + 1 < len(way[y]) and y - 1 >= 0 and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M') and way[y - 1][x + 1] == checkSym) or (way[y - 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M')) or (monWay[y - 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M')):
+        if (way[y - 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M')) or (monWay[y - 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M')):
             exitFlag = True
         else:
             way[y - 1][x + 1] = n
 
     #Влево-Вниз
-    if (x - 1 >= 0 and y + 1 < len(way) and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M') and way[y + 1][x - 1] == checkSym) or (way[y + 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M')):
-        if way[y + 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M'):
+    if (x - 1 >= 0 and y + 1 < len(way) and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M') and way[y + 1][x - 1] == checkSym) or (way[y + 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M')) or (monWay[y + 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M')):
+        if (way[y + 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M')) or (monWay[y + 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M')):
             exitFlag = True
         else:
             way[y + 1][x - 1] = n
 
     #Влево-Вверх
-    if (x - 1 >= 0 and y - 1 >= 0 and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M') and way[y - 1][x - 1] == checkSym) or (way[y - 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M')):
-        if way[y - 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M'):
+    if (x - 1 >= 0 and y - 1 >= 0 and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M') and way[y - 1][x - 1] == checkSym) or (way[y - 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M')) or (monWay[y - 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M')):
+        if (way[y - 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M')) or (monWay[y - 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M')):
             exitFlag = True
         else:
             way[y - 1][x - 1] = n
@@ -790,64 +934,64 @@ def findWays (y, x, n, exitFlag, checkSym, symbol, way: List[List[int]]):
 # symbol - волна будет распространяться пока мы не найдем этот символ на карте, way - наш массив (карта), nextStep - флаг сообщающий о нахождении symbol'а или установке '+' (прокладывание маршрута до цели)
 def findBackWay (y, x, n, exitFlag, checkSym, symbol, nextStep, way: List[List[int]], monWay: List[List[int]], hero):
     #Влево-Вверх
-    if (x - 1 >= 0 and y - 1 >= 0 and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M') and way[y - 1][x - 1] == checkSym and (monWay[y - 1][x - 1]) != checkSym*hero.known and (monWay[y - 1][x - 1]) != (hero.startMoveTime*hero.known)) or (way[y - 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M')):
-        if way[y - 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M'):
+    if (x - 1 >= 0 and y - 1 >= 0 and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M') and way[y - 1][x - 1] == checkSym and (monWay[y - 1][x - 1]) != checkSym*hero.known and (monWay[y - 1][x - 1]) != (hero.startMoveTime*hero.known)) or (way[y - 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M')) or (monWay[y - 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M')):
+        if (way[y - 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M')) or (monWay[y - 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M')):
             exitFlag = True
         else:
             way[y - 1][x - 1] = n
         nextStep = True
 
     #Влево-Вниз
-    elif (x - 1 >= 0 and y + 1 < len(way) and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M') and way[y + 1][x - 1] == checkSym and (monWay[y + 1][x - 1]) != checkSym*hero.known and (monWay[y + 1][x - 1]) != (hero.startMoveTime*hero.known)) or (way[y + 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M')):
-        if way[y + 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M'):
+    elif (x - 1 >= 0 and y + 1 < len(way) and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M') and way[y + 1][x - 1] == checkSym and (monWay[y + 1][x - 1]) != checkSym*hero.known and (monWay[y + 1][x - 1]) != (hero.startMoveTime*hero.known)) or (way[y + 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M')) or (monWay[y + 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M')):
+        if (way[y + 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M')) or (monWay[y + 1][x - 1] == symbol and (way[y][x - 1] != 'B' and way[y][x - 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M')):
             exitFlag = True
         else:
             way[y + 1][x - 1] = n
         nextStep = True
 
     #Вправо-Вверх
-    elif (x + 1 < len(way[y]) and y - 1 >= 0 and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M') and way[y - 1][x + 1] == checkSym and (monWay[y - 1][x + 1]) != checkSym*hero.known and (monWay[y - 1][x + 1]) != (hero.startMoveTime*hero.known)) or (way[y - 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M')):
-        if way[y - 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M'):
+    elif (x + 1 < len(way[y]) and y - 1 >= 0 and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M') and way[y - 1][x + 1] == checkSym and (monWay[y - 1][x + 1]) != checkSym*hero.known and (monWay[y - 1][x + 1]) != (hero.startMoveTime*hero.known)) or (way[y - 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M')) or (monWay[y - 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M')):
+        if (way[y - 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M')) or (monWay[y - 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y - 1][x] != 'B' and way[y - 1][x] != 'M')):
             exitFlag = True
         else:
             way[y - 1][x + 1] = n
         nextStep = True
 
     #Вправо-Вниз
-    elif (x + 1 < len(way[y]) and y + 1 < len(way) and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M') and way[y + 1][x + 1] == checkSym and (monWay[y + 1][x + 1]) != checkSym*hero.known and (monWay[y + 1][x + 1]) != (hero.startMoveTime*hero.known)) or (way[y + 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M')):
-        if way[y + 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M'):
+    elif (x + 1 < len(way[y]) and y + 1 < len(way) and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M') and way[y + 1][x + 1] == checkSym and (monWay[y + 1][x + 1]) != checkSym*hero.known and (monWay[y + 1][x + 1]) != (hero.startMoveTime*hero.known)) or (way[y + 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M')) or (monWay[y + 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M')):
+        if (way[y + 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M')) or (monWay[y + 1][x + 1] == symbol and (way[y][x + 1] != 'B' and way[y][x + 1] != 'M') and (way[y + 1][x] != 'B' and way[y + 1][x] != 'M')):
             exitFlag = True
         else:
             way[y + 1][x + 1] = n
         nextStep = True
 
     #Вверх
-    elif (y - 1 >= 0 and way[y - 1][x] != 'B' and way[y - 1][x] != 'M' and way[y - 1][x] == checkSym and (monWay[y - 1][x]) != checkSym*hero.known and (monWay[y - 1][x]) != (hero.startMoveTime*hero.known)) or way[y - 1][x] == symbol:
-        if way[y - 1][x] == symbol:
+    elif (y - 1 >= 0 and way[y - 1][x] != 'B' and way[y - 1][x] != 'M' and way[y - 1][x] == checkSym and (monWay[y - 1][x]) != checkSym*hero.known and (monWay[y - 1][x]) != (hero.startMoveTime*hero.known)) or way[y - 1][x] == symbol or monWay[y - 1][x] == symbol:
+        if way[y - 1][x] == symbol or monWay[y - 1][x] == symbol:
             exitFlag = True
         else:
             way[y - 1][x] = n
         nextStep = True
 
     #Вниз
-    elif (y + 1 < len(way) and way[y + 1][x] != 'B' and way[y + 1][x] != 'M' and way[y + 1][x] == checkSym and (monWay[y + 1][x]) != checkSym*hero.known and (monWay[y + 1][x]) != (hero.startMoveTime*hero.known)) or way[y + 1][x] == symbol:
-        if way[y + 1][x] == symbol:
+    elif (y + 1 < len(way) and way[y + 1][x] != 'B' and way[y + 1][x] != 'M' and way[y + 1][x] == checkSym and (monWay[y + 1][x]) != checkSym*hero.known and (monWay[y + 1][x]) != (hero.startMoveTime*hero.known)) or way[y + 1][x] == symbol or monWay[y + 1][x] == symbol:
+        if way[y + 1][x] == symbol or monWay[y + 1][x] == symbol:
             exitFlag = True
         else:
             way[y + 1][x] = n
         nextStep = True
 
     #Влево
-    elif (x - 1 >= 0 and way[y][x - 1] != 'B' and way[y][x - 1] != 'M' and way[y][x - 1] == checkSym and (monWay[y][x - 1]) != checkSym*hero.known and (monWay[y][x - 1]) != (hero.startMoveTime*hero.known)) or way[y][x - 1] == symbol:
-        if way[y][x - 1] == symbol:
+    elif (x - 1 >= 0 and way[y][x - 1] != 'B' and way[y][x - 1] != 'M' and way[y][x - 1] == checkSym and (monWay[y][x - 1]) != checkSym*hero.known and (monWay[y][x - 1]) != (hero.startMoveTime*hero.known)) or way[y][x - 1] == symbol or monWay[y][x - 1] == symbol:
+        if way[y][x - 1] == symbol or monWay[y][x - 1] == symbol:
             exitFlag = True
         else:
             way[y][x - 1] = n
         nextStep = True
 
     #Вправо
-    elif (x + 1 < len(way[y]) and way[y][x + 1] != 'B' and way[y][x + 1] != 'M' and way[y][x + 1] == checkSym and (monWay[y][x + 1]) != checkSym*hero.known and (monWay[y][x + 1]) != (hero.startMoveTime*hero.known)) or way[y][x + 1] == symbol:
-        if way[y][x + 1] == symbol:
+    elif (x + 1 < len(way[y]) and way[y][x + 1] != 'B' and way[y][x + 1] != 'M' and way[y][x + 1] == checkSym and (monWay[y][x + 1]) != checkSym*hero.known and (monWay[y][x + 1]) != (hero.startMoveTime*hero.known)) or way[y][x + 1] == symbol or monWay[y][x + 1] == symbol:
+        if way[y][x + 1] == symbol or monWay[y][x + 1] == symbol:
             exitFlag = True
         else:
             way[y][x + 1] = n

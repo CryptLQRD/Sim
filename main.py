@@ -31,8 +31,6 @@ BACKGROUND_COLOR = "#003300"
 #INFO_STRING_WIDTH = 165 # Ширина
 #INFO_STRING_HEIGHT = 32 # Высота !!!ЕСЛИ БУДУ МЕНЯТЬ, ТО И В КАМЕРЕ НЕ ЗАБЫТЬ!!!
 #INFO_STRING_COLOR = "#006000"
-#PLAY = True    # Включить\Выключить управление игроком
-#REPEAT = False # Включить\Выключить повторние игры с начала
 levelName = 'lvl1.txt' #Название уровня
 FILE_DIR = os.path.dirname(__file__)
 PLAY = False # Включить\Выключить управление игроком
@@ -127,7 +125,7 @@ def saveResult(hero, workTime, masMons): # Работа с файлом result
     numEpisod (hero)
     hero.episod += 1
 
-    winScore = 15
+    winScore = 20
     monScore = 0
     hero.finalScore = hero.score + (hero.live) * 5 #Прибавляем + 1 за собранную энергию и 5 очков за каждую жизнь
     if (hero.winner):                              #Прибавляем + 15 за победу
@@ -244,7 +242,10 @@ def main():
                 entities.add(bh)
                 platforms.append(bh)
                 animatedEntities.add(bh)
-                way[int(y/32)][int(x/32)] = '0' #'@' #Если есть данный блок, то заполняем массив @
+                masBlHole.append(bh)
+                #way[int(y/32)][int(x/32)] = '@' #'@' #Если есть данный блок, то заполняем массив @
+                monWay[int(y / 32)][int(x / 32)] = '@'  # '@' #Если есть данный блок, то заполняем массив @
+                blocks.BlackHole.myCoord(bh)
             if col == "E":
                 be = blocks.BigEnergy(x,y)
                 entities.add(be)
@@ -287,9 +288,9 @@ def main():
     #bigEnergyCounter = maps.amountBigEnerge(way)
     if not PLAY:
         if (amountBigEnergy == 0):
-            alg.algWaveFindExit('W', hero, way, 0, monWay)
+            alg.algWaveFindExit('W', hero, way, 0, monWay, masBlHole)
         else:
-            alg.algWaveFindExit('E', hero, way, masBE, monWay)
+            alg.algWaveFindExit('E', hero, way, masBE, monWay, masBlHole)
     elif PLAY:
         maps.printInfo(hero, way) # Выводим карту уровня, если управляет игрок
 
@@ -417,14 +418,14 @@ def main():
                     blocks.BigEnergy.myCoord(be)
                     way[int(be.rect.y / 32)][int(be.rect.x / 32)] = 'E'
                 amountBigEnergy = maps.amountBigEnerge(way)
-                maps.printInfo(hero, way)
+                #maps.printInfo(hero, way)
                 if not PLAY:
                     if (amountBigEnergy == 0):
                         print('Прокладываю путь до W')
-                        alg.algWaveFindExit('W', hero, way, 0, monWay) #Прокладываем новый маршрут до конечной точки
+                        alg.algWaveFindExit('W', hero, way, 0, monWay, masBlHole) #Прокладываем новый маршрут до конечной точки
                     else:
                         print('Прокладываю путь до E')
-                        alg.algWaveFindExit('E', hero, way, masBE, monWay) #[amountBigEnergy-1]) #Прокладываем новый маршрут до конечной точки
+                        alg.algWaveFindExit('E', hero, way, masBE, monWay, masBlHole) #[amountBigEnergy-1]) #Прокладываем новый маршрут до конечной точки
                 elif PLAY:
                     maps.printInfo(hero, way)
                 #maps.printInfo(hero, way)  # Выводим карту на экран
@@ -495,6 +496,10 @@ def main():
                 #if mn.moveTime <= 0:
                 #    maps.clearMonsterWayFromMap(monWay)
             maps.clearMonsterWayFromMap(monWay)
+            for bh in masBlHole:
+                blocks.BlackHole.myCoord(bh)
+                #way[bh.myPosY][bh.myPosX] = '@'
+                monWay[bh.myPosY][bh.myPosX] = '@'
             for mn in masMons:  # Алгоритм движения монстров
                 if mn.moveTime <= 0:
                     # if mn.myPrevPosY == mn.myPosY and mn.myPrevPosX == mn.myPosX:
@@ -505,10 +510,10 @@ def main():
                     # if way[mn.myPrevPosY][mn.myPrevPosX] != 'H':
                     #    way[mn.myPrevPosY][mn.myPrevPosX] = '0'  # Отмечаем на карте, что ушли с предыдущей позиции
                     if mn.algorithm == 111:
-                        Monster.patrolMove(mn, way)
+                        Monster.patrolMove(mn, way, monWay)
                         #Monster.monsterPatrolWay(mn, monWay)
                     elif mn.algorithm == 222:
-                        Monster.randMove(mn, hero, way)
+                        Monster.randMove(mn, way, monWay)
                         #Monster.monsterRandWay(mn, monWay)
                     elif mn.algorithm == 333:
                         Monster.pendingMove(mn, monWay , way)
@@ -552,8 +557,10 @@ def main():
                 #if mn.moveTime == mn.startMoveTime:
                 #maps.printMonsterInfo(monWay)
 
+
+
             if not PLAY:
-                alg.identificationAlg(hero, way, masMons)
+                alg.identificationAlg(hero, way, masMons, monWay)
                 #knownCount = 0
                 how333 = 0
                 for mn in masMons:
@@ -572,6 +579,13 @@ def main():
                     if hero.checkMoveTime > hero.startMoveTime:
                         hero.moveTime = 0
                 else: hero.checkMoveTime = 0
+                run = True
+                hide = False
+                #if hero.known != -1:
+                dangerous = alg.radar(hero, way, masMons, monWay)
+                #else:
+                #dangerous = False
+                #maps.printInfo(hero, way)
                 if hero.moveTime <= 0 or (hero.imDie == True and hero.live > 0):
                     #if amountBigEnergy >= 0:  # Если энергии, которые присутствовали на карте ещё не собраны
                         bigEnergyCounter = maps.amountBigEnerge(way)  # тогда сверяем их с текущим количеством на карте
@@ -591,23 +605,39 @@ def main():
                         maps.clearWayNumFromMap(way) # Очищаем карту, чтобы можно было проложить новый маршрут до другого объекта
                         #amountBigEnergy -= 1  # Уменьшаем общее кол-во энергий
                         #print('Кол-во монстров (без бомб): ' + str(index-bomb) + ' (' + str((index-1-bomb)/2) +') | Алг333: ' + str(how333))
-                        if (index-1-bomb)/2 > how333:    #Если количество монстров с алгоритмом 333 меньше чем половина монстров, то
-                            if bigEnergyCounter <= 0 or amountBigEnergy <= 0: # если энергии на карте закончились, тогда строим путь к выходу
-                                print('Прокладываю путь до W')
-                                alg.algWaveFindExit('W', hero, way, 0, monWay) #amountBigEnergy-1
-                            else:
-                                print('Прокладываю путь до E')
-                                alg.algWaveFindExit('E', hero, way, masBE, monWay)#[amountBigEnergy-1])
-                        else:
-                            symbol = alg.calcWay(hero, way)
-                            #print('symbol: ' + str(symbol))
-                            #maps.clearWayNumFromMap(way)  # Очищаем карту, чтобы можно было проложить новый маршрут до другого объекта
+                        if dangerous == True:
+                            for bh in masBlHole:
+                                if bh.myPosY == hero.myPosY and bh.myPosX == hero.myPosX:
+                                    hide = True
+
+                        if dangerous == True and hide == False:
+                            symbol = alg.calcWay(hero, way, monWay, '@', 'W')
+                            print('Прокладываю путь до @')
                             if symbol == 'W':
                                 print('Прокладываю путь до W')
-                                alg.algWaveFindExit('W', hero, way, 0, monWay) #amountBigEnergy-1
+                                alg.algWaveFindExit('W', hero, way, 0, monWay, masBlHole)  # amountBigEnergy-1
                             else:
                                 print('Прокладываю путь до E')
-                                alg.algWaveFindExit('E', hero, way, masBE, monWay)#[amountBigEnergy-1])
+                                alg.algWaveFindExit('@', hero, way, masBE, monWay, masBlHole)  # [amountBigEnergy-1])
+                        elif hide == False:
+                            if (index-1-bomb)/2 > how333:    #Если количество монстров с алгоритмом 333 меньше чем половина монстров, то
+                                if bigEnergyCounter <= 0 or amountBigEnergy <= 0: # если энергии на карте закончились, тогда строим путь к выходу
+                                    print('Прокладываю путь до W')
+                                    alg.algWaveFindExit('W', hero, way, 0, monWay, masBlHole) #amountBigEnergy-1
+                                else:
+                                    print('Прокладываю путь до E')
+                                    alg.algWaveFindExit('E', hero, way, masBE, monWay, masBlHole)#[amountBigEnergy-1])
+                            else:
+                                symbol = alg.calcWay(hero, way, monWay, 'E', 'W')
+                                #print('symbol: ' + str(symbol))
+                                #maps.clearWayNumFromMap(way)  # Очищаем карту, чтобы можно было проложить новый маршрут до другого объекта
+                                if symbol == 'W':
+                                    print('Прокладываю путь до W')
+                                    alg.algWaveFindExit('W', hero, way, 0, monWay, masBlHole) #amountBigEnergy-1
+                                else:
+                                    print('Прокладываю путь до E')
+                                    alg.algWaveFindExit('E', hero, way, masBE, monWay, masBlHole)#[amountBigEnergy-1])
+
                         #maps.printInfo(hero, way) #Если раскоментить здесь: Отображает виденее героя и его действия
 
                         #Если на позиции героя иконка монстра, а герой еще жив, значит они совершат движение одновременно
@@ -616,19 +646,27 @@ def main():
                         #maps.clearNumFromMap(way)  # очищаю карту от всех возможных путей(чисел) и оставляю только проложенный (+) (для удобства отображения)
                 #else: print('Проскочил')
                 if hero.moveTime <= 0: # если перемещение героя в планируемую точку закончилось, вычисляем следующее движение
-                    #for be in masBE:
-                    #    blocks.BigEnergy.myCoord(be)
-                    #    if be.myPosY > 0 and be.myPosX > 0 and way[be.myPosY][be.myPosX] != 'M':
-                    #        way[be.myPosY][be.myPosX] = 'E'
-
                     # Укажем место героя на карте (почему-то редко-редко теряется)
                     maps.clearHeroFromMap(way)
                     hero.myPosX = int(hero.rect.x / 32)
                     hero.myPosY = int(hero.rect.y / 32)
                     way[int(hero.myPosY)][hero.myPosX] = 'H'  # Добавляем расположение героя на карту (в массив)
                     #way[int(hero.startY / 32)][int(hero.startX / 32)] = 'H'
+                    if dangerous == True:
+                        for bh in masBlHole:
+                            if bh.myPosY == hero.myPosY and bh.myPosX == hero.myPosX:
+                                hero.checkMoveTime += 1
+                                run = False
+                                maps.clearWayNumFromMap(way)
+                                #hero.startMoveTime = 15
+                                #hero.moveTime = hero.startMoveTime
+                    if run == True:
+                        if dangerous == True:
+                            left, right, up, down, hero.moveTime = alg.algWave(hero, way, monWay, '@')
+                        else:
+                            left, right, up, down, hero.moveTime = alg.algWave(hero, way, monWay, 'E')
+                        #left, right, up, down, hero.moveTime = alg.algWave(hero, way, monWay, '@')
 
-                    left, right, up, down, hero.moveTime = alg.algWave(hero, way)
                     if left==True or right==True or up==True or down==True:
                         hero.amMove += 1
                     #maps.printInfo(hero, way) #Если раскоментить здесь: Отображает место куда герой уже наступил
@@ -668,7 +706,7 @@ def main():
             #for mn in masMons:
             #maps.printMonsterInfo(monWay)
 
-
+masBlHole = []
 masBE = []  # Создаем массив для каждого элемента BigEnergy
 masMons = [] # Массив со всеми монстрами
 level = []

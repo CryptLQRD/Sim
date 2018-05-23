@@ -66,6 +66,8 @@ class BlockDie(Platform): #Класс объекта "Шипы"
 class BlackHole(Platform): #Класс объекта "Шипы"
     def __init__(self, x, y):
         Platform.__init__(self, x, y)
+        self.myPosX = -1
+        self.myPosY = -1
         boltAnim = []
         for anim in ANIMATION_BLACKHOLE:
             boltAnim.append((anim, 0.15))
@@ -75,6 +77,10 @@ class BlackHole(Platform): #Класс объекта "Шипы"
     def update(self):
         self.image.fill(Color(PLATFORM_COLOR))
         self.boltAnim.blit(self.image, (0, 0))
+
+    def myCoord(self): #Необходимо для обновления координат на карте
+        self.myPosX = int(self.rect.x/32)
+        self.myPosY = int(self.rect.y/32)
 
 class BlockTeleport(Platform): #Класс объекта "Портал телепортации"
     def __init__(self, x, y, goX, goY):

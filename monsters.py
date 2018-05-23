@@ -190,19 +190,19 @@ class Monster(sprite.Sprite): # Класс монстров
             number = 0
             for i in range(len(monWay)):
                 if i == 0:
-                    if monWay[self.myPosY][self.myPosX + 1] != 'B' and monWay[self.myPosY][self.myPosX + 1] != 'W':
+                    if monWay[self.myPosY][self.myPosX + 1] != 'B' and monWay[self.myPosY][self.myPosX + 1] != 'W' and monWay[self.myPosY][self.myPosX + 1] != '@':
                         monWay[self.myPosY][self.myPosX + 1] = 1 * (self.startMoveTime + 1) + self.moveTime - self.startMoveTime
-                    if monWay[self.myPosY][self.myPosX - 1] != 'B' and monWay[self.myPosY][self.myPosX - 1] != 'W':
+                    if monWay[self.myPosY][self.myPosX - 1] != 'B' and monWay[self.myPosY][self.myPosX - 1] != 'W' and monWay[self.myPosY][self.myPosX - 1] != '@':
                         monWay[self.myPosY][self.myPosX - 1] = 1 * (self.startMoveTime + 1) + self.moveTime - self.startMoveTime
                 else:
                     if self.moveOnUp == True and self.moveOnDown == False:
-                        if monWay[self.myPosY - i][self.myPosX] != 'B' and monWay[self.myPosY - i][self.myPosX] != 'W':
+                        if monWay[self.myPosY - i][self.myPosX] != 'B' and monWay[self.myPosY - i][self.myPosX] != 'W' and monWay[self.myPosY - i][self.myPosX] != '@':
                             monWay[self.myPosY - i][self.myPosX] = i*(self.startMoveTime + 1) + self.moveTime - self.startMoveTime
                         else:
                             number = i
                             break
                     if self.moveOnUp == False and self.moveOnDown == True:
-                        if monWay[self.myPosY + i][self.myPosX] != 'B' and monWay[self.myPosY + i][self.myPosX] != 'W':
+                        if monWay[self.myPosY + i][self.myPosX] != 'B' and monWay[self.myPosY + i][self.myPosX] != 'W' and monWay[self.myPosY + i][self.myPosX] != '@':
                             monWay[self.myPosY + i][self.myPosX] = i*(self.startMoveTime + 1) + self.moveTime - self.startMoveTime
                         else:
                             number = i
@@ -213,13 +213,13 @@ class Monster(sprite.Sprite): # Класс монстров
                     1
                 else:
                     if self.moveOnUp == True and self.moveOnDown == False:
-                        if monWay[self.myPosY + i][self.myPosX] != 'B' and monWay[self.myPosY + i][self.myPosX] != 'W':
+                        if monWay[self.myPosY + i][self.myPosX] != 'B' and monWay[self.myPosY + i][self.myPosX] != 'W' and monWay[self.myPosY + i][self.myPosX] != '@':
                             #monWay[self.myPosY - i][self.myPosX] = 'M' + str(i)
                             monWay[self.myPosY + i][self.myPosX] = (number-1)*(self.startMoveTime + 1)*2 + i*(self.startMoveTime + 1)  + self.moveTime - self.startMoveTime
                         else:
                             break
                     if self.moveOnUp == False and self.moveOnDown == True:
-                        if monWay[self.myPosY - i][self.myPosX] != 'B' and monWay[self.myPosY - i][self.myPosX] != 'W':
+                        if monWay[self.myPosY - i][self.myPosX] != 'B' and monWay[self.myPosY - i][self.myPosX] != 'W' and monWay[self.myPosY - i][self.myPosX] != '@':
                             #monWay[self.myPosY + i][self.myPosX] = 'M' + str(i)
                             monWay[self.myPosY - i][self.myPosX] = (number-1)*(self.startMoveTime + 1)*2 + i*(self.startMoveTime + 1)  + self.moveTime - self.startMoveTime
                         else:
@@ -228,19 +228,19 @@ class Monster(sprite.Sprite): # Класс монстров
             number = 0
             for i in range(len(monWay[0])):
                 if i == 0:
-                    if monWay[self.myPosY + 1][self.myPosX] != 'B' and monWay[self.myPosY + 1][self.myPosX] != 'W':
+                    if monWay[self.myPosY + 1][self.myPosX] != 'B' and monWay[self.myPosY + 1][self.myPosX] != 'W' and monWay[self.myPosY + 1][self.myPosX] != '@':
                         monWay[self.myPosY + 1][self.myPosX] = 1 * (self.startMoveTime + 1) + self.moveTime - self.startMoveTime
-                    if monWay[self.myPosY - 1][self.myPosX] != 'B' and monWay[self.myPosY - 1][self.myPosX] != 'W':
+                    if monWay[self.myPosY - 1][self.myPosX] != 'B' and monWay[self.myPosY - 1][self.myPosX] != 'W' and monWay[self.myPosY - 1][self.myPosX] != '@':
                         monWay[self.myPosY - 1][self.myPosX] = 1 * (self.startMoveTime + 1) + self.moveTime - self.startMoveTime
                 else:
                     if self.moveOnLeft == True and self.moveOnRight == False:
-                        if monWay[self.myPosY][self.myPosX - i] != 'B' and monWay[self.myPosY][self.myPosX - i] != 'W':
+                        if monWay[self.myPosY][self.myPosX - i] != 'B' and monWay[self.myPosY][self.myPosX - i] != 'W' and monWay[self.myPosY][self.myPosX - i] != '@':
                             monWay[self.myPosY][self.myPosX - i] = i*(self.startMoveTime + 1) + self.moveTime - self.startMoveTime
                         else:
                             number = i
                             break
                     if self.moveOnLeft == False and self.moveOnRight == True:
-                        if monWay[self.myPosY][self.myPosX + i] != 'B' and monWay[self.myPosY][self.myPosX + i] != 'W':
+                        if monWay[self.myPosY][self.myPosX + i] != 'B' and monWay[self.myPosY][self.myPosX + i] != 'W' and monWay[self.myPosY][self.myPosX + i] != '@':
                             monWay[self.myPosY][self.myPosX + i] = i*(self.startMoveTime + 1) + self.moveTime - self.startMoveTime
                         else:
                             number = i
@@ -251,20 +251,20 @@ class Monster(sprite.Sprite): # Класс монстров
                     1
                 else:
                     if self.moveOnLeft == True and self.moveOnRight == False:
-                        if monWay[self.myPosY][self.myPosX + i] != 'B' and monWay[self.myPosY][self.myPosX + i] != 'W':
+                        if monWay[self.myPosY][self.myPosX + i] != 'B' and monWay[self.myPosY][self.myPosX + i] != 'W' and monWay[self.myPosY][self.myPosX + i] != '@':
                             monWay[self.myPosY][self.myPosX + i] = (number-1)*(self.startMoveTime + 1)*2 + i*(self.startMoveTime + 1)  + self.moveTime - self.startMoveTime
                         else:
                             break
                     if self.moveOnLeft == False and self.moveOnRight == True:
-                        if monWay[self.myPosY][self.myPosX - i] != 'B' and monWay[self.myPosY][self.myPosX - i] != 'W':
+                        if monWay[self.myPosY][self.myPosX - i] != 'B' and monWay[self.myPosY][self.myPosX - i] != 'W' and monWay[self.myPosY][self.myPosX - i] != '@':
                             monWay[self.myPosY][self.myPosX - i] = (number-1)*(self.startMoveTime + 1)*2 + i*(self.startMoveTime + 1)  + self.moveTime - self.startMoveTime
                         else:
                             break
 
-    def patrolMove(self, way: List[List[int]]):
+    def patrolMove(self, way: List[List[int]], monWay: List[List[int]]):
         #Случайное изменение маршрута #and way[self.myPosY][self.myPosX - 1] != 'W' and way[self.myPosY][self.myPosX + 1] != 'W')
-        if ((way[self.myPosY][self.myPosX - 1] == 'B' or way[self.myPosY][self.myPosX - 1] == 'W') and (way[self.myPosY][self.myPosX + 1] == 'B' or way[self.myPosY][self.myPosX + 1] == 'W')) or \
-           ((way[self.myPosY - 1][self.myPosX] == 'B' or way[self.myPosY - 1][self.myPosX] == 'W') and (way[self.myPosY + 1][self.myPosX] == 'B' or way[self.myPosY + 1][self.myPosX] == 'W')):
+        if ((way[self.myPosY][self.myPosX - 1] == 'B' or way[self.myPosY][self.myPosX - 1] == 'W' or monWay[self.myPosY][self.myPosX - 1] == '@') and (way[self.myPosY][self.myPosX + 1] == 'B' or way[self.myPosY][self.myPosX + 1] == 'W' or monWay[self.myPosY][self.myPosX + 1] == '@')) or \
+           ((way[self.myPosY - 1][self.myPosX] == 'B' or way[self.myPosY - 1][self.myPosX] == 'W' or monWay[self.myPosY - 1][self.myPosX] == '@') and (way[self.myPosY + 1][self.myPosX] == 'B' or way[self.myPosY + 1][self.myPosX] == 'W' or monWay[self.myPosY + 1][self.myPosX] == '@')):
             1
         else:
             numLRUD = random.randint(1, 100)
@@ -293,18 +293,18 @@ class Monster(sprite.Sprite): # Класс монстров
 
         #print ('Left: ' + str(self.moveOnLeft) + '   Right: '+ str(self.moveOnRight))
         if (self.moveOnLeft == True and self.moveOnRight == False) or (self.moveOnLeft == False and self.moveOnRight == True):
-            if way[self.myPosY][self.myPosX - 1] == 'B':
+            if way[self.myPosY][self.myPosX - 1] == 'B' or monWay[self.myPosY][self.myPosX - 1] == '@':
                 self.moveOnLeft = False
                 self.moveOnRight = True
-            elif way[self.myPosY][self.myPosX + 1] == 'B':
+            elif way[self.myPosY][self.myPosX + 1] == 'B' or monWay[self.myPosY][self.myPosX + 1] == '@':
                 self.moveOnLeft = True
                 self.moveOnRight = False
         #print ('Up: ' + str(self.moveOnUp) + '   Down: '+ str(self.moveOnDown))
         if (self.moveOnUp == True and self.moveOnDown == False) or (self.moveOnUp == False and self.moveOnDown == True):
-            if way[self.myPosY - 1][self.myPosX] == 'B':
+            if way[self.myPosY - 1][self.myPosX] == 'B' or monWay[self.myPosY - 1][self.myPosX] == '@':
                 self.moveOnUp = False
                 self.moveOnDown = True
-            elif way[self.myPosY + 1][self.myPosX] == 'B':
+            elif way[self.myPosY + 1][self.myPosX] == 'B' or monWay[self.myPosY + 1][self.myPosX] == '@':
                 self.moveOnUp = True
                 self.moveOnDown = False
 
@@ -313,22 +313,22 @@ class Monster(sprite.Sprite): # Класс монстров
         self.up = False
         self.down = False
 
-        if way[self.myPosY][self.myPosX - 1] != 'B' and self.moveOnLeft == True and self.moveOnRight == False:# or way[self.myPosY][self.myPosX - 1] != 'W' or way[self.myPosY][self.myPosX - 1] != 'E':
+        if way[self.myPosY][self.myPosX - 1] != 'B' and monWay[self.myPosY][self.myPosX - 1] != '@' and self.moveOnLeft == True and self.moveOnRight == False:# or way[self.myPosY][self.myPosX - 1] != 'W' or way[self.myPosY][self.myPosX - 1] != 'E':
             #if way[hero.myPosY][hero.myPosX - 1] == 'W': moveTimeFlag = True
             self.left = True
             #print("Monster: Left   Y=" + str(self.myPosY) + '   X='+ str(self.myPosX - 1))
 
-        elif way[self.myPosY][self.myPosX + 1] != 'B' and self.moveOnLeft == False and self.moveOnRight == True:# or way[self.myPosY][self.myPosX + 1] != 'W' or way[self.myPosY][self.myPosX + 1] != 'E':
+        elif way[self.myPosY][self.myPosX + 1] != 'B' and monWay[self.myPosY][self.myPosX + 1] != '@' and self.moveOnLeft == False and self.moveOnRight == True:# or way[self.myPosY][self.myPosX + 1] != 'W' or way[self.myPosY][self.myPosX + 1] != 'E':
             #if way[hero.myPosY][hero.myPosX + 1] == 'W': moveTimeFlag = True
             self.right = True
             #print("Monster: Right   Y=" + str(self.myPosY) + '   X='+ str(self.myPosX + 1))
 
-        if way[self.myPosY - 1][self.myPosX] != 'B' and self.moveOnUp == True and self.moveOnDown == False:# or way[self.myPosY - 1][self.myPosX] != 'W' or way[self.myPosY - 1][self.myPosX] != 'E':
+        if way[self.myPosY - 1][self.myPosX] != 'B' and monWay[self.myPosY - 1][self.myPosX] != '@' and self.moveOnUp == True and self.moveOnDown == False:# or way[self.myPosY - 1][self.myPosX] != 'W' or way[self.myPosY - 1][self.myPosX] != 'E':
             #if way[hero.myPosY - 1][hero.myPosX] == 'W': moveTimeFlag = True
             self.up = True
             #print("Monster: Up   Y=" + str(self.myPosY - 1) + '   X='+ str(self.myPosX))
 
-        elif way[self.myPosY + 1][self.myPosX] != 'B' and self.moveOnUp == False and self.moveOnDown == True:# or way[self.myPosY + 1][self.myPosX] != 'W' or way[self.myPosY + 1][self.myPosX] != 'E':
+        elif way[self.myPosY + 1][self.myPosX] != 'B' and monWay[self.myPosY + 1][self.myPosX] != '@' and self.moveOnUp == False and self.moveOnDown == True:# or way[self.myPosY + 1][self.myPosX] != 'W' or way[self.myPosY + 1][self.myPosX] != 'E':
             #if way[hero.myPosY + 1][hero.myPosX] == 'W': moveTimeFlag = True
             self.down = True
             #print("Monster: Down   Y=" + str(self.myPosY + 1) + '   X='+ str(self.myPosX))
@@ -339,16 +339,16 @@ class Monster(sprite.Sprite): # Класс монстров
 
 
     def monsterRandWay(self, monWay: List[List[int]]):
-        if monWay[self.myPosY - 1][self.myPosX] != 'B' and monWay[self.myPosY - 1][self.myPosX] != 'W':
+        if monWay[self.myPosY - 1][self.myPosX] != 'B' and monWay[self.myPosY - 1][self.myPosX] != 'W' and monWay[self.myPosY - 1][self.myPosX] != '@':
             monWay[self.myPosY - 1][self.myPosX] = self.moveTime + 1
-        if monWay[self.myPosY + 1][self.myPosX] != 'B' and monWay[self.myPosY + 1][self.myPosX] != 'W':
+        if monWay[self.myPosY + 1][self.myPosX] != 'B' and monWay[self.myPosY + 1][self.myPosX] != 'W' and monWay[self.myPosY + 1][self.myPosX] != '@':
             monWay[self.myPosY + 1][self.myPosX] = self.moveTime + 1
-        if monWay[self.myPosY][self.myPosX + 1] != 'B' and monWay[self.myPosY][self.myPosX + 1] != 'W':
+        if monWay[self.myPosY][self.myPosX + 1] != 'B' and monWay[self.myPosY][self.myPosX + 1] != 'W' and monWay[self.myPosY][self.myPosX + 1] != '@':
             monWay[self.myPosY][self.myPosX + 1] = self.moveTime + 1
-        if monWay[self.myPosY][self.myPosX - 1] != 'B' and monWay[self.myPosY][self.myPosX - 1] != 'W':
+        if monWay[self.myPosY][self.myPosX - 1] != 'B' and monWay[self.myPosY][self.myPosX - 1] != 'W' and monWay[self.myPosY][self.myPosX - 1] != '@':
             monWay[self.myPosY][self.myPosX - 1] = self.moveTime + 1
 
-    def randMove(self, hero, way: List[List[int]]):
+    def randMove(self, way: List[List[int]], monWay: List[List[int]]):
         number = random.randint(1, 4)
         # print('Число: ' + str(number))
 
@@ -363,7 +363,7 @@ class Monster(sprite.Sprite): # Класс монстров
 
         while self.left != True and self.right != True and self.up != True and self.down != True:
             if number == 1:  # Условие для прохода влево
-                if way[self.myPosY][self.myPosX - 1] != 'B' and way[self.myPosY][self.myPosX - 1] != 'W':
+                if way[self.myPosY][self.myPosX - 1] != 'B' and way[self.myPosY][self.myPosX - 1] != 'W' and monWay[self.myPosY][self.myPosX - 1] != '@':
                     self.left = True
                     self.moveOnLeft = True
                     # print("Left")
@@ -372,7 +372,7 @@ class Monster(sprite.Sprite): # Класс монстров
                     # print("Stop: Left")  # number = 10
 
             elif number == 2:  # Условие для прохода вправо
-                if way[self.myPosY][self.myPosX + 1] != 'B' and way[self.myPosY][self.myPosX + 1] != 'W':
+                if way[self.myPosY][self.myPosX + 1] != 'B' and way[self.myPosY][self.myPosX + 1] != 'W' and monWay[self.myPosY][self.myPosX + 1] != '@':
                     self.right = True
                     self.moveOnRight = True
                     # print("Right")
@@ -381,7 +381,7 @@ class Monster(sprite.Sprite): # Класс монстров
                     # print("Stop: Right")  # number = 10
 
             elif number == 3:  # Условие для прохода вверх
-                if way[self.myPosY - 1][self.myPosX] != 'B' and way[self.myPosY - 1][self.myPosX] != 'W':
+                if way[self.myPosY - 1][self.myPosX] != 'B' and way[self.myPosY - 1][self.myPosX] != 'W' and monWay[self.myPosY - 1][self.myPosX] != '@':
                     self.up = True
                     self.moveOnUp = True
                     # print("Up")
@@ -390,7 +390,7 @@ class Monster(sprite.Sprite): # Класс монстров
                     # print("Stop: Up")  # number = 10
 
             elif number == 4:  # Условие для прохода вниз
-                if way[self.myPosY + 1][self.myPosX] != 'B' and way[self.myPosY + 1][self.myPosX] != 'W':
+                if way[self.myPosY + 1][self.myPosX] != 'B' and way[self.myPosY + 1][self.myPosX] != 'W' and monWay[self.myPosY + 1][self.myPosX] != '@':
                     self.down = True
                     self.moveOnDown = True
                     # print("Down")
@@ -408,9 +408,9 @@ class Monster(sprite.Sprite): # Класс монстров
             #if self.moveOnUp == True or self.moveOnDown == True: #Так же если убираю случайное блуждание скорее всего потребуется вернуть и закомменченое внутри
                 for i in range(len(monWay)):
                     if i == 0:
-                        if monWay[self.myPosY][self.myPosX + 1] != 'B' and monWay[self.myPosY][self.myPosX + 1] != 'W':
+                        if monWay[self.myPosY][self.myPosX + 1] != 'B' and monWay[self.myPosY][self.myPosX + 1] != 'W' and monWay[self.myPosY][self.myPosX + 1] != '@':
                             monWay[self.myPosY][self.myPosX + 1] = 1 * (self.startMoveTime + 1) + self.moveTime - self.startMoveTime
-                        if monWay[self.myPosY][self.myPosX - 1] != 'B' and monWay[self.myPosY][self.myPosX - 1] != 'W':
+                        if monWay[self.myPosY][self.myPosX - 1] != 'B' and monWay[self.myPosY][self.myPosX - 1] != 'W' and monWay[self.myPosY][self.myPosX - 1] != '@':
                             monWay[self.myPosY][self.myPosX - 1] = 1 * (self.startMoveTime + 1) + self.moveTime - self.startMoveTime
                     else:
                         if self.myPosY >= self.myTargetPosY: # and self.moveOnUp == True and self.moveOnDown == False:
@@ -424,9 +424,9 @@ class Monster(sprite.Sprite): # Класс монстров
             #if self.moveOnLeft == True or self.moveOnRight == True: #Так же если убираю случайное блуждание скорее всего потребуется вернуть и закомменченое внутри
                 for i in range(len(monWay[0])):
                     if i == 0:
-                        if monWay[self.myPosY + 1][self.myPosX] != 'B' and monWay[self.myPosY + 1][self.myPosX] != 'W':
+                        if monWay[self.myPosY + 1][self.myPosX] != 'B' and monWay[self.myPosY + 1][self.myPosX] != 'W' and monWay[self.myPosY + 1][self.myPosX] != '@':
                             monWay[self.myPosY + 1][self.myPosX] = 1 * (self.startMoveTime + 1) + self.moveTime - self.startMoveTime
-                        if monWay[self.myPosY - 1][self.myPosX] != 'B' and monWay[self.myPosY - 1][self.myPosX] != 'W':
+                        if monWay[self.myPosY - 1][self.myPosX] != 'B' and monWay[self.myPosY - 1][self.myPosX] != 'W' and monWay[self.myPosY - 1][self.myPosX] != '@':
                             monWay[self.myPosY - 1][self.myPosX] = 1 * (self.startMoveTime + 1) + self.moveTime - self.startMoveTime
                     else:
                         if self.myPosX >= self.myTargetPosX: # and self.moveOnLeft == True and self.moveOnRight == False:
@@ -439,13 +439,13 @@ class Monster(sprite.Sprite): # Класс монстров
                             else: break
 
         elif self.myTargetPosX == self.myPosX and self.myTargetPosY == self.myPosY: #self.moveTime <= 0 and
-            if monWay[self.myPosY - 1][self.myPosX] != 'B' and monWay[self.myPosY - 1][self.myPosX] != 'W':
+            if monWay[self.myPosY - 1][self.myPosX] != 'B' and monWay[self.myPosY - 1][self.myPosX] != 'W' and monWay[self.myPosY - 1][self.myPosX] != '@':
                 monWay[self.myPosY - 1][self.myPosX] = self.moveTime + 1 #Если убираю случайное блуждание, то ставлю здесь #1
-            if monWay[self.myPosY + 1][self.myPosX] != 'B' and monWay[self.myPosY + 1][self.myPosX] != 'W':
+            if monWay[self.myPosY + 1][self.myPosX] != 'B' and monWay[self.myPosY + 1][self.myPosX] != 'W' and monWay[self.myPosY + 1][self.myPosX] != '@':
                 monWay[self.myPosY + 1][self.myPosX] = self.moveTime + 1 #Если убираю случайное блуждание, то ставлю здесь #1
-            if monWay[self.myPosY][self.myPosX - 1] != 'B' and monWay[self.myPosY][self.myPosX - 1] != 'W':
+            if monWay[self.myPosY][self.myPosX - 1] != 'B' and monWay[self.myPosY][self.myPosX - 1] != 'W' and monWay[self.myPosY][self.myPosX - 1] != '@':
                 monWay[self.myPosY][self.myPosX - 1] = self.moveTime + 1 #Если убираю случайное блуждание, то ставлю здесь #1
-            if monWay[self.myPosY][self.myPosX + 1] != 'B' and monWay[self.myPosY][self.myPosX + 1] != 'W':
+            if monWay[self.myPosY][self.myPosX + 1] != 'B' and monWay[self.myPosY][self.myPosX + 1] != 'W' and monWay[self.myPosY][self.myPosX + 1] != '@':
                 monWay[self.myPosY][self.myPosX + 1] = self.moveTime + 1 #Если убираю случайное блуждание, то ставлю здесь #1
 
     def pendingMove(self, monWay: List[List[int]], way: List[List[int]]):
@@ -495,7 +495,7 @@ class Monster(sprite.Sprite): # Класс монстров
                     1
                 else:
                     if  stopUp == False:
-                        if monWay[self.myPosY - i][self.myPosX] != 'B' and monWay[self.myPosY - i][self.myPosX] != 'W':
+                        if monWay[self.myPosY - i][self.myPosX] != 'B' and monWay[self.myPosY - i][self.myPosX] != 'W' and monWay[self.myPosY - i][self.myPosX] != '@':
                             if way[self.myPosY - i][self.myPosX] == 'H':
                                 self.myTargetPosX = self.myPosX
                                 self.myTargetPosY = self.myPosY - i
@@ -506,7 +506,7 @@ class Monster(sprite.Sprite): # Класс монстров
                                 self.moveOnDown = False
                         else: stopUp = True
                     if stopDown == False:
-                        if monWay[self.myPosY + i][self.myPosX] != 'B' and monWay[self.myPosY + i][self.myPosX] != 'W':
+                        if monWay[self.myPosY + i][self.myPosX] != 'B' and monWay[self.myPosY + i][self.myPosX] != 'W' and monWay[self.myPosY + i][self.myPosX] != '@':
                             if way[self.myPosY + i][self.myPosX] == 'H':
                                 self.myTargetPosX = self.myPosX
                                 self.myTargetPosY = self.myPosY + i
@@ -521,7 +521,7 @@ class Monster(sprite.Sprite): # Класс монстров
                     1
                 else:
                     if  stopLeft == False:
-                        if monWay[self.myPosY][self.myPosX - i] != 'B' and monWay[self.myPosY][self.myPosX - i] != 'W':
+                        if monWay[self.myPosY][self.myPosX - i] != 'B' and monWay[self.myPosY][self.myPosX - i] != 'W' and monWay[self.myPosY][self.myPosX - i] != '@':
                             if way[self.myPosY][self.myPosX - i] == 'H':
                                 self.myTargetPosX = self.myPosX - i
                                 self.myTargetPosY = self.myPosY
@@ -532,7 +532,7 @@ class Monster(sprite.Sprite): # Класс монстров
                                 self.moveOnDown = False
                         else: stopLeft = True
                     if stopRight == False:
-                        if monWay[self.myPosY][self.myPosX + i] != 'B' and monWay[self.myPosY][self.myPosX + i] != 'W':
+                        if monWay[self.myPosY][self.myPosX + i] != 'B' and monWay[self.myPosY][self.myPosX + i] != 'W' and monWay[self.myPosY][self.myPosX + i] != '@':
                             if way[self.myPosY][self.myPosX + i] == 'H':
                                 self.myTargetPosX = self.myPosX + i
                                 self.myTargetPosY = self.myPosY
@@ -550,7 +550,7 @@ class Monster(sprite.Sprite): # Класс монстров
 
             while self.left != True and self.right != True and self.up != True and self.down != True:
                 if number == 1:  # Условие для прохода влево
-                    if way[self.myPosY][self.myPosX - 1] != 'B' and way[self.myPosY][self.myPosX - 1] != 'W':
+                    if way[self.myPosY][self.myPosX - 1] != 'B' and way[self.myPosY][self.myPosX - 1] != 'W' and monWay[self.myPosY][self.myPosX - 1] != '@':
                         self.left = True
                         self.myTargetPosX = self.myPosX - 1
                         self.myTargetPosY = self.myPosY
@@ -564,7 +564,7 @@ class Monster(sprite.Sprite): # Класс монстров
                         # print("Stop: Left")  # number = 10
 
                 elif number == 2:  # Условие для прохода вправо
-                    if way[self.myPosY][self.myPosX + 1] != 'B' and way[self.myPosY][self.myPosX + 1] != 'W':
+                    if way[self.myPosY][self.myPosX + 1] != 'B' and way[self.myPosY][self.myPosX + 1] != 'W' and monWay[self.myPosY][self.myPosX + 1] != '@':
                         self.right = True
                         self.myTargetPosX = self.myPosX + 1
                         self.myTargetPosY = self.myPosY
@@ -578,7 +578,7 @@ class Monster(sprite.Sprite): # Класс монстров
                         # print("Stop: Right")  # number = 10
 
                 elif number == 3:  # Условие для прохода вверх
-                    if way[self.myPosY - 1][self.myPosX] != 'B' and way[self.myPosY - 1][self.myPosX] != 'W':
+                    if way[self.myPosY - 1][self.myPosX] != 'B' and way[self.myPosY - 1][self.myPosX] != 'W' and monWay[self.myPosY - 1][self.myPosX] != '@':
                         self.up = True
                         self.myTargetPosX = self.myPosX
                         self.myTargetPosY = self.myPosY - 1
@@ -592,7 +592,7 @@ class Monster(sprite.Sprite): # Класс монстров
                         # print("Stop: Up")  # number = 10
 
                 elif number == 4:  # Условие для прохода вниз
-                    if way[self.myPosY + 1][self.myPosX] != 'B' and way[self.myPosY + 1][self.myPosX] != 'W':
+                    if way[self.myPosY + 1][self.myPosX] != 'B' and way[self.myPosY + 1][self.myPosX] != 'W' and monWay[self.myPosY + 1][self.myPosX] != '@':
                         self.down = True
                         self.myTargetPosX = self.myPosX
                         self.myTargetPosY = self.myPosY + 1
@@ -618,14 +618,14 @@ class Monster(sprite.Sprite): # Класс монстров
             else:
                 #print('Q: X=' + str(self.myPosX) + ' Y=' + str(self.myPosY - i) + ' way: ' + str(way[self.myPosY - i][self.myPosX]))
                 if stopUp == False:
-                    if monWay[self.myPosY - i][self.myPosX] != 'B' and monWay[self.myPosY - i][self.myPosX] != 'W':
+                    if monWay[self.myPosY - i][self.myPosX] != 'B' and monWay[self.myPosY - i][self.myPosX] != 'W' and monWay[self.myPosY - i][self.myPosX] != '@':
                         if way[self.myPosY - i][self.myPosX] == 'H':
                             self.myTargetPosX = self.myPosX
                             self.myTargetPosY = self.myPosY - i
                     else:
                         stopUp = True
                 if stopDown == False:
-                    if monWay[self.myPosY + i][self.myPosX] != 'B' and monWay[self.myPosY + i][self.myPosX] != 'W':
+                    if monWay[self.myPosY + i][self.myPosX] != 'B' and monWay[self.myPosY + i][self.myPosX] != 'W' and monWay[self.myPosY + i][self.myPosX] != '@':
                         if way[self.myPosY + i][self.myPosX] == 'H':
                             self.myTargetPosX = self.myPosX
                             self.myTargetPosY = self.myPosY + i
@@ -637,14 +637,14 @@ class Monster(sprite.Sprite): # Класс монстров
             else:
                 #print('Q: X=' + str(self.myPosX - i) + ' Y=' + str(self.myPosY) + ' way: ' + str(way[self.myPosY][self.myPosX - i]))
                 if stopLeft == False:
-                    if monWay[self.myPosY][self.myPosX - i] != 'B' and monWay[self.myPosY][self.myPosX - i] != 'W':
+                    if monWay[self.myPosY][self.myPosX - i] != 'B' and monWay[self.myPosY][self.myPosX - i] != 'W' and monWay[self.myPosY][self.myPosX - i] != '@':
                         if way[self.myPosY][self.myPosX - i] == 'H':
                             self.myTargetPosX = self.myPosX - i
                             self.myTargetPosY = self.myPosY
                     else:
                         stopLeft = True
                 if stopRight == False:
-                    if monWay[self.myPosY][self.myPosX + i] != 'B' and monWay[self.myPosY][self.myPosX + i] != 'W':
+                    if monWay[self.myPosY][self.myPosX + i] != 'B' and monWay[self.myPosY][self.myPosX + i] != 'W' and monWay[self.myPosY][self.myPosX + i] != '@':
                         if way[self.myPosY][self.myPosX + i] == 'H':
                             self.myTargetPosX = self.myPosX + i
                             self.myTargetPosY = self.myPosY
