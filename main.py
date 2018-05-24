@@ -581,19 +581,27 @@ def main():
                 if hero.moveTime <= 0 or (hero.imDie == True and hero.live > 0):
                     #if amountBigEnergy >= 0:  # Если энергии, которые присутствовали на карте ещё не собраны
                         bigEnergyCounter = maps.amountBigEnerge(way)  # тогда сверяем их с текущим количеством на карте
-                        print('BigEnergyCounter: ' + str(bigEnergyCounter) + '  ;  AmountBigEnergy: ' + str(amountBigEnergy))
+                        amountBigEnergy = 0
                     #if ((bigEnergyCounter != amountBigEnergy and amountBigEnergy >= 0) or hero.imDie == True): #or (bigEnergyCounter == 0): #если кол-во на карте и общее различается, то прокладываем маршрут до следующей цели
                         if hero.imDie == True:
                             hero.imDie = False
                             maps.clearHeroFromMap(way)
                             hero.moveTime = hero.startMoveTime
                             way[hero.myPosY][hero.myPosX] = 'H'
-                        if bigEnergyCounter != amountBigEnergy and amountBigEnergy >= 0:
-                            amountBigEnergy = maps.amountBigEnerge(way)
+                        #if bigEnergyCounter != amountBigEnergy and amountBigEnergy >= 0:
+                            #amountBigEnergy = maps.amountBigEnerge(way)
                         for be in masBE:
                             blocks.BigEnergy.myCoord(be)
                             if be.myPosY > 0 and be.myPosX > 0 and way[be.myPosY][be.myPosX] != 'M':
+                                amountBigEnergy += 1
                                 way[be.myPosY][be.myPosX] = 'E'
+                        if bigEnergyCounter != amountBigEnergy: #Если кол-во энергий на карте != кол-ву энергий фактически, то стираем их и отрисовываем снова
+                            maps.deleteBigEnerge(way)
+                            print('BigEnergyCounter: ' + str(bigEnergyCounter) + '  |  AmountBigEnergy: ' + str(amountBigEnergy))
+                            for be in masBE:
+                                blocks.BigEnergy.myCoord(be)
+                                if be.myPosY > 0 and be.myPosX > 0 and way[be.myPosY][be.myPosX] != 'M':
+                                    way[be.myPosY][be.myPosX] = 'E'
                         maps.clearWayNumFromMap(way) # Очищаем карту, чтобы можно было проложить новый маршрут до другого объекта
                         #amountBigEnergy -= 1  # Уменьшаем общее кол-во энергий
                         #print('Кол-во монстров (без бомб): ' + str(index-bomb) + ' (' + str((index-1-bomb)/2) +') | Алг333: ' + str(how333))
@@ -615,7 +623,7 @@ def main():
                                     alg.algWaveFindExit('@', hero, way, masBE, monWay, masBlHole)  # [amountBigEnergy-1])
                             elif hide == False:
                                 if (index-1-bomb)/2 > how333:    #Если количество монстров с алгоритмом 333 меньше чем половина монстров, то
-                                    if bigEnergyCounter <= 0 or amountBigEnergy <= 0: # если энергии на карте закончились, тогда строим путь к выходу
+                                    if bigEnergyCounter <= 0: #or amountBigEnergy <= 0: # если энергии на карте закончились, тогда строим путь к выходу
                                         print('Прокладываю путь до W')
                                         alg.algWaveFindExit('W', hero, way, 0, monWay, masBlHole) #amountBigEnergy-1
                                     else:

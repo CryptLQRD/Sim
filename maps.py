@@ -59,6 +59,14 @@ def amountBigEnerge (way: List[List[int]]):
     #print("Число больших энергий: = " + str(bigEnergyCounter))
     return bigEnergyCounter
 
+def deleteBigEnerge (way: List[List[int]]):
+    bigEnergyCounter = 0
+    for i in range(len(way)):
+        for j in range(len(way[i])):
+            if way[i][j] == 'E':
+                way[i][j] == 0
+    #print("Число больших энергий: = " + str(bigEnergyCounter))
+
 def amountMonster (way: List[List[int]]):
     monsterCounter = 0
     for i in range(len(way)):

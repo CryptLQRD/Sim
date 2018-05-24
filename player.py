@@ -40,7 +40,7 @@ class Player(sprite.Sprite): # Класс игрока
         self.winner = False
         self.moveTime = -1
         self.startMoveTime = 2
-        self.known = -1
+        self.known = 1
         self.E1 = self.known
         self.amMove = 0
 

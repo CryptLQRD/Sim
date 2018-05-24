@@ -91,8 +91,8 @@ def identificationAlg (hero, way: List[List[int]], masMons, monWay: List[List[in
         checkList = []
         timesXY111alg = 15 # Сколько раз подряд монстр должен сходить по одной и той же координате для того, чтобы алгоритм посчитал его 111
         alg111 = 105 #100,65,23
-        alg222 = 70    #кол-во проверок для alg222
-        alg333 = 20    #кол-во проверок для alg333
+        alg222 = 85    #кол-во проверок для alg222
+        alg333 = 26    #кол-во проверок для alg333
         if hero.obsCount < depth:
             epi = 0
             counter = hero.obsCount
@@ -624,45 +624,45 @@ def algWave (hero, way: List[List[int]], monWay: List[List[int]], symbol):
             print("Left-Down")
         else: imStay = True
     else:
-        if (way[hero.myPosY][hero.myPosX - 1] == '+' or way[hero.myPosY][hero.myPosX - 1] == 'W' or way[hero.myPosY][hero.myPosX - 1] == symbol) and (monWay[hero.myPosY][hero.myPosX - 1] != hero.E1): # and monWay[hero.myPosY][hero.myPosX - 1] != hero.startMoveTime*hero.known):
+        if (way[hero.myPosY][hero.myPosX - 1] == '+' or way[hero.myPosY][hero.myPosX - 1] == 'W' or way[hero.myPosY][hero.myPosX - 1] == symbol) and (monWay[hero.myPosY][hero.myPosX - 1] != hero.E1 and monWay[hero.myPosY][hero.myPosX - 1] != hero.startMoveTime*hero.known):
             if way[hero.myPosY][hero.myPosX - 1] == 'W': moveTimeFlag = True
             left = True
             print("Left")
 
-        elif (way[hero.myPosY][hero.myPosX + 1] == '+' or way[hero.myPosY][hero.myPosX + 1] == 'W' or way[hero.myPosY][hero.myPosX + 1] == symbol) and (monWay[hero.myPosY][hero.myPosX + 1] != hero.E1): # and monWay[hero.myPosY][hero.myPosX + 1] != hero.startMoveTime*hero.known):
+        elif (way[hero.myPosY][hero.myPosX + 1] == '+' or way[hero.myPosY][hero.myPosX + 1] == 'W' or way[hero.myPosY][hero.myPosX + 1] == symbol) and (monWay[hero.myPosY][hero.myPosX + 1] != hero.E1 and monWay[hero.myPosY][hero.myPosX + 1] != hero.startMoveTime*hero.known):
             if way[hero.myPosY][hero.myPosX + 1] == 'W': moveTimeFlag = True
             right = True
             print("Right")
 
-        elif (way[hero.myPosY - 1][hero.myPosX] == '+' or way[hero.myPosY - 1][hero.myPosX] == 'W' or way[hero.myPosY - 1][hero.myPosX] == symbol) and (monWay[hero.myPosY - 1][hero.myPosX] != hero.E1): # and monWay[hero.myPosY - 1][hero.myPosX] != hero.startMoveTime*hero.known):
+        elif (way[hero.myPosY - 1][hero.myPosX] == '+' or way[hero.myPosY - 1][hero.myPosX] == 'W' or way[hero.myPosY - 1][hero.myPosX] == symbol) and (monWay[hero.myPosY - 1][hero.myPosX] != hero.E1 and monWay[hero.myPosY - 1][hero.myPosX] != hero.startMoveTime*hero.known):
             if way[hero.myPosY - 1][hero.myPosX] == 'W': moveTimeFlag = True
             up = True
             print("Up")
 
-        elif (way[hero.myPosY + 1][hero.myPosX] == '+' or way[hero.myPosY + 1][hero.myPosX] == 'W' or way[hero.myPosY + 1][hero.myPosX] == symbol) and (monWay[hero.myPosY + 1][hero.myPosX] != hero.E1): # and monWay[hero.myPosY + 1][hero.myPosX] != hero.startMoveTime*hero.known):
+        elif (way[hero.myPosY + 1][hero.myPosX] == '+' or way[hero.myPosY + 1][hero.myPosX] == 'W' or way[hero.myPosY + 1][hero.myPosX] == symbol) and (monWay[hero.myPosY + 1][hero.myPosX] != hero.E1 and monWay[hero.myPosY + 1][hero.myPosX] != hero.startMoveTime*hero.known):
             if way[hero.myPosY + 1][hero.myPosX] == 'W': moveTimeFlag = True
             down = True
             print("Down")
 
-        elif (way[hero.myPosY + 1][hero.myPosX + 1] == '+' or way[hero.myPosY + 1][hero.myPosX + 1] == 'W' or way[hero.myPosY + 1][hero.myPosX + 1] == symbol) and (way[hero.myPosY + 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX + 1] != 'B' and monWay[hero.myPosY + 1][hero.myPosX + 1] != hero.E1): # and monWay[hero.myPosY + 1][hero.myPosX + 1] != hero.startMoveTime*hero.known):
+        elif (way[hero.myPosY + 1][hero.myPosX + 1] == '+' or way[hero.myPosY + 1][hero.myPosX + 1] == 'W' or way[hero.myPosY + 1][hero.myPosX + 1] == symbol) and (way[hero.myPosY + 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX + 1] != 'B' and monWay[hero.myPosY + 1][hero.myPosX + 1] != hero.E1 and monWay[hero.myPosY + 1][hero.myPosX + 1] != hero.startMoveTime*hero.known):
             if way[hero.myPosY + 1][hero.myPosX + 1] == 'W': moveTimeFlag = True
             right = True
             down = True
             print("Right-Down")
 
-        elif (way[hero.myPosY - 1][hero.myPosX + 1] == '+' or way[hero.myPosY - 1][hero.myPosX + 1] == 'W' or way[hero.myPosY - 1][hero.myPosX + 1] == symbol) and (way[hero.myPosY - 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX + 1] != 'B' and monWay[hero.myPosY - 1][hero.myPosX + 1] != hero.E1): # and monWay[hero.myPosY - 1][hero.myPosX + 1] != hero.startMoveTime*hero.known):
+        elif (way[hero.myPosY - 1][hero.myPosX + 1] == '+' or way[hero.myPosY - 1][hero.myPosX + 1] == 'W' or way[hero.myPosY - 1][hero.myPosX + 1] == symbol) and (way[hero.myPosY - 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX + 1] != 'B' and monWay[hero.myPosY - 1][hero.myPosX + 1] != hero.E1 and monWay[hero.myPosY - 1][hero.myPosX + 1] != hero.startMoveTime*hero.known):
             if way[hero.myPosY - 1][hero.myPosX + 1] == 'W': moveTimeFlag = True
             right = True
             up = True
             print("Right-Up")
 
-        elif (way[hero.myPosY - 1][hero.myPosX - 1] == '+' or way[hero.myPosY - 1][hero.myPosX - 1] == 'W' or way[hero.myPosY - 1][hero.myPosX - 1] == symbol) and (way[hero.myPosY - 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX - 1] != 'B' and monWay[hero.myPosY - 1][hero.myPosX - 1] != hero.E1): # and monWay[hero.myPosY - 1][hero.myPosX - 1] != hero.startMoveTime*hero.known):
+        elif (way[hero.myPosY - 1][hero.myPosX - 1] == '+' or way[hero.myPosY - 1][hero.myPosX - 1] == 'W' or way[hero.myPosY - 1][hero.myPosX - 1] == symbol) and (way[hero.myPosY - 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX - 1] != 'B' and monWay[hero.myPosY - 1][hero.myPosX - 1] != hero.E1 and monWay[hero.myPosY - 1][hero.myPosX - 1] != hero.startMoveTime*hero.known):
             if way[hero.myPosY - 1][hero.myPosX - 1] == 'W': moveTimeFlag = True
             left = True
             up = True
             print("Left-Up")
 
-        elif (way[hero.myPosY + 1][hero.myPosX - 1] == '+' or way[hero.myPosY + 1][hero.myPosX - 1] == 'W' or way[hero.myPosY + 1][hero.myPosX - 1] == symbol) and (way[hero.myPosY + 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX - 1] != 'B' and monWay[hero.myPosY + 1][hero.myPosX - 1] != hero.E1): # and monWay[hero.myPosY + 1][hero.myPosX - 1] != hero.startMoveTime*hero.known):
+        elif (way[hero.myPosY + 1][hero.myPosX - 1] == '+' or way[hero.myPosY + 1][hero.myPosX - 1] == 'W' or way[hero.myPosY + 1][hero.myPosX - 1] == symbol) and (way[hero.myPosY + 1][hero.myPosX] != 'B' and way[hero.myPosY][hero.myPosX - 1] != 'B' and monWay[hero.myPosY + 1][hero.myPosX - 1] != hero.E1 and monWay[hero.myPosY + 1][hero.myPosX - 1] != hero.startMoveTime*hero.known):
             if way[hero.myPosY + 1][hero.myPosX - 1] == 'W': moveTimeFlag = True
             left = True
             down = True
@@ -760,9 +760,9 @@ def radar(hero, way: List[List[int]], masMons, monWay: List[List[int]]):
             or (way[hero.myPosY - 2][hero.myPosX + 1] == 'M') or (way[hero.myPosY - 1][hero.myPosX + 2] == 'M') \
             or (way[hero.myPosY - 2][hero.myPosX - 1] == 'M') or (way[hero.myPosY - 1][hero.myPosX - 2] == 'M'):
         for mn in masMons:
-            if (hero.myPosY == mn.myPosX and (hero.myPosX + 1) == mn.myPosY) or (hero.myPosY == mn.myPosX and (hero.myPosX + 2) == mn.myPosY) or (hero.myPosY == mn.myPosX and (hero.myPosX + exRghX) == mn.myPosY) or ((hero.myPosY + 1) == mn.myPosX and hero.myPosX == mn.myPosY) or ((hero.myPosY + 2) == mn.myPosX and hero.myPosX == mn.myPosY) or ((hero.myPosY + exBotY) == mn.myPosX and hero.myPosX == mn.myPosY) or (hero.myPosY == mn.myPosX and (hero.myPosX - 1) == mn.myPosY) or (hero.myPosY == mn.myPosX and (hero.myPosX - 2) == mn.myPosY) or (hero.myPosY == mn.myPosX and (hero.myPosX - exLftX) == mn.myPosY) or ((hero.myPosY - 1) == mn.myPosX and hero.myPosX == mn.myPosY) or ((hero.myPosY - 2) == mn.myPosX and hero.myPosX == mn.myPosY) or ((hero.myPosY - exTopY) == mn.myPosX and hero.myPosX == mn.myPosY) \
-                    or ((hero.myPosY + 1) == mn.myPosX and (hero.myPosX + 1) == mn.myPosY) or ((hero.myPosY + 2) == mn.myPosX and (hero.myPosX + 2) == mn.myPosY) or ((hero.myPosY + 1) == mn.myPosX and (hero.myPosX - 1) == mn.myPosY) or ((hero.myPosY + 2) == mn.myPosX and (hero.myPosX - 2) == mn.myPosY) or ((hero.myPosY - 1) == mn.myPosX and (hero.myPosX + 1) == mn.myPosY) or ((hero.myPosY - 2) == mn.myPosX and (hero.myPosX + 2) == mn.myPosY) or ((hero.myPosY - 1) == mn.myPosX and (hero.myPosX - 1) == mn.myPosY) or ((hero.myPosY - 2) == mn.myPosX and (hero.myPosX - 2) == mn.myPosY) \
-                    or ((hero.myPosY + 1) == mn.myPosX and (hero.myPosX + 2) == mn.myPosY) or ((hero.myPosY + 2) == mn.myPosX and (hero.myPosX + 1) == mn.myPosY) or ((hero.myPosY + 1) == mn.myPosX and (hero.myPosX - 2) == mn.myPosY) or ((hero.myPosY + 2) == mn.myPosX and (hero.myPosX - 1) == mn.myPosY) or ((hero.myPosY - 2) == mn.myPosX and (hero.myPosX + 1) == mn.myPosY) or ((hero.myPosY - 1) == mn.myPosX and (hero.myPosX + 2) == mn.myPosY) or ((hero.myPosY - 2) == mn.myPosX and (hero.myPosX - 1) == mn.myPosY) or ((hero.myPosY - 1) == mn.myPosX and (hero.myPosX - 2) == mn.myPosY):
+            if (hero.myPosX == mn.myPosX and (hero.myPosY + 1) == mn.myPosY) or (hero.myPosX == mn.myPosX and (hero.myPosY + 2) == mn.myPosY) or (hero.myPosX == mn.myPosX and (hero.myPosY + exBotY) == mn.myPosY) or ((hero.myPosX + 1) == mn.myPosX and hero.myPosY == mn.myPosY) or ((hero.myPosX + 2) == mn.myPosX and hero.myPosY == mn.myPosY) or ((hero.myPosX + exRghX) == mn.myPosX and hero.myPosY == mn.myPosY) or (hero.myPosX == mn.myPosX and (hero.myPosY - 1) == mn.myPosY) or (hero.myPosX == mn.myPosX and (hero.myPosY - 2) == mn.myPosY) or (hero.myPosX == mn.myPosX and (hero.myPosY - exTopY) == mn.myPosY) or ((hero.myPosX - 1) == mn.myPosX and hero.myPosY == mn.myPosY) or ((hero.myPosX - 2) == mn.myPosX and hero.myPosY == mn.myPosY) or ((hero.myPosX - exLftX) == mn.myPosX and hero.myPosY == mn.myPosY) \
+                    or ((hero.myPosX + 1) == mn.myPosX and (hero.myPosY + 1) == mn.myPosY) or ((hero.myPosX + 2) == mn.myPosX and (hero.myPosY + 2) == mn.myPosY) or ((hero.myPosX + 1) == mn.myPosX and (hero.myPosY - 1) == mn.myPosY) or ((hero.myPosX + 2) == mn.myPosX and (hero.myPosY - 2) == mn.myPosY) or ((hero.myPosX - 1) == mn.myPosX and (hero.myPosY + 1) == mn.myPosY) or ((hero.myPosX - 2) == mn.myPosX and (hero.myPosY + 2) == mn.myPosY) or ((hero.myPosX - 1) == mn.myPosX and (hero.myPosY - 1) == mn.myPosY) or ((hero.myPosX - 2) == mn.myPosX and (hero.myPosY - 2) == mn.myPosY) \
+                    or ((hero.myPosX + 1) == mn.myPosX and (hero.myPosY + 2) == mn.myPosY) or ((hero.myPosX + 2) == mn.myPosX and (hero.myPosY + 1) == mn.myPosY) or ((hero.myPosX + 1) == mn.myPosX and (hero.myPosY - 2) == mn.myPosY) or ((hero.myPosX + 2) == mn.myPosX and (hero.myPosY - 1) == mn.myPosY) or ((hero.myPosX - 2) == mn.myPosX and (hero.myPosY + 1) == mn.myPosY) or ((hero.myPosX - 1) == mn.myPosX and (hero.myPosY + 2) == mn.myPosY) or ((hero.myPosX - 2) == mn.myPosX and (hero.myPosY - 1) == mn.myPosY) or ((hero.myPosX - 1) == mn.myPosX and (hero.myPosY - 2) == mn.myPosY):
                 if checkList.count(mn.index) == 0:
                     checkList.append(mn.index)
                     if hero.monInfo[mn.index].alg == 333:
