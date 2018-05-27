@@ -90,9 +90,9 @@ def identificationAlg (hero, way: List[List[int]], masMons, monWay: List[List[in
         depth = 240 # Стоит делить на moveTime отдельного монстра, иначе следует сделать переменные с сохранением предыдущих результатов (Пример stepX и stepY) При depth=60 и moveTime=4 step =15
         checkList = []
         timesXY111alg = 15 # Сколько раз подряд монстр должен сходить по одной и той же координате для того, чтобы алгоритм посчитал его 111
-        alg111 = 105 #100,65,23
-        alg222 = 85    #кол-во проверок для alg222
-        alg333 = 26    #кол-во проверок для alg333
+        alg111 = 185 #100,65,23
+        alg222 = 160    #кол-во проверок для alg222 #90 #170
+        alg333 = 13    #кол-во проверок для alg333  #23 # 50
         if hero.obsCount < depth:
             epi = 0
             counter = hero.obsCount

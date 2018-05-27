@@ -293,18 +293,18 @@ class Monster(sprite.Sprite): # Класс монстров
 
         #print ('Left: ' + str(self.moveOnLeft) + '   Right: '+ str(self.moveOnRight))
         if (self.moveOnLeft == True and self.moveOnRight == False) or (self.moveOnLeft == False and self.moveOnRight == True):
-            if way[self.myPosY][self.myPosX - 1] == 'B' or monWay[self.myPosY][self.myPosX - 1] == '@':
+            if way[self.myPosY][self.myPosX - 1] == 'B' or way[self.myPosY][self.myPosX - 1] == 'W' or monWay[self.myPosY][self.myPosX - 1] == '@':
                 self.moveOnLeft = False
                 self.moveOnRight = True
-            elif way[self.myPosY][self.myPosX + 1] == 'B' or monWay[self.myPosY][self.myPosX + 1] == '@':
+            elif way[self.myPosY][self.myPosX + 1] == 'B' or way[self.myPosY][self.myPosX + 1] == 'W' or monWay[self.myPosY][self.myPosX + 1] == '@':
                 self.moveOnLeft = True
                 self.moveOnRight = False
         #print ('Up: ' + str(self.moveOnUp) + '   Down: '+ str(self.moveOnDown))
         if (self.moveOnUp == True and self.moveOnDown == False) or (self.moveOnUp == False and self.moveOnDown == True):
-            if way[self.myPosY - 1][self.myPosX] == 'B' or monWay[self.myPosY - 1][self.myPosX] == '@':
+            if way[self.myPosY - 1][self.myPosX] == 'B' or way[self.myPosY - 1][self.myPosX] == 'W' or monWay[self.myPosY - 1][self.myPosX] == '@':
                 self.moveOnUp = False
                 self.moveOnDown = True
-            elif way[self.myPosY + 1][self.myPosX] == 'B' or monWay[self.myPosY + 1][self.myPosX] == '@':
+            elif way[self.myPosY + 1][self.myPosX] == 'B' or way[self.myPosY + 1][self.myPosX] == 'W' or monWay[self.myPosY + 1][self.myPosX] == '@':
                 self.moveOnUp = True
                 self.moveOnDown = False
 
@@ -313,22 +313,22 @@ class Monster(sprite.Sprite): # Класс монстров
         self.up = False
         self.down = False
 
-        if way[self.myPosY][self.myPosX - 1] != 'B' and monWay[self.myPosY][self.myPosX - 1] != '@' and self.moveOnLeft == True and self.moveOnRight == False:# or way[self.myPosY][self.myPosX - 1] != 'W' or way[self.myPosY][self.myPosX - 1] != 'E':
+        if way[self.myPosY][self.myPosX - 1] != 'B' and way[self.myPosY][self.myPosX - 1] != 'W' and monWay[self.myPosY][self.myPosX - 1] != '@' and self.moveOnLeft == True and self.moveOnRight == False:# or way[self.myPosY][self.myPosX - 1] != 'W' or way[self.myPosY][self.myPosX - 1] != 'E':
             #if way[hero.myPosY][hero.myPosX - 1] == 'W': moveTimeFlag = True
             self.left = True
             #print("Monster: Left   Y=" + str(self.myPosY) + '   X='+ str(self.myPosX - 1))
 
-        elif way[self.myPosY][self.myPosX + 1] != 'B' and monWay[self.myPosY][self.myPosX + 1] != '@' and self.moveOnLeft == False and self.moveOnRight == True:# or way[self.myPosY][self.myPosX + 1] != 'W' or way[self.myPosY][self.myPosX + 1] != 'E':
+        elif way[self.myPosY][self.myPosX + 1] != 'B' and way[self.myPosY][self.myPosX + 1] != 'W' and monWay[self.myPosY][self.myPosX + 1] != '@' and self.moveOnLeft == False and self.moveOnRight == True:# or way[self.myPosY][self.myPosX + 1] != 'W' or way[self.myPosY][self.myPosX + 1] != 'E':
             #if way[hero.myPosY][hero.myPosX + 1] == 'W': moveTimeFlag = True
             self.right = True
             #print("Monster: Right   Y=" + str(self.myPosY) + '   X='+ str(self.myPosX + 1))
 
-        if way[self.myPosY - 1][self.myPosX] != 'B' and monWay[self.myPosY - 1][self.myPosX] != '@' and self.moveOnUp == True and self.moveOnDown == False:# or way[self.myPosY - 1][self.myPosX] != 'W' or way[self.myPosY - 1][self.myPosX] != 'E':
+        if way[self.myPosY - 1][self.myPosX] != 'B' and way[self.myPosY - 1][self.myPosX] != 'W' and monWay[self.myPosY - 1][self.myPosX] != '@' and self.moveOnUp == True and self.moveOnDown == False:# or way[self.myPosY - 1][self.myPosX] != 'W' or way[self.myPosY - 1][self.myPosX] != 'E':
             #if way[hero.myPosY - 1][hero.myPosX] == 'W': moveTimeFlag = True
             self.up = True
             #print("Monster: Up   Y=" + str(self.myPosY - 1) + '   X='+ str(self.myPosX))
 
-        elif way[self.myPosY + 1][self.myPosX] != 'B' and monWay[self.myPosY + 1][self.myPosX] != '@' and self.moveOnUp == False and self.moveOnDown == True:# or way[self.myPosY + 1][self.myPosX] != 'W' or way[self.myPosY + 1][self.myPosX] != 'E':
+        elif way[self.myPosY + 1][self.myPosX] != 'B' and way[self.myPosY + 1][self.myPosX] != 'W' and monWay[self.myPosY + 1][self.myPosX] != '@' and self.moveOnUp == False and self.moveOnDown == True:# or way[self.myPosY + 1][self.myPosX] != 'W' or way[self.myPosY + 1][self.myPosX] != 'E':
             #if way[hero.myPosY + 1][hero.myPosX] == 'W': moveTimeFlag = True
             self.down = True
             #print("Monster: Down   Y=" + str(self.myPosY + 1) + '   X='+ str(self.myPosX))

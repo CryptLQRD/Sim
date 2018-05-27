@@ -31,7 +31,7 @@ BACKGROUND_COLOR = "#003300"
 #INFO_STRING_WIDTH = 165 # Ширина
 #INFO_STRING_HEIGHT = 32 # Высота !!!ЕСЛИ БУДУ МЕНЯТЬ, ТО И В КАМЕРЕ НЕ ЗАБЫТЬ!!!
 #INFO_STRING_COLOR = "#006000"
-levelName = 'lvl1.txt' #Название уровня
+levelName = 'lvl3.txt' #Название уровня
 FILE_DIR = os.path.dirname(__file__)
 PLAY = False # Включить\Выключить управление игроком
 REPEAT = True  # Включить\Выключить повторние игры с начала
@@ -343,6 +343,16 @@ def main():
             saveResult(hero, workTime, masMons)
             if (REPEAT == True):
                 print('Новый эпизод!')
+                #Отрисовываем блоки еще раз
+                x = y = 0  # координаты
+                for row in level:  # вся строка
+                    for col in row:  # каждый символ
+                        if col == "-":
+                            way[int(y / 32)][int(x / 32)] = 'B'  # Если есть данный блок, то заполняем массив B
+                            monWay[int(y / 32)][int(x / 32)] = 'B'  # Если есть данный блок, то заполняем массив B для монстра
+                        x += blocks.PLATFORM_WIDTH  # блоки платформы ставятся на ширине блоков
+                    y += blocks.PLATFORM_HEIGHT  # то же самое и с высотой
+                    x = 0  # на каждой новой строчке начинаем с нуля
                 hero.winner = False # Возвращаем стартовое значение поля победы
                 hero.imDie = False
                 hero.live = 2       # Возвращаем стартовое значение жизней
@@ -455,11 +465,13 @@ def main():
                             raise SystemExit("QUIT")
             if e.type == KEYDOWN and e.key == K_MINUS:
                 if DELAY > 2:
-                    DELAY -= 50
+                    DELAY = 15
+                    wait = 4
                     print('Скорость симулятора понижена!   DELAY = ' + str(DELAY))
                 else: print('Отказ! Достигнута минимальная разрешенная скорость!   DELAY = ' + str(DELAY))
             if e.type == KEYDOWN and e.key == K_EQUALS:
-                DELAY += 50
+                DELAY = 999
+                wait = 0
                 #DELAY += 50
                 print('Скорость симулятора повышена!   DELAY = ' + str(DELAY))
             if e.type == KEYDOWN and e.key == K_BACKSPACE:
@@ -580,6 +592,8 @@ def main():
                 #maps.printInfo(hero, way)
                 if hero.moveTime <= 0 or (hero.imDie == True and hero.live > 0):
                     #if amountBigEnergy >= 0:  # Если энергии, которые присутствовали на карте ещё не собраны
+                        #way[ex.myPosY][ex.myPosX] = 'W'  # Если есть данный блок, то заполняем массив W
+                        #monWay[ex.myPosY][ex.myPosX] = 'W'  # Если есть данный блок, то заполняем массив W для монстра
                         bigEnergyCounter = maps.amountBigEnerge(way)  # тогда сверяем их с текущим количеством на карте
                         amountBigEnergy = 0
                     #if ((bigEnergyCounter != amountBigEnergy and amountBigEnergy >= 0) or hero.imDie == True): #or (bigEnergyCounter == 0): #если кол-во на карте и общее различается, то прокладываем маршрут до следующей цели
@@ -614,7 +628,7 @@ def main():
                         if stayHide <= 0:
                             if dangerous == True and hide == False:
                                 symbol = alg.calcWay(hero, way, monWay, '@', 'W')
-                                print('Прокладываю путь до @')
+                                #print('Прокладываю путь до @')
                                 if symbol == 'W':
                                     print('Прокладываю путь до W')
                                     alg.algWaveFindExit('W', hero, way, 0, monWay, masBlHole)  # amountBigEnergy-1
@@ -622,14 +636,14 @@ def main():
                                     print('Прокладываю путь до @')
                                     alg.algWaveFindExit('@', hero, way, masBE, monWay, masBlHole)  # [amountBigEnergy-1])
                             elif hide == False:
-                                if (index-1-bomb)/2 > how333:    #Если количество монстров с алгоритмом 333 меньше чем половина монстров, то
-                                    if bigEnergyCounter <= 0: #or amountBigEnergy <= 0: # если энергии на карте закончились, тогда строим путь к выходу
-                                        print('Прокладываю путь до W')
-                                        alg.algWaveFindExit('W', hero, way, 0, monWay, masBlHole) #amountBigEnergy-1
-                                    else:
-                                        print('Прокладываю путь до E')
-                                        alg.algWaveFindExit('E', hero, way, masBE, monWay, masBlHole)#[amountBigEnergy-1])
-                                else:
+                                #if (index-1-bomb)/2 > how333:    #Если количество монстров с алгоритмом 333 меньше чем половина монстров, то
+                                #    if bigEnergyCounter <= 0: #or amountBigEnergy <= 0: # если энергии на карте закончились, тогда строим путь к выходу
+                                #        print('Прокладываю путь до W')
+                                #        alg.algWaveFindExit('W', hero, way, 0, monWay, masBlHole) #amountBigEnergy-1
+                                #    else:
+                                #        print('Прокладываю путь до E')
+                                #        alg.algWaveFindExit('E', hero, way, masBE, monWay, masBlHole)#[amountBigEnergy-1])
+                                #else:
                                     symbol = alg.calcWay(hero, way, monWay, 'E', 'W')
                                     #print('symbol: ' + str(symbol))
                                     #maps.clearWayNumFromMap(way)  # Очищаем карту, чтобы можно было проложить новый маршрут до другого объекта
