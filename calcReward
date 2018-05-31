@@ -43,7 +43,7 @@ def calcReward (startEp):
     print(' Score: ' + str(score))
     print('Episod: ' + str(episod))
     print('Score/Episod: ' + str(score/episod))
-    calcReward.write('Эпизоды № ' + str(startEp) + '-' + str(episod) + ' | Средний счет: ' + str(score/episod) + ' | [' + str(MAXepisod) + ':' + str(MAXscore) + ']' + ' | Побед: ' + str(wins) + ' | Поражений: ' + str(defeat) + ' | Уровень: ' + str(levelName) + ' | Выполнено: ' + str(time) +'\n\n')#'   Время: ' + str(time) + '   Уровень: ' + levelName + '\n')  # выполнения эпизода
+    calcReward.write('Эпизоды № ' + str(startEp) + '-' + str(episod) + ' | Общий счёт: ' + str(score) + ' | Средний счет: ' + str(score/episod) + ' | [' + str(MAXepisod) + ':' + str(MAXscore) + ']' + ' | Побед: ' + str(wins) + ' | Поражений: ' + str(defeat) + ' | Уровень: ' + str(levelName) + ' | Выполнено: ' + str(time) +'\n\n')#'   Время: ' + str(time) + '   Уровень: ' + levelName + '\n')  # выполнения эпизода
 
     calcReward.close()
     resultFile.close()

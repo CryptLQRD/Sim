@@ -25,8 +25,8 @@ monsterPursuer 320 288 1 0 333 1
 
 monsterWraith  128 160 1 0 333 2
 
-
 /
+
 MName X Y LR UD Al MS
 
 

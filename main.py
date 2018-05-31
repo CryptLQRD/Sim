@@ -24,8 +24,8 @@ from termcolor import colored
 
 
 #Объявляем переменные
-WIN_WIDTH = 800#672  #1024   #Ширина создаваемого окна
-WIN_HEIGHT = 640#384 #800   # Высота
+WIN_WIDTH = 608#800#672  #1024   #Ширина создаваемого окна
+WIN_HEIGHT = 640#640#384 #800   # Высота
 DISPLAY = (WIN_WIDTH, WIN_HEIGHT) # Группируем ширину и высоту в одну переменную
 BACKGROUND_COLOR = "#003300"
 #INFO_STRING_WIDTH = 165 # Ширина

@@ -24,9 +24,9 @@ monsterBat 192 320 0 1 111 4
 
 monsterBird 64 64 0 1 222 3
 
-monsterBird 416 96 0 1 222 3
+monsterBird 416 96 1 0 222 3
 
-monsterPursuer 96 224 0 1 333 1
+monsterPursuer 96 224 1 0 333 1
 
 monsterWraith 480 128 0 1 333 2
 
